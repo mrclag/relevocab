@@ -2,7 +2,6 @@ import React from 'react';
 import NewCard from '../../components/NewCard';
 import VocabList from '../../components/VocabList';
 
-import styled from 'styled-components';
 import {
   SideBarWrapper,
   Title,
@@ -12,6 +11,7 @@ import {
 import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
+  console.log('rerender sidebar');
   return (
     <SideBarWrapper>
       <Title>Relevocab</Title>\
