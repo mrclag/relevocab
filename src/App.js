@@ -1,25 +1,26 @@
 import React, { useState, useEffect } from 'react';
-import Card from './components/Card';
-import DrawButton from './components/DrawButton';
-import VocabList from './components/VocabList';
+
+// import Card from './components/Card';
+// import DrawButton from './components/DrawButton';
+import Sidebar from './components/layout/Sidebar';
+import StudyCards from './components/layout/StudyCards';
+import Search from './components/layout/Search';
 
 import styled from 'styled-components';
-
 import firebase from './firebase';
+
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 const App = () => {
   const [cards, setCards] = useState([
-    { id: 1, eng: 'English', span: 'Ingles' },
-    { id: 2, eng: 'English2', span: 'Ingles2' },
-    { id: 3, eng: 'English3', span: 'Ingles3' },
-    { id: 4, eng: 'English4', span: 'Ingles4' },
-    { id: 5, eng: 'English5', span: 'Ingles5' },
-    { id: 6, eng: 'English6', span: 'Ingles6' }
+    {
+      eng: 'set a card',
+      foreign: 'set a card'
+    }
   ]);
   const [currentCard, setCurrentCard] = useState({});
 
   useEffect(() => {
-    setCurrentCard(getRandomCard(cards));
     firebase
       .firestore()
       .collection('words')
@@ -32,6 +33,7 @@ const App = () => {
         setCards(newVocab);
         console.log('rerender main');
       });
+    setCurrentCard(getRandomCard(cards));
   }, []);
 
   const getRandomCard = currentCards => {
@@ -43,25 +45,37 @@ const App = () => {
     setCurrentCard(getRandomCard(cards));
   };
 
+  console.log(currentCard);
   return (
-    <div className="App">
-      <VocabList />
-      <ContentWrapper>
+    <Router>
+      <GlobalStyles>
+        <Sidebar />
+        <Switch>
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <StudyCards
+                eng={currentCard.eng}
+                foreign={currentCard.foreign}
+                drawCard={updateCard}
+              />
+            )}
+          />
+          <Route path="/search" render={() => <Search />} />
+        </Switch>
+        {/* <ContentWrapper>
         <Card eng={currentCard.eng} foreign={currentCard.foreign} />
         <DrawButton drawCard={updateCard} />
-      </ContentWrapper>
-    </div>
+      </ContentWrapper> */}
+      </GlobalStyles>
+    </Router>
   );
 };
 
 export default App;
 
-const ContentWrapper = styled.div`
-  display: flex;
-  position: absolute;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 200px;
-  left: 40%;
+const GlobalStyles = styled.div`
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
 `;

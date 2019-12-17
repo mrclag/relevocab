@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import firebase from '../firebase';
 
+import { VocabListWrapper, DeleteButton } from '../styles/VocabList.styles';
+
 export const useVocab = () => {
   const [vocabList, setVocabList] = useState([]);
 
@@ -24,18 +26,39 @@ export const useVocab = () => {
 
 const VocabList = () => {
   const vocab = useVocab();
+
+  function handleDeleteWord(word) {
+    const wordRef = firebase
+      .firestore()
+      .collection('words')
+      .doc(word.id);
+    wordRef
+      .delete()
+      .then(() => {
+        console.log(`Document with ID ${word.id} deleted`);
+      })
+      .catch(err => {
+        console.error('Error deleting document:', err);
+      });
+  }
+
+  console.log('re-render vocablist');
+
   return (
-    <div>
+    <VocabListWrapper>
       <h2>Vocab</h2>
-      <ul>
+      <div>
         {vocab.map((word, i) => (
-          <li key={word.id}>
+          <div key={word.id}>
             {word.foreign} : {word.eng}
-          </li>
+            <DeleteButton onClick={() => handleDeleteWord(word)}>
+              X
+            </DeleteButton>
+          </div>
         ))}
-      </ul>
-    </div>
+      </div>
+    </VocabListWrapper>
   );
 };
 
-export default VocabList;
+export default React.memo(VocabList);
