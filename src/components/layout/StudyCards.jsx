@@ -20,7 +20,7 @@ const StudyCards = ({ deck }) => {
   useEffect(() => {
     firebase
       .firestore()
-      .collection(deck)
+      .collection(deck.value)
       .orderBy('foreign', 'desc')
       .onSnapshot(snapshot => {
         const newVocab = snapshot.docs.map(doc => ({
@@ -31,7 +31,7 @@ const StudyCards = ({ deck }) => {
         setCurrentDeck(newVocab);
         setCards(newVocab);
       });
-  }, []);
+  }, [deck]);
 
   const getRandomCard = currentCards => {
     let card = currentCards[Math.floor(Math.random() * currentCards.length)];

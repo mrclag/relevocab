@@ -3,14 +3,14 @@ import firebase from '../firebase';
 
 import { NewCardWrapper } from '../styles/NewCard.styles';
 
-const NewCard = () => {
+const NewCard = ({ deck }) => {
   const [eng, setEng] = useState('');
   const [foreign, setForeign] = useState('');
 
   const addWord = () => {
     firebase
       .firestore()
-      .collection('words')
+      .collection(deck.value)
       .add({
         eng: eng,
         foreign: foreign

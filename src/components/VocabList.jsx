@@ -3,13 +3,13 @@ import firebase from '../firebase';
 
 import { VocabListWrapper, DeleteButton } from '../styles/VocabList.styles';
 
-export const useVocab = () => {
+export const useVocab = deck => {
   const [vocabList, setVocabList] = useState([]);
 
   useEffect(() => {
     firebase
       .firestore()
-      .collection('words')
+      .collection(deck.value)
       .orderBy('foreign', 'desc')
       .onSnapshot(snapshot => {
         const newVocab = snapshot.docs.map(doc => ({
@@ -19,18 +19,18 @@ export const useVocab = () => {
         setVocabList(newVocab);
         console.log('rerender');
       });
-  }, []);
+  }, [deck]);
 
   return vocabList;
 };
 
-const VocabList = () => {
-  const vocab = useVocab();
+const VocabList = ({ deck }) => {
+  const vocab = useVocab(deck);
 
   function handleDeleteWord(word) {
     const wordRef = firebase
       .firestore()
-      .collection('words')
+      .collection(deck.value)
       .doc(word.id);
     wordRef
       .delete()
@@ -46,8 +46,8 @@ const VocabList = () => {
 
   return (
     <VocabListWrapper>
-      <h2>Vocab</h2>
       <div>
+        <h3>{deck.value}</h3>
         {vocab.map((word, i) => (
           <div key={word.id}>
             {word.foreign} : {word.eng}
