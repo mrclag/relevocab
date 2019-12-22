@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
-import Select from 'react-select';
 
 // Components
 import NewCard from './NewCard';
 import VocabList from './VocabList';
 import AddDeck from './AddDeck';
 import NavLink from './NavLink';
+import Deck from '../Deck';
 
 // Styles
 import {
   SideBarWrapper,
   Title,
   NavLinks,
-  customStyles
+  DeckItems,
+  DeckHeader
 } from '../../styles/sidebar/Sidebar.styles';
 
 const Sidebar = ({ deck, setDeck, addDeck, options }) => {
@@ -24,42 +25,43 @@ const Sidebar = ({ deck, setDeck, addDeck, options }) => {
     <SideBarWrapper>
       <AddDeck isOpen={modalOpen} toggle={setModalOpen} addDeck={addDeck} />
       <Title>RELEVOCAB</Title>
+      <hr />
       <NavLinks>
-        <NavLink value="Home" className="link" to="/" />
-        <NavLink value="Words" className="link" to="/words" />
-        <NavLink value="WikiWords" className="link" to="/wiki" />
+        <NavLink value="HOME" className="link" to="/" />
+        <NavLink value="FIND WORDS" className="link" to="/wiki" />
+        <NavLink value="ABOUT" className="link" to="/words" />
       </NavLinks>
       <hr />
-      <h4
-        style={{
-          marginLeft: '30px',
-          marginBottom: '5px',
-          marginTop: '5px',
-          fontSize: '0.8em'
-        }}
-      >
-        Deck
-      </h4>
-      <div style={{ display: 'flex', flexDirection: 'row' }}>
-        {console.log(options)}
-        <Select
-          className="selectMenu"
-          value={deck}
-          options={options}
-          onChange={deck => setDeck(deck)}
-          styles={customStyles}
-        />
-        <button
-          onClick={() => setModalOpen(true)}
-          style={{ marginLeft: '5px' }}
-        >
-          +
-        </button>
+      <div>
+        <DeckHeader>
+          <h4>DECKS</h4>
+          <button onClick={() => setModalOpen(true)}>+</button>
+        </DeckHeader>
+        <DeckItems>
+          <div>
+            {options.map((option, i) => (
+              <div
+                style={{ cursor: 'pointer' }}
+                key={i}
+                onClick={() => setDeck(option)}
+              >
+                <Deck
+                  deck={deck.value}
+                  option={option.value}
+                  key={i}
+                  onClick={() => setDeck(option)}
+                />
+              </div>
+            ))}
+          </div>
+        </DeckItems>
       </div>
       <br />
-      <NewCard deck={deck} />
       <hr />
       <VocabList deck={deck} />
+      <hr />
+      <br />
+      <NewCard deck={deck} />
     </SideBarWrapper>
   );
 };

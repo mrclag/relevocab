@@ -5,14 +5,9 @@ export const SideBarWrapper = styled.div`
   position: absolute;
   top: 0;
   height: 100vh;
-  background-color: #eee;
+  background-color: #f4f8fb;
   border-right: 1px solid black;
   z-index: 3;
-  .selectMenu {
-    width: 250px;
-    font-size: 13px;
-    padding-left: 30px;
-  }
   hr {
     margin: 0;
   }
@@ -23,13 +18,13 @@ export const Title = styled.h1`
   margin-bottom: 0;
   padding-left: 30px;
   align-items: center;
-  color: black;
+  color: #107bbd;
   display: flex;
-  height: 70px;
+  height: 8vh;
   background: linear-gradient(
     62deg,
     rgba(230, 228, 255, 1) 0%,
-    rgba(151, 167, 255, 1) 98%
+    rgba(210, 220, 255, 1) 98%
   );
 `;
 
@@ -43,52 +38,29 @@ export const NavLinks = styled.div`
   }
 `;
 
-export const customStyles = {
-  container: provided => ({
-    ...provided,
-    display: 'inline-block',
-    width: '250px',
-    minHeight: '1px',
-    textAlign: 'left',
-    border: 'none'
-  }),
-  control: provided => ({
-    ...provided,
-    border: '1px solid #eee',
-    borderRadius: '0',
-    minHeight: '1px',
-    height: '30px'
-  }),
-  input: provided => ({
-    ...provided,
-    minHeight: '1px'
-  }),
-  dropdownIndicator: provided => ({
-    ...provided,
-    minHeight: '1px',
-    paddingTop: '0',
-    paddingBottom: '0',
-    color: '#757575'
-  }),
-  indicatorSeparator: provided => ({
-    ...provided,
-    minHeight: '1px',
-    height: '15px'
-  }),
-  clearIndicator: provided => ({
-    ...provided,
-    minHeight: '1px'
-  }),
-  valueContainer: provided => ({
-    ...provided,
-    minHeight: '1px',
-    height: '25x',
-    paddingTop: '0',
-    paddingBottom: '0'
-  }),
-  singleValue: provided => ({
-    ...provided,
-    minHeight: '1px',
-    paddingBottom: '2px'
-  })
-};
+export const DeckHeader = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: 'space-between';
+  & h4 {
+    padding-left: 30px;
+    margin-bottom: 10px;
+  }
+  & button {
+    height: 25px;
+    width: 25px;
+    margin: auto 0;
+    margin-left: 175px;
+    border-radius: 5px;
+    border: 1px solid #107bbd;
+    background: white;
+    color: #107bbd;
+  }
+`;
+
+export const DeckItems = styled.div`
+  display: flex;
+  overflow-y: overlay scroll;
+  overflow-x: hidden;
+  height: 12vh;
+`;

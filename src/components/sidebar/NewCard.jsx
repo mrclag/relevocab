@@ -31,23 +31,23 @@ const NewCard = ({ deck }) => {
         <div>
           <input
             type="text"
+            placeholder="Front of card"
             value={eng}
             onChange={e => setEng(e.currentTarget.value)}
             autoFocus={true}
             maxLength="14"
           />
-          English
         </div>
         <div>
           <input
             type="text"
+            placeholder="Back of card"
             value={foreign}
             onChange={e => setForeign(e.currentTarget.value)}
             maxLength="14"
           />
-          Translation
         </div>
-        <button>Add New Card</button>
+        <button style={{ width: '240px' }}>Add New Card</button>
       </form>
     </NewCardWrapper>
   );

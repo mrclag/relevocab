@@ -29,7 +29,7 @@ const StudyCards = ({ deck }) => {
           id: doc.id,
           ...doc.data()
         }));
-
+        console.log('Getting StudyCards');
         setCurrentDeck(newVocab);
         setCards(newVocab);
       });
@@ -81,7 +81,7 @@ const StudyCards = ({ deck }) => {
               </CardButton>
             </>
           ) : (
-            <CardButton color="#7388ff" onClick={() => resetDeck()}>
+            <CardButton color="#107bbd" onClick={() => resetDeck()}>
               Start
             </CardButton>
           )

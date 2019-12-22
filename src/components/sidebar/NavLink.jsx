@@ -8,11 +8,7 @@ const NavLink = ({ value, to, location }) => {
   return (
     <Link
       style={{
-        color: hovered
-          ? '#566df5'
-          : location.pathname === to
-          ? '#566df5'
-          : 'black',
+        color: hovered || location.pathname === to ? '#107bbd' : 'black',
         textDecoration: 'none',
         fontWeight: 'bold',
         height: '30px',
@@ -20,7 +16,10 @@ const NavLink = ({ value, to, location }) => {
         alignItems: 'center',
         justifyContent: 'center',
         width: '33.34%',
-        borderBottom: hovered ? '2px solid #566df5' : '2px solid #eee'
+        borderBottom:
+          hovered || location.pathname === to
+            ? '2px solid #107bbd'
+            : '2px solid #eee'
       }}
       to={to}
       onMouseEnter={toggleHover}

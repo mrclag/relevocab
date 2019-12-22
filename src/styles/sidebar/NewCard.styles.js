@@ -7,19 +7,19 @@ export const NewCardWrapper = styled.div`
   input {
     margin-right: 5px;
     margin-bottom: 3px;
-    width: 150px;
+    width: 232px;
     height: 18px;
     padding-left: 8px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
   }
   button {
-    margin: 0 auto;
-    display: block;
-    color: #7388ff;
+    color: #107bbd;
     margin-top: 5px;
     height: 25px;
     background-color: white;
     border-radius: 5px;
-    border: 1px solid #7388ff;
+    border: 1px solid #107bbd;
     outline: none;
   }
 `;
