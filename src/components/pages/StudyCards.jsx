@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import firebase from '../../firebase';
-
-import styled from 'styled-components';
-
 import Card from '../Card';
 
+import {
+  ContentWrapper,
+  CardButton
+} from '../../styles/pages/StudyCards.styles';
+
 const StudyCards = ({ deck }) => {
-  console.log('rerender studycard');
+  console.log('Render StudyCard');
   const [cards, setCards] = useState([
     {
       id: 0,
@@ -57,7 +59,10 @@ const StudyCards = ({ deck }) => {
     <ContentWrapper>
       Cards in deck: {cards.length} / {currentDeck.length}
       {currentCard ? (
-        <Card eng={currentCard.eng} foreign={currentCard.foreign} />
+        <Card
+          eng={currentCard.eng || deck.value}
+          foreign={currentCard.foreign}
+        />
       ) : (
         <Card
           eng={<div style={{ color: 'red' }}>End of Deck</div>}
@@ -66,14 +71,20 @@ const StudyCards = ({ deck }) => {
       )}
       <div>
         {cards.length > 0 ? (
-          <>
-            <CardButton color="red" onClick={updateCard}>
-              Again
+          currentCard && currentCard.eng ? (
+            <>
+              <CardButton color="red" onClick={updateCard}>
+                Again
+              </CardButton>
+              <CardButton color="green" onClick={() => removeCard()}>
+                Good
+              </CardButton>
+            </>
+          ) : (
+            <CardButton color="#7388ff" onClick={() => resetDeck()}>
+              Start
             </CardButton>
-            <CardButton color="green" onClick={() => removeCard()}>
-              Good
-            </CardButton>
-          </>
+          )
         ) : (
           <CardButton color="black" onClick={() => resetDeck()}>
             Reset
@@ -85,22 +96,3 @@ const StudyCards = ({ deck }) => {
 };
 
 export default StudyCards;
-
-const ContentWrapper = styled.div`
-  display: flex;
-  position: absolute;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  top: 200px;
-  left: 40%;
-`;
-
-const CardButton = styled.button`
-  height: 50px;
-  width: 75px;
-  background-color: ${props => props.color};
-  border: none;
-  color: white;
-  margin: 10px;
-`;

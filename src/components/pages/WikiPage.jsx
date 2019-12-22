@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
-import { getWiki } from '../../services/wikiAPI.js';
+import { getWikiPage } from '../../services/wikiAPI.js';
 import { countWords } from '../../utils/countWords.js';
 import Word from '../Word';
 
 const WikiPage = ({ deck }) => {
-  const [page, setPage] = useState([]);
+  const [page, setPage] = useState({});
   const [searchInput, setSearchInput] = useState('');
 
   const onSubmit = e => {
     e.preventDefault();
-    getWiki(searchInput).then(content => setPage(countWords(content)));
+    getWikiPage(searchInput).then(res => {
+      console.log(res);
+      res.rawContent().then(content => {
+        setPage({ raw: res.raw, words: countWords(content) });
+      });
+    });
   };
 
   return (
@@ -24,10 +29,23 @@ const WikiPage = ({ deck }) => {
           />
           <input type="submit" value="Submit" />
         </form>
-        <div style={{ marginTop: '5vh' }}>
-          {page.map((word, i) => (
-            <Word key={i} deck={deck} word={word} />
-          ))}
+        <div style={{ marginTop: '3vh' }}>
+          <h3>{page.raw ? page.raw.title : 'No page found'}</h3>
+          <div>
+            <a
+              style={{ textDecoration: 'none', color: 'black' }}
+              href={page.raw ? page.raw.fullurl : 'Loading'}
+            >
+              {page.raw ? page.raw.fullurl : ''}
+            </a>
+          </div>
+          <div style={{ marginTop: '3vh' }}>
+            {page.words
+              ? page.words.map((word, i) => (
+                  <Word key={i} deck={deck} word={word} />
+                ))
+              : ''}
+          </div>
         </div>
       </div>
     </div>

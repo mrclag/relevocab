@@ -15,7 +15,7 @@ export const AddButton = styled.div`
 export const GlobalStyle = createGlobalStyle`
   body {
     overflow: hidden;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Cairo', sans-serif;
     margin: 0;
     overflow-y: hidden;
   }

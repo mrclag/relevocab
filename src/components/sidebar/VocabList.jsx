@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import firebase from '../firebase';
+import firebase from '../../firebase';
 
-import { VocabListWrapper, DeleteButton } from '../styles/VocabList.styles';
+import {
+  VocabListWrapper,
+  DeleteButton
+} from '../../styles/sidebar/VocabList.styles';
 
 export const useVocab = deck => {
   const [vocabList, setVocabList] = useState([]);
@@ -17,7 +20,7 @@ export const useVocab = deck => {
           ...doc.data()
         }));
         setVocabList(newVocab);
-        console.log('rerender');
+        console.log('Getting VocabList');
       });
   }, [deck]);
 
@@ -26,6 +29,9 @@ export const useVocab = deck => {
 
 const VocabList = ({ deck }) => {
   const vocab = useVocab(deck);
+
+  const [hovered, setHovered] = useState(false);
+  const toggleHover = () => setHovered(!hovered);
 
   function handleDeleteWord(word) {
     const wordRef = firebase
@@ -42,15 +48,25 @@ const VocabList = ({ deck }) => {
       });
   }
 
-  console.log('re-render vocablist');
+  console.log('Render vocablist');
 
   return (
     <VocabListWrapper>
-      <div>
-        <h3>{deck.value}</h3>
+      <h4 style={{ marginBottom: '0px' }}>Cards in "{deck.value}" deck</h4>
+      <div style={{ marginLeft: '10px' }}>
         {vocab.map((word, i) => (
           <div key={word.id}>
-            {word.foreign} : {word.eng}
+            <span
+              style={{
+                cursor: 'pointer',
+                marginRight: '15px'
+              }}
+              onMouseEnter={toggleHover}
+              onMouseLeave={toggleHover}
+            >
+              {word.foreign}{' '}
+            </span>
+            <span className={hovered ? '' : 'hide'}>{word.eng} </span>
             <DeleteButton onClick={() => handleDeleteWord(word)}>
               X
             </DeleteButton>

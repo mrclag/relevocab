@@ -1,8 +1,8 @@
 import wiki from 'wikijs';
 
-export const getWiki = async query => {
-  const result = wiki()
+export const getWikiPage = async query => {
+  const response = wiki()
     .page(query)
-    .then(page => page.rawContent());
-  return result;
+    .then(page => page);
+  return response;
 };

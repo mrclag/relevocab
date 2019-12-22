@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-
 import styled from 'styled-components';
+
 import { AddButton } from '../styles/global-styles';
 import firebase from '../firebase';
 
@@ -10,12 +10,11 @@ const Word = ({ word, deck }) => {
   const [translation, setTranslation] = useState('');
 
   useEffect(() => {
-    console.log(word);
+    console.log('Running google translate on: ' + word);
     googleTranslate.translate(word, 'es', function(err, translation) {
       if (err || !translation.translatedText) {
         setTranslation('no translation found');
       }
-      // console.log(translation);
       setTranslation(translation.translatedText);
     });
   }, [word]);
@@ -47,7 +46,7 @@ const Word = ({ word, deck }) => {
 export default Word;
 
 const WordWrapper = styled.div`
-  height: 60px;
+  height: 40px;
   width: 600px;
   display: flex;
   font-size: 0.8em;
