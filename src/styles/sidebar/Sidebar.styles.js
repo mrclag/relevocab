@@ -21,11 +21,7 @@ export const Title = styled.h1`
   color: #107bbd;
   display: flex;
   height: 8vh;
-  background: linear-gradient(
-    62deg,
-    rgba(230, 228, 255, 1) 0%,
-    rgba(210, 220, 255, 1) 98%
-  );
+  letter-spacing: 9px;
 `;
 
 export const NavLinks = styled.div`
@@ -42,9 +38,10 @@ export const DeckHeader = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: 'space-between';
+  padding-bottom: 10px;
+  height: 5vh;
   & h4 {
     padding-left: 30px;
-    margin-bottom: 10px;
   }
   & button {
     height: 25px;

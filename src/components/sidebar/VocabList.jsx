@@ -31,8 +31,18 @@ const VocabList = ({ deck }) => {
 
   return (
     <VocabListWrapper>
-      <h4 style={{ marginBottom: '10px' }}>CARDS</h4>
-      <div style={{ marginLeft: '10px' }}>
+      <div class="cards-title">
+        <h4>CARDS</h4>
+      </div>
+
+      <div
+        style={{
+          marginLeft: '10px',
+          height: '45vh',
+          overflowY: 'overlay scroll',
+          overflowX: 'hidden'
+        }}
+      >
         {vocab.map((word, i) => (
           <div className="card-list-item" key={word.id}>
             <CardListItem deck={deck} word={word} />

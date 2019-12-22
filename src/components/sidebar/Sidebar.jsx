@@ -32,7 +32,7 @@ const Sidebar = ({ deck, setDeck, addDeck, options }) => {
         <NavLink value="ABOUT" className="link" to="/words" />
       </NavLinks>
       <hr />
-      <div>
+      <div style={{ maxHeight: '18vh' }}>
         <DeckHeader>
           <h4>DECKS</h4>
           <button onClick={() => setModalOpen(true)}>+</button>
@@ -56,11 +56,9 @@ const Sidebar = ({ deck, setDeck, addDeck, options }) => {
           </div>
         </DeckItems>
       </div>
-      <br />
       <hr />
       <VocabList deck={deck} />
       <hr />
-      <br />
       <NewCard deck={deck} />
     </SideBarWrapper>
   );

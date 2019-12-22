@@ -4,6 +4,8 @@ export const NewCardWrapper = styled.div`
   padding-left: 30px;
   font-size: 0.8em;
   padding-right: 30px;
+  margin-top: 2vh;
+  height: 13vh;
   input {
     margin-right: 5px;
     margin-bottom: 3px;

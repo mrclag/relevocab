@@ -11,7 +11,7 @@ const NavLink = ({ value, to, location }) => {
         color: hovered || location.pathname === to ? '#107bbd' : 'black',
         textDecoration: 'none',
         fontWeight: 'bold',
-        height: '30px',
+        height: '5vh',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
