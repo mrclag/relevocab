@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import firebase from '../../firebase';
+import { googleTranslate } from '../../services/translate';
 
 import { NewCardWrapper } from '../../styles/sidebar/NewCard.styles';
 
@@ -22,6 +23,15 @@ const NewCard = ({ deck }) => {
     addWord();
     setEng('');
     setForeign('');
+  };
+
+  const translateInput = input => {
+    googleTranslate.translate(input, 'es', function(err, translation) {
+      if (err || !translation.translatedText) {
+        setForeign('no translation found');
+      }
+      setForeign(translation.translatedText);
+    });
   };
 
   console.log('Render NewCard');
@@ -49,6 +59,9 @@ const NewCard = ({ deck }) => {
         </div>
         <button style={{ width: '240px' }}>Add New Card</button>
       </form>
+      <button onClick={() => translateInput(eng)} style={{ width: '240px' }}>
+        Translate
+      </button>
     </NewCardWrapper>
   );
 };
