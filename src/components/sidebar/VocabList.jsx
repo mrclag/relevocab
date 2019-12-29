@@ -31,7 +31,7 @@ const VocabList = ({ deck }) => {
 
   return (
     <VocabListWrapper>
-      <div class="cards-title">
+      <div className="cards-title">
         <h4>CARDS</h4>
       </div>
 

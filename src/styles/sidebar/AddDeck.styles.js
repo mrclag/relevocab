@@ -44,8 +44,8 @@ export const Modal = styled(posed.div(modalPoses))`
   height: auto;
   top: 50%;
   text-align: center;
-  font-family: Orbitron, Arial, Helvetica, sans-serif;
   left: 50%;
+  font-size: 0.8em;
   border-radius: 20px;
   transform: translate(-50%, -50%);
   box-shadow: 0 2px 4px 0 rgba(50, 50, 93, 0.1);
@@ -53,9 +53,21 @@ export const Modal = styled(posed.div(modalPoses))`
     width: 90%;
   }
   .result {
-    font-size: 1.25em;
-    margin: 20px;
+    width: 180px;
+    margin: 10px;
+    
   }
+  button {
+      height: 20px;
+      margin-top: 10px;
+      width: 80px;
+      border-radius: 5px;
+      border: 1px solid #107bbd;
+      background: white;
+      color: #107bbd;
+      &:focus {
+        outline: 0;
+      }
 `;
 
 export const ModalBackground = styled(posed.div(modalBackgroundPoses))`

@@ -34,30 +34,41 @@ export const NavLinks = styled.div`
   }
 `;
 
-export const DeckHeader = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: 'space-between';
-  padding-bottom: 10px;
-  height: 5vh;
-  & h4 {
-    padding-left: 30px;
+export const DeckWrapper = styled.div`
+  height: 18vh;
+  .deck-header {
+    display: flex;
+    flex-direction: row;
+    height: 5vh;
+    align-items: center;
+    & h4 {
+      padding-left: 30px;
+    }
+    & button {
+      height: 20px;
+      width: 80px;
+      border-radius: 5px;
+      border: 1px solid #107bbd;
+      background: white;
+      color: #107bbd;
+      text-align: center;
+      margin-left: 140px;
+      &:focus {
+        outline: 0;
+      }
+      .add {
+        margin-top: -1px;
+        font-size: 0.8em;
+        margin-left: -1px;
+      }
+    }
   }
-  & button {
-    height: 25px;
-    width: 25px;
-    margin: auto 0;
-    margin-left: 175px;
-    border-radius: 5px;
-    border: 1px solid #107bbd;
-    background: white;
-    color: #107bbd;
+  .deck-items {
+    display: flex;
+    overflow-y: overlay scroll;
+    overflow-x: hidden;
+    height: 13vh;
   }
 `;
 
-export const DeckItems = styled.div`
-  display: flex;
-  overflow-y: overlay scroll;
-  overflow-x: hidden;
-  height: 12vh;
-`;
+export const DeckItems = styled.div``;

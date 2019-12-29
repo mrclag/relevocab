@@ -35,10 +35,9 @@ export const AddDeck = ({ isOpen, toggle, addDeck }) => {
   return (
     <ModalBackground initialPose="closed" pose={isOpen ? 'open' : 'closed'}>
       <Modal ref={ref}>
-        <h1 style={{ fontWeight: '700' }}>New Deck</h1>
+        <h4 style={{ fontWeight: '700' }}>New Deck</h4>
         <div className="result">
           <form onSubmit={onSubmit}>
-            <label>Name</label>
             <input
               type="text"
               value={name}

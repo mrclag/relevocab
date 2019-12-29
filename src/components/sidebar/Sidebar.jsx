@@ -13,7 +13,7 @@ import {
   Title,
   NavLinks,
   DeckItems,
-  DeckHeader
+  DeckWrapper
 } from '../../styles/sidebar/Sidebar.styles';
 
 const Sidebar = ({ deck, setDeck, addDeck, options }) => {
@@ -32,12 +32,14 @@ const Sidebar = ({ deck, setDeck, addDeck, options }) => {
         <NavLink value="ABOUT" className="link" to="/words" />
       </NavLinks>
       <hr />
-      <div style={{ maxHeight: '18vh' }}>
-        <DeckHeader>
+      <DeckWrapper>
+        <div className="deck-header">
           <h4>DECKS</h4>
-          <button onClick={() => setModalOpen(true)}>+</button>
-        </DeckHeader>
-        <DeckItems>
+          <button onClick={() => setModalOpen(true)}>
+            <div className="add">Add Deck</div>
+          </button>
+        </div>
+        <div className="deck-items">
           <div>
             {options.map((option, i) => (
               <div
@@ -54,8 +56,8 @@ const Sidebar = ({ deck, setDeck, addDeck, options }) => {
               </div>
             ))}
           </div>
-        </DeckItems>
-      </div>
+        </div>
+      </DeckWrapper>
       <hr />
       <VocabList deck={deck} />
       <hr />
