@@ -4,6 +4,8 @@ import Sidebar from './components/sidebar/Sidebar';
 import StudyCards from './components/pages/StudyCards';
 import WikiPage from './components/pages/WikiPage';
 import WordPage from './components/pages/WordPage';
+import SignIn from './components/auth/SignIn';
+import SignUp from './components/auth/SignUp';
 
 import { GlobalStyle } from './styles/global-styles';
 
@@ -42,6 +44,8 @@ const App = () => {
         <Route exact path="/" render={() => <StudyCards deck={deck} />} />
         <Route path="/wiki" render={() => <WikiPage deck={deck} />} />
         <Route path="/words" render={() => <WordPage deck={deck} />} />
+        <Route path="/signin" render={() => <SignIn />} />
+        <Route path="/signup" render={() => <SignUp />} />
       </Switch>
     </Router>
   );

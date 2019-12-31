@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import firebase from '../../firebase';
 import Card from '../Card';
 
+import { connect } from 'react-redux';
+
 import {
   ContentWrapper,
   CardButton
@@ -95,4 +97,9 @@ const StudyCards = ({ deck }) => {
   );
 };
 
-export default StudyCards;
+const mapStateToProps = state => {
+  console.log(state);
+  return {};
+};
+
+export default connect(mapStateToProps)(StudyCards);

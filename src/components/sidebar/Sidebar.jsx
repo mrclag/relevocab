@@ -12,7 +12,6 @@ import {
   SideBarWrapper,
   Title,
   NavLinks,
-  DeckItems,
   DeckWrapper
 } from '../../styles/sidebar/Sidebar.styles';
 

@@ -4,7 +4,7 @@ import 'firebase/auth';
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
-var firebaseConfig = {
+export const firebaseConfig = {
   apiKey: API_KEY,
   authDomain: 'relevocab.firebaseapp.com',
   databaseURL: 'https://relevocab.firebaseio.com',
