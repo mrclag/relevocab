@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { signUp } from '../../store/actions/authActions';
 
-const SignUp = ({ history }) => {
+const SignUp = ({ signUp, authError }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [firstName, setFirstName] = useState('');
@@ -18,6 +20,7 @@ const SignUp = ({ history }) => {
       '; last name: ',
       lastName
     );
+    signUp({ email, password, firstName, lastName });
   };
 
   return (
@@ -29,7 +32,6 @@ const SignUp = ({ history }) => {
           <input
             type="email"
             value={email}
-            id="email"
             onChange={e => setEmail(e.target.value)}
           />
         </div>
@@ -38,7 +40,6 @@ const SignUp = ({ history }) => {
           <input
             type="password"
             value={password}
-            id="password"
             onChange={e => setPassword(e.target.value)}
           />
         </div>
@@ -47,7 +48,6 @@ const SignUp = ({ history }) => {
           <input
             type="text"
             value={firstName}
-            id="firstName"
             onChange={e => setFirstName(e.target.value)}
           />
         </div>
@@ -56,7 +56,6 @@ const SignUp = ({ history }) => {
           <input
             type="text"
             value={lastName}
-            id="lastName"
             onChange={e => setLastName(e.target.value)}
           />
         </div>
@@ -64,8 +63,21 @@ const SignUp = ({ history }) => {
           <button className="btn pink lighten-1 z-depth-0">Sign Up</button>
         </div>
       </form>
+      <div>{authError ? <p>{authError}</p> : null}</div>
     </div>
   );
 };
 
-export default SignUp;
+const mapStateToProps = state => {
+  return {
+    authError: state.auth.authError
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    signUp: newUser => dispatch(signUp(newUser))
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
