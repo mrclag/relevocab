@@ -5,27 +5,28 @@ import CardListItem from '../CardListItem';
 
 import { VocabListWrapper } from '../../styles/sidebar/VocabList.styles';
 
-export const useVocab = deck => {
-  const [vocabList, setVocabList] = useState([]);
-  useEffect(() => {
-    firebase
-      .firestore()
-      .collection(deck.value)
-      .orderBy('foreign', 'desc')
-      .onSnapshot(snapshot => {
-        const newVocab = snapshot.docs.map(doc => ({
-          id: doc.id,
-          ...doc.data()
-        }));
-        setVocabList(newVocab);
-        console.log('Getting VocabList');
-      });
-  }, [deck.value]);
-  return vocabList;
-};
+// export const useVocab = deck => {
+//   const [vocabList, setVocabList] = useState([]);
+//   useEffect(() => {
+//     firebase
+//       .firestore()
+//       .collection(deck.value)
+//       .orderBy('foreign', 'desc')
+//       .onSnapshot(snapshot => {
+//         const newVocab = snapshot.docs.map(doc => ({
+//           id: doc.id,
+//           ...doc.data()
+//         }));
+//         setVocabList(newVocab);
+//         console.log('Getting VocabList');
+//       });
+//   }, [deck.value]);
+//   return vocabList;
+// };
 
 const VocabList = ({ deck }) => {
-  const vocab = useVocab(deck);
+  const vocab = deck ? deck.cards : [];
+  console.log('deck: ', deck, 'cards: ', vocab[0]);
 
   console.log('Render vocablist');
 
@@ -44,7 +45,7 @@ const VocabList = ({ deck }) => {
         }}
       >
         {vocab.map((word, i) => (
-          <div className="card-list-item" key={word.id}>
+          <div className="card-list-item" key={i}>
             <CardListItem deck={deck} word={word} />
           </div>
         ))}

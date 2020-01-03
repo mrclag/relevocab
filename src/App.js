@@ -14,25 +14,9 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 const App = ({ auth }) => {
-  console.log('auth: ', auth);
   console.log('Render APP');
 
-  const [deck, setDeck] = useState({ value: 'words', label: 'words' });
-
-  const addDeck = name => {
-    if (name in Object.keys(options)) {
-      alert('Deck already exists');
-    } else {
-      options.push({ value: name, label: name });
-    }
-    console.log(options);
-  };
-
-  const options = [
-    { value: 'words', label: 'words' },
-    { value: 'deck1', label: 'deck1' },
-    { value: 'deck2', label: 'deck2' }
-  ];
+  const [deck, setDeck] = useState({ value: 'words' });
 
   return (
     <Router>
@@ -40,12 +24,7 @@ const App = ({ auth }) => {
 
       {auth.uid ? (
         <>
-          <Sidebar
-            deck={deck}
-            setDeck={setDeck}
-            options={options}
-            addDeck={addDeck}
-          />
+          <Sidebar deck={deck} setDeck={setDeck} />
           <div
             style={{
               position: 'absolute',

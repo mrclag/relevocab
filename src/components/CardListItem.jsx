@@ -22,7 +22,7 @@ const CardListItem = ({ deck, word }) => {
   const [hovered, setHovered] = useState(false);
   const toggleHover = () => setHovered(!hovered);
 
-  console.log('Render CardListItem: ' + word.value);
+  console.log('Render CardListItem: ' + word.front);
 
   return (
     <div>
@@ -35,9 +35,9 @@ const CardListItem = ({ deck, word }) => {
         onMouseEnter={toggleHover}
         onMouseLeave={toggleHover}
       >
-        {word.foreign}{' '}
+        {word.front}{' '}
       </span>
-      <span className={hovered ? '' : 'hide'}>{word.eng} </span>
+      <span className={hovered ? '' : 'hide'}>{word.back} </span>
       <DeleteButton onClick={() => handleDeleteWord(deck, word)}>
         X
       </DeleteButton>

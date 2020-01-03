@@ -1,34 +1,19 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { Modal, ModalBackground } from '../../styles/sidebar/AddDeck.styles';
+import { connect } from 'react-redux';
+import { createDeck } from '../../store/actions/deckActions';
 
-function useOnClickOutside(ref, handler) {
-  useEffect(() => {
-    const listener = event => {
-      if (!ref.current || ref.current.contains(event.target)) {
-        return;
-      }
-      handler(event);
-    };
+import { useOnClickOutside } from '../../utils/useOnClickOutside';
 
-    document.addEventListener('mousedown', listener);
-    document.addEventListener('touchstart', listener);
-
-    return () => {
-      document.removeEventListener('mousedown', listener);
-      document.removeEventListener('touchstart', listener);
-    };
-  }, [handler, ref]); // Empty array ensures that effect is only run on mount and unmount
-}
-
-export const AddDeck = ({ isOpen, toggle, addDeck }) => {
+export const AddDeck = ({ isOpen, toggle, createDeck }) => {
   const ref = useRef();
-
   useOnClickOutside(ref, () => toggle(false));
+
   const [name, setName] = useState('');
 
   const onSubmit = e => {
     e.preventDefault();
-    addDeck(name);
+    createDeck({ title: name });
     toggle(false);
   };
 
@@ -53,4 +38,10 @@ export const AddDeck = ({ isOpen, toggle, addDeck }) => {
   );
 };
 
-export default AddDeck;
+const mapDispatchToProps = dispatch => {
+  return {
+    createDeck: deck => dispatch(createDeck(deck))
+  };
+};
+
+export default connect(null, mapDispatchToProps)(AddDeck);

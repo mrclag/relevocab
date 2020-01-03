@@ -6,7 +6,7 @@ const Deck = ({ deck, option }) => {
 
   return (
     <DeckWrapper selected={selected}>
-      <span>{option}</span>
+      <span>{option.title}</span>
       <span
         style={{
           color: selected ? 'black' : 'white',
@@ -22,7 +22,9 @@ const Deck = ({ deck, option }) => {
           verticalAlign: 'middle'
         }}
       >
-        <div style={{ padding: 'auto', transform: 'translateY(-5px)' }}>5</div>
+        <div style={{ padding: 'auto', transform: 'translateY(-5px)' }}>
+          {option.cards.length}
+        </div>
       </span>
     </DeckWrapper>
   );
