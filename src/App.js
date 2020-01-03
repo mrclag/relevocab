@@ -14,8 +14,6 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 const App = ({ auth }) => {
-  console.log('Render APP');
-
   const [deck, setDeck] = useState({ value: 'words' });
 
   return (

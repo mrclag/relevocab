@@ -21,11 +21,7 @@ import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
 import { setCurrentDeck } from '../../store/actions/deckActions';
 
-const Sidebar = ({ setCurrentDeck, currentDeck, options, decks }) => {
-  console.log('Render sidebar');
-
-  console.log('current deck: ', currentDeck);
-
+const Sidebar = ({ setCurrentDeck, currentDeck, options, decks, auth }) => {
   let decksArray;
   if (decks) {
     decksArray = Object.keys(decks).map(key => decks[key]);
@@ -67,7 +63,8 @@ const Sidebar = ({ setCurrentDeck, currentDeck, options, decks }) => {
         </div>
       </DeckWrapper>
       <hr />
-      <VocabList deck={currentDeck} />
+      {auth.uid ? <VocabList deck={currentDeck} /> : <br />}
+      {/* <VocabList deck={currentDeck} /> */}
       <hr />
       <NewCard deck={currentDeck} />
     </SideBarWrapper>
@@ -75,10 +72,10 @@ const Sidebar = ({ setCurrentDeck, currentDeck, options, decks }) => {
 };
 
 const mapStateToProps = state => {
-  console.log('state: ', state);
   return {
     decks: state.firestore.data.decks,
-    currentDeck: state.deck.currentDeck
+    currentDeck: state.deck.currentDeck,
+    auth: state.firebase.auth
   };
 };
 
@@ -90,5 +87,10 @@ const mapDispatchToProps = dispatch => {
 
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),
-  firestoreConnect([{ collection: 'decks' }])
+  firestoreConnect(props => {
+    console.log('fsConnectProps', props);
+    return [
+      { collection: 'decks', where: [['authorId', '==', props.auth.uid]] }
+    ];
+  })
 )(React.memo(Sidebar));

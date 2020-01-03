@@ -9,71 +9,65 @@ import {
   CardButton
 } from '../../styles/pages/StudyCards.styles';
 
-const StudyCards = ({ deck }) => {
+const StudyCards = ({ currentDeck }) => {
   console.log('Render StudyCard');
-  const [cards, setCards] = useState([
-    {
-      id: 0,
-      eng: 'Deck of Cards',
-      foreign: 'Deck of Cards'
-    }
-  ]);
-  const [currentCard, setCurrentCard] = useState({});
-  const [currentDeck, setCurrentDeck] = useState([]);
+
+  const [cardPile, setCardPile] = useState({});
+  const [currentCard, setCurrentCard] = useState({
+    front: 'FRONT',
+    back: 'BACK'
+  });
 
   useEffect(() => {
-    firebase
-      .firestore()
-      .collection(deck.value)
-      .orderBy('foreign', 'desc')
-      .onSnapshot(snapshot => {
-        const newVocab = snapshot.docs.map(doc => ({
-          id: doc.id,
-          ...doc.data()
-        }));
-        console.log('Getting StudyCards');
-        setCurrentDeck(newVocab);
-        setCards(newVocab);
-      });
-  }, [deck]);
+    setCardPile(currentDeck.cards);
+    setCurrentCard({ front: currentDeck.title, back: currentDeck.title });
+  }, [currentDeck]);
 
-  const getRandomCard = currentCards => {
-    let card = currentCards[Math.floor(Math.random() * currentCards.length)];
+  console.log('cardPile: ', cardPile);
+  console.log('currentCard: ', currentCard);
+  console.log('currentDeck: ', currentDeck.cards);
+
+  const getRandomCard = cardPile => {
+    let card = cardPile[Math.floor(Math.random() * cardPile.length)];
     return card;
   };
 
   const updateCard = () => {
-    setCurrentCard(getRandomCard(cards));
+    setCurrentCard(getRandomCard(cardPile));
   };
 
   const removeCard = () => {
-    const filteredCards = cards.filter(card => card.id !== currentCard.id);
-    setCards(filteredCards);
+    const filteredCards = cardPile.filter(
+      card => card.front !== currentCard.front
+    );
+    setCardPile(filteredCards);
     setCurrentCard(getRandomCard(filteredCards));
   };
 
   const resetDeck = () => {
-    setCards(currentDeck);
-    setCurrentCard(getRandomCard(currentDeck));
+    setCardPile(currentDeck.cards);
+    setCurrentCard(getRandomCard(currentDeck.cards));
   };
 
   return (
     <ContentWrapper>
-      Cards in deck: {cards.length} / {currentDeck.length}
-      {currentCard ? (
+      {currentDeck
+        ? `Cards in deck: ${cardPile.length} / ${currentDeck.cards.length}`
+        : ''}
+      {currentCard && currentDeck ? (
         <Card
-          eng={currentCard.eng || deck.value}
-          foreign={currentCard.foreign}
+          front={currentCard.front || currentDeck.value}
+          back={currentCard.back}
         />
       ) : (
         <Card
-          eng={<div style={{ color: 'red' }}>End of Deck</div>}
-          foreign="End of Deck"
+          front={<div style={{ color: 'red' }}>End of Deck</div>}
+          back="End of Deck"
         />
       )}
       <div>
-        {cards.length > 0 ? (
-          currentCard && currentCard.eng ? (
+        {cardPile.length > 0 ? (
+          currentCard && currentCard.front !== currentDeck.title ? (
             <>
               <CardButton color="red" onClick={updateCard}>
                 Again
@@ -98,8 +92,9 @@ const StudyCards = ({ deck }) => {
 };
 
 const mapStateToProps = state => {
-  console.log(state);
-  return {};
+  return {
+    currentDeck: state.deck.currentDeck
+  };
 };
 
 export default connect(mapStateToProps)(StudyCards);

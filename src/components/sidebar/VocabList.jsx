@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import firebase from '../../firebase';
+import React from 'react';
+// import firebase from '../../firebase';
 
 import CardListItem from '../CardListItem';
 
@@ -26,9 +26,6 @@ import { VocabListWrapper } from '../../styles/sidebar/VocabList.styles';
 
 const VocabList = ({ deck }) => {
   const vocab = deck ? deck.cards : [];
-  console.log('deck: ', deck, 'cards: ', vocab[0]);
-
-  console.log('Render vocablist');
 
   return (
     <VocabListWrapper>

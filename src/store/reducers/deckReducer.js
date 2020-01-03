@@ -1,5 +1,6 @@
 const initState = {
-  authError: null
+  authError: null,
+  currentDeck: { cards: [{}] }
 };
 
 const deckReducer = (state = initState, action) => {
@@ -11,10 +12,10 @@ const deckReducer = (state = initState, action) => {
       console.log('add deck error', action.err);
       return state;
     case 'SET_CURRENT_DECK':
-      console.log(action.deckName);
+      console.log(action.deck);
       return {
         ...state,
-        currentDeck: action.deckName
+        currentDeck: action.deck
       };
     default:
       return state;

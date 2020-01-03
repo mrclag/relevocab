@@ -20,10 +20,10 @@ export const createDeck = deck => {
   };
 };
 
-export const setCurrentDeck = deckName => {
+export const setCurrentDeck = deck => {
   return {
     type: 'SET_CURRENT_DECK',
-    deckName
+    deck
   };
 };
 
