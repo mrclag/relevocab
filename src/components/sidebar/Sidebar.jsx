@@ -21,10 +21,20 @@ import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
 import { setCurrentDeck } from '../../store/actions/deckActions';
 
-const Sidebar = ({ setCurrentDeck, currentDeck, options, decks, auth }) => {
+const Sidebar = ({
+  setCurrentDeck,
+  currentDeck,
+  options,
+  decks,
+  auth,
+  initDeck
+}) => {
+  console.log('initdeck', initDeck);
   let decksArray;
   if (decks) {
     decksArray = Object.keys(decks).map(key => decks[key]);
+  } else {
+    decksArray = initDeck;
   }
 
   const [modalOpen, setModalOpen] = useState(false);
@@ -72,10 +82,12 @@ const Sidebar = ({ setCurrentDeck, currentDeck, options, decks, auth }) => {
 };
 
 const mapStateToProps = state => {
+  console.log(state);
   return {
     decks: state.firestore.data.decks,
     currentDeck: state.deck.currentDeck,
-    auth: state.firebase.auth
+    auth: state.firebase.auth,
+    initDeck: state.deck.initDeck
   };
 };
 
@@ -90,7 +102,10 @@ export default compose(
   firestoreConnect(props => {
     console.log('fsConnectProps', props);
     return [
-      { collection: 'decks', where: [['authorId', '==', props.auth.uid]] }
+      {
+        collection: 'decks',
+        where: [['authorId', '==', props.auth.uid || 'test']]
+      }
     ];
   })
 )(React.memo(Sidebar));

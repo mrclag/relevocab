@@ -1,6 +1,19 @@
 const initState = {
   authError: null,
-  currentDeck: { cards: [{}] }
+  currentDeck: { cards: [{}] },
+  initDeck: [
+    {
+      title: 'Example Deck',
+      cards: [
+        { front: 'hello', back: 'hola' },
+        { front: 'onion', back: 'cebolla' },
+        { front: 'apple', back: 'manzana' },
+        { front: 'orange', back: 'naranja' }
+      ],
+      authorId: 'test',
+      createdAt: new Date()
+    }
+  ]
 };
 
 const deckReducer = (state = initState, action) => {
