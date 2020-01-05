@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import firebase from '../../firebase';
 import Card from '../Card';
 
 import { connect } from 'react-redux';
@@ -9,23 +8,23 @@ import {
   CardButton
 } from '../../styles/pages/StudyCards.styles';
 
-const StudyCards = ({ currentDeck }) => {
-  console.log('Render StudyCard');
-
+const StudyCards = ({ currentDeck, currentCards }) => {
   const [cardPile, setCardPile] = useState({});
   const [currentCard, setCurrentCard] = useState({
     front: 'FRONT',
     back: 'BACK'
   });
 
+  // setting the pile to the current cards whenever it is rerendered/new selection
+  useEffect(() => {
+    setCardPile(currentCards);
+    setCurrentCard({ front: currentDeck.title, back: currentDeck.title });
+  }, [currentCards]);
+
+  // setting the pile to a dummy value when first loaded
   useEffect(() => {
     setCardPile(currentDeck.cards);
-    setCurrentCard({ front: currentDeck.title, back: currentDeck.title });
-  }, [currentDeck]);
-
-  console.log('cardPile: ', cardPile);
-  console.log('currentCard: ', currentCard);
-  console.log('currentDeck: ', currentDeck.cards);
+  }, []);
 
   const getRandomCard = cardPile => {
     let card = cardPile[Math.floor(Math.random() * cardPile.length)];
@@ -45,14 +44,14 @@ const StudyCards = ({ currentDeck }) => {
   };
 
   const resetDeck = () => {
-    setCardPile(currentDeck.cards);
-    setCurrentCard(getRandomCard(currentDeck.cards));
+    setCardPile(currentCards);
+    setCurrentCard(getRandomCard(currentCards));
   };
 
   return (
     <ContentWrapper>
-      {currentDeck
-        ? `Cards in deck: ${cardPile.length} / ${currentDeck.cards.length}`
+      {currentCards
+        ? `Cards in deck: ${cardPile.length} / ${currentCards.length}`
         : ''}
       {currentCard && currentDeck ? (
         <Card
@@ -93,7 +92,8 @@ const StudyCards = ({ currentDeck }) => {
 
 const mapStateToProps = state => {
   return {
-    currentDeck: state.deck.currentDeck
+    currentDeck: state.deck.currentDeck,
+    currentCards: state.deck.currentCards
   };
 };
 

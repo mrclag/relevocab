@@ -1,32 +1,11 @@
 import React from 'react';
-// import firebase from '../../firebase';
+import { connect } from 'react-redux';
 
 import CardListItem from '../CardListItem';
 
 import { VocabListWrapper } from '../../styles/sidebar/VocabList.styles';
 
-// export const useVocab = deck => {
-//   const [vocabList, setVocabList] = useState([]);
-//   useEffect(() => {
-//     firebase
-//       .firestore()
-//       .collection(deck.value)
-//       .orderBy('foreign', 'desc')
-//       .onSnapshot(snapshot => {
-//         const newVocab = snapshot.docs.map(doc => ({
-//           id: doc.id,
-//           ...doc.data()
-//         }));
-//         setVocabList(newVocab);
-//         console.log('Getting VocabList');
-//       });
-//   }, [deck.value]);
-//   return vocabList;
-// };
-
-const VocabList = ({ deck }) => {
-  const vocab = deck ? deck.cards : [];
-
+const VocabList = ({ deck, currentCards }) => {
   return (
     <VocabListWrapper>
       <div className="cards-title">
@@ -41,14 +20,21 @@ const VocabList = ({ deck }) => {
           overflowX: 'hidden'
         }}
       >
-        {vocab.map((word, i) => (
-          <div className="card-list-item" key={i}>
-            <CardListItem deck={deck} word={word} />
-          </div>
-        ))}
+        {currentCards &&
+          currentCards.map((word, i) => (
+            <div className="card-list-item" key={i}>
+              <CardListItem deck={deck} word={word} />
+            </div>
+          ))}
       </div>
     </VocabListWrapper>
   );
 };
 
-export default React.memo(VocabList);
+const mapStateToProps = state => {
+  return {
+    currentCards: state.deck.currentCards
+  };
+};
+
+export default connect(mapStateToProps)(React.memo(VocabList));

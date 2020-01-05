@@ -23,7 +23,7 @@ const Deck = ({ deck, option }) => {
         }}
       >
         <div style={{ padding: 'auto', transform: 'translateY(-5px)' }}>
-          {option.cards.length}
+          {Object.keys(option.cards).length}
         </div>
       </span>
     </DeckWrapper>

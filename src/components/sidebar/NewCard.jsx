@@ -4,7 +4,10 @@ import { googleTranslate } from '../../services/translate';
 
 import { NewCardWrapper } from '../../styles/sidebar/NewCard.styles';
 
-const NewCard = ({ deck }) => {
+import { connect } from 'react-redux';
+import { addNewCard } from '../../store/actions/deckActions';
+
+const NewCard = ({ deck, addNewCard }) => {
   const [front, setFront] = useState('');
   const [back, setBack] = useState('');
 
@@ -20,9 +23,9 @@ const NewCard = ({ deck }) => {
 
   const onSubmit = e => {
     e.preventDefault();
-    // addWord();
-    // setFront('');
-    // setBack('');
+    addNewCard({ front, back });
+    setFront('');
+    setBack('');
   };
 
   const translateInput = input => {
@@ -65,4 +68,10 @@ const NewCard = ({ deck }) => {
   );
 };
 
-export default NewCard;
+const mapDispatchToProps = dispatch => {
+  return {
+    addNewCard: card => dispatch(addNewCard(card))
+  };
+};
+
+export default connect(null, mapDispatchToProps)(React.memo(NewCard));

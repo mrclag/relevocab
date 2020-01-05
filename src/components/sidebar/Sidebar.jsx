@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 // Components
 import NewCard from './NewCard';
@@ -29,8 +29,9 @@ const Sidebar = ({
   auth,
   initDeck
 }) => {
-  console.log('initdeck', initDeck);
+  useEffect(() => {}, [currentDeck]);
   let decksArray;
+  console.log(currentDeck);
   if (decks) {
     decksArray = Object.keys(decks).map(key => decks[key]);
   } else {
@@ -74,7 +75,6 @@ const Sidebar = ({
       </DeckWrapper>
       <hr />
       {auth.uid ? <VocabList deck={currentDeck} /> : <br />}
-      {/* <VocabList deck={currentDeck} /> */}
       <hr />
       <NewCard deck={currentDeck} />
     </SideBarWrapper>
@@ -82,7 +82,6 @@ const Sidebar = ({
 };
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
     decks: state.firestore.data.decks,
     currentDeck: state.deck.currentDeck,
@@ -100,7 +99,6 @@ const mapDispatchToProps = dispatch => {
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),
   firestoreConnect(props => {
-    console.log('fsConnectProps', props);
     return [
       {
         collection: 'decks',

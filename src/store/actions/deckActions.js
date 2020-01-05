@@ -1,3 +1,5 @@
+import uuidv4 from 'uuid/v4';
+
 export const createDeck = deck => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     const firestore = getFirestore();
@@ -30,5 +32,24 @@ export const setCurrentDeck = deck => {
 export const deleteDeck = deck => {};
 
 export const addNewCard = card => {
-  return (dispatch, getState) => {};
+  return (dispatch, getState, { getFirebase, getFirestore }) => {
+    const firestore = getFirestore();
+    const deckTitle = getState().deck.currentDeck.title;
+    const cardId = uuidv4();
+    const cardsList = getState().deck.currentDeck.cards;
+    cardsList[cardId] = { id: cardId, front: card.front, back: card.back };
+
+    firestore
+      .collection('decks')
+      .doc('GDAgHtgnQtGbCvKkP481')
+      .update({
+        cards: cardsList
+      })
+      .then(() => {
+        dispatch({ type: 'ADD_CARD', card });
+      })
+      .catch(err => {
+        dispatch({ type: 'ADD_CARD_ERR', err });
+      });
+  };
 };

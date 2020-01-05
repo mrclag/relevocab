@@ -28,8 +28,18 @@ const deckReducer = (state = initState, action) => {
       console.log(action.deck);
       return {
         ...state,
-        currentDeck: action.deck
+        currentDeck: action.deck,
+        currentCards: Object.keys(action.deck.cards).map(
+          (key, i) => action.deck.cards[key]
+        )
       };
+    case 'ADD_CARD':
+      console.log('added card');
+      console.log(state);
+      return state;
+    case 'ADD_CARD_ERR':
+      console.log('add card err');
+      return state;
     default:
       return state;
   }
