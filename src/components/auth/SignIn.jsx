@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { signIn } from '../../store/actions/authActions.js';
 
+import styled from 'styled-components';
+
 const SignIn = ({ history, signIn, authError }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -13,10 +15,13 @@ const SignIn = ({ history, signIn, authError }) => {
   };
 
   return (
-    <div style={{ marginLeft: '500px' }}>
+    <LoginWrapper>
       <form onSubmit={onSubmit}>
-        <h5>Sign In</h5>
-        <div>
+        <div class="auth-title">Sign In</div>
+        <br />
+        <hr />
+        <br />
+        <div class="input-field">
           <label htmlFor="email">Email</label>
           <input
             type="email"
@@ -25,7 +30,7 @@ const SignIn = ({ history, signIn, authError }) => {
             onChange={e => setEmail(e.target.value)}
           />
         </div>
-        <div>
+        <div class="input-field">
           <label htmlFor="password">Password</label>
           <input
             type="password"
@@ -35,11 +40,11 @@ const SignIn = ({ history, signIn, authError }) => {
           />
         </div>
         <div>
-          <button>Login</button>
+          <LoginButton>Login</LoginButton>
           <div>{authError ? <p>{authError}</p> : null}</div>
         </div>
       </form>
-    </div>
+    </LoginWrapper>
   );
 };
 
@@ -56,3 +61,16 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
+
+const LoginButton = styled.button`
+  color: #107bbd;
+  margin-top: 5px;
+  height: 25px;
+  width: 100%;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid #107bbd;
+  outline: none;
+`;
+
+const LoginWrapper = styled.div``;

@@ -28,3 +28,7 @@ export const setCurrentDeck = deck => {
 };
 
 export const deleteDeck = deck => {};
+
+export const addNewCard = card => {
+  return (dispatch, getState) => {};
+};

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { signUp } from '../../store/actions/authActions';
 
+import styled from 'styled-components';
+
 const SignUp = ({ signUp, authError }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -24,9 +26,12 @@ const SignUp = ({ signUp, authError }) => {
   };
 
   return (
-    <div className="container">
-      <form onSubmit={onSubmit} className="white">
-        <h5 className="grey-text text-darken-3">Sign Up</h5>
+    <LoginWrapper>
+      <form onSubmit={onSubmit}>
+        <div class="auth-title">Sign Up</div>
+        <br />
+        <hr />
+        <br />
         <div className="input-field">
           <label htmlFor="email">Email</label>
           <input
@@ -44,7 +49,7 @@ const SignUp = ({ signUp, authError }) => {
           />
         </div>
         <div className="input-field">
-          <label htmlFor="firstName">firstName</label>
+          <label htmlFor="firstName">First Name</label>
           <input
             type="text"
             value={firstName}
@@ -52,7 +57,7 @@ const SignUp = ({ signUp, authError }) => {
           />
         </div>
         <div className="input-field">
-          <label htmlFor="lastName">lastName</label>
+          <label htmlFor="lastName">Last Name</label>
           <input
             type="text"
             value={lastName}
@@ -60,11 +65,11 @@ const SignUp = ({ signUp, authError }) => {
           />
         </div>
         <div className="input-field">
-          <button className="btn pink lighten-1 z-depth-0">Sign Up</button>
+          <LoginButton>Sign Up</LoginButton>
         </div>
       </form>
       <div>{authError ? <p>{authError}</p> : null}</div>
-    </div>
+    </LoginWrapper>
   );
 };
 
@@ -81,3 +86,16 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
+
+const LoginButton = styled.button`
+  color: #107bbd;
+  margin-top: 5px;
+  height: 35px;
+  width: 100%;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid #107bbd;
+  outline: none;
+`;
+
+const LoginWrapper = styled.div``;

@@ -4,8 +4,8 @@ import Sidebar from './components/sidebar/Sidebar';
 import StudyCards from './components/pages/StudyCards';
 import WikiPage from './components/pages/WikiPage';
 import WordPage from './components/pages/WordPage';
-import SignIn from './components/auth/SignIn';
-import SignUp from './components/auth/SignUp';
+
+import LoginPage from './components/pages/LoginPage';
 import Header from './components/Header';
 
 import { GlobalStyle } from './styles/global-styles';
@@ -23,15 +23,9 @@ const App = ({ auth }) => {
       {auth.uid ? (
         <>
           <Sidebar deck={deck} setDeck={setDeck} />
-          <div
-            style={{
-              position: 'absolute',
-              top: '0',
-              right: '200px'
-            }}
-          >
-            <Header />
-          </div>
+
+          <Header />
+
           <Switch>
             <Route exact path="/" render={() => <StudyCards deck={deck} />} />
             <Route path="/wiki" render={() => <WikiPage deck={deck} />} />
@@ -39,10 +33,7 @@ const App = ({ auth }) => {
           </Switch>
         </>
       ) : (
-        <>
-          <SignIn />
-          <SignUp />
-        </>
+        <LoginPage />
       )}
     </Router>
   );
