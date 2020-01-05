@@ -44,6 +44,7 @@ export const signUp = newUser => {
             lastName: newUser.lastName
           });
       })
+      .then(() => {})
       .then(() => {
         dispatch({ type: 'SIGNUP_SUCCESS' });
       })

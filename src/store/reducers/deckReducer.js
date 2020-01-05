@@ -1,15 +1,15 @@
 const initState = {
   authError: null,
-  currentDeck: { cards: [{}] },
+  currentDeck: { cards: { 1: { front: '', back: '' } } },
   initDeck: [
     {
       title: 'Example Deck',
-      cards: [
-        { front: 'hello', back: 'hola' },
-        { front: 'onion', back: 'cebolla' },
-        { front: 'apple', back: 'manzana' },
-        { front: 'orange', back: 'naranja' }
-      ],
+      cards: {
+        1: { front: 'hello', back: 'hola' },
+        2: { front: 'onion', back: 'cebolla' },
+        3: { front: 'apple', back: 'manzana' },
+        4: { front: 'orange', back: 'naranja' }
+      },
       authorId: 'test',
       createdAt: new Date()
     }

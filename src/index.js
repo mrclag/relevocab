@@ -19,6 +19,7 @@ import {
 } from 'react-redux-firebase';
 import rootReducer from './store/reducers/rootReducer';
 import firebaseConfig from './firebase';
+import Loading from './components/Loading';
 
 const store = createStore(
   rootReducer,
@@ -42,7 +43,12 @@ const rrfProps = {
 
 const AuthIsLoaded = ({ children }) => {
   const auth = useSelector(state => state.firebase.auth);
-  if (!isLoaded(auth)) return <div>Loading Screen...</div>;
+  if (!isLoaded(auth))
+    return (
+      <div>
+        <Loading />
+      </div>
+    );
   return children;
 };
 

@@ -31,6 +31,7 @@ const Sidebar = ({
 }) => {
   let decksArray;
 
+  console.log('RERENDER SIDEBAR');
   useEffect(() => {
     console.log('CURRENT DECK: ', currentDeck);
   }, [currentDeck]);

@@ -5,21 +5,12 @@ import { googleTranslate } from '../../services/translate';
 import { NewCardWrapper } from '../../styles/sidebar/NewCard.styles';
 
 import { connect } from 'react-redux';
-import { addNewCard } from '../../store/actions/deckActions';
+import { addNewCard, setCurrentDeck } from '../../store/actions/deckActions';
 
-const NewCard = ({ deck, addNewCard }) => {
+const NewCard = ({ deck, addNewCard, setCurrentDeck }) => {
   const [front, setFront] = useState('');
   const [back, setBack] = useState('');
-
-  // const addWord = () => {
-  //   firebase
-  //     .firestore()
-  //     .collection(deck.title)
-  //     .add({
-  //       front: eng,
-  //       back: foreign
-  //     });
-  // };
+  console.log('DECK: ', deck);
 
   const onSubmit = e => {
     e.preventDefault();
