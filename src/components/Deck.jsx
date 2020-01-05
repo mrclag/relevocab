@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const Deck = ({ deck, option }) => {
   const selected = option === deck;
+  const [hovered, setHovered] = useState(false);
 
   return (
     <DeckWrapper selected={selected}>
@@ -25,6 +26,7 @@ const Deck = ({ deck, option }) => {
         <div style={{ padding: 'auto', transform: 'translateY(-5px)' }}>
           {Object.keys(option.cards).length}
         </div>
+        <div class={hovered}>X</div>
       </span>
     </DeckWrapper>
   );
