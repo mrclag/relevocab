@@ -4,12 +4,15 @@ export const createDeck = deck => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     const firestore = getFirestore();
     const authorId = getState().firebase.auth.uid;
+    const deckId = uuidv4();
 
     firestore
       .collection('decks')
-      .add({
+      .doc(deckId)
+      .set({
         ...deck,
-        cards: [{ front: '', back: '' }],
+        deckId: deckId,
+        cards: {},
         authorId: authorId,
         createdAt: new Date()
       })
@@ -29,27 +32,47 @@ export const setCurrentDeck = deck => {
   };
 };
 
-export const deleteDeck = deck => {};
-
 export const addNewCard = card => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     const firestore = getFirestore();
-    const deckTitle = getState().deck.currentDeck.title;
+    const deckId = getState().deck.currentDeck.deckId;
     const cardId = uuidv4();
     const cardsList = getState().deck.currentDeck.cards;
     cardsList[cardId] = { id: cardId, front: card.front, back: card.back };
 
     firestore
       .collection('decks')
-      .doc('GDAgHtgnQtGbCvKkP481')
+      .doc(deckId)
       .update({
         cards: cardsList
       })
       .then(() => {
+        console.log(cardsList);
         dispatch({ type: 'ADD_CARD', card });
       })
       .catch(err => {
         dispatch({ type: 'ADD_CARD_ERR', err });
+      });
+  };
+};
+
+export const deleteCard = cardId => {
+  return (dispatch, getState, { getFirebase, getFirestore }) => {
+    const firestore = getFirestore();
+    const cardsList = getState().deck.currentDeck.cards;
+    delete cardsList[cardId];
+
+    firestore
+      .collection('decks')
+      .doc('sCdFHVxuqlQZ01TXzNOX')
+      .update({
+        cards: cardsList
+      })
+      .then(() => {
+        dispatch({ type: 'DELETE_CARD' });
+      })
+      .catch(err => {
+        dispatch({ type: 'DELETE_CARD_ERR', err });
       });
   };
 };

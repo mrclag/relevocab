@@ -21,9 +21,9 @@ const VocabList = ({ deck, currentCards }) => {
         }}
       >
         {currentCards &&
-          currentCards.map((word, i) => (
+          currentCards.map((card, i) => (
             <div className="card-list-item" key={i}>
-              <CardListItem deck={deck} word={word} />
+              <CardListItem deck={deck} card={card} />
             </div>
           ))}
       </div>

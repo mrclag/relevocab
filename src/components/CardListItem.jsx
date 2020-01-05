@@ -3,22 +3,10 @@ import React, { useState } from 'react';
 // import firebase from '../firebase';
 import { DeleteButton } from '../styles/sidebar/VocabList.styles';
 
-const handleDeleteWord = (deck, word) => {
-  // const wordRef = firebase
-  //   .firestore()
-  //   .collection(deck.value)
-  //   .doc(word.id);
-  // wordRef
-  //   .delete()
-  //   .then(() => {
-  //     console.log(`Document with ID ${word.id} deleted`);
-  //   })
-  //   .catch(err => {
-  //     console.error('Error deleting document:', err);
-  //   });
-};
+import { connect } from 'react-redux';
+import { deleteCard } from '../store/actions/deckActions';
 
-const CardListItem = ({ deck, word }) => {
+const CardListItem = ({ deck, card, deleteCard }) => {
   const [hovered, setHovered] = useState(false);
   const toggleHover = () => setHovered(!hovered);
 
@@ -33,14 +21,18 @@ const CardListItem = ({ deck, word }) => {
         onMouseEnter={toggleHover}
         onMouseLeave={toggleHover}
       >
-        {word.front}{' '}
+        {card.front}{' '}
       </span>
-      <span className={hovered ? '' : 'hide'}>{word.back} </span>
-      <DeleteButton onClick={() => handleDeleteWord(deck, word)}>
-        X
-      </DeleteButton>
+      <span className={hovered ? '' : 'hide'}>{card.back} </span>
+      <DeleteButton onClick={() => deleteCard(card.id)}>X</DeleteButton>
     </div>
   );
 };
 
-export default React.memo(CardListItem);
+const mapDispatchToProps = dispatch => {
+  return {
+    deleteCard: cardId => dispatch(deleteCard(cardId))
+  };
+};
+
+export default connect(null, mapDispatchToProps)(React.memo(CardListItem));

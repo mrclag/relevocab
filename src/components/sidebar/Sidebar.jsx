@@ -29,9 +29,12 @@ const Sidebar = ({
   auth,
   initDeck
 }) => {
-  useEffect(() => {}, [currentDeck]);
   let decksArray;
-  console.log(currentDeck);
+
+  useEffect(() => {
+    console.log('CURRENT DECK: ', currentDeck);
+  }, [currentDeck]);
+
   if (decks) {
     decksArray = Object.keys(decks).map(key => decks[key]);
   } else {
@@ -82,6 +85,7 @@ const Sidebar = ({
 };
 
 const mapStateToProps = state => {
+  console.log('STATE: ', state);
   return {
     decks: state.firestore.data.decks,
     currentDeck: state.deck.currentDeck,

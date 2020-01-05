@@ -9,12 +9,16 @@ const WikiPage = ({ deck }) => {
 
   const onSubmit = e => {
     e.preventDefault();
-    getWikiPage(searchInput).then(res => {
-      console.log(res);
-      res.rawContent().then(content => {
-        setPage({ raw: res.raw, words: countWords(content) });
+    getWikiPage(searchInput)
+      .then(res => {
+        console.log(res);
+        res.rawContent().then(content => {
+          setPage({ raw: res.raw, words: countWords(content) });
+        });
+      })
+      .catch(err => {
+        console.log(err);
       });
-    });
   };
 
   return (
