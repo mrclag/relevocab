@@ -24,6 +24,12 @@ const deckReducer = (state = initState, action) => {
     case 'ADD_DECK_ERROR':
       console.log('add deck error', action.err);
       return state;
+    case 'DELETE_DECK':
+      console.log('delete deck');
+      return state;
+    case 'DELETE_DECK_ERROR':
+      console.log('delete deck error', action.err);
+      return state;
     case 'SET_CURRENT_DECK':
       console.log(action.deck);
       return {

@@ -25,6 +25,22 @@ export const createDeck = deck => {
   };
 };
 
+export const deleteDeck = deckId => {
+  return (dispatch, getState, { getFirebase, getFirestore }) => {
+    const firestore = getFirestore();
+    firestore
+      .collection('decks')
+      .doc(deckId)
+      .delete()
+      .then(() => {
+        dispatch({ type: 'DELETE_DECK' });
+      })
+      .catch(err => {
+        dispatch({ type: 'DELETE_DECK_ERROR', err });
+      });
+  };
+};
+
 export const setCurrentDeck = deck => {
   return {
     type: 'SET_CURRENT_DECK',

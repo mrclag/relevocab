@@ -1,12 +1,24 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-const Deck = ({ deck, option }) => {
+import { deleteDeck } from '../store/actions/deckActions';
+import { connect } from 'react-redux';
+
+const Deck = ({ deck, option, deleteDeck }) => {
   const selected = option === deck;
   const [hovered, setHovered] = useState(false);
 
+  const toggleHover = () => {
+    setHovered(!hovered);
+  };
+  console.log('DECK W ID', deck);
+
   return (
-    <DeckWrapper selected={selected}>
+    <DeckWrapper
+      onMouseEnter={toggleHover}
+      onMouseLeave={toggleHover}
+      selected={selected}
+    >
       <span>{option.title}</span>
       <span
         style={{
@@ -23,16 +35,34 @@ const Deck = ({ deck, option }) => {
           verticalAlign: 'middle'
         }}
       >
-        <div style={{ padding: 'auto', transform: 'translateY(-5px)' }}>
+        <div
+          className={hovered ? 'hide' : ''}
+          style={{ padding: 'auto', transform: 'translateY(-5px)' }}
+        >
           {Object.keys(option.cards).length}
         </div>
-        <div class={hovered}>X</div>
+        {option.title ? (
+          <div
+            onClick={() => deleteDeck(option.deckId)}
+            className={hovered ? '' : 'hide'}
+          >
+            X
+          </div>
+        ) : (
+          ''
+        )}
       </span>
     </DeckWrapper>
   );
 };
 
-export default Deck;
+const mapDispatchToProps = dispatch => {
+  return {
+    deleteDeck: deckId => dispatch(deleteDeck(deckId))
+  };
+};
+
+export default connect(null, mapDispatchToProps)(Deck);
 
 const DeckWrapper = styled.div`
   line-height: 30px;
@@ -45,6 +75,10 @@ const DeckWrapper = styled.div`
   padding-right: 30px;
   background-color: ${props => (props.selected ? '#107bbd' : '')};
   color: ${props => (props.selected ? 'white' : 'black')};
+
+  .hide {
+    display: none;
+  }
 `;
 
 // const Counter = styled.span`
