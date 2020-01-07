@@ -5,13 +5,12 @@ import { deleteDeck } from '../store/actions/deckActions';
 import { connect } from 'react-redux';
 
 const Deck = ({ deck, option, deleteDeck }) => {
-  const selected = option === deck;
+  const selected = option.deckId === deck.deckId;
   const [hovered, setHovered] = useState(false);
 
   const toggleHover = () => {
     setHovered(!hovered);
   };
-  console.log('DECK W ID', deck);
 
   return (
     <DeckWrapper
@@ -45,6 +44,7 @@ const Deck = ({ deck, option, deleteDeck }) => {
           <div
             onClick={() => deleteDeck(option.deckId)}
             className={hovered ? '' : 'hide'}
+            style={{ padding: 'auto', transform: 'translateY(-5px)' }}
           >
             X
           </div>

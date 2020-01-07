@@ -32,6 +32,7 @@ const VocabList = ({ deck, currentCards }) => {
 };
 
 const mapStateToProps = state => {
+  console.log(state.deck.currentCards);
   return {
     currentCards: state.deck.currentCards
   };

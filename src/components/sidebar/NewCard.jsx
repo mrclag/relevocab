@@ -39,6 +39,7 @@ const NewCard = ({ deck, addNewCard, setCurrentDeck }) => {
             onChange={e => setFront(e.currentTarget.value)}
             autoFocus={true}
             maxLength="14"
+            disabled={deck.title ? false : true}
           />
         </div>
         <div>
@@ -48,11 +49,18 @@ const NewCard = ({ deck, addNewCard, setCurrentDeck }) => {
             value={back}
             onChange={e => setBack(e.currentTarget.value)}
             maxLength="14"
+            disabled={deck.title ? false : true}
           />
         </div>
-        <button style={{ width: '240px' }}>Add New Card</button>
+        <button style={{ width: '240px' }} disabled={deck.title ? false : true}>
+          Add New Card
+        </button>
       </form>
-      <button onClick={() => translateInput(front)} style={{ width: '240px' }}>
+      <button
+        onClick={() => translateInput(front)}
+        style={{ width: '240px' }}
+        disabled={deck.title ? false : true}
+      >
         Translate
       </button>
     </NewCardWrapper>
