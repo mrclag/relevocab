@@ -51,7 +51,7 @@ const StudyCards = ({ currentDeck, currentCards }) => {
   return (
     <ContentWrapper>
       {currentCards
-        ? `Cards in deck: ${cardPile.length} / ${currentCards.length}`
+        ? `Cards left in deck: ${cardPile.length || 0} / ${currentCards.length}`
         : ''}
       {currentCard && currentDeck ? (
         <Card

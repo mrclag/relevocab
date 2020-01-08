@@ -5,9 +5,9 @@ import { googleTranslate } from '../../services/translate';
 import { NewCardWrapper } from '../../styles/sidebar/NewCard.styles';
 
 import { connect } from 'react-redux';
-import { addNewCard, setCurrentDeck } from '../../store/actions/deckActions';
+import { addNewCard } from '../../store/actions/deckActions';
 
-const NewCard = ({ deck, addNewCard, setCurrentDeck }) => {
+const NewCard = ({ deck, addNewCard }) => {
   const [front, setFront] = useState('');
   const [back, setBack] = useState('');
   console.log('DECK: ', deck);

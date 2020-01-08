@@ -20,9 +20,7 @@ const deckReducer = (state = initState, action) => {
   switch (action.type) {
     case 'ADD_DECK':
       console.log('Added deck', action.deck);
-      return {
-        ...state
-      };
+      return state;
     case 'ADD_DECK_ERROR':
       console.log('add deck error', action.err);
       return state;
@@ -31,6 +29,16 @@ const deckReducer = (state = initState, action) => {
       return state;
     case 'DELETE_DECK_ERROR':
       console.log('delete deck error', action.err);
+      return state;
+    case 'CREATE_INIT_DECK':
+      return {
+        ...state,
+        currentDeck: action.initDeck,
+        currentCards: Object.keys(action.initDeck).map(
+          (key, i) => action.initDeck[key]
+        )
+      };
+    case 'CREATE_INIT_DECK_ERROR':
       return state;
     case 'SET_CURRENT_DECK':
       console.log(action.deck);

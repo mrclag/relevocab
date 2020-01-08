@@ -24,7 +24,7 @@ const WikiPage = ({ deck }) => {
   return (
     <div>
       <div style={{ marginLeft: '400px' }}>
-        <h1>WikiWords</h1>
+        <h1>Find Related Words</h1>
         <form onSubmit={onSubmit}>
           <input
             type="text"
