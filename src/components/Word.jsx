@@ -38,7 +38,6 @@ const Word = ({ word, deck }) => {
         <br />
         <span>{translation}</span>
       </div>
-      <hr />
     </WordWrapper>
   );
 };

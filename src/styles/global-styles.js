@@ -4,7 +4,7 @@ export const AddButton = styled.div`
   height: 20px;
   width: 20px;
   text-align: center;
-  font-size: 1.5em;
+  font-size: 1.25em
   font-weight: bold;
   color: white;
   border-radius: 50%;
@@ -12,6 +12,7 @@ export const AddButton = styled.div`
   margin: 5px;
   cursor: pointer;
 `;
+
 export const GlobalStyle = createGlobalStyle`
   body {
     overflow: hidden;

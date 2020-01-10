@@ -8,6 +8,10 @@ export const ContentWrapper = styled.div`
   align-items: center;
   top: 200px;
   left: 40%;
+
+  .counter {
+    font-size: 1.15em;
+  }
 `;
 
 export const CardButton = styled.button`

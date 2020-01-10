@@ -7,6 +7,7 @@ import WordPage from './components/pages/WordPage';
 import About from './components/pages/About';
 import LoginPage from './components/pages/LoginPage';
 import Header from './components/Header';
+import Instructions from './components/pages/Instructions';
 
 import { GlobalStyle } from './styles/global-styles';
 
@@ -30,10 +31,10 @@ const App = ({ auth, currentDeck }) => {
             {currentDeck.title ? (
               <Route exact path="/" render={() => <StudyCards deck={deck} />} />
             ) : (
-              <About />
+              <Route exact path="/" render={() => <Instructions />} />
             )}
             <Route path="/wiki" render={() => <WikiPage deck={deck} />} />
-            <Route path="/words" render={() => <WordPage deck={deck} />} />
+            <Route path="/words" render={() => <About />} />
           </Switch>
         </>
       ) : (

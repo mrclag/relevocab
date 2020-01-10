@@ -5,7 +5,6 @@ export const countWords = sentence => {
     .toLowerCase()
     .replace(/[^a-z\s]/g, '')
     .split(' ')
-    .slice(0, 200)
     .reduce((index, word) => {
       if (!index.hasOwnProperty(word)) index[word] = 0;
       index[word]++;

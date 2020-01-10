@@ -50,9 +50,13 @@ const StudyCards = ({ currentDeck, currentCards }) => {
 
   return (
     <ContentWrapper>
-      {currentCards
-        ? `Cards left in deck: ${cardPile.length || 0} / ${currentCards.length}`
-        : ''}
+      <div className="counter">
+        {currentCards
+          ? `Cards left in deck: ${cardPile.length || 0} / ${
+              currentCards.length
+            }`
+          : ''}
+      </div>
       {currentCard && currentDeck ? (
         <Card
           front={currentCard.front || currentDeck.value}
@@ -60,7 +64,7 @@ const StudyCards = ({ currentDeck, currentCards }) => {
         />
       ) : (
         <Card
-          front={<div style={{ color: 'red' }}>End of Deck</div>}
+          front={<div style={{ color: '#C57B57' }}>End of Deck</div>}
           back="End of Deck"
         />
       )}
@@ -68,10 +72,10 @@ const StudyCards = ({ currentDeck, currentCards }) => {
         {cardPile.length > 0 ? (
           currentCard && currentCard.front !== currentDeck.title ? (
             <>
-              <CardButton color="red" onClick={updateCard}>
+              <CardButton color="#C57B57" onClick={updateCard}>
                 Again
               </CardButton>
-              <CardButton color="green" onClick={() => removeCard()}>
+              <CardButton color="#70A288" onClick={() => removeCard()}>
                 Good
               </CardButton>
             </>

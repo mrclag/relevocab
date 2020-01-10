@@ -21,6 +21,8 @@ const WikiPage = ({ deck }) => {
       });
   };
 
+  console.log(page);
+
   return (
     <div>
       <div style={{ marginLeft: '400px' }}>
@@ -45,9 +47,9 @@ const WikiPage = ({ deck }) => {
           </div>
           <div style={{ marginTop: '3vh' }}>
             {page.words
-              ? page.words.map((word, i) => (
-                  <Word key={i} deck={deck} word={word} />
-                ))
+              ? page.words
+                  .slice(0, 15)
+                  .map((word, i) => <Word key={i} deck={deck} word={word} />)
               : ''}
           </div>
         </div>
