@@ -9,6 +9,7 @@ const SignUp = ({ signUp, authError }) => {
   const [password, setPassword] = useState('');
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
+  const [hovered, setHovered] = useState(false);
 
   const onSubmit = e => {
     e.preventDefault();
@@ -65,7 +66,13 @@ const SignUp = ({ signUp, authError }) => {
           />
         </div>
         <div className="input-field">
-          <LoginButton>Sign Up</LoginButton>
+          <LoginButton
+            hovered={hovered}
+            onMouseOver={() => setHovered(true)}
+            onMouseOut={() => setHovered(false)}
+          >
+            Sign Up
+          </LoginButton>
         </div>
       </form>
       <div>{authError ? <p>{authError}</p> : null}</div>
@@ -88,14 +95,15 @@ const mapDispatchToProps = dispatch => {
 export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
 
 const LoginButton = styled.button`
-  color: #107bbd;
+  color: ${props => (props.hovered ? 'white' : '#107bbd')};
   margin-top: 5px;
   height: 35px;
   width: 100%;
-  background-color: white;
+  background-color: ${props => (props.hovered ? '#107bbd' : 'white')};
   border-radius: 5px;
   border: 1px solid #107bbd;
   outline: none;
+  cursor: pointer;
 `;
 
 const LoginWrapper = styled.div``;

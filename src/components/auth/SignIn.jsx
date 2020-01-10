@@ -7,6 +7,7 @@ import styled from 'styled-components';
 const SignIn = ({ history, signIn, authError }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [hovered, setHovered] = useState(false);
 
   const onSubmit = e => {
     e.preventDefault();
@@ -40,7 +41,13 @@ const SignIn = ({ history, signIn, authError }) => {
           />
         </div>
         <div>
-          <LoginButton>Login</LoginButton>
+          <LoginButton
+            hovered={hovered}
+            onMouseOver={() => setHovered(true)}
+            onMouseOut={() => setHovered(false)}
+          >
+            Login
+          </LoginButton>
           <div>{authError ? <p>{authError}</p> : null}</div>
         </div>
       </form>
@@ -63,14 +70,15 @@ const mapDispatchToProps = dispatch => {
 export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
 
 const LoginButton = styled.button`
-  color: #107bbd;
+  color: ${props => (props.hovered ? 'white' : '#107bbd')};
   margin-top: 5px;
   height: 25px;
   width: 100%;
-  background-color: white;
+  background-color: ${props => (props.hovered ? '#107bbd' : 'white')};
   border-radius: 5px;
   border: 1px solid #107bbd;
   outline: none;
+  cursor: pointer;
 `;
 
 const LoginWrapper = styled.div``;
