@@ -9,6 +9,7 @@ export const CardContainer = styled.div`
     transition: transform 1s;
     transform-style: preserve-3d;
     cursor: pointer;
+    box-shadow: 3px 4px 8px 1px rgba(0, 0, 0, 0.3);
     position: relative;
     transform: ${props => (props.flipped ? 'rotateY(180deg)' : 'unset')};
   }

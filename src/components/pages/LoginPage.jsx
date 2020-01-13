@@ -21,7 +21,7 @@ const LoginPage = () => {
               onClick={() => setHaveAccount(!haveAccount)}
             >
               <br />
-              Need to Sign Up?
+              <div style={{ cursor: 'pointer' }}>Need to Sign Up?</div>
             </div>
           </div>
         ) : (
@@ -32,7 +32,7 @@ const LoginPage = () => {
               onClick={() => setHaveAccount(!haveAccount)}
             >
               <br />
-              Already Have an Account?
+              <div style={{ cursor: 'pointer' }}>Already Have an Account?</div>
             </div>
           </div>
         )}

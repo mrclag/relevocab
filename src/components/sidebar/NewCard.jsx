@@ -10,7 +10,6 @@ import { addNewCard } from '../../store/actions/deckActions';
 const NewCard = ({ deck, addNewCard }) => {
   const [front, setFront] = useState('');
   const [back, setBack] = useState('');
-  console.log('DECK: ', deck);
 
   const onSubmit = e => {
     e.preventDefault();

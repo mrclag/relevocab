@@ -1,14 +1,13 @@
 import styled, { createGlobalStyle } from 'styled-components';
 
 export const AddButton = styled.div`
-  height: 20px;
-  width: 20px;
+  height: 15px;
+  width: 15px;
   text-align: center;
-  font-size: 1.25em
-  font-weight: bold;
-  color: white;
-  border-radius: 50%;
-  background-color: green;
+  border: ${props =>
+    props.selectedWord ? '1px solid white' : '1px solid #107bbd'};
+  border-radius: 15%;
+  padding: 5px;
   margin: 5px;
   cursor: pointer;
 `;

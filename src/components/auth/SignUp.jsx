@@ -13,16 +13,6 @@ const SignUp = ({ signUp, authError }) => {
 
   const onSubmit = e => {
     e.preventDefault();
-    console.log(
-      'email: ',
-      email,
-      '; password: ',
-      password,
-      '; first name: ',
-      firstName,
-      '; last name: ',
-      lastName
-    );
     signUp({ email, password, firstName, lastName });
   };
 

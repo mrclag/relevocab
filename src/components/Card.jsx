@@ -3,7 +3,6 @@ import { CardContainer } from '../styles/Card.styles';
 
 const Card = ({ front, back }) => {
   const [flipped, setFlipped] = useState(false);
-
   return (
     <CardContainer onClick={() => setFlipped(!flipped)} flipped={flipped}>
       <div className="card">

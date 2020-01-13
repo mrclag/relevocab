@@ -31,7 +31,7 @@ export default Instructions;
 
 const InstructionsWrapper = styled.div`
   margin-left: 400px;
-  margin-top: 20vh;
+  margin-top: 15vh;
   font-size: 1.25em;
   li {
     margin: 30px 0;

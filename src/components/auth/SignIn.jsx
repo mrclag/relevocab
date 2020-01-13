@@ -11,7 +11,6 @@ const SignIn = ({ history, signIn, authError }) => {
 
   const onSubmit = e => {
     e.preventDefault();
-    console.log('email: ', email, '; password: ', password);
     signIn({ email, password });
   };
 

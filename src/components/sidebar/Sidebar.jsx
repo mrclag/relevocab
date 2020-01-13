@@ -31,10 +31,7 @@ const Sidebar = ({
 }) => {
   let decksArray;
 
-  console.log('RERENDER SIDEBAR');
-  useEffect(() => {
-    console.log('CURRENT DECK: ', currentDeck);
-  }, [currentDeck]);
+  useEffect(() => {}, [currentDeck]);
 
   if (decks) {
     decksArray = Object.keys(decks).map(key => decks[key]);
@@ -52,7 +49,7 @@ const Sidebar = ({
       <NavLinks>
         <NavLink value="HOME" className="link" to="/" />
         <NavLink value="FIND WORDS" className="link" to="/wiki" />
-        <NavLink value="ABOUT" className="link" to="/words" />
+        <NavLink value="ABOUT" className="link" to="/about" />
       </NavLinks>
       <hr />
       <DeckWrapper>
@@ -86,7 +83,6 @@ const Sidebar = ({
 };
 
 const mapStateToProps = state => {
-  console.log('STATE: ', state);
   return {
     decks: state.firestore.data.decks,
     currentDeck: state.deck.currentDeck,

@@ -2,18 +2,30 @@ import React, { useState } from 'react';
 import { getWikiPage } from '../../services/wikiAPI.js';
 import { countWords } from '../../utils/countWords.js';
 import Word from '../Word';
+import WordPage from './WordPage';
+import { connect } from 'react-redux';
+import { addNewCard } from '../../store/actions/deckActions';
+import { getWords } from '../../services/wordAPI.js';
 
-const WikiPage = ({ deck }) => {
+import { WikiPageWrapper } from '../../styles/pages/WikiPage.styles';
+
+const WikiPage = ({ deck, addNewCard, currentDeck }) => {
   const [page, setPage] = useState({});
   const [searchInput, setSearchInput] = useState('');
+  const [words, setWords] = useState([]);
+  const [selectedWord, setSelectedWord] = useState(null);
 
   const onSubmit = e => {
     e.preventDefault();
     getWikiPage(searchInput)
       .then(res => {
-        console.log(res);
+        console.log('res: ', res);
         res.rawContent().then(content => {
-          setPage({ raw: res.raw, words: countWords(content) });
+          setPage({
+            raw: res.raw,
+            words: countWords(content),
+            content: content
+          });
         });
       })
       .catch(err => {
@@ -21,11 +33,17 @@ const WikiPage = ({ deck }) => {
       });
   };
 
-  console.log(page);
+  const onSelect = word => {
+    setSelectedWord(word);
+    getWords(word).then(data => {
+      console.log('data: ', data);
+      setWords(data);
+    });
+  };
 
   return (
-    <div>
-      <div style={{ marginLeft: '400px' }}>
+    <WikiPageWrapper>
+      <div>
         <h1>Find Related Words</h1>
         <form onSubmit={onSubmit}>
           <input
@@ -33,29 +51,79 @@ const WikiPage = ({ deck }) => {
             value={searchInput}
             onChange={e => setSearchInput(e.target.value)}
           />
-          <input type="submit" value="Submit" />
+          <input type="submit" value="Submit" id="submit-button" />
         </form>
         <div style={{ marginTop: '3vh' }}>
-          <h3>{page.raw ? page.raw.title : 'No page found'}</h3>
-          <div>
+          <h3 style={{ marginBottom: '0px' }}>
+            {page.raw ? page.raw.title : ''}
+          </h3>
+          <div
+            style={{
+              marginBottom: '2vh'
+            }}
+          >
             <a
-              style={{ textDecoration: 'none', color: 'black' }}
+              style={{
+                textDecoration: 'none',
+                color: 'black'
+              }}
               href={page.raw ? page.raw.fullurl : 'Loading'}
             >
               {page.raw ? page.raw.fullurl : ''}
             </a>
           </div>
-          <div style={{ marginTop: '3vh' }}>
+          <div
+            style={{
+              maxHeight: '75vh',
+              overflow: 'scroll',
+              width: '250px'
+            }}
+          >
             {page.words
-              ? page.words
-                  .slice(0, 15)
-                  .map((word, i) => <Word key={i} deck={deck} word={word} />)
+              ? page.words.slice(0, 15).map((word, i) => (
+                  <div onClick={() => onSelect(word)} key={i}>
+                    <Word
+                      deck={deck}
+                      word={word}
+                      addNewCard={addNewCard}
+                      selected={selectedWord}
+                    />
+                  </div>
+                ))
               : ''}
           </div>
         </div>
       </div>
-    </div>
+      {selectedWord && (
+        <div
+          style={{
+            marginTop: '20vh',
+            marginLeft: '6vw',
+            height: '75vh',
+            border: '2px solid #97c3e9',
+            paddingLeft: '10px',
+            paddingRight: '10px',
+            width: '230px',
+            overflow: 'scroll'
+          }}
+        >
+          <WordPage words={words} addNewCard={addNewCard} />
+        </div>
+      )}
+    </WikiPageWrapper>
   );
 };
 
-export default WikiPage;
+const mapDispatchToProps = dispatch => {
+  return {
+    addNewCard: card => dispatch(addNewCard(card))
+  };
+};
+
+const mapStateToProps = state => {
+  return {
+    currentDeck: state.deck.currentDeck
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(WikiPage);
