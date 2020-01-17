@@ -2,15 +2,16 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 import { AddButton } from '../styles/global-styles';
-import firebase from '../firebase';
 
 import { googleTranslate } from '../services/translate';
+import { connect } from 'react-redux';
 import pb from '../images/plus_blue.png';
 import pw from '../images/plus_white.png';
+import { addNewCard } from '../store/actions/deckActions';
 
-const Word = ({ word, addNewCard, selected }) => {
+const Word = ({ currentDeck, word, addNewCard, selected }) => {
   const [translation, setTranslation] = useState('');
-  let selectedWord = selected == word;
+  let selectedWord = selected === word;
 
   useEffect(() => {
     googleTranslate.translate(word, 'es', function(err, translation) {
@@ -22,10 +23,12 @@ const Word = ({ word, addNewCard, selected }) => {
   }, [word]);
 
   const onClick = () => {
-    addNewCard({
-      front: word,
-      back: translation
-    });
+    currentDeck.title
+      ? addNewCard({
+          front: word,
+          back: translation
+        })
+      : alert('Please select a deck to add a card');
   };
 
   return (
@@ -47,7 +50,19 @@ const Word = ({ word, addNewCard, selected }) => {
   );
 };
 
-export default Word;
+const mapStateToProps = state => {
+  return {
+    currentDeck: state.deck.currentDeck
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    addNewCard: card => dispatch(addNewCard(card))
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Word);
 
 const WordWrapper = styled.div`
   height: 40px;

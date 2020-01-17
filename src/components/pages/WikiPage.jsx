@@ -19,7 +19,6 @@ const WikiPage = ({ deck, addNewCard, currentDeck }) => {
     e.preventDefault();
     getWikiPage(searchInput)
       .then(res => {
-        console.log('res: ', res);
         res.rawContent().then(content => {
           setPage({
             raw: res.raw,
@@ -36,7 +35,6 @@ const WikiPage = ({ deck, addNewCard, currentDeck }) => {
   const onSelect = word => {
     setSelectedWord(word);
     getWords(word).then(data => {
-      console.log('data: ', data);
       setWords(data);
     });
   };
@@ -82,12 +80,7 @@ const WikiPage = ({ deck, addNewCard, currentDeck }) => {
             {page.words
               ? page.words.slice(0, 15).map((word, i) => (
                   <div onClick={() => onSelect(word)} key={i}>
-                    <Word
-                      deck={deck}
-                      word={word}
-                      addNewCard={addNewCard}
-                      selected={selectedWord}
-                    />
+                    <Word deck={deck} word={word} selected={selectedWord} />
                   </div>
                 ))
               : ''}
@@ -107,17 +100,11 @@ const WikiPage = ({ deck, addNewCard, currentDeck }) => {
             overflow: 'scroll'
           }}
         >
-          <WordPage words={words} addNewCard={addNewCard} />
+          <WordPage words={words} />
         </div>
       )}
     </WikiPageWrapper>
   );
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-    addNewCard: card => dispatch(addNewCard(card))
-  };
 };
 
 const mapStateToProps = state => {
@@ -126,4 +113,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(WikiPage);
+export default connect(mapStateToProps)(WikiPage);

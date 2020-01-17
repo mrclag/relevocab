@@ -20,7 +20,7 @@ export const AddDeck = ({ isOpen, toggle, createDeck }) => {
   return (
     <ModalBackground initialPose="closed" pose={isOpen ? 'open' : 'closed'}>
       <Modal ref={ref}>
-        <h4 style={{ fontWeight: '700' }}>New Deck</h4>
+        <h4 style={{ fontSize: '1.5em', fontWeight: '700' }}>New Deck</h4>
         <div className="result">
           <form onSubmit={onSubmit}>
             <input
@@ -30,7 +30,7 @@ export const AddDeck = ({ isOpen, toggle, createDeck }) => {
               autoFocus={true}
               maxLength="14"
             />
-            <button>Add Deck</button>
+            <button>Add</button>
           </form>
         </div>
       </Modal>

@@ -19,6 +19,7 @@ const mapDispatchToProps = dispatch => {
 
 export default connect(null, mapDispatchToProps)(Header);
 
+
 const HeaderWrapper = styled.div`
   margin-top: 30px;
   position: absolute;

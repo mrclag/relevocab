@@ -26,7 +26,10 @@ const deckReducer = (state = initState, action) => {
       return state;
     case 'DELETE_DECK':
       console.log('delete deck');
-      return state;
+      return {
+        ...state,
+        currentCards: null
+      };
     case 'DELETE_DECK_ERROR':
       console.log('delete deck error', action.err);
       return state;

@@ -55,13 +55,13 @@ const NewCard = ({ deck, addNewCard }) => {
           Add New Card
         </button>
       </form>
-      <button
+      {/* <button
         onClick={() => translateInput(front)}
         style={{ width: '240px' }}
         disabled={deck.title ? false : true}
       >
         Translate
-      </button>
+      </button> */}
     </NewCardWrapper>
   );
 };

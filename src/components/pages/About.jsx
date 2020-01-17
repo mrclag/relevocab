@@ -23,6 +23,8 @@ const About = () => {
           </div>
           <div className="contact-form">
             <div className="feedback">Send Feedback / Comments</div>
+            <div>What do you wish to see?</div>
+            <div>Encounter a bug? What were you doing?</div>
             <br />
             <form
               action=""

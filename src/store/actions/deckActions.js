@@ -82,6 +82,7 @@ export const setCurrentDeck = deck => {
 export const addNewCard = card => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     const firestore = getFirestore();
+    console.log(getState());
     const deckId = getState().deck.currentDeck.deckId;
     const cardId = uuidv4();
     const cardsList = { ...getState().deck.currentDeck.cards };

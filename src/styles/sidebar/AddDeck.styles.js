@@ -40,7 +40,7 @@ const modalPoses = {
 export const Modal = styled(posed.div(modalPoses))`
   position: fixed;
   background: white;
-  width: 200px;
+  width: 300px;
   height: auto;
   top: 50%;
   text-align: center;
@@ -53,18 +53,25 @@ export const Modal = styled(posed.div(modalPoses))`
     width: 90%;
   }
   .result {
-    width: 180px;
-    margin: 10px;
+    width: 260px;
+    margin: 20px;
     
   }
+  input {
+    width: 180px;
+    height: 20px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+  }
   button {
-      height: 20px;
+      height: 25px;
       margin-top: 10px;
-      width: 80px;
+      width: 70px;
       border-radius: 5px;
       border: 1px solid #107bbd;
       background: white;
       color: #107bbd;
+      margin-bottom: 10px;
       &:focus {
         outline: 0;
       }

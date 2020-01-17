@@ -43,25 +43,6 @@ export const signUp = newUser => {
             firstName: newUser.firstName,
             lastName: newUser.lastName
           });
-
-        // const deckId = uuidv4();
-
-        // const initDeck = {
-        //   title: 'Example Deck',
-        //   cards: {
-        //     1: { front: 'hello', back: 'hola' },
-        //     2: { front: 'onion', back: 'cebolla' },
-        //     3: { front: 'apple', back: 'manzana' },
-        //     4: { front: 'orange', back: 'naranja' }
-        //   },
-        //   authorId: res.user.uid,
-        //   createdAt: new Date()
-        // };
-
-        // firestore
-        //   .collection('decks')
-        //   .doc(deckId)
-        //   .set(initDeck)
       })
       .then(() => {
         dispatch({ type: 'SIGNUP_SUCCESS' });

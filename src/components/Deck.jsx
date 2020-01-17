@@ -81,10 +81,3 @@ const DeckWrapper = styled.div`
   }
 `;
 
-// const Counter = styled.span`
-//     color: black,
-//     padding-left: 10px,
-//     background-color: lightblue;
-//     border-radius: 2px;
-//     padding: 0 5px;
-// `;
