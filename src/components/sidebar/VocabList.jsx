@@ -12,14 +12,7 @@ const VocabList = ({ deck, currentCards }) => {
         <h4>CARDS</h4>
       </div>
 
-      <div
-        style={{
-          marginLeft: '10px',
-          height: '45vh',
-          overflowY: 'overlay scroll',
-          overflowX: 'hidden'
-        }}
-      >
+      <div className="cards-list-wrapper">
         {currentCards &&
           currentCards.map((card, i) => (
             <div className="card-list-item" key={i}>

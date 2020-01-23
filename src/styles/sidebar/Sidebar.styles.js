@@ -32,6 +32,15 @@ export const NavLinks = styled.div`
     text-decoration: none;
     color: black;
   }
+  .nav-link {
+    text-decoration: none;
+    font-weight: bold;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 33.34%;
+  }
 `;
 
 export const DeckWrapper = styled.div`
@@ -56,7 +65,7 @@ export const DeckWrapper = styled.div`
       &:focus {
         outline: 0;
       }
-      .add {
+      .deck-add {
         margin-top: -1px;
         font-size: 0.8em;
         margin-left: -1px;
@@ -68,6 +77,9 @@ export const DeckWrapper = styled.div`
     overflow-y: overlay scroll;
     overflow-x: hidden;
     height: 13vh;
+    .deck-item {
+      cursor: pointer;
+    }
   }
 `;
 

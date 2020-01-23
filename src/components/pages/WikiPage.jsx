@@ -4,7 +4,6 @@ import { countWords } from '../../utils/countWords.js';
 import Word from '../Word';
 import WordPage from './WordPage';
 import { connect } from 'react-redux';
-import { addNewCard } from '../../store/actions/deckActions';
 import { getWords } from '../../services/wordAPI.js';
 
 import { WikiPageWrapper } from '../../styles/pages/WikiPage.styles';
@@ -51,32 +50,14 @@ const WikiPage = ({ deck, addNewCard, currentDeck }) => {
           />
           <input type="submit" value="Submit" id="submit-button" />
         </form>
-        <div style={{ marginTop: '3vh' }}>
-          <h3 style={{ marginBottom: '0px' }}>
-            {page.raw ? page.raw.title : ''}
-          </h3>
-          <div
-            style={{
-              marginBottom: '2vh'
-            }}
-          >
-            <a
-              style={{
-                textDecoration: 'none',
-                color: 'black'
-              }}
-              href={page.raw ? page.raw.fullurl : 'Loading'}
-            >
+        <div className="results">
+          <h3 className="results-title">{page.raw ? page.raw.title : ''}</h3>
+          <div className="results-url">
+            <a href={page.raw ? page.raw.fullurl : 'Loading'}>
               {page.raw ? page.raw.fullurl : ''}
             </a>
           </div>
-          <div
-            style={{
-              maxHeight: '75vh',
-              overflow: 'scroll',
-              width: '250px'
-            }}
-          >
+          <div className="results-words">
             {page.words
               ? page.words.slice(0, 15).map((word, i) => (
                   <div onClick={() => onSelect(word)} key={i}>
@@ -88,18 +69,7 @@ const WikiPage = ({ deck, addNewCard, currentDeck }) => {
         </div>
       </div>
       {selectedWord && (
-        <div
-          style={{
-            marginTop: '20vh',
-            marginLeft: '6vw',
-            height: '75vh',
-            border: '2px solid #97c3e9',
-            paddingLeft: '10px',
-            paddingRight: '10px',
-            width: '230px',
-            overflow: 'scroll'
-          }}
-        >
+        <div className="moreWords">
           <WordPage words={words} />
         </div>
       )}

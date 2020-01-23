@@ -57,6 +57,10 @@ export const Modal = styled(posed.div(modalPoses))`
     margin: 20px;
     
   }
+  h4{
+    font-size: 1.5em;
+    font-weight: 700;
+  }
   input {
     width: 180px;
     height: 20px;

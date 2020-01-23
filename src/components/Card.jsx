@@ -6,8 +6,8 @@ const Card = ({ front, back }) => {
   return (
     <CardContainer onClick={() => setFlipped(!flipped)} flipped={flipped}>
       <div className="card">
-        <div className="card__face card__face--front">{front}</div>
-        <div className="card__face card__face--back">{back}</div>
+        <div className="card-face card-face-front">{front}</div>
+        <div className="card-face card-face-back">{back}</div>
       </div>
     </CardContainer>
   );

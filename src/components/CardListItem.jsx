@@ -13,9 +13,8 @@ const CardListItem = ({ deck, card, deleteCard }) => {
   return (
     <div>
       <span
+        className="card-list-item-front"
         style={{
-          cursor: 'pointer',
-          marginRight: '20px',
           color: hovered ? '#107bbd' : 'black'
         }}
         onMouseEnter={toggleHover}

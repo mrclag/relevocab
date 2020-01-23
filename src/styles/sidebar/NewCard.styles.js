@@ -23,5 +23,6 @@ export const NewCardWrapper = styled.div`
     border-radius: 5px;
     border: 1px solid #107bbd;
     outline: none;
+    width: 240px;
   }
 `;

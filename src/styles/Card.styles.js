@@ -14,7 +14,7 @@ export const CardContainer = styled.div`
     transform: ${props => (props.flipped ? 'rotateY(180deg)' : 'unset')};
   }
 
-  .card__face {
+  .card-face {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -24,14 +24,13 @@ export const CardContainer = styled.div`
     font-size: 40px;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-  }
 
-  .card__face--front {
-    background-color: #97c3e9;
-  }
-
-  .card__face--back {
-    transform: rotateY(180deg);
-    background-color: #cee0dc;
+    &-front {
+      background-color: #97c3e9;
+    }
+    &-back {
+      transform: rotateY(180deg);
+      background-color: #cee0dc;
+    }
   }
 `;

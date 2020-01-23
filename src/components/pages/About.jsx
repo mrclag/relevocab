@@ -1,6 +1,5 @@
 import React from 'react';
 import flashCardIcon from '../../images/flashcardsIcon.png';
-
 import styled from 'styled-components';
 
 const About = () => {

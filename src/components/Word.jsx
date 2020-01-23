@@ -37,12 +37,12 @@ const Word = ({ currentDeck, word, addNewCard, selected }) => {
         <img
           src={selectedWord ? pw : pb}
           alt="plus"
-          style={{ maxWidth: '100%', maxHeight: '100%' }}
+          className="word-add-button"
         />
       </AddButton>
       <br />
-      <div style={{ marginLeft: '15px' }}>
-        <span style={{ fontWeight: 'bold' }}>{word}</span>
+      <div className="word-text">
+        <span className="word-word">{word}</span>
         <br />
         <span>{translation}</span>
       </div>
@@ -78,6 +78,16 @@ const WordWrapper = styled.div`
   display: flex;
   font-size: 0.8em;
   .title {
+    font-weight: bold;
+  }
+  .word-add-button{
+    max-width: 100%;
+    max-height: 100%;
+  }
+  .word-text{
+    margin-left: 15px;
+  }
+  .word-word{
     font-weight: bold;
   }
 `;

@@ -64,7 +64,7 @@ const StudyCards = ({ currentDeck, currentCards }) => {
         />
       ) : (
         <Card
-          front={<div style={{ color: '#C57B57' }}>End of Deck</div>}
+          front={<div className="deckend-text">End of Deck</div>}
           back="End of Deck"
         />
       )}

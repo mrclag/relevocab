@@ -19,32 +19,14 @@ const Deck = ({ deck, option, deleteDeck }) => {
       selected={selected}
     >
       <span>{option.title}</span>
-      <span
-        style={{
-          color: selected ? 'black' : 'white',
-          fontSize: '0.8em',
-          marginRight: '30px',
-          fontWeight: 'bold',
-          background: selected ? 'white' : '#107bbd',
-          borderRadius: '2px',
-          width: '20px',
-          textAlign: 'center',
-          height: '20px',
-          margin: 'auto 0',
-          verticalAlign: 'middle'
-        }}
-      >
-        <div
-          className={hovered ? 'hide' : ''}
-          style={{ padding: 'auto', transform: 'translateY(-5px)' }}
-        >
+      <span className="deck-list-item">
+        <div className={hovered ? 'counter hide' : 'counter'}>
           {Object.keys(option.cards).length}
         </div>
         {option.title ? (
           <div
             onClick={() => deleteDeck(option.deckId)}
-            className={hovered ? '' : 'hide'}
-            style={{ padding: 'auto', transform: 'translateY(-5px)' }}
+            className={hovered ? 'counter' : 'counter hide'}
           >
             X
           </div>
@@ -79,5 +61,22 @@ const DeckWrapper = styled.div`
   .hide {
     display: none;
   }
-`;
+  .counter {
+    padding: auto;
+    transform: translateY(-5px);
+  }
 
+  .deck-list-item {
+    color: ${props => (props.selected ? 'black' : 'white')};
+    background: ${props => (props.selected ? 'white' : '#107bbd')};
+    font-size: 0.8em;
+    margin-right: 30px;
+    font-weight: bold;
+    border-radius: 2px;
+    width: 20px;
+    text-align: center;
+    height: 20px;
+    margin: auto 0;
+    vertical-align: middle;
+  }
+`;

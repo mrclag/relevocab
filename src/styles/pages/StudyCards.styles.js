@@ -9,6 +9,9 @@ export const ContentWrapper = styled.div`
   top: 200px;
   left: 40%;
 
+  .deckend-text {
+    color: #c57b57;
+  }
   .counter {
     font-size: 1.15em;
   }

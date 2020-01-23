@@ -51,9 +51,7 @@ const NewCard = ({ deck, addNewCard }) => {
             disabled={deck.title ? false : true}
           />
         </div>
-        <button style={{ width: '240px' }} disabled={deck.title ? false : true}>
-          Add New Card
-        </button>
+        <button disabled={deck.title ? false : true}>Add New Card</button>
       </form>
       {/* <button
         onClick={() => translateInput(front)}

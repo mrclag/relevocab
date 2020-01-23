@@ -12,27 +12,27 @@ const LoginPage = () => {
       <div class="title">Relevocab</div>
       <br />
       <br />
-      <div style={{ display: 'flex', flexDirection: 'row' }}>
+      <div class="auth-wrapper">
         {haveAccount ? (
-          <div class="auth-wrapper">
+          <div>
             <SignIn />
             <div
               class="accountset"
               onClick={() => setHaveAccount(!haveAccount)}
             >
               <br />
-              <div style={{ cursor: 'pointer' }}>Need to Sign Up?</div>
+              <div className="auth-switch">Need to Sign Up?</div>
             </div>
           </div>
         ) : (
-          <div class="auth-wrapper">
+          <div>
             <SignUp />
             <div
               class="accountset"
               onClick={() => setHaveAccount(!haveAccount)}
             >
               <br />
-              <div style={{ cursor: 'pointer' }}>Already Have an Account?</div>
+              <div className="auth-switch">Already Have an Account?</div>
             </div>
           </div>
         )}
@@ -62,6 +62,9 @@ const LoginWrapper = styled.div`
     justify-content: space-between;
   }
 
+  .auth-switch {
+    cursor: pointer;
+  }
   .accountset {
     cursor: pointer;
     color: blue;
@@ -77,6 +80,8 @@ const LoginWrapper = styled.div`
     padding: 50px 30px;
     background: white;
     box-shadow: 4px 6px 15px 1px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: row;
   }
 
   .title {

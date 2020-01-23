@@ -56,7 +56,7 @@ const Sidebar = ({
         <div className="deck-header">
           <h4>DECKS</h4>
           <button onClick={() => setModalOpen(true)}>
-            <div className="add">Add Deck</div>
+            <div className="deck-add">Add Deck</div>
           </button>
         </div>
         <div className="deck-items">
@@ -64,7 +64,7 @@ const Sidebar = ({
             {decksArray &&
               decksArray.map((option, i) => (
                 <div
-                  style={{ cursor: 'pointer' }}
+                  className="deck-item"
                   key={i}
                   onClick={() => setCurrentDeck(option)}
                 >
