@@ -32,7 +32,7 @@ export const WikiPageWrapper = styled.div`
     &-words {
       max-height: 75vh;
       overflow: scroll;
-      width: 250px;
+      width: 350px;
     }
   }
   .moreWords {

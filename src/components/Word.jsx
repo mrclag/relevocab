@@ -41,9 +41,11 @@ const Word = ({ currentDeck, word, addNewCard, selected }) => {
         />
       </AddButton>
       <br />
-      <div className="word-text">
+      <div className="word-text-front">
         <span className="word-word">{word}</span>
         <br />
+      </div>
+      <div className="word-text-back">
         <span>{translation}</span>
       </div>
     </WordWrapper>
@@ -66,7 +68,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(Word);
 
 const WordWrapper = styled.div`
   height: 40px;
-  width: 200px;
+  width: 300px;
   box-shadow: 1px 2px 3px 1px rgba(0, 0, 0, 0.1);
   border-radius: 7px;
   margin-top: 5px;
@@ -74,9 +76,8 @@ const WordWrapper = styled.div`
   color: ${props => (props.selectedWord ? 'white' : 'black')};
   background: ${props => (props.selectedWord ? '#107bbd' : 'white')}
   cursor: pointer;
-  padding: 10px;
   display: flex;
-  font-size: 0.8em;
+  font-size: 0.92em;
   .title {
     font-weight: bold;
   }
@@ -84,10 +85,22 @@ const WordWrapper = styled.div`
     max-width: 100%;
     max-height: 100%;
   }
-  .word-text{
+  .word-text-front{
     margin-left: 15px;
+    border-radius: 0px 7px 7px 0px
+    padding-right: 10px;
+    padding-top: 10px;
+    width: 1800px;
+  }
+  .word-text-back{
+    padding-left: 10px;
+    margin-left: 0px;
+    border-left: 1px solid black;
+    padding-top: 10px;
+    width: 130px;
   }
   .word-word{
     font-weight: bold;
+    
   }
 `;
