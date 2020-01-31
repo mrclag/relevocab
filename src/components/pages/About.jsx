@@ -7,7 +7,7 @@ const About = () => {
     <>
       <AboutWrapper>
         <h1>About</h1>
-        <div style={{ width: '30vw' }}>
+        <div className="about-content">
           <div className="about">
             Relevocab is at the core a flashcards studying app.
             <br /> <br />
@@ -65,6 +65,9 @@ const AboutWrapper = styled.div`
   }
   .feedback {
     font-weight: bold
+  }
+  .about-content{
+    width: 30vh;
   }
 
   button {

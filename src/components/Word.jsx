@@ -90,7 +90,7 @@ const WordWrapper = styled.div`
     border-radius: 0px 7px 7px 0px
     padding-right: 10px;
     padding-top: 10px;
-    width: 1800px;
+    width: 180px;
   }
   .word-text-back{
     padding-left: 10px;
