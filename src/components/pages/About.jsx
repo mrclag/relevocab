@@ -25,10 +25,7 @@ const About = () => {
             <div>What do you wish to see?</div>
             <div>Encounter a bug? What were you doing?</div>
             <br />
-            <form
-              action=""
-              style={{ display: 'flex', flexDirection: 'column' }}
-            >
+            <form action="">
               <input type="text" placeholder=" Name" />
               <textarea
                 placeholder=" Write something..."
