@@ -8,40 +8,46 @@ const LoginPage = () => {
   const [haveAccount, setHaveAccount] = useState(false);
 
   return (
-    <LoginWrapper>
-      <div class="title">Relevocab</div>
-      <br />
-      <br />
-      <div class="auth-wrapper">
-        {haveAccount ? (
-          <div>
-            <SignIn />
-            <div
-              class="accountset"
-              onClick={() => setHaveAccount(!haveAccount)}
-            >
-              <br />
-              <div className="auth-switch">Need to Sign Up?</div>
+    <>
+      <MainLandingWrapper></MainLandingWrapper>
+      <LoginWrapper>
+        <div class="title">Relevocab</div>
+        <br />
+        <br />
+        <div class="auth-wrapper">
+          {haveAccount ? (
+            <div>
+              <SignIn />
+              <div
+                class="accountset"
+                onClick={() => setHaveAccount(!haveAccount)}
+              >
+                <br />
+                <div className="auth-switch">Need to Sign Up?</div>
+              </div>
             </div>
-          </div>
-        ) : (
-          <div>
-            <SignUp />
-            <div
-              class="accountset"
-              onClick={() => setHaveAccount(!haveAccount)}
-            >
-              <br />
-              <div className="auth-switch">Already Have an Account?</div>
+          ) : (
+            <div>
+              <SignUp />
+              <div
+                class="accountset"
+                onClick={() => setHaveAccount(!haveAccount)}
+              >
+                <br />
+                <div className="auth-switch">Already Have an Account?</div>
+              </div>
             </div>
-          </div>
-        )}
-      </div>
-    </LoginWrapper>
+          )}
+        </div>
+      </LoginWrapper>
+    </>
   );
 };
 
 export default LoginPage;
+const MainLandingWrapper = styled.div`
+  
+`
 
 const LoginWrapper = styled.div`
   display: flex;
@@ -49,6 +55,8 @@ const LoginWrapper = styled.div`
   align-items: center;
   flex-direction: column;
   height: 100vh;
+  width: 500px;
+  right: 0px;
   background: #eee;
 
   input {
