@@ -89,11 +89,3 @@ const AboutWrapper = styled.div`
     }
   }
 `;
-
-const BGImage = styled.img`
-  position: absolute;
-  top: 20vh;
-  left: calc(300px + 40vw);
-  height: 30%;
-  width: auto;
-`;
