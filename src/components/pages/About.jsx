@@ -61,7 +61,7 @@ const AboutWrapper = styled.div`
     font-weight: bold
   }
   .about-content{
-    width: 30vh;
+    width: 40vw;
   }
 
   button {
