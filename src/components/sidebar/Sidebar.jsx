@@ -3,9 +3,9 @@ import React, { useState, useEffect } from 'react';
 // Components
 import NewCard from './NewCard';
 import VocabList from './VocabList';
-import AddDeck from './AddDeck';
 import NavLink from './NavLink';
 import Deck from '../Deck';
+import AddDeckInput from './AddDeckInput';
 
 // Styles
 import {
@@ -43,9 +43,6 @@ const Sidebar = ({
 
   return (
     <SideBarWrapper>
-      <AddDeck isOpen={modalOpen} toggle={setModalOpen} />
-      <Title>RELEVOCAB</Title>
-      <hr />
       <NavLinks>
         <NavLink value="HOME" className="link" to="/" />
         <NavLink value="FIND WORDS" className="link" to="/wiki" />
@@ -55,9 +52,6 @@ const Sidebar = ({
       <DeckWrapper>
         <div className="deck-header">
           <h4>DECKS</h4>
-          <button onClick={() => setModalOpen(true)}>
-            <div className="deck-add">Add Deck</div>
-          </button>
         </div>
         <div className="deck-items">
           <div>
@@ -73,7 +67,10 @@ const Sidebar = ({
               ))}
           </div>
         </div>
+        <AddDeckInput />
       </DeckWrapper>
+      <br />
+      <br />
       <hr />
       {auth.uid ? <VocabList deck={currentDeck} /> : <br />}
       <hr />

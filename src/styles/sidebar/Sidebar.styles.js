@@ -3,25 +3,14 @@ import styled from 'styled-components';
 export const SideBarWrapper = styled.div`
   width: 300px;
   position: absolute;
-  top: 0;
-  height: 100vh;
-  background-color: #f4f8fb;
-  border-right: 1px solid black;
+  top: 70px;
+  height: calc(100%);
+  background-color: #f4f4f4;
+  border-right: 0.5px solid #9c9c9c;
   z-index: 3;
   hr {
     margin: 0;
   }
-`;
-
-export const Title = styled.h1`
-  margin-top: 0;
-  margin-bottom: 0;
-  padding-left: 30px;
-  align-items: center;
-  color: #107bbd;
-  display: flex;
-  height: 8vh;
-  letter-spacing: 9px;
 `;
 
 export const NavLinks = styled.div`
@@ -51,7 +40,7 @@ export const DeckWrapper = styled.div`
     height: 5vh;
     align-items: center;
     & h4 {
-      padding-left: 30px;
+      padding-left: 20px;
     }
     & button {
       height: 20px;
@@ -79,6 +68,23 @@ export const DeckWrapper = styled.div`
     height: 13vh;
     .deck-item {
       cursor: pointer;
+    }
+  }
+
+  .comment-form {
+    & input {
+      width: calc(100%-45px);
+      border: none;
+
+      line-height: 30px;
+      margin-top: 0px;
+      font-size: 0.8em;
+      background: #f4f4f4;
+      margin-left: 10px;
+      outline: none;
+    }
+    & .add-button {
+      margin-left: 20px;
     }
   }
 `;

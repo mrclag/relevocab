@@ -18,7 +18,10 @@ const Deck = ({ deck, option, deleteDeck }) => {
       onMouseLeave={toggleHover}
       selected={selected}
     >
-      <span>{option.title}</span>
+      <span>
+        <span style={{ width: '15px' }}>[]</span>
+        <span style={{ marginLeft: '10px' }}>{option.title}</span>
+      </span>
       <span className="deck-list-item">
         <div className={hovered ? 'counter hide' : 'counter'}>
           {Object.keys(option.cards).length}
@@ -52,8 +55,8 @@ const DeckWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   font-size: 0.8em;
-  width: 225px;
-  padding-left: 45px;
+  width: 250px;
+  padding-left: 20px;
   padding-right: 30px;
   background-color: ${props => (props.selected ? '#107bbd' : '')};
   color: ${props => (props.selected ? 'white' : 'black')};

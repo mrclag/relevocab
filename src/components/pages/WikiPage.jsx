@@ -48,7 +48,9 @@ const WikiPage = ({ deck, addNewCard, currentDeck }) => {
             value={searchInput}
             onChange={e => setSearchInput(e.target.value)}
           />
-          <input type="submit" value="Submit" id="submit-button" />
+          <button type="submit" value="Submit" id="submit-button">
+            Search
+          </button>
         </form>
         <div className="results">
           <h3 className="results-title">{page.raw ? page.raw.title : ''}</h3>

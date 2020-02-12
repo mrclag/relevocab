@@ -22,10 +22,13 @@ export default connect(null, mapDispatchToProps)(Header);
 
 const HeaderWrapper = styled.div`
   position: absolute;
+  display: flex;
+  flex-direction: row;
   top: 0;
   height: 70px;
   background: #0078d7;
   width: 100%;
+  z-index: 555;
   vertical-align: middle;
   justify-content: space-between;
 
@@ -39,6 +42,7 @@ const HeaderWrapper = styled.div`
     border-radius: 5px;
     border: 1px solid #107bbd;
     outline: none;
+    cursor: pointer;
   }
 
   .title {
@@ -47,8 +51,8 @@ const HeaderWrapper = styled.div`
     padding-left: 30px;
     align-items: center;
     color: white;
-    color: #107bbd;
     display: flex;
+    font-size: 1.5em;
     height: 8vh;
     letter-spacing: 9px;
   }

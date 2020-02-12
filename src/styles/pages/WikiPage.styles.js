@@ -2,17 +2,22 @@ import styled from 'styled-components';
 
 export const WikiPageWrapper = styled.div`
   display: flex;
-  margin-left: 400px;
+  margin-left: 350px;
   #submit-button {
     color: #107bbd;
     margin-left: 10px;
     margin-top: 5px;
-    height: 25px;
+    height: 40px;
+    width: 100px;
     background-color: white;
     border-radius: 5px;
     border: 1px solid #107bbd;
     outline: none;
     cursor: pointer;
+  }
+  input {
+    height: 40px;
+    width: 500px;
   }
   .results {
     margin-top: 3vh;

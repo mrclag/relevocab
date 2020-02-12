@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const VocabListWrapper = styled.div`
-  padding-left: 30px;
+  padding-left: 20px;
   margin-top: 0px;
   height: 50vh;
   .cards-title {

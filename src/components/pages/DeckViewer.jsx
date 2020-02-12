@@ -38,5 +38,5 @@ export default connect(mapStateToProps)(React.memo(DeckView));
 const DeckViewWrapper = styled.div`
   margin-left: 350px;
   width: 800px
-  margin-top: 15vh;
+  margin-top: 100px;
 `;
