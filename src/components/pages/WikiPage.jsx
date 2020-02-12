@@ -59,22 +59,24 @@ const WikiPage = ({ deck, addNewCard, currentDeck }) => {
               {page.raw ? page.raw.fullurl : ''}
             </a>
           </div>
-          <div className="results-words">
-            {page.words
-              ? page.words.slice(0, 15).map((word, i) => (
-                  <div onClick={() => onSelect(word)} key={i}>
-                    <Word deck={deck} word={word} selected={selectedWord} />
-                  </div>
-                ))
-              : ''}
+          <div className="both-results">
+            <div className="results-words">
+              {page.words
+                ? page.words.slice(0, 15).map((word, i) => (
+                    <div onClick={() => onSelect(word)} key={i}>
+                      <Word deck={deck} word={word} selected={selectedWord} />
+                    </div>
+                  ))
+                : ''}
+            </div>
+            {selectedWord && (
+              <div className="moreWords">
+                <WordPage words={words} />
+              </div>
+            )}
           </div>
         </div>
       </div>
-      {selectedWord && (
-        <div className="moreWords">
-          <WordPage words={words} />
-        </div>
-      )}
     </WikiPageWrapper>
   );
 };

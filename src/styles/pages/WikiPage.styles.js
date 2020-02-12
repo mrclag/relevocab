@@ -37,17 +37,20 @@ export const WikiPageWrapper = styled.div`
     &-words {
       max-height: 75vh;
       overflow: scroll;
-      width: 350px;
+      width: 420px;
     }
   }
   .moreWords {
-    margin-top: 20vh;
-    margin-left: 6vw;
     height: 75vh;
-    border: 2px solid #97c3e9;
+
+    border: 1px solid #97c3e9;
     padding-left: 10px;
     padding-right: 10px;
-    width: 230px;
+    width: 420px;
     overflow: scroll;
+  }
+  .both-results {
+    display: flex;
+    flex-direction: row;
   }
 `;

@@ -68,14 +68,14 @@ export default connect(mapStateToProps, mapDispatchToProps)(Word);
 
 const WordWrapper = styled.div`
   height: 40px;
-  width: 300px;
+  width: 400px;
   box-shadow: 1px 2px 3px 1px rgba(0, 0, 0, 0.1);
   border-radius: 7px;
   margin-top: 5px;
   margin-bottom: 5px;
   color: ${props => (props.selectedWord ? 'white' : 'black')};
   background: ${props => (props.selectedWord ? '#107bbd' : 'white')}
-  cursor: pointer;
+  cursor: context-menu;
   display: flex;
   font-size: 0.92em;
   .title {
@@ -84,6 +84,7 @@ const WordWrapper = styled.div`
   .word-add-button{
     max-width: 100%;
     max-height: 100%;
+    cursor: pointer
   }
   .word-text-front{
     margin-left: 15px;
@@ -97,7 +98,7 @@ const WordWrapper = styled.div`
     margin-left: 0px;
     border-left: 1px solid black;
     padding-top: 10px;
-    width: 130px;
+    width: 200px;
   }
   .word-word{
     font-weight: bold;
