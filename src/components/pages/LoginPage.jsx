@@ -9,9 +9,9 @@ const LoginPage = () => {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'col' }}>
-      <NavBar>
+      {/* <NavBar>
         <span className="link-login">Login</span>
-      </NavBar>
+      </NavBar> */}
       <div style={{ display: 'flex', flexDirection: 'row' }}>
         <MainLandingWrapper>
           <div className="landing-text">

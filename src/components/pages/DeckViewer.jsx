@@ -5,10 +5,11 @@ import { connect } from 'react-redux';
 import CardListItemNew from '../CardListItemNew';
 
 const DeckView = ({ deck, currentCards }) => {
+  console.log('deck', deck);
   return (
     <DeckViewWrapper>
       <div className="cards-title">
-        <h4>CARDS</h4>
+        {deck.title ? 'Cards in ' + "'" + deck.title + "'" : 'Choose a Deck'}
       </div>
       <div style={{ display: 'flex', flexDirection: 'row' }}>
         <h5 style={{ width: '250px' }}>Front</h5>
@@ -39,4 +40,8 @@ const DeckViewWrapper = styled.div`
   margin-left: 350px;
   width: 800px
   margin-top: 100px;
+  .cards-title {
+    font-size: 1.5em;
+    font-weight: bold
+  }
 `;

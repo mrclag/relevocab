@@ -37,7 +37,10 @@ const App = ({ auth, currentDeck }) => {
             <Route path="/wiki" render={() => <WikiPage deck={deck} />} />
             <Route path="/words" render={() => <WordPage deck={deck} />} />
             <Route path="/about" render={() => <About />} />
-            <Route path="/deck" render={() => <DeckViewer />} />
+            <Route
+              path="/deck"
+              render={() => <DeckViewer deck={currentDeck} />}
+            />
           </Switch>
         </>
       ) : (

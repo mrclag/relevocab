@@ -12,7 +12,7 @@ export const AddDeckInput = ({ isOpen, toggle, createDeck }) => {
   };
 
   return (
-    <form className="comment-form" onSubmit={onSubmit} autocomplete="off">
+    <form className="comment-form" onSubmit={onSubmit} autoComplete="off">
       <strong className="add-button">+</strong>
       <input
         type="text"

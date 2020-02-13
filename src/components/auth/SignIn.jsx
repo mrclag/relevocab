@@ -22,20 +22,20 @@ const SignIn = ({ history, signIn, authError }) => {
         <hr />
         <br />
         <div class="input-field">
-          <label htmlFor="email">Email</label>
           <input
             type="email"
             value={email}
             id="email"
+            placeholder="Email"
             onChange={e => setEmail(e.target.value)}
           />
         </div>
         <div class="input-field">
-          <label htmlFor="password">Password</label>
           <input
             type="password"
             value={password}
             id="password"
+            placeholder='Password'
             onChange={e => setPassword(e.target.value)}
           />
         </div>
