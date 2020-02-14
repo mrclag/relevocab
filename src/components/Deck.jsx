@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import { deleteDeck } from '../store/actions/deckActions';
 import { connect } from 'react-redux';
+import deckIcon from '../images/deck.png';
 
 const Deck = ({ deck, option, deleteDeck }) => {
   const selected = option.deckId === deck.deckId;
@@ -19,8 +20,12 @@ const Deck = ({ deck, option, deleteDeck }) => {
       selected={selected}
     >
       <span>
-        <span style={{ width: '15px' }}>[]</span>
-        <span style={{ marginLeft: '10px' }}>{option.title}</span>
+        <span>
+          <img src={deckIcon} alt="deck icon" className="deck-icon" />
+        </span>
+        <span style={{ marginLeft: '8px', marginBottom: '15px' }}>
+          {option.title}
+        </span>
       </span>
       <span className="deck-list-item">
         <div className={hovered ? 'counter hide' : 'counter'}>
@@ -56,7 +61,7 @@ const DeckWrapper = styled.div`
   justify-content: space-between;
   font-size: 0.8em;
   width: 250px;
-  padding-left: 20px;
+  padding-left: 18px;
   padding-right: 30px;
   background-color: ${props => (props.selected ? '#107bbd' : '')};
   color: ${props => (props.selected ? 'white' : 'black')};
@@ -81,5 +86,10 @@ const DeckWrapper = styled.div`
     height: 20px;
     margin: auto 0;
     vertical-align: middle;
+  }
+
+  .deck-icon {
+    height: 13px;
+    width: 13px;
   }
 `;

@@ -35,7 +35,7 @@ const SignIn = ({ history, signIn, authError }) => {
             type="password"
             value={password}
             id="password"
-            placeholder='Password'
+            placeholder="Password"
             onChange={e => setPassword(e.target.value)}
           />
         </div>
@@ -71,7 +71,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
 const LoginButton = styled.button`
   color: ${props => (props.hovered ? 'white' : '#107bbd')};
   margin-top: 5px;
-  height: 25px;
+  height: 35px;
   width: 100%;
   background-color: ${props => (props.hovered ? '#107bbd' : 'white')};
   border-radius: 5px;

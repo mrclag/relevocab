@@ -76,8 +76,8 @@ export const DeckWrapper = styled.div`
       width: calc(100%-45px);
       border: none;
 
-      line-height: 30px;
-      margin-top: 0px;
+      line-height: 20px;
+      margin-top: 5px;
       font-size: 0.8em;
       background: #f4f4f4;
       margin-left: 10px;

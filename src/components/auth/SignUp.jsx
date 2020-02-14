@@ -19,40 +19,40 @@ const SignUp = ({ signUp, authError }) => {
   return (
     <LoginWrapper>
       <form onSubmit={onSubmit}>
-        <div class="auth-title">Sign Up</div>
+        <div className="auth-title">Sign Up</div>
         <br />
         <hr />
         <br />
         <div className="input-field">
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-          />
-        </div>
-        <div className="input-field">
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            value={password}
-            onChange={e => setPassword(e.target.value)}
-          />
-        </div>
-        <div className="input-field">
-          <label htmlFor="firstName">First Name</label>
           <input
             type="text"
+            placeholder="First Name"
             value={firstName}
             onChange={e => setFirstName(e.target.value)}
           />
         </div>
         <div className="input-field">
-          <label htmlFor="lastName">Last Name</label>
           <input
             type="text"
+            placeholder="Last Name"
             value={lastName}
             onChange={e => setLastName(e.target.value)}
+          />
+        </div>
+        <div className="input-field">
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+          />
+        </div>
+        <div className="input-field">
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
           />
         </div>
         <div className="input-field">
