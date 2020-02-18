@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 // Components
 import NewCard from './NewCard';
@@ -7,12 +8,15 @@ import NavLink from './NavLink';
 import Deck from '../Deck';
 import AddDeckInput from './AddDeckInput';
 
+// Icons
+import hamburger from '../../images/menu.png';
+
 // Styles
 import {
   SideBarWrapper,
-  Title,
   NavLinks,
-  DeckWrapper
+  DeckWrapper,
+  Hamburger
 } from '../../styles/sidebar/Sidebar.styles';
 
 import { connect } from 'react-redux';
@@ -31,6 +35,9 @@ const Sidebar = ({
 }) => {
   let decksArray;
 
+  const [sidebarVis, setSidebarVis] = useState(true);
+  const toggleSidebar = () => setSidebarVis(!sidebarVis);
+
   useEffect(() => {}, [currentDeck]);
 
   if (decks) {
@@ -39,43 +46,47 @@ const Sidebar = ({
     decksArray = initDeck;
   }
 
-  const [modalOpen, setModalOpen] = useState(false);
-
   return (
-    <SideBarWrapper>
-      <NavLinks>
-        <NavLink value="HOME" className="link" to="/" />
-        <NavLink value="FIND WORDS" className="link" to="/wiki" />
-        <NavLink value="ABOUT" className="link" to="/about" />
-      </NavLinks>
-      <hr />
-      <DeckWrapper>
-        <div className="deck-header">
-          <h4>DECKS</h4>
-        </div>
-        <div className="deck-items">
-          <div>
-            {decksArray &&
-              decksArray.map((option, i) => (
-                <div
-                  className="deck-item"
-                  key={i}
-                  onClick={() => setCurrentDeck(option)}
-                >
-                  <Deck deck={currentDeck} option={option} />
-                </div>
-              ))}
+    <>
+      <Hamburger>
+        <img src={hamburger} alt="menu" onClick={() => toggleSidebar()} />
+      </Hamburger>
+      <SideBarWrapper sidebarVis={sidebarVis}>
+        <NavLinks>
+          <NavLink value="Home" className="link" to="/" />
+          <NavLink value="Find Words" className="link" to="/wiki" />
+          <NavLink value="About" className="link" to="/about" />
+        </NavLinks>
+        <hr />
+        <DeckWrapper>
+          <div className="deck-header">
+            <h4>DECKS</h4>
           </div>
-        </div>
-        <AddDeckInput />
-      </DeckWrapper>
-      <br />
-      <br />
-      <hr />
-      {auth.uid ? <VocabList deck={currentDeck} /> : <br />}
-      <hr />
-      <NewCard deck={currentDeck} />
-    </SideBarWrapper>
+          <div className="deck-items">
+            <div>
+              {decksArray &&
+                decksArray.map((option, i) => (
+                  <Link
+                    className="deck-item"
+                    key={i}
+                    onClick={() => setCurrentDeck(option)}
+                    to="/deck"
+                  >
+                    <Deck deck={currentDeck} option={option} />
+                  </Link>
+                ))}
+            </div>
+          </div>
+          <AddDeckInput />
+        </DeckWrapper>
+        <br />
+        <br />
+        <hr />
+        {auth.uid ? <VocabList deck={currentDeck} /> : <br />}
+        <hr />
+        <NewCard deck={currentDeck} />
+      </SideBarWrapper>
+    </>
   );
 };
 

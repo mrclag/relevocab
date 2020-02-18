@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const VocabListWrapper = styled.div`
   padding-left: 20px;
   margin-top: 0px;
-  height: 50vh;
+  height: 40vh;
   .cards-title {
     display: flex;
     align-items: center;
@@ -11,7 +11,7 @@ export const VocabListWrapper = styled.div`
   }
   .cards-list-wrapper {
     margin-left: 10px;
-    height: 45vh;
+    height: 35vh;
     overflow-y: overlay scroll;
     overflow-x: hidden;
   }

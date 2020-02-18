@@ -9,7 +9,7 @@ const DeckView = ({ deck, currentCards }) => {
   return (
     <DeckViewWrapper>
       <div className="cards-title">
-        {deck.title ? 'Cards in ' + "'" + deck.title + "'" : 'Choose a Deck'}
+        {deck.title ? deck.title : 'Choose a Deck'}
       </div>
       <div style={{ display: 'flex', flexDirection: 'row' }}>
         <h5 style={{ width: '250px' }}>Front</h5>

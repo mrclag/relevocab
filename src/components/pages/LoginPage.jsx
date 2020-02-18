@@ -117,11 +117,11 @@ const MainLandingWrapper = styled.div`
     font-size: 3rem;
   }
   .description {
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin-bottom: 80px;
     &-text {
       color: white;
-      font-size: 1.3rem;
+      font-size: 1.8rem;
     }
   }
   button {
@@ -141,23 +141,6 @@ const MainLandingWrapper = styled.div`
   .see-more {
     margin-top: 50px;
     font-size: 1.2em;
-  }
-`;
-
-const NavBar = styled.div`
-  position: absolute;
-  height: 70px;
-  font-size: 1.2em;
-  justify-content: right;
-  .link-login {
-    position: absolute;
-    float: right;
-    color: teal;
-    margin: 20px;
-    z-index: 5;
-  }
-  @media screen and (max-width: 1024px) {
-    color: white;
   }
 `;
 

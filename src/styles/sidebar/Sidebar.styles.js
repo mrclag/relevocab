@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const SideBarWrapper = styled.div`
+  display: ${props => (props.sidebarVis ? 'unset' : 'none')}
   width: 300px;
   position: absolute;
   top: 70px;
@@ -13,22 +14,41 @@ export const SideBarWrapper = styled.div`
   }
 `;
 
+export const Hamburger = styled.div`
+  position: absolute;
+  top: 70px;
+  z-index: 999;
+  line-height: 30px;
+  height: 30px;
+  padding-left: 20px;
+  font-weight: bold;
+  font-size: 1.5em;
+  background: transparent;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  img {
+    height: 30px;
+    width: 30px;
+  }
+`;
+
 export const NavLinks = styled.div`
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   color: black;
+  margin-top: 50px;
   .link {
     text-decoration: none;
     color: black;
   }
   .nav-link {
     text-decoration: none;
-    font-weight: bold;
-    height: 5vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 33.34%;
+    height: 30px;
+    margin: auto 0;
+    vertical-align: middle;
+    line-height: 30px;
+    width: calc(100%-20px);
+    padding-left: 20px;
   }
 `;
 

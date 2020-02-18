@@ -9,11 +9,13 @@ const NavLink = ({ value, to, location }) => {
     <Link
       className="nav-link"
       style={{
-        color: hovered || location.pathname === to ? '#107bbd' : 'black',
+        color: hovered || location.pathname === to ? 'white' : 'black',
         borderBottom:
           hovered || location.pathname === to
             ? '2px solid #107bbd'
-            : '2px solid #eee'
+            : '2px solid #f4f4f4',
+        backgroundColor:
+          hovered || location.pathname === to ? '#107bbd' : '#f4f4f4'
       }}
       to={to}
       onMouseEnter={toggleHover}

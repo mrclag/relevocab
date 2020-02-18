@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import deckIcon from '../images/deck.png';
 
 const Deck = ({ deck, option, deleteDeck }) => {
+
   const selected = option.deckId === deck.deckId;
   const [hovered, setHovered] = useState(false);
 

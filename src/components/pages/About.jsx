@@ -88,4 +88,11 @@ const AboutWrapper = styled.div`
     width: 50%;
     }
   }
+
+  @media screen and (max-width: 1024px){
+    margin-left: 5vw;;
+    .about-content{
+      width: 90vw;
+    }
+  }
 `;

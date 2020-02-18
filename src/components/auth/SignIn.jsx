@@ -17,11 +17,11 @@ const SignIn = ({ history, signIn, authError }) => {
   return (
     <LoginWrapper>
       <form onSubmit={onSubmit}>
-        <div class="auth-title">Sign In</div>
+        <div className="auth-title">Sign In</div>
         <br />
         <hr />
         <br />
-        <div class="input-field">
+        <div className="input-field">
           <input
             type="email"
             value={email}
@@ -30,7 +30,7 @@ const SignIn = ({ history, signIn, authError }) => {
             onChange={e => setEmail(e.target.value)}
           />
         </div>
-        <div class="input-field">
+        <div className="input-field">
           <input
             type="password"
             value={password}

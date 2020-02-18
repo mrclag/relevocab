@@ -53,4 +53,25 @@ export const WikiPageWrapper = styled.div`
     display: flex;
     flex-direction: row;
   }
+
+  @media screen and (max-width: 800px) {
+    margin-left: 5px;
+    input {
+      width: 70vw;
+      margin-top: 40px;
+      margin-left: 15px;
+    }
+    #submit-button {
+      color: #107bbd;
+      margin-left: 10px;
+      margin-top: 5px;
+      height: 40px;
+      width: 100px;
+      background-color: white;
+      border-radius: 5px;
+      border: 1px solid #107bbd;
+      outline: none;
+      cursor: pointer;
+    }
+  }
 `;
