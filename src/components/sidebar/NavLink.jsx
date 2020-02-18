@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
-const NavLink = ({ value, to, location }) => {
+const NavLink = ({ value, to, location, icon }) => {
   const [hovered, setHovered] = useState(false);
   const toggleHover = () => setHovered(!hovered);
 
@@ -21,6 +21,7 @@ const NavLink = ({ value, to, location }) => {
       onMouseEnter={toggleHover}
       onMouseLeave={toggleHover}
     >
+      <img src={icon} alt="icon" />
       {value}
     </Link>
   );

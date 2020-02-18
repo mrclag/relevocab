@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
-import { AddButton } from '../styles/global-styles';
-
 import { googleTranslate } from '../services/translate';
 import { connect } from 'react-redux';
 import pb from '../images/plus_blue.png';
@@ -103,5 +101,31 @@ const WordWrapper = styled.div`
   .word-word{
     font-weight: bold;
     
+  }
+  @media screen and (max-width: 800px){
+    width: 100%;
+    .word-text-front{
+      width: 45vw;
+      margin-left: 10px
+    }
+    .word-text-back{
+      width: 48vw;
+    }
+  }
+`;
+
+const AddButton = styled.div`
+  height: 15px;
+  width: 15px;
+  text-align: center;
+  border: ${props =>
+    props.selectedWord ? '1px solid white' : '1px solid #107bbd'};
+  border-radius: 15%;
+  padding: 5px;
+  margin: 5px;
+  cursor: pointer;
+  @media screen and (max-width: 800px) {
+    width: 5vw;
+    height: 5vw;
   }
 `;

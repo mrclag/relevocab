@@ -1,17 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components';
 
-export const AddButton = styled.div`
-  height: 15px;
-  width: 15px;
-  text-align: center;
-  border: ${props =>
-    props.selectedWord ? '1px solid white' : '1px solid #107bbd'};
-  border-radius: 15%;
-  padding: 5px;
-  margin: 5px;
-  cursor: pointer;
-`;
-
 export const GlobalStyle = createGlobalStyle`
   body {
     overflow: hidden;

@@ -15,6 +15,9 @@ export const ContentWrapper = styled.div`
   .counter {
     font-size: 1.15em;
   }
+  @media screen and (max-width: 800px) {
+    left: 5vw;
+  }
 `;
 
 export const CardButton = styled.button`

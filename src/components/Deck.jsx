@@ -3,10 +3,11 @@ import styled from 'styled-components';
 
 import { deleteDeck } from '../store/actions/deckActions';
 import { connect } from 'react-redux';
+
+import { withRouter } from 'react-router-dom';
 import deckIcon from '../images/deck.png';
 
-const Deck = ({ deck, option, deleteDeck }) => {
-
+const Deck = ({ deck, option, deleteDeck, location }) => {
   const selected = option.deckId === deck.deckId;
   const [hovered, setHovered] = useState(false);
 
@@ -20,14 +21,6 @@ const Deck = ({ deck, option, deleteDeck }) => {
       onMouseLeave={toggleHover}
       selected={selected}
     >
-      <span>
-        <span>
-          <img src={deckIcon} alt="deck icon" className="deck-icon" />
-        </span>
-        <span style={{ marginLeft: '8px', marginBottom: '15px' }}>
-          {option.title}
-        </span>
-      </span>
       <span className="deck-list-item">
         <div className={hovered ? 'counter hide' : 'counter'}>
           {Object.keys(option.cards).length}
@@ -43,6 +36,11 @@ const Deck = ({ deck, option, deleteDeck }) => {
           ''
         )}
       </span>
+      <span>
+        <span style={{ marginLeft: '10px', marginBottom: '15px' }}>
+          {option.title}
+        </span>
+      </span>
     </DeckWrapper>
   );
 };
@@ -53,16 +51,16 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(Deck);
+export default connect(null, mapDispatchToProps)(withRouter(Deck));
 
 const DeckWrapper = styled.div`
+  vertical-align: middle;
   line-height: 30px;
   margin-top: 0px;
   display: flex;
-  justify-content: space-between;
   font-size: 0.8em;
   width: 250px;
-  padding-left: 18px;
+  padding-left: 20px;
   padding-right: 30px;
   background-color: ${props => (props.selected ? '#107bbd' : '')};
   color: ${props => (props.selected ? 'white' : 'black')};
@@ -82,15 +80,15 @@ const DeckWrapper = styled.div`
     margin-right: 30px;
     font-weight: bold;
     border-radius: 2px;
-    width: 20px;
+    width: 18px;
     text-align: center;
-    height: 20px;
+    height: 18px;
     margin: auto 0;
     vertical-align: middle;
   }
 
   .deck-icon {
-    height: 13px;
-    width: 13px;
+    height: 15px;
+    width: 15px;
   }
 `;

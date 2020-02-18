@@ -5,6 +5,7 @@ import Word from '../Word';
 import WordPage from './WordPage';
 import { connect } from 'react-redux';
 import { getWords } from '../../services/wordAPI.js';
+import searchIcon from '../../images/search.png';
 
 import { WikiPageWrapper } from '../../styles/pages/WikiPage.styles';
 
@@ -53,12 +54,12 @@ const WikiPage = ({ deck, addNewCard, currentDeck }) => {
           </button>
         </form>
         <div className="results">
-          <h3 className="results-title">{page.raw ? page.raw.title : ''}</h3>
+          {/* <h3 className="results-title">{page.raw ? page.raw.title : ''}</h3>
           <div className="results-url">
             <a href={page.raw ? page.raw.fullurl : 'Loading'}>
               {page.raw ? page.raw.fullurl : ''}
             </a>
-          </div>
+          </div> */}
           <div className="both-results">
             <div className="results-words">
               {page.words

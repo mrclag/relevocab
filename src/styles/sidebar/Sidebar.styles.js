@@ -37,6 +37,7 @@ export const NavLinks = styled.div`
   flex-direction: column;
   color: black;
   margin-top: 50px;
+  margin-bottom: 10px;
   .link {
     text-decoration: none;
     color: black;
@@ -49,6 +50,11 @@ export const NavLinks = styled.div`
     line-height: 30px;
     width: calc(100%-20px);
     padding-left: 20px;
+  }
+  img {
+    height: 15px;
+    width: 15px;
+    margin-right: 10px;
   }
 `;
 
@@ -88,6 +94,7 @@ export const DeckWrapper = styled.div`
     height: 13vh;
     .deck-item {
       cursor: pointer;
+      text-decoration: none;
     }
   }
 

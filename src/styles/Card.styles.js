@@ -12,6 +12,10 @@ export const CardContainer = styled.div`
     box-shadow: 3px 4px 8px 1px rgba(0, 0, 0, 0.3);
     position: relative;
     transform: ${props => (props.flipped ? 'rotateY(180deg)' : 'unset')};
+
+    @media screen and (max-width: 800px) {
+      width: 90vw;
+    }
   }
 
   .card-face {

@@ -7,7 +7,7 @@ export const WikiPageWrapper = styled.div`
     color: #107bbd;
     margin-left: 10px;
     margin-top: 5px;
-    height: 40px;
+    height: 42px;
     width: 100px;
     background-color: white;
     border-radius: 5px;
@@ -55,23 +55,21 @@ export const WikiPageWrapper = styled.div`
   }
 
   @media screen and (max-width: 800px) {
-    margin-left: 5px;
+    margin-left: 0px;
     input {
       width: 70vw;
+      border: 1px solid #333;
       margin-top: 40px;
-      margin-left: 15px;
+      padding-left: 15px;
     }
     #submit-button {
-      color: #107bbd;
-      margin-left: 10px;
-      margin-top: 5px;
-      height: 40px;
-      width: 100px;
-      background-color: white;
-      border-radius: 5px;
-      border: 1px solid #107bbd;
-      outline: none;
-      cursor: pointer;
+      @media screen and (max-width: 800px) {
+        width: 25vw;
+        margin-left: 0px;
+      }
+    }
+    .results-words {
+      width: 100vw;
     }
   }
 `;

@@ -10,6 +10,9 @@ import AddDeckInput from './AddDeckInput';
 
 // Icons
 import hamburger from '../../images/menu.png';
+import homeIcon from '../../images/homeIcon.png';
+import findIcon from '../../images/findWordsIcon.png';
+import aboutIcon from '../../images/aboutIcon.png';
 
 // Styles
 import {
@@ -53,9 +56,19 @@ const Sidebar = ({
       </Hamburger>
       <SideBarWrapper sidebarVis={sidebarVis}>
         <NavLinks>
-          <NavLink value="Home" className="link" to="/" />
-          <NavLink value="Find Words" className="link" to="/wiki" />
-          <NavLink value="About" className="link" to="/about" />
+          <NavLink value="Home" className="link" to="/" icon={homeIcon} />
+          <NavLink
+            value="Find Words"
+            className="link"
+            to="/wiki"
+            icon={findIcon}
+          />
+          <NavLink
+            value="About"
+            className="link"
+            to="/about"
+            icon={aboutIcon}
+          />
         </NavLinks>
         <hr />
         <DeckWrapper>
@@ -82,7 +95,7 @@ const Sidebar = ({
         <br />
         <br />
         <hr />
-        {auth.uid ? <VocabList deck={currentDeck} /> : <br />}
+        {/* {auth.uid ? <VocabList deck={currentDeck} /> : <br />} */}
         <hr />
         <NewCard deck={currentDeck} />
       </SideBarWrapper>

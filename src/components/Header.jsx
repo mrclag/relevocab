@@ -21,7 +21,7 @@ const mapDispatchToProps = dispatch => {
 export default connect(null, mapDispatchToProps)(Header);
 
 const HeaderWrapper = styled.div`
-  position: absolute;
+  position: fixed;
   display: flex;
   flex-direction: row;
   top: 0;
@@ -43,6 +43,10 @@ const HeaderWrapper = styled.div`
     border: 1px solid #107bbd;
     outline: none;
     cursor: pointer;
+    @media screen and (max-width: 800px) {
+      margin-right: 5vw;
+      height: 50px;
+    }
   }
 
   .title {
