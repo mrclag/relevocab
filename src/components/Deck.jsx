@@ -16,6 +16,7 @@ const Deck = ({ deck, option, location }) => {
       onMouseEnter={toggleHover}
       onMouseLeave={toggleHover}
       selected={selected}
+      hovered={hovered}
     >
       <span className="deck-list-item">
         <div className="counter">{Object.keys(option.cards).length}</div>
@@ -35,13 +36,15 @@ const DeckWrapper = styled.div`
   vertical-align: middle;
   line-height: 30px;
   margin-top: 0px;
+  overflow: hidden
   display: flex;
   font-size: 0.8em;
   width: 250px;
   padding-left: 20px;
   padding-right: 30px;
-  background-color: ${props => (props.selected ? '#107bbd' : '')};
-  color: ${props => (props.selected ? 'white' : 'black')};
+  background-color: ${props =>
+    props.selected || props.hovered ? '#107bbd' : ''};
+  color: ${props => (props.selected || props.hovered ? 'white' : 'black')};
 
   .hide {
     display: none;
@@ -52,8 +55,9 @@ const DeckWrapper = styled.div`
   }
 
   .deck-list-item {
-    color: ${props => (props.selected ? 'black' : 'white')};
-    background: ${props => (props.selected ? 'white' : '#107bbd')};
+    color: ${props => (props.selected || props.hovered ? 'black' : 'white')};
+    background: ${props =>
+      props.selected || props.hovered ? 'white' : '#107bbd'};
     font-size: 0.8em;
     margin-right: 30px;
     font-weight: bold;

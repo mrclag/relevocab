@@ -24,15 +24,12 @@ const App = ({ auth, currentDeck }) => {
 
       {auth.uid ? (
         <>
-          <Sidebar deck={deck} setDeck={setDeck} />
-
+          <Sidebar />
           <Header />
-
           <Switch>
             <Route exact path="/" render={() => <Instructions />} />
-            <Route path="/practice" render={() => <StudyCards deck={deck} />} />
+            <Route path="/practice" render={() => <StudyCards />} />
             <Route path="/wiki" render={() => <WikiPage deck={deck} />} />
-            <Route path="/words" render={() => <WordPage deck={deck} />} />
             <Route path="/about" render={() => <About />} />
             <Route
               path="/deck"

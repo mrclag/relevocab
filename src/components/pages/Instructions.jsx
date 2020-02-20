@@ -28,7 +28,7 @@ const Instructions = () => {
 export default Instructions;
 
 const InstructionsWrapper = styled.div`
-  margin-left: 400px;
+  margin-left: 350px;
   margin-top: 15vh;
   font-size: 1.25em;
   width: 40vw;

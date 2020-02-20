@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 // Components
-import NewCard from './NewCard';
-import VocabList from './VocabList';
 import NavLink from './NavLink';
 import Deck from '../Deck';
 import AddDeckInput from './AddDeckInput';
@@ -92,12 +90,6 @@ const Sidebar = ({
           </div>
           <AddDeckInput />
         </DeckWrapper>
-        <br />
-        <br />
-        <hr />
-        {/* {auth.uid ? <VocabList deck={currentDeck} /> : <br />} */}
-        <hr />
-        <NewCard deck={currentDeck} />
       </SideBarWrapper>
     </>
   );

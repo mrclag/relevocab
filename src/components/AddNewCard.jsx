@@ -2,9 +2,6 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import { googleTranslate } from '../services/translate';
-
-import { NewCardWrapper } from '../styles/sidebar/NewCard.styles';
-
 import { connect } from 'react-redux';
 import { addNewCard } from '../store/actions/deckActions';
 
@@ -33,9 +30,9 @@ const NewCard = ({ deck, addNewCard }) => {
   };
 
   return (
-    <CardListItemWrapper>
+    <AddNewCardWrapper>
       <form onSubmit={onSubmit} className="add-new-card">
-        <div class="cardlistitem">
+        <div className="cardlistitem">
           <input
             type="text"
             placeholder="Front of card"
@@ -46,7 +43,7 @@ const NewCard = ({ deck, addNewCard }) => {
             ref={inputRef}
           />
         </div>
-        <div class="cardlistitem">
+        <div className="cardlistitem">
           <input
             type="text"
             placeholder="Back of card"
@@ -64,7 +61,7 @@ const NewCard = ({ deck, addNewCard }) => {
       >
         Translate
       </button> */}
-    </CardListItemWrapper>
+    </AddNewCardWrapper>
   );
 };
 
@@ -76,7 +73,7 @@ const mapDispatchToProps = dispatch => {
 
 export default connect(null, mapDispatchToProps)(React.memo(NewCard));
 
-const CardListItemWrapper = styled.div`
+const AddNewCardWrapper = styled.div`
   .add-new-card {
   display: flex;
   flex-direction: row;

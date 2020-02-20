@@ -60,7 +60,7 @@ export const NavLinks = styled.div`
 `;
 
 export const DeckWrapper = styled.div`
-  height: 18vh;
+  sheight: 50vh;
   .deck-header {
     display: flex;
     flex-direction: row;
@@ -82,9 +82,9 @@ export const DeckWrapper = styled.div`
         outline: 0;
       }
       .deck-add {
-        margin-top: -1px;
+        margin-top: 0px;
         font-size: 0.8em;
-        margin-left: -1px;
+        margin-left: 1px;
       }
     }
   }
@@ -92,7 +92,7 @@ export const DeckWrapper = styled.div`
     display: flex;
     overflow-y: overlay scroll;
     overflow-x: hidden;
-    height: 13vh;
+    max-height: 45vh;
     .deck-item {
       cursor: pointer;
       text-decoration: none;

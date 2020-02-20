@@ -27,6 +27,7 @@ const StudyCards = ({ currentDeck, currentCards }) => {
   }, []);
 
   const getRandomCard = cardPile => {
+    console.log(cardPile);
     let card = cardPile[Math.floor(Math.random() * cardPile.length)];
     return card;
   };
@@ -36,9 +37,7 @@ const StudyCards = ({ currentDeck, currentCards }) => {
   };
 
   const removeCard = () => {
-    const filteredCards = cardPile.filter(
-      card => card.front !== currentCard.front
-    );
+    const filteredCards = cardPile.filter(card => card.id !== currentCard.id);
     setCardPile(filteredCards);
     setCurrentCard(getRandomCard(filteredCards));
   };
@@ -52,7 +51,7 @@ const StudyCards = ({ currentDeck, currentCards }) => {
     <ContentWrapper>
       <div className="counter">
         {currentCards
-          ? `Cards left in deck: ${cardPile.length || 0} / ${
+          ? `Cards left in deck: ${cardPile.length || currentCards.length} / ${
               currentCards.length
             }`
           : ''}
@@ -69,25 +68,32 @@ const StudyCards = ({ currentDeck, currentCards }) => {
         />
       )}
       <div>
-        {cardPile.length > 0 ? (
-          currentCard && currentCard.front !== currentDeck.title ? (
-            <>
-              <CardButton color="#C57B57" onClick={updateCard}>
-                Again
-              </CardButton>
-              <CardButton color="#70A288" onClick={() => removeCard()}>
-                Good
-              </CardButton>
-            </>
-          ) : (
-            <CardButton color="#107bbd" onClick={() => resetDeck()}>
-              Start
-            </CardButton>
-          )
-        ) : (
+        {/* 
+      If the current card is the title card,
+        display start button
+      Else:
+        If there are no cards in the pile,
+          display reset button
+        else
+          display good and again buttons
+       */}
+        {currentCard && currentCard.front === currentDeck.title ? (
+          <CardButton color="#107bbd" onClick={() => resetDeck()}>
+            Start
+          </CardButton>
+        ) : cardPile.length === 0 ? (
           <CardButton color="black" onClick={() => resetDeck()}>
             Reset
           </CardButton>
+        ) : (
+          <>
+            <CardButton color="#C57B57" onClick={updateCard}>
+              Again
+            </CardButton>
+            <CardButton color="#70A288" onClick={() => removeCard()}>
+              Good
+            </CardButton>
+          </>
         )}
       </div>
     </ContentWrapper>
