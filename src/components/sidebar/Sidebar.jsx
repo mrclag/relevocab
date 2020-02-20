@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import useOnClickOutside from '../../utils/useOnClickOutside';
 
 // Components
 import NavLink from './NavLink';
@@ -47,12 +48,20 @@ const Sidebar = ({
     decksArray = initDeck;
   }
 
+  const ref = useRef();
+
+  useOnClickOutside(ref, () => {
+    if (window.innerWidth <= 800) {
+      setSidebarVis(false);
+    }
+  });
+
   return (
     <>
       <Hamburger>
         <img src={hamburger} alt="menu" onClick={() => toggleSidebar()} />
       </Hamburger>
-      <SideBarWrapper sidebarVis={sidebarVis}>
+      <SideBarWrapper sidebarVis={sidebarVis} ref={ref}>
         <NavLinks>
           <NavLink value="Home" className="link" to="/" icon={homeIcon} />
           <NavLink

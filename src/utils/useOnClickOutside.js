@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-export const useOnClickOutside = (ref, handler) => {
+const useOnClickOutside = (ref, handler) => {
   useEffect(() => {
     const listener = event => {
       if (!ref.current || ref.current.contains(event.target)) {
@@ -18,3 +18,5 @@ export const useOnClickOutside = (ref, handler) => {
     };
   }, [handler, ref]); // Empty array ensures that effect is only run on mount and unmount
 };
+
+export default useOnClickOutside;

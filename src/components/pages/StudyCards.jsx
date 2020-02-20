@@ -27,7 +27,6 @@ const StudyCards = ({ currentDeck, currentCards }) => {
   }, []);
 
   const getRandomCard = cardPile => {
-    console.log(cardPile);
     let card = cardPile[Math.floor(Math.random() * cardPile.length)];
     return card;
   };
