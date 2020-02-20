@@ -1,14 +1,10 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import { deleteDeck } from '../store/actions/deckActions';
-import { connect } from 'react-redux';
-
 import { withRouter } from 'react-router-dom';
-import deckIcon from '../images/deck.png';
 
-const Deck = ({ deck, option, deleteDeck, location }) => {
-  const selected = option.deckId === deck.deckId;
+const Deck = ({ deck, option, location }) => {
+  const selected = deck.deckId ? option.deckId === deck.deckId : false;
   const [hovered, setHovered] = useState(false);
 
   const toggleHover = () => {
@@ -22,19 +18,7 @@ const Deck = ({ deck, option, deleteDeck, location }) => {
       selected={selected}
     >
       <span className="deck-list-item">
-        <div className={hovered ? 'counter hide' : 'counter'}>
-          {Object.keys(option.cards).length}
-        </div>
-        {option.title ? (
-          <div
-            onClick={() => deleteDeck(option.deckId)}
-            className={hovered ? 'counter' : 'counter hide'}
-          >
-            X
-          </div>
-        ) : (
-          ''
-        )}
+        <div className="counter">{Object.keys(option.cards).length}</div>
       </span>
       <span>
         <span style={{ marginLeft: '10px', marginBottom: '15px' }}>
@@ -45,13 +29,7 @@ const Deck = ({ deck, option, deleteDeck, location }) => {
   );
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    deleteDeck: deckId => dispatch(deleteDeck(deckId))
-  };
-};
-
-export default connect(null, mapDispatchToProps)(withRouter(Deck));
+export default withRouter(Deck);
 
 const DeckWrapper = styled.div`
   vertical-align: middle;

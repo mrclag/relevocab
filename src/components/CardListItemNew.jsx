@@ -1,7 +1,6 @@
 import React from 'react';
 
 // import firebase from '../firebase';
-import { DeleteButton } from '../styles/sidebar/VocabList.styles';
 
 import { connect } from 'react-redux';
 import { deleteCard } from '../store/actions/deckActions';

@@ -5,8 +5,9 @@ export const SideBarWrapper = styled.div`
   width: 300px;
   position: absolute;
   top: 70px;
-  height: calc(100%);
+  height: 100vh;
   background-color: #f4f4f4;
+  overflow: hidden;
   border-right: 0.5px solid #9c9c9c;
   z-index: 3;
   hr {

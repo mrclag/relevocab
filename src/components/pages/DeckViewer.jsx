@@ -6,12 +6,15 @@ import { Link } from 'react-router-dom';
 import { deleteDeck } from '../../store/actions/deckActions';
 
 import CardListItemNew from '../CardListItemNew';
+import AddNewCard from '../AddNewCard';
 
 const DeckView = ({ deck, currentCards, deleteDeck }) => {
+  const existsSelectedDeck = deck.title;
+
   return (
     <DeckViewWrapper>
       <div className="cards-title">
-        {deck.title ? (
+        {existsSelectedDeck ? (
           <>
             <div>{deck.title}</div>
             <div>
@@ -32,19 +35,26 @@ const DeckView = ({ deck, currentCards, deleteDeck }) => {
           'Choose a Deck'
         )}
       </div>
-      <div className="cards-row-headers">
-        <h5>Front</h5>
-        <h5>Back</h5>
-      </div>
+      {existsSelectedDeck ? (
+        <>
+          <div className="cards-row-headers">
+            <h5>Front</h5>
+            <h5>Back</h5>
+          </div>
 
-      <div className="cards-list">
-        {currentCards &&
-          currentCards.map((card, i) => (
-            <div key={i}>
-              <CardListItemNew deck={deck} card={card} />
-            </div>
-          ))}
-      </div>
+          <div className="cards-list">
+            {currentCards &&
+              currentCards.map((card, i) => (
+                <div key={i}>
+                  <CardListItemNew deck={deck} card={card} />
+                </div>
+              ))}
+            <AddNewCard />
+          </div>
+        </>
+      ) : (
+        ''
+      )}
     </DeckViewWrapper>
   );
 };
@@ -98,7 +108,7 @@ const DeckViewWrapper = styled.div`
   }
 
   .cards-list{
-    height: 70vh; 
+    max-height: 70vh; 
     overflow-y: scroll;
     overflow-x: hide;
     width: 100%;

@@ -17,13 +17,13 @@ class Loading extends React.Component {
       <LoadingWrapper>
         <div>
           <ClipLoader
-            size={100}
+            size={80}
             //size={"150px"} this also works
             color={'#123abc'}
             loading={this.state.loading}
           />
         </div>
-        <div className="loading-text">loading...</div>
+        <div className="loading-text">Relevocab</div>
       </LoadingWrapper>
     );
   }
@@ -37,10 +37,12 @@ const LoadingWrapper = styled.div`
   top: 50%;
   transform: translate(-50%, -50%);
   display: flex;
+  text-align: center;
   flex-direction: column;
 
   .loading-text {
-    font-size: 1.5em;
+    font-size: 1.4em;
+    margin-top: 5vh;
     color: #123abc;
     font-family: Cairo;
   }
