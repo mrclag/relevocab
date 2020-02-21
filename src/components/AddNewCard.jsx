@@ -7,7 +7,7 @@ import { addNewCard } from '../store/actions/deckActions';
 
 import useFocus from '../utils/useFocus';
 
-const NewCard = ({ deck, addNewCard }) => {
+const NewCard = ({ deck, addNewCard, lang }) => {
   const [front, setFront] = useState('');
   const [back, setBack] = useState('');
   const [inputRef, setInputFocus] = useFocus();
@@ -21,9 +21,9 @@ const NewCard = ({ deck, addNewCard }) => {
     setInputFocus();
   };
 
-  const translateInput = input => {
-    googleTranslate.translate(input, 'es', function(err, translation) {
-      if (err || !translation.translatedText) {
+  const translateInput = (input, lang) => {
+    googleTranslate.translate(input, lang, function(err, translation) {
+      if (err || (translation && !translation.translatedText)) {
         setBack('no translation found');
       }
       setBack(translation.translatedText);
@@ -44,7 +44,10 @@ const NewCard = ({ deck, addNewCard }) => {
             ref={inputRef}
           />
         </div>
-        <div onClick={() => translateInput(front)} className="translate-input">
+        <div
+          onClick={() => translateInput(front, lang)}
+          className="translate-input"
+        >
           T
         </div>
         <div className="cardlistitem">

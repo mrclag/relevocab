@@ -22,11 +22,6 @@ const StudyCards = ({ currentDeck, currentCards }) => {
     setCurrentCard({ front: currentDeck.title, back: currentDeck.title });
   }, [currentCards]);
 
-  // // setting the pile to a dummy value when first loaded
-  // useEffect(() => {
-  //   setCardPile(currentDeck.cards);
-  // }, []);
-
   const getRandomCard = cardPile => {
     let card = cardPile[Math.floor(Math.random() * cardPile.length)];
     return card;

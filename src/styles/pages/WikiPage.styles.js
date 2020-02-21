@@ -37,7 +37,21 @@ export const WikiPageWrapper = styled.div`
     &-words {
       max-height: 75vh;
       overflow: scroll;
-      width: 420px;
+      width: 440px;
+      .search-moreWords {
+        height: 40px;
+        line-height: 40px;
+        color: white;
+        box-shadow: 1px 2px 3px 1px rgba(0, 0, 0, 0.1);
+        border-radius: 0px 7px 7px 0px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        transform: translateX(-5px);
+        text-align: center;
+        cursor: pointer;
+        background: #107bbd;
+        width: 20px;
+      }
     }
   }
   .moreWords {

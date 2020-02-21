@@ -52,18 +52,21 @@ const WikiPage = ({ addNewCard, currentDeck }) => {
           </button>
         </form>
         <div className="results">
-          {/* <h3 className="results-title">{page.raw ? page.raw.title : ''}</h3>
-          <div className="results-url">
-            <a href={page.raw ? page.raw.fullurl : 'Loading'}>
-              {page.raw ? page.raw.fullurl : ''}
-            </a>
-          </div> */}
           <div className="both-results">
             <div className="results-words">
               {page.words
                 ? page.words.slice(0, 15).map((word, i) => (
-                    <div onClick={() => onSelect(word)} key={i}>
-                      <Word word={word} selected={selectedWord} />
+                    <div style={{ display: 'flex', flexDirection: 'row' }}>
+                      <div>
+                        <Word word={word} selected={selectedWord} />
+                      </div>
+                      <div
+                        className="search-moreWords"
+                        onClick={() => onSelect(word)}
+                        key={i}
+                      >
+                        >
+                      </div>
                     </div>
                   ))
                 : ''}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -11,14 +11,21 @@ import AddNewCard from '../AddNewCard';
 const DeckView = ({ currentCards, currentDeck, deleteDeck }) => {
   const existsSelectedDeck = currentDeck.title;
 
-
+  const [lang, setLang] = useState('');
 
   return (
     <DeckViewWrapper>
-      <div className="cards-title">
-        {existsSelectedDeck ? (
-          <>
+      {existsSelectedDeck ? (
+        <>
+          <div className="cards-title">
             <div>{currentDeck.title}</div>
+            <input
+              type="text"
+              value={lang}
+              className="language-select"
+              onChange={e => setLang(e.currentTarget.value)}
+              placeholder="es, zh, de, it, ru, etc..."
+            />
             <div>
               <button className="button button-practice">
                 <Link to="/practice" style={{ textDecoration: 'none' }}>
@@ -32,18 +39,7 @@ const DeckView = ({ currentCards, currentDeck, deleteDeck }) => {
                 Remove
               </button>
             </div>
-          </>
-        ) : (
-          'Choose a Deck'
-        )}
-      </div>
-      {existsSelectedDeck ? (
-        <>
-          <div className="cards-row-headers">
-            <h5>Front</h5>
-            <h5>Back</h5>
           </div>
-
           <div className="cards-list">
             {currentCards &&
               currentCards.map((card, i) => (
@@ -52,12 +48,12 @@ const DeckView = ({ currentCards, currentDeck, deleteDeck }) => {
                 </div>
               ))}
             <div>
-              <AddNewCard />
+              <AddNewCard lang={lang} />
             </div>
           </div>
         </>
       ) : (
-        ''
+        'Choose a Deck'
       )}
     </DeckViewWrapper>
   );
@@ -86,6 +82,13 @@ const DeckViewWrapper = styled.div`
   width: 60vw
   margin-top: 100px;
   overflow: hidden;
+  .language-select{
+    height: 35px;
+    line-height: 35px;
+    margin-left: 10px;
+    margin-right: 10px;
+    transform: translateX(-50%);
+  }
   .button{
     font-size: 0.8em;
     width: 100px;
