@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import Sidebar from './components/sidebar/Sidebar';
 import StudyCards from './components/pages/StudyCards';
@@ -15,8 +15,6 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 const App = ({ auth, currentDeck }) => {
-  const [deck, setDeck] = useState({ value: 'words' });
-
   return (
     <Router>
       <GlobalStyle />
@@ -28,12 +26,9 @@ const App = ({ auth, currentDeck }) => {
           <Switch>
             <Route exact path="/" render={() => <Instructions />} />
             <Route path="/practice" render={() => <StudyCards />} />
-            <Route path="/wiki" render={() => <WikiPage deck={deck} />} />
+            <Route path="/wiki" render={() => <WikiPage />} />
             <Route path="/about" render={() => <About />} />
-            <Route
-              path="/deck"
-              render={() => <DeckViewer deck={currentDeck} />}
-            />
+            <Route path="/deck" render={() => <DeckViewer />} />
           </Switch>
         </>
       ) : (

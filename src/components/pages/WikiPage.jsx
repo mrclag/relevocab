@@ -4,11 +4,10 @@ import { countWords } from '../../utils/countWords.js';
 import Word from '../Word';
 import { connect } from 'react-redux';
 import { getWords } from '../../services/wordAPI.js';
-import searchIcon from '../../images/search.png';
 
 import { WikiPageWrapper } from '../../styles/pages/WikiPage.styles';
 
-const WikiPage = ({ deck, addNewCard, currentDeck }) => {
+const WikiPage = ({ addNewCard, currentDeck }) => {
   const [page, setPage] = useState({});
   const [searchInput, setSearchInput] = useState('');
   const [words, setWords] = useState([]);
@@ -64,7 +63,7 @@ const WikiPage = ({ deck, addNewCard, currentDeck }) => {
               {page.words
                 ? page.words.slice(0, 15).map((word, i) => (
                     <div onClick={() => onSelect(word)} key={i}>
-                      <Word deck={deck} word={word} selected={selectedWord} />
+                      <Word word={word} selected={selectedWord} />
                     </div>
                   ))
                 : ''}

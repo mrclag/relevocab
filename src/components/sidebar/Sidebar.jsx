@@ -27,20 +27,11 @@ import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
 import { setCurrentDeck } from '../../store/actions/deckActions';
 
-const Sidebar = ({
-  setCurrentDeck,
-  currentDeck,
-  options,
-  decks,
-  auth,
-  initDeck
-}) => {
+const Sidebar = ({ setCurrentDeck, currentDeck, decks, auth, initDeck }) => {
   let decksArray;
 
   const [sidebarVis, setSidebarVis] = useState(true);
   const toggleSidebar = () => setSidebarVis(!sidebarVis);
-
-  useEffect(() => {}, [currentDeck]);
 
   if (decks) {
     decksArray = Object.keys(decks).map(key => decks[key]);
@@ -57,11 +48,11 @@ const Sidebar = ({
   });
 
   return (
-    <>
+    <div ref={ref}>
       <Hamburger>
         <img src={hamburger} alt="menu" onClick={() => toggleSidebar()} />
       </Hamburger>
-      <SideBarWrapper sidebarVis={sidebarVis} ref={ref}>
+      <SideBarWrapper sidebarVis={sidebarVis}>
         <NavLinks>
           <NavLink value="Home" className="link" to="/" icon={homeIcon} />
           <NavLink
@@ -85,22 +76,25 @@ const Sidebar = ({
           <div className="deck-items">
             <div>
               {decksArray &&
-                decksArray.map((option, i) => (
-                  <Link
-                    className="deck-item"
-                    key={i}
-                    onClick={() => setCurrentDeck(option)}
-                    to="/deck"
-                  >
-                    <Deck deck={currentDeck} option={option} />
-                  </Link>
-                ))}
+                decksArray.map(
+                  (option, i) =>
+                    option && (
+                      <Link
+                        className="deck-item"
+                        key={i}
+                        onClick={() => setCurrentDeck(option)}
+                        to="/deck"
+                      >
+                        <Deck deck={currentDeck} option={option} />
+                      </Link>
+                    )
+                )}
             </div>
           </div>
           <AddDeckInput />
         </DeckWrapper>
       </SideBarWrapper>
-    </>
+    </div>
   );
 };
 

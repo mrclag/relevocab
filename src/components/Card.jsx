@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { CardContainer } from '../styles/Card.styles';
 
 const Card = ({ front, back, flipped, setFlipped }) => {

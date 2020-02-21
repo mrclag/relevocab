@@ -11,6 +11,8 @@ import AddNewCard from '../AddNewCard';
 const DeckView = ({ currentCards, currentDeck, deleteDeck }) => {
   const existsSelectedDeck = currentDeck.title;
 
+
+
   return (
     <DeckViewWrapper>
       <div className="cards-title">
@@ -49,7 +51,9 @@ const DeckView = ({ currentCards, currentDeck, deleteDeck }) => {
                   <CardListItemNew deck={currentDeck} card={card} />
                 </div>
               ))}
-            <AddNewCard />
+            <div>
+              <AddNewCard />
+            </div>
           </div>
         </>
       ) : (

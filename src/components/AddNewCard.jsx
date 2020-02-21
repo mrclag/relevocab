@@ -13,6 +13,7 @@ const NewCard = ({ deck, addNewCard }) => {
   const [inputRef, setInputFocus] = useFocus();
 
   const onSubmit = e => {
+    console.log('submitting');
     e.preventDefault();
     addNewCard({ front, back });
     setFront('');
@@ -43,6 +44,9 @@ const NewCard = ({ deck, addNewCard }) => {
             ref={inputRef}
           />
         </div>
+        <div onClick={() => translateInput(front)} className="translate-input">
+          T
+        </div>
         <div className="cardlistitem">
           <input
             type="text"
@@ -52,7 +56,7 @@ const NewCard = ({ deck, addNewCard }) => {
             maxLength="14"
           />
         </div>
-        <button className="addbutton">Add New Card</button>
+        <input type="submit" className="addbutton" value="Add" />
       </form>
       {/* <button
         onClick={() => translateInput(front)}
@@ -75,34 +79,49 @@ export default connect(null, mapDispatchToProps)(React.memo(NewCard));
 
 const AddNewCardWrapper = styled.div`
   .add-new-card {
-  display: flex;
-  flex-direction: row;
-  margin: 0px;
-  height: 50px;
-  text-align: center;
-  line-height: 50px;
-  vertical-align: middle;
-  width: 100%;
-  height: 100%;
-  .cardlistitem {
-    border: 1px solid #eee;
-    width: 30vw;
-    input {
-      border: none;
-      text-align: center;
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    margin: 0px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    vertical-align: middle;
+    width: 100%;
+    height: 100%;
+    .cardlistitem {
+      border: 1px solid #eee;
+      width: 45%;
+      input {
+        border: none;
+        text-align: center;
+        outline: none;
+      }
+      @media screen and (max-width: 800px) {
+        width: 45%;
+      }
     }
-    @media screen and (max-width: 800px) {
-      width: 45vw;
+    .addbutton {
+      border: 1px solid #eee
+      width: 52px;
+      background: lightgreen;
+      cursor: pointer;
+      @media screen and (max-width: 800px){
+        width: 10%;
+      }
     }
   }
-  .addbutton {
-    border: 1px solid #eee
-    width: 50px;
-    background: lightgreen;
-    cursor: pointer;
-    @media screen and (max-width: 800px){
-      width: 10vw;
-    }
-  }
+  .translate-input {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    position: absolute;
+    left: calc(45% + 2px);
+    top: 10px;
+    border: 1px solid black;
+    line-height: 30px;
+    background: white;
+    cursor: pointer
+    transform: translateX(-50%);
   }
 `;
