@@ -8,15 +8,15 @@ import { deleteDeck } from '../../store/actions/deckActions';
 import CardListItemNew from '../CardListItemNew';
 import AddNewCard from '../AddNewCard';
 
-const DeckView = ({ deck, currentCards, deleteDeck }) => {
-  const existsSelectedDeck = deck.title;
+const DeckView = ({ currentCards, currentDeck, deleteDeck }) => {
+  const existsSelectedDeck = currentDeck.title;
 
   return (
     <DeckViewWrapper>
       <div className="cards-title">
         {existsSelectedDeck ? (
           <>
-            <div>{deck.title}</div>
+            <div>{currentDeck.title}</div>
             <div>
               <button className="button button-practice">
                 <Link to="/practice" style={{ textDecoration: 'none' }}>
@@ -24,7 +24,7 @@ const DeckView = ({ deck, currentCards, deleteDeck }) => {
                 </Link>
               </button>
               <button
-                onClick={() => deleteDeck(deck.deckId)}
+                onClick={() => deleteDeck(currentDeck.deckId)}
                 className="button button-delete"
               >
                 Remove
@@ -46,7 +46,7 @@ const DeckView = ({ deck, currentCards, deleteDeck }) => {
             {currentCards &&
               currentCards.map((card, i) => (
                 <div key={i}>
-                  <CardListItemNew deck={deck} card={card} />
+                  <CardListItemNew deck={currentDeck} card={card} />
                 </div>
               ))}
             <AddNewCard />
@@ -61,7 +61,8 @@ const DeckView = ({ deck, currentCards, deleteDeck }) => {
 
 const mapStateToProps = state => {
   return {
-    currentCards: state.deck.currentCards
+    currentCards: state.deck.currentCards,
+    currentDeck: state.deck.currentDeck
   };
 };
 

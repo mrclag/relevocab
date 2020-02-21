@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import Sidebar from './components/sidebar/Sidebar';
 import StudyCards from './components/pages/StudyCards';
 import WikiPage from './components/pages/WikiPage';
-import WordPage from './components/pages/WordPage';
 import About from './components/pages/About';
 import LoginPage from './components/pages/LoginPage';
 import Header from './components/Header';

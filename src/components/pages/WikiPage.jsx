@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { getWikiPage } from '../../services/wikiAPI.js';
 import { countWords } from '../../utils/countWords.js';
 import Word from '../Word';
-import WordPage from './WordPage';
 import { connect } from 'react-redux';
 import { getWords } from '../../services/wordAPI.js';
 import searchIcon from '../../images/search.png';
@@ -72,7 +71,8 @@ const WikiPage = ({ deck, addNewCard, currentDeck }) => {
             </div>
             {selectedWord && (
               <div className="moreWords">
-                <WordPage words={words} />
+                {words &&
+                  words.map((word, i) => <Word key={i} word={word.word} />)}
               </div>
             )}
           </div>

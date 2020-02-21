@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { CardContainer } from '../styles/Card.styles';
 
-const Card = ({ front, back }) => {
-  const [flipped, setFlipped] = useState(false);
+const Card = ({ front, back, flipped, setFlipped }) => {
+  
   return (
     <CardContainer onClick={() => setFlipped(!flipped)} flipped={flipped}>
       <div className="card">

@@ -14,6 +14,7 @@ const StudyCards = ({ currentDeck, currentCards }) => {
     front: 'FRONT',
     back: 'BACK'
   });
+  const [flipped, setFlipped] = useState(false);
 
   // setting the pile to the current cards whenever it is rerendered/new selection
   useEffect(() => {
@@ -21,10 +22,10 @@ const StudyCards = ({ currentDeck, currentCards }) => {
     setCurrentCard({ front: currentDeck.title, back: currentDeck.title });
   }, [currentCards]);
 
-  // setting the pile to a dummy value when first loaded
-  useEffect(() => {
-    setCardPile(currentDeck.cards);
-  }, []);
+  // // setting the pile to a dummy value when first loaded
+  // useEffect(() => {
+  //   setCardPile(currentDeck.cards);
+  // }, []);
 
   const getRandomCard = cardPile => {
     let card = cardPile[Math.floor(Math.random() * cardPile.length)];
@@ -33,12 +34,14 @@ const StudyCards = ({ currentDeck, currentCards }) => {
 
   const updateCard = () => {
     setCurrentCard(getRandomCard(cardPile));
+    setFlipped(false);
   };
 
   const removeCard = () => {
     const filteredCards = cardPile.filter(card => card.id !== currentCard.id);
     setCardPile(filteredCards);
     setCurrentCard(getRandomCard(filteredCards));
+    setFlipped(false);
   };
 
   const resetDeck = () => {
@@ -59,11 +62,15 @@ const StudyCards = ({ currentDeck, currentCards }) => {
         <Card
           front={currentCard.front || currentDeck.value}
           back={currentCard.back}
+          flipped={flipped}
+          setFlipped={setFlipped}
         />
       ) : (
         <Card
           front={<div className="deckend-text">End of Deck</div>}
           back="End of Deck"
+          flipped={flipped}
+          setFlipped={setFlipped}
         />
       )}
       <div>
