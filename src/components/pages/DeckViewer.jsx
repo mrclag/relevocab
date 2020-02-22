@@ -93,6 +93,7 @@ const DeckViewWrapper = styled.div`
     font-size: 0.8em;
     width: 100px;
     margin-right: 10px;
+    border: none;
     &-delete {
       background: pink;
     }
@@ -103,6 +104,7 @@ const DeckViewWrapper = styled.div`
   .cards-title {
     font-size: 1.5em;
     display: flex;
+    width: 100%;
     flex-direction: row;
     justify-content: space-between;
     font-weight: bold

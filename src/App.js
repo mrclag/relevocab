@@ -8,6 +8,7 @@ import LoginPage from './components/pages/LoginPage';
 import Header from './components/Header';
 import Instructions from './components/pages/Instructions';
 import DeckViewer from './components/pages/DeckViewer';
+import LyricsPage from './components/pages/LyricsPage';
 
 import { GlobalStyle } from './styles/global-styles';
 
@@ -29,6 +30,7 @@ const App = ({ auth, currentDeck }) => {
             <Route path="/wiki" render={() => <WikiPage />} />
             <Route path="/about" render={() => <About />} />
             <Route path="/deck" render={() => <DeckViewer />} />
+            <Route path="/songs" render={() => <LyricsPage />} />
           </Switch>
         </>
       ) : (
