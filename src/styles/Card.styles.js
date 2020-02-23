@@ -6,7 +6,7 @@ export const CardContainer = styled.div`
     height: 320px;
     margin: 40px 0;
     perspective: 600px;
-    transition: transform 0.2s;
+    transition: transform 1s;
     transform-style: preserve-3d;
     cursor: pointer;
     box-shadow: 3px 4px 8px 1px rgba(0, 0, 0, 0.3);

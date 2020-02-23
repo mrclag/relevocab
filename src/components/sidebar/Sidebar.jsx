@@ -12,6 +12,7 @@ import hamburger from '../../images/menu.png';
 import homeIcon from '../../images/homeIcon.png';
 import findIcon from '../../images/findWordsIcon.png';
 import aboutIcon from '../../images/aboutIcon.png';
+import deck from '../../images/deck.png';
 
 // Styles
 import {
@@ -67,6 +68,7 @@ const Sidebar = ({ setCurrentDeck, currentDeck, decks, auth, initDeck }) => {
             to="/about"
             icon={aboutIcon}
           />
+          <NavLink value="Songs" className="link" to="/songs" icon={deck} />
         </NavLinks>
         <hr />
         <DeckWrapper>

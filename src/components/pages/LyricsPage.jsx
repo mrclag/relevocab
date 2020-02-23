@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import SongResult from '../SongResult';
 import styled from 'styled-components';
+import { mapSongData } from '../../utils/createLyricCards';
 
 const LyricsPage = () => {
   // originally have hard data of lyrics to post /song libray
@@ -30,13 +31,16 @@ const LyricsPage = () => {
       </form>
       <div className="results-output">Found 5 results:</div>
       <div className="results">
-        <SongResult name="First Result" />
-        <SongResult name="Second Result" />
-        <SongResult name="Third Result" />
-        <SongResult name="Fourth Result" />
-        <SongResult name="Fifth Result" />
-        <SongResult name="Sixth Result" />
-        <SongResult name="Seventh Result" />
+        {Object.keys(mapSongData(bigData)).map(key => (
+          <SongResult data={bigData[key]} />
+        ))}
+        {/* <SongResult name="First Result" data={testData} />
+        <SongResult name="Second Result" data={testData} />
+        <SongResult name="Third Result" data={testData} />
+        <SongResult name="Fourth Result" data={testData} />
+        <SongResult name="Fifth Result" data={testData} />
+        <SongResult name="Sixth Result" data={testData} />
+        <SongResult name="Seventh Result" data={testData} /> */}
       </div>
     </LyricsPageWrapper>
   );
@@ -106,3 +110,83 @@ const LyricsPageWrapper = styled.div`
     }
   }
 `;
+
+const testData = {
+  title: 'Awesome Song',
+  artist: 'Matt Clagett',
+  cards: {
+    1: {
+      front: 'hello',
+      back: 'hola'
+    },
+    2: {
+      front: 'what',
+      back: 'que'
+    },
+    3: {
+      front: 'is',
+      back: 'es'
+    },
+    4: {
+      front: 'your',
+      back: 'su'
+    },
+    5: {
+      front: 'favorite',
+      back: 'favorito'
+    },
+    6: {
+      front: 'type',
+      back: 'tipo'
+    },
+    7: {
+      front: 'of',
+      back: 'de'
+    },
+    8: {
+      front: 'iced beverage',
+      back: 'bebido con hielo'
+    },
+    9: {
+      front: 'traffic',
+      back: 'trafico'
+    },
+    10: {
+      front: 'trees',
+      back: 'arboles'
+    }
+  }
+};
+
+const bigData = {
+  1: {
+    title: 'This is a test',
+    artist: 'Capn Crunch',
+    lyrics:
+      'Who lives in a pineapple under the sea? Spongebob Squarepants! Absorbant and yellow and poreous is he!'
+  },
+  2: {
+    title: 'An awesome song',
+    artist: 'Matt Clagett',
+    lyrics:
+      'Here is a bunch of random words porcupine apple table jump red seventeen'
+  },
+  3: {
+    title: 'Truth',
+    artist: 'Higher Power',
+    lyrics:
+      'I always go to starbucks and just get a free hot water so I can make tea or ramen'
+  },
+  4: {
+    title: 'Directions',
+    artist: 'Google Maps',
+    lyrics:
+      'Take a left turn at main street and then keep going down until you get to target and then buy me a new pillow'
+  },
+  5: {
+    title: 'Love song',
+    artist: 'Romeo Santos',
+    lyrics:
+      'Ooh la la la la eso es una cancion de amor. Chingar conmigo y vas a tener buena suerte.'
+  }
+};
