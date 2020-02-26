@@ -101,27 +101,29 @@ const MainLandingWrapper = styled.div`
   color: white;
   padding-top: 25vh;
   height: 100vh;
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 800px) {
     padding-top: 15vh;
   }
   .landing-text {
     position: absolute;
     left: 10vw;
-    width: 500px;
-    @media screen and (max-width: 1024px) {
+    width: 550px;
+    @media screen and (max-width: 800px) {
       width: 80vw;
     }
   }
   .heading {
     margin-bottom: 50px;
-    font-size: 3rem;
+    font-size: 50px;
   }
   .description {
-    font-size: 2.5rem;
+    font-size: 45px;
     margin-bottom: 80px;
     &-text {
       color: white;
-      font-size: 1.8rem;
+      font-size: 30px;
+    }
+    @media screen and (max-width: 800px) {
     }
   }
   button {

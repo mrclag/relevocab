@@ -50,7 +50,6 @@ export default LyricsPage;
 
 const LyricsPageWrapper = styled.div`
   margin-left: 350px;
-  width: 60vw;
 
   .search-form {
     &-input {
@@ -79,7 +78,7 @@ const LyricsPageWrapper = styled.div`
     overflow-y: scroll;
 
     &-result {
-      height: 100px;
+      min-height: 100px;
       /* border: 0.5px solid blue; */
       border-bottom: 0.5px solid black;
       margin-bottom: 10px;
@@ -101,11 +100,34 @@ const LyricsPageWrapper = styled.div`
     }
     &-cards {
       color: darkblue;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 600px;
       .card {
         border: 0.5px solid darkblue;
         margin-right: 3px;
-        padding: 0px 10px;
+        margin-bottom: 3px;
+        padding: 3px 10px;
         font-size: 0.8em;
+      }
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    margin-left: 0px;
+    .search-form {
+      &-input {
+        width: 70vw;
+        border: 1px solid #333;
+        margin-top: 40px;
+        padding-left: 15px;
+      }
+      &-submit {
+        @media screen and (max-width: 800px) {
+          width: 25vw;
+          margin-left: 0px;
+        }
       }
     }
   }

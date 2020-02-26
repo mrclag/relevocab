@@ -5,9 +5,10 @@ import styled from 'styled-components';
 const Instructions = () => {
   return (
     <InstructionsWrapper>
-      <h1>Get Started:</h1>
+      <h1>Welcome to Relevocab!</h1>
       <div>
-        <ul>
+        To get started,
+        <ol>
           <li>Add a new deck</li>
           <li>
             Add new cards to your deck on the bottom of the sidebar, or select
@@ -18,7 +19,7 @@ const Instructions = () => {
             Press Good to remove card from pile, and Again to place the card
             back in the deck.
           </li>
-        </ul>
+        </ol>
         <br />
       </div>
     </InstructionsWrapper>
@@ -29,7 +30,7 @@ export default Instructions;
 
 const InstructionsWrapper = styled.div`
   margin-left: 350px;
-  margin-top: 15vh;
+  margin-top: 100px;
   font-size: 1.25em;
   width: 40vw;
   li {

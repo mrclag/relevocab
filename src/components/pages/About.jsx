@@ -43,8 +43,8 @@ const About = () => {
 export default About;
 
 const AboutWrapper = styled.div`
-  margin-left: 400px;
-  margin-top: 15vh;
+  margin-left: 350px;
+  margin-top: 100px;
   font-size: 1.1em;
   .contact-form {
     margin-top: 8vh;

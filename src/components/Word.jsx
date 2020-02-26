@@ -105,11 +105,14 @@ const WordWrapper = styled.div`
   @media screen and (max-width: 800px){
     width: 100%;
     .word-text-front{
-      width: 45vw;
-      margin-left: 10px
+      width: 36vw;
+      margin-left: 8px
     }
     .word-text-back{
-      width: 48vw;
+      width: 40vw;
+    }
+    .word-add-button{
+
     }
   }
 `;

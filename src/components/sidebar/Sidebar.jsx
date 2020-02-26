@@ -8,11 +8,15 @@ import Deck from '../Deck';
 import AddDeckInput from './AddDeckInput';
 
 // Icons
-import hamburger from '../../images/menu.png';
-import homeIcon from '../../images/homeIcon.png';
-import findIcon from '../../images/findWordsIcon.png';
-import aboutIcon from '../../images/aboutIcon.png';
-import deck from '../../images/deck.png';
+import hamburger from '../../images/menu_b.png';
+import home_b from '../../images/home_b.png';
+import home_w from '../../images/home_w.png';
+import search_b from '../../images/search_b.png';
+import search_w from '../../images/search_w.png';
+import about_b from '../../images/about_b.png';
+import about_w from '../../images/about_w.png';
+import lyrics_b from '../../images/lyrics_b.png';
+import lyrics_w from '../../images/lyrics_w.png';
 
 // Styles
 import {
@@ -55,20 +59,30 @@ const Sidebar = ({ setCurrentDeck, currentDeck, decks, auth, initDeck }) => {
       </Hamburger>
       <SideBarWrapper sidebarVis={sidebarVis}>
         <NavLinks>
-          <NavLink value="Home" className="link" to="/" icon={homeIcon} />
+          <NavLink
+            value="Home"
+            className="link"
+            to="/"
+            icon={[home_b, home_w]}
+          />
           <NavLink
             value="Find Words"
             className="link"
             to="/wiki"
-            icon={findIcon}
+            icon={[search_b, search_w]}
           />
           <NavLink
             value="About"
             className="link"
             to="/about"
-            icon={aboutIcon}
+            icon={[about_b, about_w]}
           />
-          <NavLink value="Songs" className="link" to="/songs" icon={deck} />
+          <NavLink
+            value="Songs"
+            className="link"
+            to="/songs"
+            icon={[lyrics_b, lyrics_w]}
+          />
         </NavLinks>
         <hr />
         <DeckWrapper>

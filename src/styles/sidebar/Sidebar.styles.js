@@ -28,8 +28,8 @@ export const Hamburger = styled.div`
   padding-top: 10px;
   padding-bottom: 10px;
   img {
-    height: 30px;
-    width: 30px;
+    height: 20px;
+    width: 20px;
   }
 `;
 
@@ -47,6 +47,7 @@ export const NavLinks = styled.div`
     text-decoration: none;
     height: 30px;
     margin: auto 0;
+    font-size: 15px;
     vertical-align: middle;
     line-height: 30px;
     width: calc(100%-20px);
@@ -56,11 +57,12 @@ export const NavLinks = styled.div`
     height: 15px;
     width: 15px;
     margin-right: 10px;
+    transform: translate(1.5px, 1.5px);
   }
 `;
 
 export const DeckWrapper = styled.div`
-  sheight: 50vh;
+  height: 50vh;
   .deck-header {
     display: flex;
     flex-direction: row;
@@ -103,16 +105,20 @@ export const DeckWrapper = styled.div`
     & input {
       width: calc(100%-45px);
       border: none;
-
       line-height: 20px;
       margin-top: 5px;
       font-size: 0.8em;
       background: #f4f4f4;
-      margin-left: 10px;
+      margin-left: 14px;
       outline: none;
     }
     & .add-button {
       margin-left: 20px;
+      img {
+        width: 14px;
+        height: 14px;
+        transform: translate(1.5px, 1.5px);
+      }
     }
   }
 `;

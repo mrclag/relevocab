@@ -5,23 +5,21 @@ const NavLink = ({ value, to, location, icon }) => {
   const [hovered, setHovered] = useState(false);
   const toggleHover = () => setHovered(!hovered);
 
+  const selected = hovered || location.pathname === to;
+
   return (
     <Link
       className="nav-link"
       style={{
-        color: hovered || location.pathname === to ? 'white' : 'black',
-        borderBottom:
-          hovered || location.pathname === to
-            ? '2px solid #107bbd'
-            : '2px solid #f4f4f4',
-        backgroundColor:
-          hovered || location.pathname === to ? '#107bbd' : '#f4f4f4'
+        color: selected ? 'white' : 'black',
+        borderBottom: selected ? '2px solid #107bbd' : '2px solid #f4f4f4',
+        backgroundColor: selected ? '#107bbd' : '#f4f4f4'
       }}
       to={to}
       onMouseEnter={toggleHover}
       onMouseLeave={toggleHover}
     >
-      <img src={icon} alt="icon" />
+      <img src={selected ? icon[1] : icon[0]} alt="icon" />
       {value}
     </Link>
   );

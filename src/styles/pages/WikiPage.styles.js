@@ -51,6 +51,9 @@ export const WikiPageWrapper = styled.div`
         cursor: pointer;
         background: #107bbd;
         width: 20px;
+        @media screen and (max-width: 800px) {
+          width: 30px;
+        }
       }
     }
   }
