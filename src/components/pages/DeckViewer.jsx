@@ -7,6 +7,7 @@ import { deleteDeck } from '../../store/actions/deckActions';
 
 import CardListItemNew from '../CardListItemNew';
 import AddNewCard from '../AddNewCard';
+import Dropdown from '../Dropdown';
 
 const DeckView = ({ currentCards, currentDeck, deleteDeck }) => {
   const existsSelectedDeck = currentDeck.title;
@@ -19,13 +20,13 @@ const DeckView = ({ currentCards, currentDeck, deleteDeck }) => {
         <>
           <div className="cards-title">
             <div>{currentDeck.title}</div>
-            <input
+            {/* <input
               type="text"
               value={lang}
               className="language-select"
               onChange={e => setLang(e.currentTarget.value)}
               placeholder="es, zh, de, it, ru, etc..."
-            />
+            /> */}
             <div>
               <button className="button button-practice">
                 <Link to="/practice" style={{ textDecoration: 'none' }}>
@@ -39,6 +40,9 @@ const DeckView = ({ currentCards, currentDeck, deleteDeck }) => {
                 Remove
               </button>
             </div>
+          </div>
+          <div className="dropdown">
+            <Dropdown lang={lang} setLang={setLang} />
           </div>
           <div className="cards-list">
             {currentCards &&
@@ -115,6 +119,13 @@ const DeckViewWrapper = styled.div`
     h5 {
       width: 30vw;
     }
+  }
+  .dropdown {
+    width: 300px;
+    height: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 12px;
   }
 
   .cards-list{

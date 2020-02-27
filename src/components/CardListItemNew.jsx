@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { deleteCard } from '../store/actions/deckActions';
 
 import styled from 'styled-components';
+import trash from '../images/trash.png';
 
 const CardListItemNew = ({ deck, card, deleteCard }) => {
   return (
@@ -13,7 +14,7 @@ const CardListItemNew = ({ deck, card, deleteCard }) => {
       <div className="cardlistitem">{card.front}</div>
       <div className="cardlistitem">{card.back} </div>
       <div className="deletebutton" onClick={() => deleteCard(card.id)}>
-        X
+        <img className="trash" src={trash} alt="" />
       </div>
     </CardListItemWrapper>
   );
@@ -49,6 +50,11 @@ const CardListItemWrapper = styled.div`
     width: 50px;
     background: pink;
     cursor: pointer;
+    .trash {
+      width: 20px;
+      height: 20px;
+      transform: translateY(5px);
+    }
     @media screen and (max-width: 800px){
       width: 10%;
     }

@@ -1,62 +1,42 @@
-import React, { useState } from 'react';
+import React, { Component, Fragment } from 'react';
 
-export const Select = () => {
-  let options = [
-    { key: 'o1', value: 'Option 1' },
-    { key: 'o2', value: 'Option 2' },
-    { key: 'o3', value: 'Option 3' },
-    { key: 'o4', value: 'Option 4' },
-    { key: 'o5', value: 'Option 5' }
-  ];
+import Select from 'react-select';
 
-  const [opened, setOpened] = useState(false);
-  const [selected, setSelected] = useState('Select');
+const options = [
+  { value: 'zz', label: 'Select a Language to Translate To' },
+  { value: 'es', label: 'Spanish' },
+  { value: 'ar', label: 'Arabic' },
+  { value: 'it', label: 'Italian' },
+  { value: 'ja', label: 'Japanese' },
+  { value: 'ms', label: 'Malay' },
+  { value: 'zh', label: 'Chinese (Simplified)' },
+  { value: 'fa', label: 'Persian' },
+  { value: 'dl', label: 'Dutch' },
+  { value: 'pt', label: 'Portuguese' },
+  { value: 'fr', label: 'French' },
+  { value: 'de', label: 'German' },
+  { value: 'id', label: 'Indonesian' },
+  { value: 'hi', label: 'Hindi' },
+  { value: 'uk', label: 'Ukrainian' },
+  { value: 'sv', label: 'Swedish' },
+  { value: 'ru', label: 'Russian' }
+];
 
-  const onOpen = () => {
-    setOpened(!opened);
+const Dropdown = ({ lang, setLang }) => {
+  const handleChange = selectedOption => {
+    setLang(selectedOption.value);
   };
-
-  const onSelect = option => {
-    setSelected(option);
-    setOpened(false);
-  };
-
-  let cssClass = opened ? 'show' : 'hide';
 
   return (
-    <div className="select" onClick={onOpen}>
-      <span>{selected}</span>
-      <ul className={cssClass}>
-        {options.map(o => (
-          <li>
-            <a href="#" onClick={onSelect}>
-              {o.value}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <Select
+      className="basic-single"
+      classNamePrefix="select"
+      defaultValue={options[0]}
+      name="color"
+      onChange={handleChange}
+      options={options}
+    />
   );
 };
 
-class Option extends React.Component {
-  constructor(props) {
-    super(props);
-    this.onSelect = this.onSelect.bind(this);
-  }
-
-  onSelect(e) {
-    e.preventDefault();
-    this.props.onSelect(this.props.option);
-  }
-
-  render() {
-    return (
-      <li>
-        <a href="#" onClick={this.onSelect}>
-          {this.props.option.value}
-        </a>
-      </li>
-    );
-  }
-}
+export default Dropdown;

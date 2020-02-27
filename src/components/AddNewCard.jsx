@@ -26,7 +26,7 @@ const NewCard = ({ deck, addNewCard, lang }) => {
       if (err || (translation && !translation.translatedText)) {
         setBack('no translation found');
       }
-      setBack(translation.translatedText);
+      translation && setBack(translation.translatedText);
     });
   };
 
@@ -121,9 +121,10 @@ const AddNewCardWrapper = styled.div`
     position: absolute;
     left: calc(45% + 2px);
     top: 10px;
-    border: 1px solid black;
+    border: 1px solid #107bbd;
     line-height: 30px;
-    background: white;
+    color: white;
+    background: #107bbd;
     cursor: pointer
     transform: translateX(-50%);
   }
