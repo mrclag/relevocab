@@ -8,7 +8,7 @@ const About = () => {
         <h1>About</h1>
         <div className="about-content">
           <div className="about">
-            Relevocab is at the core a flashcards studying app.
+            Vocarta is at the core a flashcards studying app.
             <br /> <br />
             This version currently targets users looking to expand Spanish
             vocabulary. Users create decks of cards to practice through either

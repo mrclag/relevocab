@@ -6,7 +6,7 @@ import styled from 'styled-components';
 const Header = ({ signOut }) => {
   return (
     <HeaderWrapper>
-      <div className="title">RELEVOCAB</div>
+      <div className="title">Vocarta</div>
       <button onClick={signOut}>Logout</button>
     </HeaderWrapper>
   );

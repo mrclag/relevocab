@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const Instructions = () => {
   return (
     <InstructionsWrapper>
-      <h1>Welcome to Relevocab!</h1>
+      <h1>Welcome to Vocarta!</h1>
       <div>
         To get started,
         <ol>

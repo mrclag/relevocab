@@ -4,7 +4,7 @@ import SignUp from '../auth/SignUp';
 
 import styled from 'styled-components';
 
-import flashcards from '../../images/flashcardsbackground.png';
+import logo from '../../images/vocarta_logo.png';
 
 const LandingPage = () => {
   const [haveAccount, setHaveAccount] = useState(false);
@@ -15,16 +15,16 @@ const LandingPage = () => {
   return (
     <LandingPageWrapper>
       <div className="header">
-        <div className="header-logo">RV</div>
-        <div className="header-title">Relevocab</div>
+        <img className="header-logo" src={logo} alt="" />
+        <div className="header-title">Vocarta</div>
       </div>
       <div className="content-box">
         <div className="landing-content">
           <div className="landing-content-text">
-            <div className="heading">Relevocab</div>
+            <div className="heading">Vocarta</div>
             <div className="description">Learn the right words.</div>
             <div className="description-text">
-              Relevocab is the smart way to build vocabulary. Language learners
+              Vocarta is the smart way to build vocabulary. Language learners
               find words relevant to the topics they are interested in, and
               quickly create flashcards to practice.
             </div>
@@ -77,8 +77,10 @@ const LandingPageWrapper = styled.div`
     }
 
     &-logo {
-      height: 60px;
-      width: 50px;
+      margin-top: 10px
+      margin-right: 15px;
+      height: 40px;
+      
     }
 
     &-title {
@@ -108,7 +110,7 @@ const LandingPageWrapper = styled.div`
       align-items: center;
       transform: translateY(-10%);
       @media screen and (max-width: 800px) {
-        padding-top: 10vh;
+        padding-top: 13vh;
       }
 
       &-text {
