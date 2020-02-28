@@ -8,14 +8,16 @@ import logo from '../../images/vocarta_logo.png';
 
 const LandingPage = () => {
   const [haveAccount, setHaveAccount] = useState(false);
-  const [sidebarVisibility, setSidebarVisibility] = useState(false);
+  const [loginVisibility, setLoginVisibility] = useState(false);
 
-  const toggleSidebar = () => setSidebarVisibility(!sidebarVisibility);
+  const toggleSidebar = () => {
+    setLoginVisibility(!loginVisibility);
+  };
 
   return (
-    <LandingPageWrapper>
+    <LandingPageWrapper loginVisibility={loginVisibility}>
       <div className="header">
-        <img className="header-logo" src={logo} alt="" />
+        <img className="header-logo" src={logo} alt="Vocarta Logo" />
         <div className="header-title">Vocarta</div>
       </div>
       <div className="content-box">
@@ -34,15 +36,20 @@ const LandingPage = () => {
           </div>
           <div className="landing-content-login">
             <div className="auth-wrapper">
+              <div className="close" onClick={() => toggleSidebar()}>
+                X
+              </div>
               {haveAccount ? (
                 <SignIn
                   haveAccount={haveAccount}
                   setHaveAccount={setHaveAccount}
+                  setLoginVisibility={setLoginVisibility}
                 />
               ) : (
                 <SignUp
                   haveAccount={haveAccount}
                   setHaveAccount={setHaveAccount}
+                  setLoginVisibility={setLoginVisibility}
                 />
               )}
             </div>
@@ -119,6 +126,7 @@ const LandingPageWrapper = styled.div`
         margin-right: 30px;
         @media screen and (max-width: 800px) {
           width: unset;
+          display: ${props => (props.loginVisibility ? 'none' : 'unset')};
         }
 
         .heading {
@@ -157,7 +165,8 @@ const LandingPageWrapper = styled.div`
       &-login {
         width: 50%;
         @media screen and (max-width: 800px) {
-          display: none;
+          display: ${props => (props.loginVisibility ? 'flex' : 'none')};
+          width: 100%;
         }
         img {
           position: absolute;
@@ -179,6 +188,13 @@ const LandingPageWrapper = styled.div`
           height: 400px;
           margin: auto;
           text-align: center;
+
+          .close {
+            float: right;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+          }
         }
       }
     }

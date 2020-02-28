@@ -91,7 +91,7 @@ const LoginButton = styled.button`
 `;
 
 const LoginWrapper = styled.div`
-  margin-top: 20px;
+  margin-top: 15px;
   input {
     width: 95%;
     padding-left: 10px;

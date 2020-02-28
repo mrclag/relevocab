@@ -23,7 +23,7 @@ class Loading extends React.Component {
             loading={this.state.loading}
           />
         </div>
-        <div className="loading-text">Relevocab</div>
+        <div className="loading-text">Vocarta</div>
       </LoadingWrapper>
     );
   }
@@ -45,5 +45,6 @@ const LoadingWrapper = styled.div`
     margin-top: 5vh;
     color: #123abc;
     font-family: Cairo;
+    transform: translateX(-5px);
   }
 `;
