@@ -43,11 +43,11 @@ export const mapSongData = data => {
     return data;
   };
 
-  Object.keys(data).map(key => {
+  Object.keys(data).forEach(key => {
     mapTestData(data[key]);
   });
   console.log(data);
-  
+
   return data;
 };
 

@@ -24,9 +24,9 @@ const LoginPage = () => {
             <div className="heading">Relevocab</div>
             <div className="description">Learn the right words.</div>
             <div className="description-text">
-              Relevocab is the smart way to build vocabulary through flashcards,
-              allowing language-learners to build their vocabulary through
-              relevant content.
+              Relevocab is the smart way to build vocabulary. Language learners
+              find words relevant to the topics they are interested in, and
+              quickly create flashcards to practice.
             </div>
             <button onClick={() => toggleSidebar()}>Sign Up</button>{' '}
             {/* <div className="see-more">See more</div> */}
@@ -36,27 +36,15 @@ const LoginPage = () => {
           <img src={flashcards} alt="" />
           <div className="auth-wrapper">
             {haveAccount ? (
-              <div>
-                <SignIn />
-                <div
-                  className="accountset"
-                  onClick={() => setHaveAccount(!haveAccount)}
-                >
-                  <br />
-                  <div className="auth-switch">Need to Sign Up?</div>
-                </div>
-              </div>
+              <SignIn
+                haveAccount={haveAccount}
+                setHaveAccount={setHaveAccount}
+              />
             ) : (
-              <div>
-                <SignUp />
-                <div
-                  className="accountset"
-                  onClick={() => setHaveAccount(!haveAccount)}
-                >
-                  <br />
-                  <div className="auth-switch">Already Have an Account?</div>
-                </div>
-              </div>
+              <SignUp
+                haveAccount={haveAccount}
+                setHaveAccount={setHaveAccount}
+              />
             )}
           </div>
         </LoginWrapper>
@@ -155,7 +143,7 @@ const LoginWrapper = styled.div`
   flex-direction: column;
   height: 100vh;
   min-width: 400px;
-  background: #eee;
+  background: #005191;
   z-index: 4;
   img {
     position: absolute;

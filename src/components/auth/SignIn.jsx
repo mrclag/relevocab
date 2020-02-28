@@ -4,7 +4,13 @@ import { signIn } from '../../store/actions/authActions.js';
 
 import styled from 'styled-components';
 
-const SignIn = ({ history, signIn, authError }) => {
+const SignIn = ({
+  history,
+  signIn,
+  authError,
+  haveAccount,
+  setHaveAccount
+}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [hovered, setHovered] = useState(false);
@@ -21,35 +27,33 @@ const SignIn = ({ history, signIn, authError }) => {
         <br />
         <hr />
         <br />
-        <div className="input-field">
-          <input
-            type="email"
-            value={email}
-            id="email"
-            placeholder="Email"
-            onChange={e => setEmail(e.target.value)}
-          />
-        </div>
-        <div className="input-field">
-          <input
-            type="password"
-            value={password}
-            id="password"
-            placeholder="Password"
-            onChange={e => setPassword(e.target.value)}
-          />
-        </div>
-        <div>
-          <LoginButton
-            hovered={hovered}
-            onMouseOver={() => setHovered(true)}
-            onMouseOut={() => setHovered(false)}
-          >
-            Login
-          </LoginButton>
-          <div>{authError ? <p>{authError}</p> : null}</div>
-        </div>
+        <input
+          type="email"
+          value={email}
+          id="email"
+          placeholder="Email"
+          onChange={e => setEmail(e.target.value)}
+        />
+        <input
+          type="password"
+          value={password}
+          id="password"
+          placeholder="Password"
+          onChange={e => setPassword(e.target.value)}
+        />
+        <LoginButton
+          hovered={hovered}
+          onMouseOver={() => setHovered(true)}
+          onMouseOut={() => setHovered(false)}
+        >
+          Login
+        </LoginButton>
+        <div>{authError ? <p>{authError}</p> : null}</div>
       </form>
+      <div className="accountset" onClick={() => setHaveAccount(!haveAccount)}>
+        <br />
+        <div className="auth-switch">Need to Sign Up?</div>
+      </div>
     </LoginWrapper>
   );
 };
@@ -69,15 +73,30 @@ const mapDispatchToProps = dispatch => {
 export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
 
 const LoginButton = styled.button`
-  color: ${props => (props.hovered ? 'white' : '#107bbd')};
-  margin-top: 5px;
+  color: ${props => (props.hovered ? '#107bbd' : 'white')};
+  margin-top: 20px;
   height: 35px;
   width: 100%;
-  background-color: ${props => (props.hovered ? '#107bbd' : 'white')};
+  background-color: ${props => (props.hovered ? 'white' : '#107bbd')};
   border-radius: 5px;
   border: 1px solid #107bbd;
   outline: none;
   cursor: pointer;
 `;
 
-const LoginWrapper = styled.div``;
+const LoginWrapper = styled.div`
+  margin-top: 50px;
+  input {
+    width: 95%;
+    padding-left: 10px;
+    height: 30px;
+    margin-bottom: 8px;
+  }
+  .auth-title {
+    font-size: 24px;
+  }
+  .auth-switch {
+    color: blue;
+    cursor: pointer;
+  }
+`;

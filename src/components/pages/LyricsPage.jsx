@@ -133,53 +133,6 @@ const LyricsPageWrapper = styled.div`
   }
 `;
 
-const testData = {
-  title: 'Awesome Song',
-  artist: 'Matt Clagett',
-  cards: {
-    1: {
-      front: 'hello',
-      back: 'hola'
-    },
-    2: {
-      front: 'what',
-      back: 'que'
-    },
-    3: {
-      front: 'is',
-      back: 'es'
-    },
-    4: {
-      front: 'your',
-      back: 'su'
-    },
-    5: {
-      front: 'favorite',
-      back: 'favorito'
-    },
-    6: {
-      front: 'type',
-      back: 'tipo'
-    },
-    7: {
-      front: 'of',
-      back: 'de'
-    },
-    8: {
-      front: 'iced beverage',
-      back: 'bebido con hielo'
-    },
-    9: {
-      front: 'traffic',
-      back: 'trafico'
-    },
-    10: {
-      front: 'trees',
-      back: 'arboles'
-    }
-  }
-};
-
 const bigData = {
   1: {
     title: 'This is a test',

@@ -9,6 +9,7 @@ import Header from './components/Header';
 import Instructions from './components/pages/Instructions';
 import DeckViewer from './components/pages/DeckViewer';
 import LyricsPage from './components/pages/LyricsPage';
+import LandingPage from './components/pages/LandingPage';
 
 import { GlobalStyle } from './styles/global-styles';
 
@@ -34,7 +35,11 @@ const App = ({ auth, currentDeck }) => {
           </Switch>
         </>
       ) : (
-        <LoginPage />
+        <Switch>
+          <Route exact path="/" render={() => <LoginPage />} />
+
+          <Route path="/landing" render={() => <LandingPage />} />
+        </Switch>
       )}
     </Router>
   );
