@@ -79,6 +79,9 @@ const LandingPageWrapper = styled.div`
     line-height: 60px;
     width: 100%;
     padding-left: 40vw;
+    @media screen and (max-width: 1300px) {
+      padding-left: 30vw;
+    }
     @media screen and (max-width: 800px) {
       padding-left: 20vw;
     }
@@ -102,6 +105,7 @@ const LandingPageWrapper = styled.div`
   .content-box {
     width: 60vw;
     height: 100vh;
+    /* height: 80vh */
     @media screen and (max-width: 1300px) {
       width: 70vw;
     }
@@ -190,10 +194,14 @@ const LandingPageWrapper = styled.div`
           text-align: center;
 
           .close {
-            float: right;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: bold;
+            display: none;
+            @media screen and (max-width: 800px){
+              display: unset;
+              float: right;
+              cursor: pointer;
+              font-size: 16px;
+              font-weight: bold;
+            }
           }
         }
       }

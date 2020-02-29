@@ -23,7 +23,8 @@ import {
   SideBarWrapper,
   NavLinks,
   DeckWrapper,
-  Hamburger
+  Hamburger,
+  SidebarTopWrapper
 } from '../../styles/sidebar/Sidebar.styles';
 
 import { connect } from 'react-redux';
@@ -53,7 +54,7 @@ const Sidebar = ({ setCurrentDeck, currentDeck, decks, auth, initDeck }) => {
   });
 
   return (
-    <div ref={ref}>
+    <SidebarTopWrapper ref={ref}>
       <Hamburger>
         <img src={hamburger} alt="menu" onClick={() => toggleSidebar()} />
       </Hamburger>
@@ -110,7 +111,7 @@ const Sidebar = ({ setCurrentDeck, currentDeck, decks, auth, initDeck }) => {
           <AddDeckInput />
         </DeckWrapper>
       </SideBarWrapper>
-    </div>
+    </SidebarTopWrapper>
   );
 };
 

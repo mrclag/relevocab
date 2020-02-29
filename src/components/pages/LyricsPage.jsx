@@ -49,7 +49,7 @@ const LyricsPage = () => {
 export default LyricsPage;
 
 const LyricsPageWrapper = styled.div`
-  margin-left: 350px;
+  margin-left: 50px;
 
   .search-form {
     &-input {

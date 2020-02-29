@@ -1,23 +1,27 @@
 import styled from 'styled-components';
 
 export const SideBarWrapper = styled.div`
-  display: ${props => (props.sidebarVis ? 'unset' : 'none')}
+  display: ${props => (props.sidebarVis ? 'unset' : 'none')};
   width: 300px;
-  position: absolute;
-  top: 70px;
-  height: 100vh;
-  background-color: #f4f4f4;
-  overflow: hidden;
-  border-right: 0.5px solid #9c9c9c;
-  z-index: 3;
+  position: static;
   hr {
     margin: 0;
   }
 `;
 
+export const SidebarTopWrapper = styled.div`
+  overflow: hidden;
+  border-right: 0.5px solid #9c9c9c;
+  height: 100vh;
+  background-color: #f4f4f4;
+  z-index: 3;
+  @media screen and (max-width: 800px) {
+    position: absolute;
+  }
+`;
+
 export const Hamburger = styled.div`
   position: absolute;
-  top: 70px;
   z-index: 999;
   line-height: 30px;
   height: 30px;
@@ -30,6 +34,10 @@ export const Hamburger = styled.div`
   img {
     height: 20px;
     width: 20px;
+    cursor: pointer;
+  }
+  @media screen and (max-width: 800px) {
+    position: fixed;
   }
 `;
 

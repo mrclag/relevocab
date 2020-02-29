@@ -39,18 +39,20 @@ const WikiPage = ({ addNewCard, currentDeck }) => {
 
   return (
     <WikiPageWrapper>
-      <div>
-        <h1>Find Related Words</h1>
+      <div className="top">
         <form onSubmit={onSubmit}>
           <input
             type="text"
             value={searchInput}
             onChange={e => setSearchInput(e.target.value)}
+            placeholder="Find Related Words"
           />
           <button type="submit" value="Submit" id="submit-button">
             Search
           </button>
         </form>
+      </div>
+      <div>
         <div className="results">
           <div className="both-results">
             <div className="results-words">

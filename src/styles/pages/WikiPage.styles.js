@@ -2,23 +2,52 @@ import styled from 'styled-components';
 
 export const WikiPageWrapper = styled.div`
   display: flex;
-  margin-left: 350px;
-  #submit-button {
-    color: #107bbd;
-    margin-left: 10px;
-    margin-top: 5px;
-    height: 42px;
-    width: 100px;
-    background-color: white;
-    border-radius: 5px;
-    border: 1px solid #107bbd;
-    outline: none;
-    cursor: pointer;
+  flex-direction: column;
+  margin-left: 0;
+  .top {
+    margin-left: 30px;
+    padding-top: 20px;
+    @media screen and (max-width: 800px) {
+      margin-left: 5vw;
+      padding-top: 0px;
+    }
+
+    h3 {
+      font-size: 16px;
+      @media screen and (max-width: 800px) {
+        margin-left: 10vw;
+      }
+    }
+    #submit-button {
+      color: #107bbd;
+      margin-left: 10px;
+      margin-top: 5px;
+      height: 42px;
+      width: 100px;
+      background-color: white;
+      border-radius: 5px;
+      border: 1px solid #107bbd;
+      outline: none;
+      cursor: pointer;
+      @media screen and (max-width: 800px) {
+        width: 20%;
+        height: 30px;
+      }
+    }
+    input {
+      height: 40px;
+      width: 300px;
+      padding-left: 20px;
+      @media screen and (max-width: 800px) {
+        height: 25px;
+        margin-left: 30px;
+        margin-top: 10px;
+        border: 1px solid #333;
+        width: 60%;
+      }
+    }
   }
-  input {
-    height: 40px;
-    width: 500px;
-  }
+
   .results {
     margin-top: 3vh;
 
@@ -73,12 +102,6 @@ export const WikiPageWrapper = styled.div`
 
   @media screen and (max-width: 800px) {
     margin-left: 0px;
-    input {
-      width: 70vw;
-      border: 1px solid #333;
-      margin-top: 40px;
-      padding-left: 15px;
-    }
     #submit-button {
       @media screen and (max-width: 800px) {
         width: 25vw;

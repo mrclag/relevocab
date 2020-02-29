@@ -20,13 +20,6 @@ const DeckView = ({ currentCards, currentDeck, deleteDeck }) => {
         <>
           <div className="cards-title">
             <div>{currentDeck.title}</div>
-            {/* <input
-              type="text"
-              value={lang}
-              className="language-select"
-              onChange={e => setLang(e.currentTarget.value)}
-              placeholder="es, zh, de, it, ru, etc..."
-            /> */}
             <div>
               <button className="button button-practice">
                 <Link to="/practice" style={{ textDecoration: 'none' }}>
@@ -45,15 +38,15 @@ const DeckView = ({ currentCards, currentDeck, deleteDeck }) => {
             <Dropdown lang={lang} setLang={setLang} />
           </div>
           <div className="cards-list">
+            <div>
+              <AddNewCard lang={lang} />
+            </div>
             {currentCards &&
               currentCards.map((card, i) => (
                 <div key={i}>
                   <CardListItemNew deck={currentDeck} card={card} />
                 </div>
               ))}
-            <div>
-              <AddNewCard lang={lang} />
-            </div>
           </div>
         </>
       ) : (
@@ -82,9 +75,9 @@ export default connect(
 )(React.memo(DeckView));
 
 const DeckViewWrapper = styled.div`
-  margin-left: 350px;
+  margin-left: 50px;
   width: 60vw
-  margin-top: 100px;
+  margin-top: 20px;
   overflow: hidden;
   .language-select{
     height: 35px;
