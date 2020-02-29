@@ -61,13 +61,6 @@ const NewCard = ({ deck, addNewCard, lang }) => {
         </div>
         <input type="submit" className="addbutton" value="Add" />
       </form>
-      {/* <button
-        onClick={() => translateInput(front)}
-        style={{ width: '240px' }}
-        disabled={deck.title ? false : true}
-      >
-        Translate
-      </button> */}
     </AddNewCardWrapper>
   );
 };
@@ -90,27 +83,26 @@ const AddNewCardWrapper = styled.div`
     text-align: center;
     line-height: 50px;
     vertical-align: middle;
-    width: 100%;
-    height: 100%;
     .cardlistitem {
       border: 1px solid #eee;
-      width: 45%;
+      width: 50%;
       input {
         border: none;
         text-align: center;
         outline: none;
       }
       @media screen and (max-width: 800px) {
-        width: 45%;
+        width: 50%;
       }
     }
     .addbutton {
-      border: 1px solid #eee
-      width: 52px;
+      border: none;
+      width: 50px;
+      margin-right: 10px;
       background: lightgreen;
       cursor: pointer;
       @media screen and (max-width: 800px){
-        width: 10%;
+        width: 60px;
       }
     }
   }
@@ -119,7 +111,7 @@ const AddNewCardWrapper = styled.div`
     height: 30px;
     border-radius: 50%;
     position: absolute;
-    left: calc(45% + 2px);
+    left: calc(50% - 28px);
     top: 10px;
     border: 1px solid #107bbd;
     line-height: 30px;

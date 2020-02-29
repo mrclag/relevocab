@@ -31,16 +31,9 @@ const LyricsPage = () => {
       </form>
       <div className="results-output">Found 5 results:</div>
       <div className="results">
-        {Object.keys(mapSongData(bigData)).map(key => (
-          <SongResult data={bigData[key]} />
+        {Object.keys(mapSongData(bigData)).map((key, i) => (
+          <SongResult key={i} data={bigData[key]} />
         ))}
-        {/* <SongResult name="First Result" data={testData} />
-        <SongResult name="Second Result" data={testData} />
-        <SongResult name="Third Result" data={testData} />
-        <SongResult name="Fourth Result" data={testData} />
-        <SongResult name="Fifth Result" data={testData} />
-        <SongResult name="Sixth Result" data={testData} />
-        <SongResult name="Seventh Result" data={testData} /> */}
       </div>
     </LyricsPageWrapper>
   );

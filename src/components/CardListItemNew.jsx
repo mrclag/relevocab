@@ -36,17 +36,16 @@ const CardListItemWrapper = styled.div`
   text-align: center;
   line-height: 50px;
   vertical-align: middle;
-  width: 100%;
-  height: 100%;
+
   .cardlistitem {
     border: 1px solid #eee;
-    width: 45%;
+    width: 50%;
     @media screen and (max-width: 800px) {
-      width: 45%;
+      width: 50%;
     }
   }
   .deletebutton {
-    border: 1px solid #eee
+    border: none;
     width: 50px;
     background: pink;
     cursor: pointer;
@@ -55,7 +54,7 @@ const CardListItemWrapper = styled.div`
       height: 20px;
       transform: translateY(5px);
     }
-    @media screen and (max-width: 800px){
+    @media screen and (max-width: 800px) {
       width: 10%;
     }
   }

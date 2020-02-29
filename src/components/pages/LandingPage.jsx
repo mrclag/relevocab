@@ -119,7 +119,7 @@ const LandingPageWrapper = styled.div`
       display: flex;
       flex-direction: row;
       align-items: center;
-      transform: translateY(-10%);
+      transform: translateY(-7%);
       @media screen and (max-width: 800px) {
         padding-top: 13vh;
       }

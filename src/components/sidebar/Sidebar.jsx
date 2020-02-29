@@ -54,7 +54,7 @@ const Sidebar = ({ setCurrentDeck, currentDeck, decks, auth, initDeck }) => {
   });
 
   return (
-    <SidebarTopWrapper ref={ref}>
+    <SidebarTopWrapper ref={ref} sidebarVis={sidebarVis}>
       <Hamburger>
         <img src={hamburger} alt="menu" onClick={() => toggleSidebar()} />
       </Hamburger>

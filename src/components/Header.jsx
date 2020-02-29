@@ -28,8 +28,7 @@ const HeaderWrapper = styled.div`
   position: relative;
   display: flex;
   flex-direction: row;
-  top: 0;
-  height: 60px;
+  flex: 0 1 60px;
   background: #0078d7;
   width: 100%;
   z-index: 555;
@@ -40,17 +39,13 @@ const HeaderWrapper = styled.div`
     color: #107bbd;
     margin-top: 10px;
     height: 40px;
-    margin-right: 50px;
+    margin-right: 5vw;
     width: 80px;
     background-color: white;
     border-radius: 5px;
     border: 1px solid #107bbd;
     outline: none;
     cursor: pointer;
-    @media screen and (max-width: 800px) {
-      margin-right: 5vw;
-      height: 50px;
-    }
   }
 
   .title {

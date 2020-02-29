@@ -9,6 +9,8 @@ import CardListItemNew from '../CardListItemNew';
 import AddNewCard from '../AddNewCard';
 import Dropdown from '../Dropdown';
 
+import deckImg from '../../images/search_b.png';
+
 const DeckView = ({ currentCards, currentDeck, deleteDeck }) => {
   const existsSelectedDeck = currentDeck.title;
 
@@ -18,14 +20,15 @@ const DeckView = ({ currentCards, currentDeck, deleteDeck }) => {
     <DeckViewWrapper>
       {existsSelectedDeck ? (
         <>
-          <div className="cards-title">
-            <div>{currentDeck.title}</div>
-            <div>
-              <button className="button button-practice">
-                <Link to="/practice" style={{ textDecoration: 'none' }}>
-                  Practice
-                </Link>
-              </button>
+          <Top>
+            <div className="top-left">
+              <img src={deckImg} alt="" className="deck-picture" />
+              <div className="deck-title">{currentDeck.title}</div>
+            </div>
+            <div className="deck-buttons">
+              <Link to="/practice">
+                <button className="button button-practice">Practice</button>
+              </Link>
               <button
                 onClick={() => deleteDeck(currentDeck.deckId)}
                 className="button button-delete"
@@ -33,14 +36,13 @@ const DeckView = ({ currentCards, currentDeck, deleteDeck }) => {
                 Remove
               </button>
             </div>
-          </div>
-          <div className="dropdown">
+          </Top>
+          <div className="language-selects">
+            <Dropdown lang={lang} setLang={setLang} />
             <Dropdown lang={lang} setLang={setLang} />
           </div>
+          <AddNewCard lang={lang} />
           <div className="cards-list">
-            <div>
-              <AddNewCard lang={lang} />
-            </div>
             {currentCards &&
               currentCards.map((card, i) => (
                 <div key={i}>
@@ -50,7 +52,7 @@ const DeckView = ({ currentCards, currentDeck, deleteDeck }) => {
           </div>
         </>
       ) : (
-        'Choose a Deck'
+        <div className="choose-deck">Choose a Deck</div>
       )}
     </DeckViewWrapper>
   );
@@ -74,74 +76,91 @@ export default connect(
   mapDispatchToProps
 )(React.memo(DeckView));
 
+const Top = styled.div`
+  display: flex;
+  flex-direction: row;
+  height: 100px;
+  border-bottom: 1px solid #333;
+  text-align: center;
+  padding: 40px 100px;
+  align-items: center;
+  justify-content: space-between;
+
+  @media screen and (max-width: 800px){
+    padding: 10px 25px;
+  }
+
+  .top-left{
+    display: flex;
+    flex-direction: row;
+    
+    .deck-picture {
+      width: 50px;
+      height: 50px;
+    }
+    .deck-title {
+      font-size: 30px;
+      line-height: 50px;
+      font-weight: bold;
+      margin-left: 20px;
+    }
+  }
+  
+  .deck-buttons {
+    display: flex;
+    flex-direction: column
+    margin: 5px;
+
+    .button {
+      font-size: 20px;
+      width: 180px;
+      height: 50px;
+      margin-right: 10px;
+      border: none;
+      @media screen and (max-width: 800px){
+        width: 120px;
+        height: 35px;
+      }
+      &-practice {
+        background: #8de4af;
+        margin-bottom: 10px;
+      }
+      &-delete {
+        background: pink;
+      }
+    }
+  }
+
+`;
+
 const DeckViewWrapper = styled.div`
-  margin-left: 50px;
-  width: 60vw
-  margin-top: 20px;
+  width: 100%;
   overflow: hidden;
-  .language-select{
-    height: 35px;
-    line-height: 35px;
-    margin-left: 10px;
-    margin-right: 10px;
-    transform: translateX(-50%);
-  }
-  .button{
-    font-size: 0.8em;
-    width: 100px;
-    margin-right: 10px;
-    border: none;
-    &-delete {
-      background: pink;
-    }
-    &-practice {
-      background: #8de4af;
-    }
-  }
-  .cards-title {
-    font-size: 1.5em;
-    display: flex;
-    width: 100%;
-    flex-direction: row;
-    justify-content: space-between;
-    font-weight: bold
-  }
-  .cards-row-headers {
+
+  .language-selects{
     display: flex;
     flex-direction: row;
-    h5 {
-      width: 30vw;
+
+    > * {
+      width: calc(50% - 30px);
     }
-  }
-  .dropdown {
-    width: 300px;
-    height: 40px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    font-size: 12px;
   }
 
   .cards-list{
-    max-height: 70vh; 
+    position: relative;
+    max-height: 60vh;
     overflow-y: scroll;
     overflow-x: hide;
-    width: 100%;
-    padding-right: 10px;
-    box-sizing: content-box;
   }
   @media screen and (max-width: 800px){
     margin-left: 0px
-    margin-top: 120px;
+    margin-top: 20px;
     width: 100%;
-    .cards-title {
-      margin-left: 5vw;
-    }
-    .cards-row-headers {
-      margin-left: 5vw;
-    }
-    .button{
-      
-    margin-right: 10px;
-    }
+  }
+
+  .choose-deck {
+    font-size: 40px;
+    margin-left: 50px;
+    margin-top: 20px;
   }
 `;

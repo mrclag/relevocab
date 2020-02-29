@@ -58,14 +58,16 @@ const WikiPage = ({ addNewCard, currentDeck }) => {
             <div className="results-words">
               {page.words
                 ? page.words.slice(0, 15).map((word, i) => (
-                    <div style={{ display: 'flex', flexDirection: 'row' }}>
+                    <div
+                      key={i}
+                      style={{ display: 'flex', flexDirection: 'row' }}
+                    >
                       <div>
                         <Word word={word} selected={selectedWord} />
                       </div>
                       <div
                         className="search-moreWords"
                         onClick={() => onSelect(word)}
-                        key={i}
                       >
                         >
                       </div>

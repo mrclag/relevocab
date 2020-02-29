@@ -5,7 +5,7 @@ export const GlobalStyle = createGlobalStyle`
     overflow: hidden;
     font-family: 'Cairo', sans-serif;
     margin: 0;
-    overflow-y: hidden;
+    height: 100%;
   }
   
   &::-webkit-scrollbar {
