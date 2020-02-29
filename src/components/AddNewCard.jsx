@@ -78,7 +78,6 @@ const AddNewCardWrapper = styled.div`
     display: flex;
     position: relative;
     flex-direction: row;
-    margin: 0px;
     height: 50px;
     text-align: center;
     line-height: 50px;
@@ -90,9 +89,7 @@ const AddNewCardWrapper = styled.div`
         border: none;
         text-align: center;
         outline: none;
-      }
-      @media screen and (max-width: 800px) {
-        width: 50%;
+        width: 100%;
       }
     }
     .addbutton {
@@ -102,7 +99,7 @@ const AddNewCardWrapper = styled.div`
       background: lightgreen;
       cursor: pointer;
       @media screen and (max-width: 800px){
-        width: 60px;
+        width: 50px;
       }
     }
   }

@@ -23,7 +23,12 @@ const DeckView = ({ currentCards, currentDeck, deleteDeck }) => {
           <Top>
             <div className="top-left">
               <img src={deckImg} alt="" className="deck-picture" />
-              <div className="deck-title">{currentDeck.title}</div>
+              <div className="deck-info">
+                <div className="deck-info-title">{currentDeck.title}</div>
+                <div className="deck-info-cards">
+                  {currentCards.length} cards in deck.
+                </div>
+              </div>
             </div>
             <div className="deck-buttons">
               <Link to="/practice">
@@ -80,8 +85,8 @@ const Top = styled.div`
   display: flex;
   flex-direction: row;
   height: 100px;
-  border-bottom: 1px solid #333;
-  text-align: center;
+  border-bottom: 0.5px solid #333;
+  margin-bottom: 10px;
   padding: 40px 100px;
   align-items: center;
   justify-content: space-between;
@@ -95,14 +100,18 @@ const Top = styled.div`
     flex-direction: row;
     
     .deck-picture {
-      width: 50px;
-      height: 50px;
+      width: 70px;
+      height: 70px;
     }
-    .deck-title {
-      font-size: 30px;
-      line-height: 50px;
-      font-weight: bold;
+    .deck-info {
       margin-left: 20px;
+      flex-direction: column;
+
+      &-title {
+        font-size: 30px;
+      font-weight: bold;
+
+      }
     }
   }
   
@@ -150,7 +159,6 @@ const DeckViewWrapper = styled.div`
     position: relative;
     max-height: 60vh;
     overflow-y: scroll;
-    overflow-x: hide;
   }
   @media screen and (max-width: 800px){
     margin-left: 0px

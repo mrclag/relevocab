@@ -40,9 +40,6 @@ const CardListItemWrapper = styled.div`
   .cardlistitem {
     border: 1px solid #eee;
     width: 50%;
-    @media screen and (max-width: 800px) {
-      width: 50%;
-    }
   }
   .deletebutton {
     border: none;
@@ -53,9 +50,6 @@ const CardListItemWrapper = styled.div`
       width: 20px;
       height: 20px;
       transform: translateY(5px);
-    }
-    @media screen and (max-width: 800px) {
-      width: 10%;
     }
   }
 `;
