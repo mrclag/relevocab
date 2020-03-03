@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 
 import { deleteDeck } from '../../store/actions/deckActions';
 
 import CardListItemNew from '../CardListItemNew';
 import AddNewCard from '../AddNewCard';
 import Dropdown from '../Dropdown';
-
-import deckImg from '../../images/search_b.png';
+import DeckInfoBar from '../DeckInfoBar';
 
 const DeckView = ({ currentCards, currentDeck, deleteDeck }) => {
   const existsSelectedDeck = currentDeck.title;
@@ -20,25 +18,9 @@ const DeckView = ({ currentCards, currentDeck, deleteDeck }) => {
     <DeckViewWrapper>
       {existsSelectedDeck ? (
         <div className="deck-page">
-          <Top>
-            <div className="top-left">
-              <img src={deckImg} alt="" className="deck-picture" />
-              <div className="deck-info">
-                <div className="deck-info-title">{currentDeck.title}</div>
-              </div>
-            </div>
-            <div className="deck-buttons">
-              <Link to="/practice">
-                <button className="button button-practice">Practice</button>
-              </Link>
-              <button
-                onClick={() => deleteDeck(currentDeck.deckId)}
-                className="button button-delete"
-              >
-                Remove
-              </button>
-            </div>
-          </Top>
+          <div className="top">
+            <DeckInfoBar currentDeck={currentDeck} />
+          </div>
           <div className="main-content">
             <div className="language-selects">
               <Dropdown lang={lang} setLang={setLang} />
@@ -55,23 +37,7 @@ const DeckView = ({ currentCards, currentDeck, deleteDeck }) => {
             </div>
           </div>
           <div className="right-bar">
-            <div className="top-left">
-              <img src={deckImg} alt="" className="deck-picture" />
-              <div className="deck-info">
-                <div className="deck-info-title">{currentDeck.title}</div>
-              </div>
-            </div>
-            <div className="deck-buttons">
-              <Link to="/practice">
-                <button className="button button-practice">Practice</button>
-              </Link>
-              <button
-                onClick={() => deleteDeck(currentDeck.deckId)}
-                className="button button-delete"
-              >
-                Remove
-              </button>
-            </div>
+            <DeckInfoBar currentDeck={currentDeck} />
           </div>
         </div>
       ) : (
@@ -99,68 +65,6 @@ export default connect(
   mapDispatchToProps
 )(React.memo(DeckView));
 
-const Top = styled.div`
-  display: none;
-  flex-direction: row;
-  height: 100px;
-  border-bottom: 0.5px solid #333;
-  margin-bottom: 10px;
-  text-align: center;
-  padding: 40px 100px;
-  align-items: center;
-  justify-content: space-between;
-
-  @media screen and (max-width: 800px){
-    padding: 10px 25px;
-    display: unset;
-  }
-
-  .top-left{
-    display: flex;
-    flex-direction: row;
-    
-    .deck-picture {
-      width: 50px;
-      height: 50px;
-    }
-    .deck-info {
-      margin-left: 20px;
-      display: flex;
-
-      &-title {
-        font-size: 30px;
-      font-weight: bold;
-
-      }
-    }
-  }
-  
-  .deck-buttons {
-    display: flex;
-    flex-direction: column
-    margin: 5px;
-
-    .button {
-      font-size: 20px;
-      width: 180px;
-      height: 50px;
-      margin-right: 10px;
-      border: none;
-      @media screen and (max-width: 800px){
-        width: 120px;
-        height: 35px;
-      }
-      &-practice {
-        background: #8de4af;
-        margin-bottom: 10px;
-      }
-      &-delete {
-        background: pink;
-      }
-    }
-  }
-
-`;
 
 const DeckViewWrapper = styled.div`
   width: 100%;
@@ -176,7 +80,11 @@ const DeckViewWrapper = styled.div`
       width: 300px;
       min-width: 300px !important;
       background-color: white;
-      border-left: 1px solid black;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 50px;
+      
     }
     .main-content {
       display: flex;
@@ -197,6 +105,63 @@ const DeckViewWrapper = styled.div`
         overflow-x: hide;
       }
     }
+
+    .top {
+    display: none;
+      flex-direction: row;
+      height: 100px;
+      border-bottom: 0.5px solid #333;
+      margin-bottom: 10px;
+      text-align: center;
+      padding: 40px 100px;
+      align-items: center;
+      justify-content: space-between;
+
+      @media screen and (max-width: 800px) {
+        padding: 10px 25px;
+        display: flex;
+      }
+    }
+
+    .deck-picture {
+        width: 50px;
+        height: 50px;
+      }
+      .deck-info {
+        display: flex;
+        margin-bottom: 20px;
+
+        &-title {
+          font-size: 30px;
+        font-weight: bold;
+
+        }
+      }
+      .deck-buttons {
+        display: flex;
+        flex-direction: column
+        margin: 5px;
+
+        .button {
+          font-size: 20px;
+          width: 180px;
+          height: 50px;
+          margin-right: 10px;
+          border: none;
+          @media screen and (max-width: 800px){
+            width: 120px;
+            height: 35px;
+          }
+          &-practice {
+            background: #8de4af;
+            margin-bottom: 10px;
+          }
+          &-delete {
+            background: pink;
+          }
+        }
+      }
+
   } 
 
   @media screen and (max-width: 800px){
@@ -211,48 +176,5 @@ const DeckViewWrapper = styled.div`
     margin-top: 20px;
   }
 
-  .top-left{
-    display: flex;
-    flex-direction: row;
-    
-    .deck-picture {
-      width: 50px;
-      height: 50px;
-    }
-    .deck-info {
-      margin-left: 20px;
-      display: flex;
 
-      &-title {
-        font-size: 30px;
-      font-weight: bold;
-
-      }
-    }
-  }
-  
-  .deck-buttons {
-    display: flex;
-    flex-direction: column
-    margin: 5px;
-
-    .button {
-      font-size: 20px;
-      width: 180px;
-      height: 50px;
-      margin-right: 10px;
-      border: none;
-      @media screen and (max-width: 800px){
-        width: 120px;
-        height: 35px;
-      }
-      &-practice {
-        background: #8de4af;
-        margin-bottom: 10px;
-      }
-      &-delete {
-        background: pink;
-      }
-    }
-  }
 `;

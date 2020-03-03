@@ -11,8 +11,8 @@ import trash from '../images/trash.png';
 const CardListItemNew = ({ deck, card, deleteCard }) => {
   return (
     <CardListItemWrapper>
-      <div className="cardlistitem">{card.front}</div>
-      <div className="cardlistitem">{card.back} </div>
+      <div className="cardlistitem front">{card.front}</div>
+      <div className="cardlistitem back">{card.back} </div>
       <div className="deletebutton" onClick={() => deleteCard(card.id)}>
         <img className="trash" src={trash} alt="" />
       </div>
@@ -36,10 +36,11 @@ const CardListItemWrapper = styled.div`
   text-align: center;
   line-height: 50px;
   vertical-align: middle;
+  border-bottom: 1px solid #eee;
 
   .cardlistitem {
-    border: 1px solid #eee;
     width: 50%;
+    border-right: 1px solid #eee;
   }
   .deletebutton {
     border: none;
