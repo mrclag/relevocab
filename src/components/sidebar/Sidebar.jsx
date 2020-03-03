@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import useOnClickOutside from '../../utils/useOnClickOutside';
 
@@ -28,16 +28,23 @@ import {
 } from '../../styles/sidebar/Sidebar.styles';
 
 import { connect } from 'react-redux';
-
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
 import { setCurrentDeck } from '../../store/actions/deckActions';
+import { toggleSidebar } from '../../store/actions/appActions';
+import { hideSidebar } from '../../store/actions/appActions';
 
-const Sidebar = ({ setCurrentDeck, currentDeck, decks, auth, initDeck }) => {
+const Sidebar = ({
+  setCurrentDeck,
+  currentDeck,
+  decks,
+  auth,
+  initDeck,
+  toggleSidebar,
+  sidebarVisibility,
+  hideSidebar
+}) => {
   let decksArray;
-
-  const [sidebarVis, setSidebarVis] = useState(true);
-  const toggleSidebar = () => setSidebarVis(!sidebarVis);
 
   if (decks) {
     decksArray = Object.keys(decks).map(key => decks[key]);
@@ -48,17 +55,21 @@ const Sidebar = ({ setCurrentDeck, currentDeck, decks, auth, initDeck }) => {
   const ref = useRef();
 
   useOnClickOutside(ref, () => {
-    if (window.innerWidth <= 800) {
-      setSidebarVis(false);
+    if (window.innerWidth <= 800 && sidebarVisibility === true) {
+      hideSidebar();
     }
   });
 
   return (
-    <SidebarTopWrapper ref={ref} sidebarVis={sidebarVis}>
+    <SidebarTopWrapper sidebarVis={sidebarVisibility} ref={ref}>
       <Hamburger>
-        <img src={hamburger} alt="menu" onClick={() => toggleSidebar()} />
+        <img
+          src={hamburger}
+          alt="menu"
+          onClick={() => toggleSidebar(sidebarVisibility)}
+        />
       </Hamburger>
-      <SideBarWrapper sidebarVis={sidebarVis}>
+      <SideBarWrapper sidebarVis={sidebarVisibility}>
         <NavLinks>
           <NavLink
             value="Home"
@@ -120,13 +131,17 @@ const mapStateToProps = state => {
     decks: state.firestore.data.decks,
     currentDeck: state.deck.currentDeck,
     auth: state.firebase.auth,
-    initDeck: state.deck.initDeck
+    initDeck: state.deck.initDeck,
+    sidebarVisibility: state.app.sidebarVisibility
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    setCurrentDeck: deckName => dispatch(setCurrentDeck(deckName))
+    setCurrentDeck: deckName => dispatch(setCurrentDeck(deckName)),
+    toggleSidebar: sidebarVisibility =>
+      dispatch(toggleSidebar(sidebarVisibility)),
+    hideSidebar: () => dispatch(hideSidebar())
   };
 };
 
