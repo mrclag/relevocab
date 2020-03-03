@@ -56,8 +56,8 @@ export default connect(mapStateToProps)(App);
 const AppWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  height: 100vh;
   .main-content {
-    height: 100%;
     position: relative;
     display: flex;
     flex-direction: row;
