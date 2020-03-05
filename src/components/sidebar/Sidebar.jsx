@@ -4,7 +4,7 @@ import useOnClickOutside from '../../utils/useOnClickOutside';
 
 // Components
 import NavLink from './NavLink';
-import Deck from '../Deck';
+import Deck from './Deck';
 import AddDeckInput from './AddDeckInput';
 
 // Icons
@@ -25,7 +25,7 @@ import {
   DeckWrapper,
   Hamburger,
   SidebarTopWrapper
-} from '../../styles/sidebar/Sidebar.styles';
+} from './Sidebar.styles';
 
 import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';

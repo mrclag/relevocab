@@ -19,7 +19,8 @@ import {
 } from 'react-redux-firebase';
 import rootReducer from './store/reducers/rootReducer';
 import firebaseConfig from './firebase';
-import Loading from './components/Loading';
+
+import Loading from './components/loading/Loading';
 
 const store = createStore(
   rootReducer,

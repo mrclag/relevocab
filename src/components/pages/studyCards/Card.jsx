@@ -1,8 +1,7 @@
 import React from 'react';
-import { CardContainer } from '../styles/Card.styles';
+import { CardContainer } from './Card.styles';
 
 const Card = ({ front, back, flipped, setFlipped }) => {
-  
   return (
     <CardContainer onClick={() => setFlipped(!flipped)} flipped={flipped}>
       <div className="card">

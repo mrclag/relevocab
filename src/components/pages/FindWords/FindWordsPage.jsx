@@ -5,9 +5,9 @@ import { getWikiPage } from '../../../services/wikiAPI.js';
 import { countWords } from '../../../utils/countWords.js';
 import { getWords } from '../../../services/wordAPI.js';
 
-import Word from '../Word';
+import Word from './Word';
 
-import { WikiPageWrapper } from '../WikiPage.styles';
+import { FindWordsWrapper } from './FindWordsPage.styles';
 
 const FindWordsPage = ({ addNewCard, currentDeck }) => {
   const [page, setPage] = useState({});
@@ -40,7 +40,7 @@ const FindWordsPage = ({ addNewCard, currentDeck }) => {
   };
 
   return (
-    <WikiPageWrapper>
+    <FindWordsWrapper>
       <div className="top">
         <form onSubmit={onSubmit}>
           <input
@@ -84,7 +84,7 @@ const FindWordsPage = ({ addNewCard, currentDeck }) => {
           </div>
         </div>
       </div>
-    </WikiPageWrapper>
+    </FindWordsWrapper>
   );
 };
 

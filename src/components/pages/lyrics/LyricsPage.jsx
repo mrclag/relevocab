@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import SongResult from '../SongResult';
+import SongResult from './SongResult';
 import { mapSongData } from '../../../utils/createLyricCards';
 
 import { LyricsPageWrapper } from './LyricsPage.styles.js';

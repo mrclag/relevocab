@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const WikiPageWrapper = styled.div`
+export const FindWordsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin-left: 0;

@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 import { deleteDeck } from '../../../store/actions/deckActions';
 import { DeckViewWrapper } from './DeckViewer.styles';
 
-import CardListItemNew from './CardListItemNew';
+import CardListItem from './CardListItem';
 import AddNewCard from './AddNewCard';
-import Dropdown from '../Dropdown';
+import Dropdown from '../../dropdown/Dropdown';
 import DeckInfoBar from './DeckInfoBar';
 
 const DeckView = ({ currentCards, currentDeck, deleteDeck }) => {
@@ -30,7 +30,7 @@ const DeckView = ({ currentCards, currentDeck, deleteDeck }) => {
               {currentCards &&
                 currentCards.map((card, i) => (
                   <div key={i}>
-                    <CardListItemNew deck={currentDeck} card={card} />
+                    <CardListItem deck={currentDeck} card={card} />
                   </div>
                 ))}
             </div>

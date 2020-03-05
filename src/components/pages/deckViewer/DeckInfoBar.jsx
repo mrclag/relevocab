@@ -1,9 +1,10 @@
 import React from 'react';
-import file_upload from '../images/file-upload.png';
-import { Link } from 'react-router-dom';
-import { deleteDeck } from '../store/actions/deckActions';
-
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+
+import { deleteDeck } from '../../../store/actions/deckActions';
+
+import file_upload from '../../../images/file-upload.png';
 
 const DeckInfoBar = ({ currentDeck, deleteDeck, currentCards }) => {
   return (
