@@ -1,17 +1,18 @@
 import React from 'react';
-import deckImg from '../images/search_b.png';
+import file_upload from '../images/file-upload.png';
 import { Link } from 'react-router-dom';
 import { deleteDeck } from '../store/actions/deckActions';
 
 import { connect } from 'react-redux';
 
-const DeckInfoBar = ({ currentDeck, deleteDeck }) => {
+const DeckInfoBar = ({ currentDeck, deleteDeck, currentCards }) => {
   return (
     <>
       <div className="top-left">
-        <img src={deckImg} alt="" className="deck-picture" />
+        <img src={file_upload} alt="" className="deck-picture" />
         <div className="deck-info">
           <div className="deck-info-title">{currentDeck.title}</div>
+          <div>{currentCards.length} cards</div>
         </div>
       </div>
       <div className="deck-buttons">
@@ -35,4 +36,14 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(React.memo(DeckInfoBar));
+const mapStateToProps = state => {
+  return {
+    currentCards: state.deck.currentCards,
+    currentDeck: state.deck.currentDeck
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(React.memo(DeckInfoBar));

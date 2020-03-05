@@ -19,7 +19,7 @@ const DeckView = ({ currentCards, currentDeck, deleteDeck }) => {
       {existsSelectedDeck ? (
         <div className="deck-page">
           <div className="top">
-            <DeckInfoBar currentDeck={currentDeck} />
+            <DeckInfoBar />
           </div>
           <div className="main-content">
             <div className="language-selects">
@@ -37,7 +37,7 @@ const DeckView = ({ currentCards, currentDeck, deleteDeck }) => {
             </div>
           </div>
           <div className="right-bar">
-            <DeckInfoBar currentDeck={currentDeck} />
+            <DeckInfoBar />
           </div>
         </div>
       ) : (
@@ -65,7 +65,6 @@ export default connect(
   mapDispatchToProps
 )(React.memo(DeckView));
 
-
 const DeckViewWrapper = styled.div`
   width: 100%;
   overflow: hidden;
@@ -82,8 +81,10 @@ const DeckViewWrapper = styled.div`
       background-color: white;
       display: flex;
       flex-direction: column;
+      border-left: 1px solid black;
       align-items: center;
       padding-top: 50px;
+      @media screen and (min-width: 800px){}
       
     }
     .main-content {
@@ -107,7 +108,7 @@ const DeckViewWrapper = styled.div`
     }
 
     .top {
-    display: none;
+      display: none;
       flex-direction: row;
       height: 100px;
       border-bottom: 0.5px solid #333;
@@ -124,17 +125,24 @@ const DeckViewWrapper = styled.div`
     }
 
     .deck-picture {
-        width: 50px;
-        height: 50px;
+        width: 80px;
+        height: 80px;
+        @media screen and (max-width: 800px){
+          width: 50px;
+          height: 50px;
+        }
       }
       .deck-info {
-        display: flex;
+        display: block;
         margin-bottom: 20px;
-
+        text-align: center;
+        margin-top: 15px;
         &-title {
-          font-size: 30px;
-        font-weight: bold;
-
+          font-size: 20px;
+          font-weight: bold;
+        }
+        @media screen and (max-width: 800px){
+          margin-top: 0px
         }
       }
       .deck-buttons {
@@ -143,15 +151,10 @@ const DeckViewWrapper = styled.div`
         margin: 5px;
 
         .button {
-          font-size: 20px;
-          width: 180px;
-          height: 50px;
-          margin-right: 10px;
+          font-size: 16px;
+          width: 120px;
+          height: 35px;
           border: none;
-          @media screen and (max-width: 800px){
-            width: 120px;
-            height: 35px;
-          }
           &-practice {
             background: #8de4af;
             margin-bottom: 10px;
@@ -161,8 +164,7 @@ const DeckViewWrapper = styled.div`
           }
         }
       }
-
-  } 
+  }
 
   @media screen and (max-width: 800px){
     margin-left: 0px

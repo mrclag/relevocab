@@ -10,16 +10,12 @@ import {
 
 const StudyCards = ({ currentDeck, currentCards }) => {
   const [cardPile, setCardPile] = useState({});
-  const [currentCard, setCurrentCard] = useState({
-    front: 'FRONT',
-    back: 'BACK'
-  });
+  const [currentCard, setCurrentCard] = useState({});
   const [flipped, setFlipped] = useState(false);
 
   // setting the pile to the current cards whenever it is rerendered/new selection
   useEffect(() => {
     setCardPile(currentCards);
-    setCurrentCard({ front: currentDeck.title, back: currentDeck.title });
   }, [currentCards]);
 
   const getRandomCard = cardPile => {
@@ -53,9 +49,9 @@ const StudyCards = ({ currentDeck, currentCards }) => {
             }`
           : ''}
       </div>
-      {currentCard && currentDeck ? (
+      {currentCard ? (
         <Card
-          front={currentCard.front || currentDeck.value}
+          front={currentCard.front || currentDeck.title }
           back={currentCard.back}
           flipped={flipped}
           setFlipped={setFlipped}
@@ -69,15 +65,6 @@ const StudyCards = ({ currentDeck, currentCards }) => {
         />
       )}
       <div>
-        {/* 
-      If the current card is the title card,
-        display start button
-      Else:
-        If there are no cards in the pile,
-          display reset button
-        else
-          display good and again buttons
-       */}
         {currentCard && currentCard.front === currentDeck.title ? (
           <CardButton color="#107bbd" onClick={() => resetDeck()}>
             Start
