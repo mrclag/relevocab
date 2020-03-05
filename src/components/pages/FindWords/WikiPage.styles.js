@@ -90,8 +90,6 @@ export const WikiPageWrapper = styled.div`
   }
   .moreWords {
     height: 75vh;
-
-    border: 1px solid #97c3e9;
     padding-left: 10px;
     padding-right: 10px;
     width: 420px;

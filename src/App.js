@@ -1,13 +1,13 @@
 import React from 'react';
 
 import Sidebar from './components/sidebar/Sidebar';
-import StudyCards from './components/pages/StudyCards';
-import WikiPage from './components/pages/WikiPage';
-import About from './components/pages/About';
+import StudyCards from './components/pages/StudyCards/StudyCards';
+import FindWordsPage from './components/pages/FindWords/FindWordsPage';
+import About from './components/pages/About/About.jsx';
 import Header from './components/Header';
-import Instructions from './components/pages/Instructions';
-import DeckViewer from './components/pages/DeckViewer';
-import LyricsPage from './components/pages/LyricsPage';
+import Instructions from './components/pages/HomePage/Instructions';
+import DeckViewer from './components/pages/DeckViewer/DeckViewer';
+import LyricsPage from './components/pages/Lyrics/LyricsPage';
 import LandingPage from './components/pages/LandingPage';
 
 import { GlobalStyle } from './styles/global-styles';
@@ -30,7 +30,7 @@ const App = ({ auth, currentDeck }) => {
             <Switch>
               <Route exact path="/" render={() => <Instructions />} />
               <Route path="/practice" render={() => <StudyCards />} />
-              <Route path="/wiki" render={() => <WikiPage />} />
+              <Route path="/wiki" render={() => <FindWordsPage />} />
               <Route path="/about" render={() => <About />} />
               <Route path="/deck" render={() => <DeckViewer />} />
               <Route path="/songs" render={() => <LyricsPage />} />

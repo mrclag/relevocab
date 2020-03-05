@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import Card from '../Card';
+import Card from './Card';
 
 import { connect } from 'react-redux';
 
-import {
-  ContentWrapper,
-  CardButton
-} from '../../styles/pages/StudyCards.styles';
+import { ContentWrapper, CardButton } from './StudyCards.styles';
 
 const StudyCards = ({ currentDeck, currentCards }) => {
   const [cardPile, setCardPile] = useState({});
@@ -51,7 +48,7 @@ const StudyCards = ({ currentDeck, currentCards }) => {
       </div>
       {currentCard ? (
         <Card
-          front={currentCard.front || currentDeck.title }
+          front={currentCard.front || currentDeck.title}
           back={currentCard.back}
           flipped={flipped}
           setFlipped={setFlipped}

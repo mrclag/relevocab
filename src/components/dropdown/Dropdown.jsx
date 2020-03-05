@@ -3,7 +3,7 @@ import React from 'react';
 import Select from 'react-select';
 
 const options = [
-  { value: 'zz', label: 'Select a Language to Translate To' },
+  { value: 'zz', label: 'Select a Language' },
   { value: 'es', label: 'Spanish' },
   { value: 'ar', label: 'Arabic' },
   { value: 'it', label: 'Italian' },

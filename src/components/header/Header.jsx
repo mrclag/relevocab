@@ -66,14 +66,3 @@ const HeaderWrapper = styled.div`
     }
   }
 `;
-
-export const Title = styled.h1`
-  margin-top: 0;
-  margin-bottom: 0;
-  padding-left: 30px;
-  align-items: center;
-  color: #107bbd;
-  display: flex;
-  height: 8vh;
-  letter-spacing: 9px;
-`;

@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
-import { getWikiPage } from '../../services/wikiAPI.js';
-import { countWords } from '../../utils/countWords.js';
-import Word from '../Word';
 import { connect } from 'react-redux';
-import { getWords } from '../../services/wordAPI.js';
 
-import { WikiPageWrapper } from '../../styles/pages/WikiPage.styles';
+import { getWikiPage } from '../../../services/wikiAPI.js';
+import { countWords } from '../../../utils/countWords.js';
+import { getWords } from '../../../services/wordAPI.js';
 
-const WikiPage = ({ addNewCard, currentDeck }) => {
+import Word from '../Word';
+
+import { WikiPageWrapper } from '../WikiPage.styles';
+
+const FindWordsPage = ({ addNewCard, currentDeck }) => {
   const [page, setPage] = useState({});
   const [searchInput, setSearchInput] = useState('');
   const [words, setWords] = useState([]);
@@ -92,4 +94,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(WikiPage);
+export default connect(mapStateToProps)(FindWordsPage);
