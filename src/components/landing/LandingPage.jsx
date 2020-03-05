@@ -68,6 +68,9 @@ const LandingPageWrapper = styled.div`
   position: relative;
   justify-content: center;
   background-color: #005191;
+  @media screen and (max-width: 800px){
+    overflow-y: scroll;
+  }
 
   .header {
     height: 60px;
