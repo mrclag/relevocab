@@ -29,40 +29,10 @@ export const LyricsPageWrapper = styled.div`
     margin-top: 20px;
     overflow-y: scroll;
 
-    &-result {
-      min-height: 100px;
-      /* border: 0.5px solid blue; */
-      border-bottom: 0.5px solid black;
-      margin-bottom: 10px;
-    }
     &-output {
-      font-size: 12px;
-      margin-bottom: 20px;
-      margin-top: 20px;
-    }
-    &-title {
-      font-size: 16px;
-      font-weight: bold;
-      margin-bottom: 5px;
-    }
-    &-artist {
-      font-size: 14px;
-      font-style: italic;
+      margin-top: 5px;
       margin-bottom: 10px;
-    }
-    &-cards {
-      color: darkblue;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      width: 600px;
-      .card {
-        border: 0.5px solid darkblue;
-        margin-right: 3px;
-        margin-bottom: 3px;
-        padding: 3px 10px;
-        font-size: 0.8em;
-      }
+      font-style: italic;
     }
   }
 

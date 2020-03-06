@@ -1,18 +1,24 @@
 import React from 'react';
+import { SongResultWrapper } from './SongResult.styles';
+import file_upload from '../../../images/file-upload.png';
 
-const SongResult = ({ name, data }) => {
+const SongResult = ({ song }) => {
   return (
-    <div className="results-result">
-      <div className="results-title">{data.title}</div>
-      <div className="results-artist">{data.artist}</div>
-      <div className="results-cards">
-        {Object.keys(data.cards).map((cardId, i) => (
-          <span key={i} className="card">
-            {data.cards[cardId].front}
-          </span>
+    <SongResultWrapper>
+      <div className="song-img">
+        <img src={file_upload} alt="" />
+      </div>
+      <div className="song-info">
+        <div className="title">{song.title}</div>
+        <div className="artist">{song.artist}</div>
+        <div className="numcards">{song.cards.length} cards</div>
+      </div>
+      <div className="song-cards">
+        {song.cards.slice(0, 10).map(card => (
+          <div className="card">{card.Front}</div>
         ))}
       </div>
-    </div>
+    </SongResultWrapper>
   );
 };
 
