@@ -19,7 +19,7 @@ export const toggleSidebar = sidebarVisibility => dispatch => {
   });
 };
 
-export const createSong = (artist, title, cards, ) => {
+export const createSong = (artist, title, cards) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     const firestore = getFirestore();
     const songId = uuidv4();
@@ -39,6 +39,28 @@ export const createSong = (artist, title, cards, ) => {
       })
       .catch(err => {
         dispatch({ type: 'CREATE_SONG_ERROR', err });
+      });
+  };
+};
+
+export const getSongs = () => {
+  return (dispatch, getState, { getFirebase, getFirestore }) => {
+    const firestore = getFirestore();
+    const songList = [];
+
+    firestore
+      .collection('songs')
+      .get()
+      .then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+          songList.push(doc.data());
+        });
+        dispatch({ type: 'GET_SONGS', songList });
+      })
+      .catch(function(error) {
+        console.log('Error getting documents: ', error);
+
+        dispatch({ type: 'GET_SONGS_ERROR', error });
       });
   };
 };

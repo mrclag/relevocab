@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
 import SongResult from './SongResult';
+import { connect } from 'react-redux';
 import { mapSongData } from '../../../utils/createLyricCards';
 
-import { LyricsPageWrapper } from './LyricsPage.styles.js';
+import { getSongs } from '../../../store/actions/appActions';
 
-const LyricsPage = () => {
+import { LyricsPageWrapper } from './LyricsPage.styles';
+
+const LyricsPage = ({ getSongs, songsSearchResult }) => {
   const [searchInput, setSearchInput] = useState('');
 
   const onSubmit = e => {
     e.preventDefault();
     setSearchInput('');
+    getSongs();
   };
 
   return (
@@ -26,6 +30,22 @@ const LyricsPage = () => {
           Search
         </button>
       </form>
+      {songsSearchResult &&
+        songsSearchResult.map(song => {
+          console.log(song);
+          return (
+            <>
+              <div>{song.title}</div>
+              <div>{song.artist}</div>
+              {song.cards.map(card => (
+                <>
+                  <div>{card.Front}</div>
+                  <div>{card.Back}</div>
+                </>
+              ))}
+            </>
+          );
+        })}
       <div className="results-output">Found 5 results:</div>
       <div className="results">
         {Object.keys(mapSongData(bigData)).map((key, i) => (
@@ -36,7 +56,19 @@ const LyricsPage = () => {
   );
 };
 
-export default LyricsPage;
+const mapStateToProps = state => {
+  return {
+    songsSearchResult: state.app.songsSearchResult
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    getSongs: () => dispatch(getSongs())
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(LyricsPage);
 
 const bigData = {
   1: {

@@ -1,5 +1,6 @@
 const initState = {
-  sidebarVisibility: true
+  sidebarVisibility: true,
+  songsSearchResult: []
 };
 
 const appReducer = (state = initState, action) => {
@@ -16,6 +17,10 @@ const appReducer = (state = initState, action) => {
     case 'CREATE_SONG_ERROR':
       console.log('CREATE SONG ERROR: ', action.err);
       return { ...state };
+    case 'GET_SONGS':
+      console.log('GOT SONGS');
+      console.log(action.songList);
+      return { ...state, songsSearchResult: action.songList };
     default:
       return state;
   }
