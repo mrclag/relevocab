@@ -9,6 +9,7 @@ import Instructions from './components/pages/homePage/Instructions';
 import DeckViewer from './components/pages/deckViewer/DeckViewer';
 import LyricsPage from './components/pages/lyrics/LyricsPage';
 import LandingPage from './components/landing/LandingPage';
+import UploadSongPage from './components/pages/uploadSong/UploadSongPage';
 
 import { GlobalStyle } from './global-styles';
 
@@ -34,6 +35,7 @@ const App = ({ auth, currentDeck }) => {
               <Route path="/about" render={() => <About />} />
               <Route path="/deck" render={() => <DeckViewer />} />
               <Route path="/songs" render={() => <LyricsPage />} />
+              <Route path="/uploadSong" render={() => <UploadSongPage />} />
             </Switch>
           </div>
         </AppWrapper>

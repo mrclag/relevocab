@@ -10,6 +10,12 @@ const appReducer = (state = initState, action) => {
       return { ...state, sidebarVisibility: false };
     case 'TOGGLE_SIDEBAR':
       return { ...state, sidebarVisibility: !action.payload };
+    case 'CREATE_SONG':
+      console.log('CREATED SONG');
+      return { ...state };
+    case 'CREATE_SONG_ERROR':
+      console.log('CREATE SONG ERROR: ', action.err);
+      return { ...state };
     default:
       return state;
   }
