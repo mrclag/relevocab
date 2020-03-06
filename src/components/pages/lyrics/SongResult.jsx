@@ -1,12 +1,12 @@
 import React from 'react';
 import { SongResultWrapper } from './SongResult.styles';
-import file_upload from '../../../images/file-upload.png';
+import SongLine from './SongLine';
 
 const SongResult = ({ song }) => {
   return (
     <SongResultWrapper>
       <div className="song-img">
-        <img src={file_upload} alt="" />
+        <img src={song.imgUrl} alt="" />
       </div>
       <div className="song-info">
         <div className="title">{song.title}</div>
@@ -14,9 +14,15 @@ const SongResult = ({ song }) => {
         <div className="numcards">{song.cards.length} cards</div>
       </div>
       <div className="song-cards">
-        {song.cards.slice(0, 10).map(card => (
-          <div className="card">{card.Front}</div>
+        {song.cards.slice(0, 6).map((card, i) => (
+          <SongLine key={i} card={card} />
         ))}
+        <SongLine
+          card={{
+            Front: `${song.cards.length - 6} more...`,
+            Back: `${song.cards.length - 6} more...`
+          }}
+        />
       </div>
     </SongResultWrapper>
   );

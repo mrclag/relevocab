@@ -19,10 +19,29 @@ export const toggleSidebar = sidebarVisibility => dispatch => {
   });
 };
 
-export const createSong = (artist, title, cards) => {
+export const createSong = (artist, title, imgUrl, cards) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     const firestore = getFirestore();
     const songId = uuidv4();
+    console.log(cards);
+    for (let i = 0; i < cards.length; i++) {
+      if (
+        !cards[i].Front ||
+        cards[i].Front.length === 0 ||
+        cards[i].Front[0] === '['
+      ) {
+        cards.splice(i, 1);
+        i--;
+      } else {
+        for (let j = 0; j < cards[i].Front.length; j++) {
+          if (cards[i].Front[j] === '?') cards[i].Front.splice(j, 1);
+        }
+        for (let j = 0; j < cards[i].Back.length; j++) {
+          if (cards[i].Back[j] === '?') cards[i].Back.splice(j, 1);
+        }
+      }
+    }
+    console.log('CLEAN: ', cards);
 
     firestore
       .collection('songs')
@@ -30,6 +49,7 @@ export const createSong = (artist, title, cards) => {
       .set({
         songId: songId,
         artist: artist,
+        imgUrl: imgUrl,
         title: title,
         cards: cards,
         createdAt: new Date()

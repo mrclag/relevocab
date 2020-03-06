@@ -7,6 +7,7 @@ const FileUpload = ({ createSong }) => {
   const [csvfile, setCsvFile] = useState();
   const [artist, setArtist] = useState('');
   const [title, setTitle] = useState('');
+  const [imgUrl, setImgUrl] = useState('');
 
   const handleChange = event => {
     setCsvFile(event.target.files[0]);
@@ -21,7 +22,7 @@ const FileUpload = ({ createSong }) => {
 
   const updateData = result => {
     var data = result.data;
-    createSong(artist, title, data);
+    createSong(artist, title, imgUrl, data);
     console.log(data);
     setArtist('');
     setTitle('');
@@ -43,6 +44,12 @@ const FileUpload = ({ createSong }) => {
         onChange={e => setTitle(e.currentTarget.value)}
       />
       <input
+        type="text"
+        placeholder="Song Image Url"
+        value={imgUrl}
+        onChange={e => setImgUrl(e.currentTarget.value)}
+      />
+      <input
         className="csv-input"
         type="file"
         name="file"
@@ -57,8 +64,8 @@ const FileUpload = ({ createSong }) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    createSong: (artist, title, cards) =>
-      dispatch(createSong(artist, title, cards))
+    createSong: (artist, title, imgUrl, cards) =>
+      dispatch(createSong(artist, title, imgUrl, cards))
   };
 };
 

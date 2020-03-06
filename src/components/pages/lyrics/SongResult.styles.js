@@ -4,27 +4,27 @@ export const SongResultWrapper = styled.div`
   display: flex;
   flex-direction: row;
   height: 100px;
-  border-top: 1px solid #333;
   border-bottom: 1px solid #333;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 
   .song {
     &-img {
       width: 100px;
       text-align: center;
-      padding-top: 20px;
+      padding-top: 15px;
       img {
-        height: 50px;
-        width: 50px;
+        height: 80px;
+        width: 80px;
       }
     }
 
     &-info {
       display: flex;
       flex-direction: column;
-      width: 200px;
+      width: 150px;
       padding-top: 20px;
+      padding-left: 10px;
 
       .title {
         font-size: 16px;
@@ -45,13 +45,7 @@ export const SongResultWrapper = styled.div`
       flex-direction: row;
       flex-wrap: wrap;
       width: 600px;
-      .card {
-        border: 0.5px solid darkblue;
-        margin-right: 3px;
-        margin-bottom: 3px;
-        padding: 3px 10px;
-        font-size: 0.8em;
-      }
+      height: 50px;
     }
   }
 `;
