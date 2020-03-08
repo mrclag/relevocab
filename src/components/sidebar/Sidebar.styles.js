@@ -7,6 +7,47 @@ export const SideBarWrapper = styled.div`
   hr {
     margin: 0;
   }
+  .header {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex: 0 1 60px;
+    width: 100%;
+    z-index: 555;
+    vertical-align: middle;
+    justify-content: space-between;
+
+    button {
+      color: #107bbd;
+      margin-top: 15px;
+      height: 30px;
+      font-size: 12px;
+      margin-right: 5px;
+      background-color: white;
+      border-radius: 5px;
+      border: 1px solid #107bbd;
+      outline: none;
+      cursor: pointer;
+    }
+    .title {
+      margin-top: 0;
+      margin-bottom: 0;
+      padding-left: 12px;
+      align-items: center;
+      color: #107bbd;
+      display: flex;
+      font-size: 30px;
+      line-height: 60px;
+      height: 60px;
+      letter-spacing: 5px;
+
+      .logo {
+        width: 150px;
+        margin-right: 10px;
+        margin-left: 60px;
+      }
+    }
+  }
 `;
 
 export const SidebarTopWrapper = styled.div`
@@ -26,7 +67,7 @@ export const Hamburger = styled.div`
   position: absolute;
   z-index: 999;
   line-height: 30px;
-  height: 30px;
+  height: 40px;
   padding-left: 20px;
   font-weight: bold;
   font-size: 1.5em;
@@ -34,8 +75,9 @@ export const Hamburger = styled.div`
   padding-top: 10px;
   padding-bottom: 10px;
   img {
-    height: 20px;
-    width: 20px;
+    padding-top: 5px;
+    height: 25px;
+    width: 25px;
     cursor: pointer;
   }
   @media screen and (max-width: 800px) {

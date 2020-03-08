@@ -34,6 +34,10 @@ import { setCurrentDeck } from '../../store/actions/deckActions';
 import { toggleSidebar } from '../../store/actions/appActions';
 import { hideSidebar } from '../../store/actions/appActions';
 
+import { signOut } from '../../store/actions/authActions';
+import logo from '../../images/vocarta_logo.png';
+import logo_full from '../../images/vocarta_logo_full.png';
+
 const Sidebar = ({
   setCurrentDeck,
   currentDeck,
@@ -70,6 +74,13 @@ const Sidebar = ({
         />
       </Hamburger>
       <SideBarWrapper sidebarVis={sidebarVisibility}>
+        <div className="header">
+          <div className="title">
+            <img className="logo" src={logo_full} alt="logo" />
+            {/* Vocarta */}
+          </div>
+          <button onClick={signOut}>Logout</button>
+        </div>
         <NavLinks>
           <NavLink
             value="Home"

@@ -25,7 +25,7 @@ const App = ({ auth, currentDeck }) => {
 
       {auth.uid ? (
         <AppWrapper>
-          <Header />
+          {/* <Header /> */}
           <div className="main-content">
             <Sidebar />
             <Switch>
