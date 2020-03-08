@@ -9,14 +9,15 @@ import AddDeckInput from './AddDeckInput';
 
 // Icons
 import hamburger from '../../images/menu_b.png';
-import home_b from '../../images/home_b.png';
-import home_w from '../../images/home_w.png';
-import search_b from '../../images/search_b.png';
-import search_w from '../../images/search_w.png';
-import about_b from '../../images/about_b.png';
-import about_w from '../../images/about_w.png';
-import lyrics_b from '../../images/lyrics_b.png';
-import lyrics_w from '../../images/lyrics_w.png';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faHome,
+  faBars,
+  faSearch,
+  faQuestionCircle,
+  faMusic
+} from '@fortawesome/free-solid-svg-icons';
 
 // Styles
 import {
@@ -67,9 +68,14 @@ const Sidebar = ({
   return (
     <SidebarTopWrapper sidebarVis={sidebarVisibility} ref={ref}>
       <Hamburger>
-        <img
+        {/* <img
           src={hamburger}
           alt="menu"
+          onClick={() => toggleSidebar(sidebarVisibility)}
+        /> */}
+        <FontAwesomeIcon
+          icon={faBars}
+          color="white"
           onClick={() => toggleSidebar(sidebarVisibility)}
         />
       </Hamburger>
@@ -86,25 +92,37 @@ const Sidebar = ({
             value="Home"
             className="link"
             to="/"
-            icon={[home_b, home_w]}
+            icon={[
+              <FontAwesomeIcon icon={faHome} color="black" />,
+              <FontAwesomeIcon icon={faHome} color="white" />
+            ]}
           />
           <NavLink
             value="Find Words"
             className="link"
             to="/wiki"
-            icon={[search_b, search_w]}
+            icon={[
+              <FontAwesomeIcon icon={faSearch} color="black" />,
+              <FontAwesomeIcon icon={faSearch} color="white" />
+            ]}
           />
           <NavLink
             value="About"
             className="link"
             to="/about"
-            icon={[about_b, about_w]}
+            icon={[
+              <FontAwesomeIcon icon={faQuestionCircle} color="black" />,
+              <FontAwesomeIcon icon={faQuestionCircle} color="white" />
+            ]}
           />
           <NavLink
             value="Songs"
             className="link"
             to="/songs"
-            icon={[lyrics_b, lyrics_w]}
+            icon={[
+              <FontAwesomeIcon icon={faMusic} color="black" />,
+              <FontAwesomeIcon icon={faMusic} color="white" />
+            ]}
           />
         </NavLinks>
         <hr />

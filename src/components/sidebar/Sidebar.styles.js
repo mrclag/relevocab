@@ -18,14 +18,14 @@ export const SideBarWrapper = styled.div`
     justify-content: space-between;
 
     button {
-      color: #107bbd;
+      color: #324054;
       margin-top: 15px;
       height: 30px;
       font-size: 12px;
       margin-right: 5px;
       background-color: white;
       border-radius: 5px;
-      border: 1px solid #107bbd;
+      border: 1px solid #324054;
       outline: none;
       cursor: pointer;
     }
@@ -34,7 +34,7 @@ export const SideBarWrapper = styled.div`
       margin-bottom: 0;
       padding-left: 12px;
       align-items: center;
-      color: #107bbd;
+      color: #324054;
       display: flex;
       font-size: 30px;
       line-height: 60px;
@@ -54,7 +54,7 @@ export const SidebarTopWrapper = styled.div`
   overflow: hidden;
   border-right: 0.5px solid #9c9c9c;
   height: 100vh;
-  background-color: #f4f4f4;
+  background-color: #324054;
   min-width: ${props => (props.sidebarVis ? '300px' : 'unset')};
   z-index: 3;
   @media screen and (max-width: 800px) {
@@ -67,7 +67,7 @@ export const Hamburger = styled.div`
   position: absolute;
   z-index: 999;
   line-height: 30px;
-  height: 40px;
+  height: 30px;
   padding-left: 20px;
   font-weight: bold;
   font-size: 1.5em;
@@ -97,15 +97,15 @@ export const NavLinks = styled.div`
   }
   .nav-link {
     text-decoration: none;
-    height: 30px;
+    height: 40px;
     margin: auto 0;
     font-size: 15px;
     vertical-align: middle;
-    line-height: 30px;
+    line-height: 40px;
     width: calc(100%-20px);
     padding-left: 20px;
   }
-  img {
+  .icon {
     height: 15px;
     width: 15px;
     margin-right: 10px;
@@ -122,14 +122,15 @@ export const DeckWrapper = styled.div`
     align-items: center;
     & h4 {
       padding-left: 20px;
+      color: #dfdfdf;
     }
     & button {
       height: 20px;
       width: 80px;
       border-radius: 5px;
-      border: 1px solid #107bbd;
+      border: 1px solid #324054;
       background: white;
-      color: #107bbd;
+      color: #324054;
       text-align: center;
       margin-left: 140px;
       &:focus {

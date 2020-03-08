@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const DeckWrapper = styled.div`
   vertical-align: middle;
-  line-height: 30px;
+  line-height: 40px;
   margin-top: 0px;
   overflow: hidden
   display: flex;
@@ -11,15 +11,15 @@ export const DeckWrapper = styled.div`
   padding-left: 20px;
   padding-right: 30px;
   background-color: ${props =>
-    props.selected || props.hovered ? '#107bbd' : ''};
-  color: ${props => (props.selected || props.hovered ? 'white' : 'black')};
+    props.selected || props.hovered ? 'white' : ''};
+  color: ${props => (props.selected || props.hovered ? 'black' : 'white')};
 
   .hide {
     display: none;
   }
   .counter {
     padding: auto;
-    transform: translateY(-5px);
+    transform: translateY(-9px);
   }
 
   .deck-list-item {
@@ -35,10 +35,5 @@ export const DeckWrapper = styled.div`
     height: 18px;
     margin: auto 0;
     vertical-align: middle;
-  }
-
-  .deck-icon {
-    height: 15px;
-    width: 15px;
   }
 `;
