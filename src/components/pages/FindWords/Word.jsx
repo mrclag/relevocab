@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { googleTranslate } from '../../../services/translate';
 import { connect } from 'react-redux';
 
-import pb from '../../../images/plus_blue.png';
-import pw from '../../../images/plus_white.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 import { addNewCard } from '../../../store/actions/deckActions';
 
@@ -34,10 +34,15 @@ const Word = ({ currentDeck, word, addNewCard, selected }) => {
   return (
     <WordWrapper selectedWord={selectedWord}>
       <AddButton selectedWord={selectedWord} onClick={onClick}>
-        <img
+        {/* <img
           src={selectedWord ? pw : pb}
           alt="plus"
           className="word-add-button"
+        /> */}
+        <FontAwesomeIcon
+          icon={faPlus}
+          color={selectedWord ? 'white' : 'blue'}
+          className="plus"
         />
       </AddButton>
       <br />

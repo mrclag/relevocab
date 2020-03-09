@@ -3,7 +3,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { deleteCard } from '../../../store/actions/deckActions';
 
-import trash from '../../../images/trash.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
 import { CardListItemWrapper } from './CardListItem.styles';
 
@@ -13,7 +14,7 @@ const CardListItem = ({ deck, card, deleteCard }) => {
       <div className="cardlistitem front">{card.front}</div>
       <div className="cardlistitem back">{card.back} </div>
       <div className="deletebutton" onClick={() => deleteCard(card.id)}>
-        <img className="trash" src={trash} alt="" />
+        <FontAwesomeIcon icon={faTrashAlt} className="trash" color="#C44536" />
       </div>
     </CardListItemWrapper>
   );

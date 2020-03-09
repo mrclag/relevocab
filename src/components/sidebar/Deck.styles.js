@@ -19,13 +19,13 @@ export const DeckWrapper = styled.div`
   }
   .counter {
     padding: auto;
-    transform: translateY(-9px);
+    transform: translateY(-10px);
   }
 
   .deck-list-item {
-    color: ${props => (props.selected || props.hovered ? 'black' : 'white')};
+    color: ${props => (props.selected || props.hovered ? 'white' : 'black')};
     background: ${props =>
-      props.selected || props.hovered ? 'white' : '#107bbd'};
+      props.selected || props.hovered ? '#005191' : 'white'};
     font-size: 0.8em;
     margin-right: 30px;
     font-weight: bold;

@@ -10,6 +10,7 @@ export const SideBarWrapper = styled.div`
   .header {
     position: relative;
     display: flex;
+    border-bottom: 1px solid white;
     flex-direction: row;
     flex: 0 1 60px;
     width: 100%;
@@ -17,24 +18,20 @@ export const SideBarWrapper = styled.div`
     vertical-align: middle;
     justify-content: space-between;
 
-    button {
-      color: #324054;
+    .signout {
+      margin-right: 20px;
       margin-top: 15px;
       height: 30px;
-      font-size: 12px;
-      margin-right: 5px;
-      background-color: white;
-      border-radius: 5px;
-      border: 1px solid #324054;
+      width: 30px;
       outline: none;
       cursor: pointer;
     }
     .title {
       margin-top: 0;
       margin-bottom: 0;
-      padding-left: 12px;
+      padding-left: 10px;
       align-items: center;
-      color: #324054;
+      color: #005191;
       display: flex;
       font-size: 30px;
       line-height: 60px;
@@ -54,7 +51,7 @@ export const SidebarTopWrapper = styled.div`
   overflow: hidden;
   border-right: 0.5px solid #9c9c9c;
   height: 100vh;
-  background-color: #324054;
+  background-color: #005191;
   min-width: ${props => (props.sidebarVis ? '300px' : 'unset')};
   z-index: 3;
   @media screen and (max-width: 800px) {
@@ -89,7 +86,7 @@ export const NavLinks = styled.div`
   display: flex;
   flex-direction: column;
   color: black;
-  margin-top: 50px;
+  margin-top: 20px;
   margin-bottom: 10px;
   .link {
     text-decoration: none;
@@ -99,7 +96,7 @@ export const NavLinks = styled.div`
     text-decoration: none;
     height: 40px;
     margin: auto 0;
-    font-size: 15px;
+    font-size: 16px;
     vertical-align: middle;
     line-height: 40px;
     width: calc(100%-20px);
@@ -120,17 +117,15 @@ export const DeckWrapper = styled.div`
     flex-direction: row;
     height: 5vh;
     align-items: center;
-    & h4 {
-      padding-left: 20px;
-      color: #dfdfdf;
-    }
+    padding-left: 20px;
+    color: white;
     & button {
       height: 20px;
       width: 80px;
       border-radius: 5px;
-      border: 1px solid #324054;
+      border: 1px solid #005191;
       background: white;
-      color: #324054;
+      color: #005191;
       text-align: center;
       margin-left: 140px;
       &:focus {
@@ -158,12 +153,17 @@ export const DeckWrapper = styled.div`
     & input {
       width: calc(100%-45px);
       border: none;
-      line-height: 20px;
+      line-height: 30px;
+      caret-color: white;
       margin-top: 5px;
       font-size: 0.8em;
-      background: #f4f4f4;
+      background: #005191;
       margin-left: 14px;
+      color: white;
       outline: none;
+      ::placeholder {
+        color: white;
+      }
     }
     & .add-button {
       margin-left: 20px;

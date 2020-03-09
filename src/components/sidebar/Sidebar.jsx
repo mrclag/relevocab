@@ -8,15 +8,14 @@ import Deck from './Deck';
 import AddDeckInput from './AddDeckInput';
 
 // Icons
-import hamburger from '../../images/menu_b.png';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faHome,
   faBars,
   faSearch,
   faQuestionCircle,
-  faMusic
+  faMusic,
+  faSignOutAlt
 } from '@fortawesome/free-solid-svg-icons';
 
 // Styles
@@ -36,7 +35,6 @@ import { toggleSidebar } from '../../store/actions/appActions';
 import { hideSidebar } from '../../store/actions/appActions';
 
 import { signOut } from '../../store/actions/authActions';
-import logo from '../../images/vocarta_logo.png';
 import logo_full from '../../images/vocarta_logo_full.png';
 
 const Sidebar = ({
@@ -47,7 +45,8 @@ const Sidebar = ({
   initDeck,
   toggleSidebar,
   sidebarVisibility,
-  hideSidebar
+  hideSidebar,
+  signOut
 }) => {
   let decksArray;
 
@@ -68,14 +67,10 @@ const Sidebar = ({
   return (
     <SidebarTopWrapper sidebarVis={sidebarVisibility} ref={ref}>
       <Hamburger>
-        {/* <img
-          src={hamburger}
-          alt="menu"
-          onClick={() => toggleSidebar(sidebarVisibility)}
-        /> */}
         <FontAwesomeIcon
           icon={faBars}
           color="white"
+          style={{ fontSize: '26px', marginTop: '8px' }}
           onClick={() => toggleSidebar(sidebarVisibility)}
         />
       </Hamburger>
@@ -85,7 +80,13 @@ const Sidebar = ({
             <img className="logo" src={logo_full} alt="logo" />
             {/* Vocarta */}
           </div>
-          <button onClick={signOut}>Logout</button>
+          {/* <button onClick={signOut}>Logout</button> */}
+          <FontAwesomeIcon
+            icon={faSignOutAlt}
+            color="white"
+            onClick={signOut}
+            className="signout"
+          />
         </div>
         <NavLinks>
           <NavLink
@@ -93,7 +94,7 @@ const Sidebar = ({
             className="link"
             to="/"
             icon={[
-              <FontAwesomeIcon icon={faHome} color="black" />,
+              <FontAwesomeIcon icon={faHome} color="#005191" />,
               <FontAwesomeIcon icon={faHome} color="white" />
             ]}
           />
@@ -102,7 +103,7 @@ const Sidebar = ({
             className="link"
             to="/wiki"
             icon={[
-              <FontAwesomeIcon icon={faSearch} color="black" />,
+              <FontAwesomeIcon icon={faSearch} color="#005191" />,
               <FontAwesomeIcon icon={faSearch} color="white" />
             ]}
           />
@@ -111,7 +112,7 @@ const Sidebar = ({
             className="link"
             to="/about"
             icon={[
-              <FontAwesomeIcon icon={faQuestionCircle} color="black" />,
+              <FontAwesomeIcon icon={faQuestionCircle} color="#005191" />,
               <FontAwesomeIcon icon={faQuestionCircle} color="white" />
             ]}
           />
@@ -120,7 +121,7 @@ const Sidebar = ({
             className="link"
             to="/songs"
             icon={[
-              <FontAwesomeIcon icon={faMusic} color="black" />,
+              <FontAwesomeIcon icon={faMusic} color="#005191" />,
               <FontAwesomeIcon icon={faMusic} color="white" />
             ]}
           />
@@ -128,7 +129,7 @@ const Sidebar = ({
         <hr />
         <DeckWrapper>
           <div className="deck-header">
-            <h4>DECKS</h4>
+            MY DECKS ({decksArray && decksArray.length})
           </div>
           <div className="deck-items">
             <div>
@@ -170,7 +171,8 @@ const mapDispatchToProps = dispatch => {
     setCurrentDeck: deckName => dispatch(setCurrentDeck(deckName)),
     toggleSidebar: sidebarVisibility =>
       dispatch(toggleSidebar(sidebarVisibility)),
-    hideSidebar: () => dispatch(hideSidebar())
+    hideSidebar: () => dispatch(hideSidebar()),
+    signOut: () => dispatch(signOut())
   };
 };
 

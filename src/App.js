@@ -4,7 +4,6 @@ import Sidebar from './components/sidebar/Sidebar';
 import StudyCards from './components/pages/studyCards/StudyCards';
 import FindWordsPage from './components/pages/findWords/FindWordsPage';
 import About from './components/pages/about/About.jsx';
-import Header from './components/header/Header';
 import Instructions from './components/pages/homePage/Instructions';
 import DeckViewer from './components/pages/deckViewer/DeckViewer';
 import LyricsPage from './components/pages/lyrics/LyricsPage';

@@ -89,12 +89,13 @@ export const DeckViewWrapper = styled.div`
           width: 120px;
           height: 35px;
           border: none;
+          color: white;
           &-practice {
-            background: #8de4af;
+            background: #306B34;
             margin-bottom: 10px;
           }
           &-delete {
-            background: pink;
+            background: #C44536;
           }
         }
       }

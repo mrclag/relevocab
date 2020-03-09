@@ -1,4 +1,3 @@
-
 import styled from 'styled-components';
 
 export const CardListItemWrapper = styled.div`
@@ -18,7 +17,6 @@ export const CardListItemWrapper = styled.div`
   .deletebutton {
     border: none;
     width: 50px;
-    background: pink;
     cursor: pointer;
     .trash {
       width: 20px;

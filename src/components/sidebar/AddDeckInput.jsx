@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { createDeck } from '../../store/actions/deckActions';
 
-import plus from '../../images/plus_blue.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 export const AddDeckInput = ({ isOpen, toggle, createDeck }) => {
   const [name, setName] = useState('');
@@ -16,7 +17,7 @@ export const AddDeckInput = ({ isOpen, toggle, createDeck }) => {
   return (
     <form className="comment-form" onSubmit={onSubmit} autoComplete="off">
       <strong className="add-button">
-        <img src={plus} alt="" />
+        <FontAwesomeIcon icon={faPlus} color="white" />
       </strong>
       <input
         type="text"
