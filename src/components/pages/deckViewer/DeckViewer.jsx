@@ -21,11 +21,13 @@ const DeckView = ({ currentCards, currentDeck, deleteDeck }) => {
             <DeckInfoBar />
           </div>
           <div className="main-content">
-            <div className="language-selects">
-              <Dropdown lang={lang} setLang={setLang} />
-              <Dropdown lang={lang} setLang={setLang} />
+            <div className='newcard'>
+              <div className="language-selects">
+                <Dropdown lang={lang} setLang={setLang} />
+                <Dropdown lang={lang} setLang={setLang} />
+              </div>
+              <AddNewCard lang={lang} />
             </div>
-            <AddNewCard lang={lang} />
             <div className="cards-list">
               {currentCards &&
                 currentCards.map((card, i) => (

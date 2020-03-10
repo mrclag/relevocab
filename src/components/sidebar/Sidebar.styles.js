@@ -31,7 +31,7 @@ export const SideBarWrapper = styled.div`
       margin-bottom: 0;
       padding-left: 10px;
       align-items: center;
-      color: #005191;
+      color: #2a416f;
       display: flex;
       font-size: 30px;
       line-height: 60px;
@@ -51,7 +51,7 @@ export const SidebarTopWrapper = styled.div`
   overflow: hidden;
   border-right: 0.5px solid #9c9c9c;
   height: 100vh;
-  background-color: #005191;
+  background-color: #2a416f;
   min-width: ${props => (props.sidebarVis ? '300px' : 'unset')};
   z-index: 3;
   @media screen and (max-width: 800px) {
@@ -123,9 +123,9 @@ export const DeckWrapper = styled.div`
       height: 20px;
       width: 80px;
       border-radius: 5px;
-      border: 1px solid #005191;
+      border: 1px solid #2a416f;
       background: white;
-      color: #005191;
+      color: #2a416f;
       text-align: center;
       margin-left: 140px;
       &:focus {
@@ -157,7 +157,7 @@ export const DeckWrapper = styled.div`
       caret-color: white;
       margin-top: 5px;
       font-size: 0.8em;
-      background: #005191;
+      background: #2a416f;
       margin-left: 14px;
       color: white;
       outline: none;

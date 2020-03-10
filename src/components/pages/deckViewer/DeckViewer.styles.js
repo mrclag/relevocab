@@ -35,10 +35,14 @@ export const DeckViewWrapper = styled.div`
       }
 
       .cards-list{
-        max-height: 80vh;
+        max-height: 90vh;
         overflow-y: scroll;
         overflow-x: hide;
       }
+      .newcard {
+        max-height: 10vh;
+      }
+      
     }
 
     .top {

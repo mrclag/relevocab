@@ -94,7 +94,7 @@ const Sidebar = ({
             className="link"
             to="/"
             icon={[
-              <FontAwesomeIcon icon={faHome} color="#005191" />,
+              <FontAwesomeIcon icon={faHome} color="#2a416f" />,
               <FontAwesomeIcon icon={faHome} color="white" />
             ]}
           />
@@ -103,7 +103,7 @@ const Sidebar = ({
             className="link"
             to="/wiki"
             icon={[
-              <FontAwesomeIcon icon={faSearch} color="#005191" />,
+              <FontAwesomeIcon icon={faSearch} color="#2a416f" />,
               <FontAwesomeIcon icon={faSearch} color="white" />
             ]}
           />
@@ -112,7 +112,7 @@ const Sidebar = ({
             className="link"
             to="/about"
             icon={[
-              <FontAwesomeIcon icon={faQuestionCircle} color="#005191" />,
+              <FontAwesomeIcon icon={faQuestionCircle} color="#2a416f" />,
               <FontAwesomeIcon icon={faQuestionCircle} color="white" />
             ]}
           />
@@ -121,7 +121,7 @@ const Sidebar = ({
             className="link"
             to="/songs"
             icon={[
-              <FontAwesomeIcon icon={faMusic} color="#005191" />,
+              <FontAwesomeIcon icon={faMusic} color="#2a416f" />,
               <FontAwesomeIcon icon={faMusic} color="white" />
             ]}
           />

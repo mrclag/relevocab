@@ -5,7 +5,7 @@ export const LandingPageWrapper = styled.div`
   display: flex;
   position: relative;
   justify-content: center;
-  background-color: #005191;
+  background-color: #2a416f;
   @media screen and (max-width: 800px){
     overflow-y: scroll;
   }

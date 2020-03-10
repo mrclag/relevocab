@@ -25,7 +25,7 @@ export const DeckWrapper = styled.div`
   .deck-list-item {
     color: ${props => (props.selected || props.hovered ? 'white' : 'black')};
     background: ${props =>
-      props.selected || props.hovered ? '#005191' : 'white'};
+      props.selected || props.hovered ? '#2a416f' : 'white'};
     font-size: 0.8em;
     margin-right: 30px;
     font-weight: bold;
