@@ -6,7 +6,8 @@ const SongLine = ({ card }) => {
   const [hovered, setHovered] = useState(false);
 
   return (
-    <SongLineWrapper hovered={hovered}
+    <SongLineWrapper
+      hovered={hovered}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >

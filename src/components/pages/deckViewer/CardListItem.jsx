@@ -9,8 +9,9 @@ import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { CardListItemWrapper } from './CardListItem.styles';
 
 const CardListItem = ({ deck, card, deleteCard }) => {
+  const cardlength = card.Front.length;
   return (
-    <CardListItemWrapper>
+    <CardListItemWrapper cardlength={cardlength}>
       <div className="cardlistitem front">{card.front}</div>
       <div className="cardlistitem back">{card.back} </div>
       <div className="deletebutton" onClick={() => deleteCard(card.id)}>

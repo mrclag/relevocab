@@ -135,3 +135,30 @@ export const deleteCard = cardId => {
       });
   };
 };
+
+export const addSongAsDeck = (song) => {
+  return (dispatch, getState, { getFirebase, getFirestore }) => {
+    const firestore = getFirestore();
+    const authorId = getState().firebase.auth.uid;
+    const deckId = uuidv4();
+    const {title, artist, cards} = song
+
+    firestore
+      .collection('decks')
+      .doc(deckId)
+      .set({
+        title: title,
+        artist: artist,
+        deckId: deckId,
+        cards: cards,
+        authorId: authorId,
+        createdAt: new Date()
+      })
+      .then(() => {
+        dispatch({ type: 'ADD_SONG', song });
+      })
+      .catch(err => {
+        dispatch({ type: 'ADD_SONG_ERROR', err });
+      });
+  };
+};

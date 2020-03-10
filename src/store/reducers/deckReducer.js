@@ -73,6 +73,12 @@ const deckReducer = (state = initState, action) => {
     case 'DELETE_CARD_ERROR':
       console.log('delete card error', action.err);
       return state;
+    case 'ADD_SONG':
+      console.log('added song');
+      return state;
+    case 'ADD_SONG_ERROR':
+      console.log('add song error', action.err);
+      return state;
     default:
       return state;
   }
