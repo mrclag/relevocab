@@ -116,7 +116,7 @@ const Sidebar = ({
               <FontAwesomeIcon icon={faQuestionCircle} color="white" />
             ]}
           />
-          <NavLink
+          {/* <NavLink
             value="Songs"
             className="link"
             to="/songs"
@@ -124,7 +124,7 @@ const Sidebar = ({
               <FontAwesomeIcon icon={faMusic} color="#2a416f" />,
               <FontAwesomeIcon icon={faMusic} color="white" />
             ]}
-          />
+          /> */}
         </NavLinks>
         <hr />
         <DeckWrapper>

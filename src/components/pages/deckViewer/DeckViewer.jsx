@@ -22,10 +22,10 @@ const DeckView = ({ currentCards, currentDeck, deleteDeck }) => {
           </div>
           <div className="main-content">
             <div className='newcard'>
-              <div className="language-selects">
+              {/* <div className="language-selects">
                 <Dropdown lang={lang} setLang={setLang} />
                 <Dropdown lang={lang} setLang={setLang} />
-              </div>
+              </div> */}
               <AddNewCard lang={lang} />
             </div>
             <div className="cards-list">
