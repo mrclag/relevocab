@@ -11,7 +11,7 @@ const SongLine = ({ card }) => {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      {hovered ? card.Back : card.Front}
+      {hovered ? card.back : card.front}
     </SongLineWrapper>
   );
 };

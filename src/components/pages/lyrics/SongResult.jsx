@@ -4,8 +4,9 @@ import SongLine from './SongLine';
 import { connect } from 'react-redux';
 import { addSongAsDeck } from '../../../store/actions/deckActions';
 
-const SongResult = ({ song }) => {
+const SongResult = ({ song, addSongAsDeck }) => {
   const addSong = (title, artist, cards) => {
+    console.log('running add song');
     const song = { title, artist, cards };
     addSongAsDeck(song);
   };
@@ -15,9 +16,9 @@ const SongResult = ({ song }) => {
       <div className="song-img">
         <img src={song.imgUrl} alt="" />
       </div>
-      <button
-        onClick={() => addSong(song.title, song.artist, song.cards)}
-      >CLICK TO ADD</button>
+      <button onClick={() => addSong(song.title, song.artist, song.cards)}>
+        CLICK TO ADD
+      </button>
       <div className="song-info">
         <div className="title">{song.title}</div>
         <div className="artist">{song.artist}</div>
@@ -29,8 +30,8 @@ const SongResult = ({ song }) => {
         ))}
         <SongLine
           card={{
-            Front: `${song.cards.length - 6} more...`,
-            Back: `${song.cards.length - 6} more...`
+            front: `${song.cards.length - 6} more...`,
+            back: `${song.cards.length - 6} more...`
           }}
         />
       </div>

@@ -25,19 +25,20 @@ export const createSong = (artist, title, imgUrl, cards) => {
     const songId = uuidv4();
     console.log(cards);
     for (let i = 0; i < cards.length; i++) {
+      console.log(cards[i]);
       if (
-        !cards[i].Front ||
-        cards[i].Front.length === 0 ||
-        cards[i].Front[0] === '['
+        !cards[i].front ||
+        cards[i].front.length === 0 ||
+        cards[i].front[0] === '['
       ) {
         cards.splice(i, 1);
         i--;
       } else {
-        for (let j = 0; j < cards[i].Front.length; j++) {
-          if (cards[i].Front[j] === '?') cards[i].Front.splice(j, 1);
+        for (let j = 0; j < cards[i].front.length; j++) {
+          if (cards[i].front[j] === '?') cards[i].front.splice(j, 1);
         }
-        for (let j = 0; j < cards[i].Back.length; j++) {
-          if (cards[i].Back[j] === '?') cards[i].Back.splice(j, 1);
+        for (let j = 0; j < cards[i].back.length; j++) {
+          if (cards[i].back[j] === '?') cards[i].back.splice(j, 1);
         }
       }
     }

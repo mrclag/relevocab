@@ -22,7 +22,7 @@ export const CardContainer = styled.div`
     position: absolute;
     width: 100%;
     height: 100%;
-    line-height: 320px;
+    line-height: 40px;
     text-align: center;
     font-weight: bold;
     font-size: 40px;
