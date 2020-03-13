@@ -33,8 +33,8 @@ const App = ({ auth, currentDeck }) => {
               <Route path="/wiki" render={() => <FindWordsPage />} />
               <Route path="/about" render={() => <About />} />
               <Route path="/deck" render={() => <DeckViewer />} />
-              {/* <Route path="/songs" render={() => <LyricsPage />} /> */}
-              {/* <Route path="/uploadsong" render={() => <UploadSongPage />} /> */}
+              <Route path="/songs" render={() => <LyricsPage />} />
+              <Route path="/uploadsong" render={() => <UploadSongPage />} />
             </Switch>
           </div>
         </AppWrapper>

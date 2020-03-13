@@ -1,52 +1,54 @@
 import React, { useState, useEffect } from 'react';
-import Card from './Card';
-
 import { connect } from 'react-redux';
 
 import { ContentWrapper, CardButton } from './StudyCards.styles';
 
+import Card from './Card';
+
 const StudyCards = ({ currentDeck, currentCards }) => {
-  const [cardPile, setCardPile] = useState({});
-  const [currentCard, setCurrentCard] = useState({});
+  const [cardPile, setCardPile] = useState([]);
+  const [currentCard, setCurrentCard] = useState(null);
   const [flipped, setFlipped] = useState(false);
 
-  // setting the pile to the current cards whenever it is rerendered/new selection
-  useEffect(() => {
-    setCardPile(currentCards);
-  }, [currentCards]);
-
-  const getRandomCard = cardPile => {
-    let card = cardPile[Math.floor(Math.random() * cardPile.length)];
-    console.log('getrandomcard, cardPile: ', cardPile)
-    return card;
-  };
-
   const updateCard = () => {
-    setCurrentCard(getRandomCard(cardPile));
+    // Remove current card from top of pile, put it at the rear
+    const oldCard = cardPile[0];
+    const newCardPile = cardPile.slice(1, cardPile.length);
+    newCardPile.push(oldCard);
+    setCardPile(newCardPile);
+    setCurrentCard(cardPile[0]);
     setFlipped(false);
+    console.log('update card, cardpile: ', cardPile);
   };
 
   const removeCard = () => {
-    const filteredCards = cardPile.filter(card => card.id !== currentCard.id);
-    setCardPile(filteredCards);
-    setCurrentCard(getRandomCard(filteredCards));
+    const newCardPile = cardPile.slice(1, cardPile.length);
+    setCardPile(newCardPile);
+    setCurrentCard(cardPile[0]);
     setFlipped(false);
   };
 
-  const resetDeck = () => {
-    setCardPile(currentCards);
-    setCurrentCard(getRandomCard(currentCards));
+  const randomizeDeck = () => {
+    setCurrentCard(null);
+    // converting object of cards to array
+    const cards = Object.keys(currentDeck.cards).map(
+      (key, i) => currentDeck.cards[key]
+    );
+    // Fisher shuffle: https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle#The_modern_algorithm
+    for (let i = cards.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [cards[i], cards[j]] = [cards[j], cards[i]];
+    }
+    setCardPile(cards);
+    setCurrentCard(cards[0]);
   };
 
   return (
     <ContentWrapper>
       <div className="counter">
-        {currentCards
-          ? `Cards left in deck: ${cardPile.length || currentCards.length} / ${
-              currentCards.length
-            }`
-          : ''}
+        {cardPile.length ? `Cards left in deck: ${cardPile.length}` : ''}
       </div>
+
       {currentCard ? (
         <Card
           front={currentCard.front || currentDeck.title}
@@ -63,17 +65,17 @@ const StudyCards = ({ currentDeck, currentCards }) => {
         />
       )}
       <div>
-        {currentCard && currentCard.front === currentDeck.title ? (
-          <CardButton color="#107bbd" onClick={() => resetDeck()}>
+        {currentCard === null ? (
+          <CardButton color="#107bbd" onClick={() => randomizeDeck()}>
             Start
           </CardButton>
         ) : cardPile.length === 0 ? (
-          <CardButton color="black" onClick={() => resetDeck()}>
+          <CardButton color="black" onClick={() => randomizeDeck()}>
             Reset
           </CardButton>
         ) : (
           <>
-            <CardButton color="#C57B57" onClick={updateCard}>
+            <CardButton color="#C57B57" onClick={() => updateCard()}>
               Again
             </CardButton>
             <CardButton color="#70A288" onClick={() => removeCard()}>
