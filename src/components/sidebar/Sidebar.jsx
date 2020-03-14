@@ -42,7 +42,6 @@ const Sidebar = ({
   currentDeck,
   decks,
   auth,
-  initDeck,
   toggleSidebar,
   sidebarVisibility,
   hideSidebar,
@@ -52,8 +51,6 @@ const Sidebar = ({
 
   if (decks) {
     decksArray = Object.keys(decks).map(key => decks[key]);
-  } else {
-    decksArray = initDeck;
   }
 
   const ref = useRef();
@@ -161,7 +158,6 @@ const mapStateToProps = state => {
     decks: state.firestore.data.decks,
     currentDeck: state.deck.currentDeck,
     auth: state.firebase.auth,
-    initDeck: state.deck.initDeck,
     sidebarVisibility: state.app.sidebarVisibility
   };
 };

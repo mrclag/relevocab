@@ -1,19 +1,6 @@
 const initState = {
   authError: null,
   currentDeck: { cards: { 1: { front: '', back: '' } } }
-  // initDeck: [
-  //   {
-  //     title: 'Example Deck',
-  //     cards: {
-  //       1: { front: 'hello', back: 'hola' },
-  //       2: { front: 'onion', back: 'cebolla' },
-  //       3: { front: 'apple', back: 'manzana' },
-  //       4: { front: 'orange', back: 'naranja' }
-  //     },
-  //     authorId: 'test',
-  //     createdAt: new Date()
-  //   }
-  // ]
 };
 
 const deckReducer = (state = initState, action) => {
@@ -34,16 +21,16 @@ const deckReducer = (state = initState, action) => {
     case 'DELETE_DECK_ERROR':
       console.log('delete deck error', action.err);
       return state;
-    case 'CREATE_INIT_DECK':
-      return {
-        ...state,
-        currentDeck: action.initDeck,
-        currentCards: Object.keys(action.initDeck).map(
-          (key, i) => action.initDeck[key]
-        )
-      };
-    case 'CREATE_INIT_DECK_ERROR':
-      return state;
+    // case 'CREATE_INIT_DECK':
+    //   return {
+    //     ...state,
+    //     currentDeck: action.initDeck,
+    //     currentCards: Object.keys(action.initDeck).map(
+    //       (key, i) => action.initDeck[key]
+    //     )
+    //   };
+    // case 'CREATE_INIT_DECK_ERROR':
+    //   return state;
     case 'SET_CURRENT_DECK':
       console.log(action.deck);
       return {

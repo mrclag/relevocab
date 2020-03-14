@@ -1,13 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
 import { ContentWrapper, CardButton } from './StudyCards.styles';
 
 import Card from './Card';
 
-const StudyCards = ({ currentDeck, currentCards }) => {
+const StudyCards = ({ currentDeck }) => {
   const [cardPile, setCardPile] = useState([]);
-  const [currentCard, setCurrentCard] = useState(null);
+  const [currentCard, setCurrentCard] = useState({
+    front: currentDeck.title,
+    back: currentDeck.title,
+    start: true
+  });
   const [flipped, setFlipped] = useState(false);
 
   const updateCard = () => {
@@ -18,7 +22,6 @@ const StudyCards = ({ currentDeck, currentCards }) => {
     setCardPile(newCardPile);
     setCurrentCard(cardPile[0]);
     setFlipped(false);
-    console.log('update card, cardpile: ', cardPile);
   };
 
   const removeCard = () => {
@@ -29,7 +32,11 @@ const StudyCards = ({ currentDeck, currentCards }) => {
   };
 
   const randomizeDeck = () => {
-    setCurrentCard(null);
+    setCurrentCard({
+      front: currentDeck.title,
+      back: currentDeck.title,
+      start: true
+    });
     // converting object of cards to array
     const cards = Object.keys(currentDeck.cards).map(
       (key, i) => currentDeck.cards[key]
@@ -49,23 +56,10 @@ const StudyCards = ({ currentDeck, currentCards }) => {
         {cardPile.length ? `Cards left in deck: ${cardPile.length}` : ''}
       </div>
 
-      {currentCard ? (
-        <Card
-          front={currentCard.front || currentDeck.title}
-          back={currentCard.back}
-          flipped={flipped}
-          setFlipped={setFlipped}
-        />
-      ) : (
-        <Card
-          front={<div className="deckend-text">End of Deck</div>}
-          back="End of Deck"
-          flipped={flipped}
-          setFlipped={setFlipped}
-        />
-      )}
+      <Card content={currentCard} flipped={flipped} setFlipped={setFlipped} />
+
       <div>
-        {currentCard === null ? (
+        {currentCard.start ? (
           <CardButton color="#107bbd" onClick={() => randomizeDeck()}>
             Start
           </CardButton>
@@ -90,8 +84,7 @@ const StudyCards = ({ currentDeck, currentCards }) => {
 
 const mapStateToProps = state => {
   return {
-    currentDeck: state.deck.currentDeck,
-    currentCards: state.deck.currentCards
+    currentDeck: state.deck.currentDeck
   };
 };
 

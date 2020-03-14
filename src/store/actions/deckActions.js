@@ -41,36 +41,36 @@ export const deleteDeck = deckId => {
   };
 };
 
-export const createInitDeck = () => {
-  return (dispatch, getState, { getFirebase, getFirestore }) => {
-    const firestore = getFirestore();
-    const authorId = getState().firebase.auth.uid;
-    const deckId = uuidv4();
+// export const createInitDeck = () => {
+//   return (dispatch, getState, { getFirebase, getFirestore }) => {
+//     const firestore = getFirestore();
+//     const authorId = getState().firebase.auth.uid;
+//     const deckId = uuidv4();
 
-    const initDeck = {
-      title: 'Example Deck',
-      cards: {
-        1: { front: 'hello', back: 'hola' },
-        2: { front: 'onion', back: 'cebolla' },
-        3: { front: 'apple', back: 'manzana' },
-        4: { front: 'orange', back: 'naranja' }
-      },
-      authorId: authorId,
-      createdAt: new Date()
-    };
+//     const initDeck = {
+//       title: 'Example Deck',
+//       cards: {
+//         1: { front: 'hello', back: 'hola' },
+//         2: { front: 'onion', back: 'cebolla' },
+//         3: { front: 'apple', back: 'manzana' },
+//         4: { front: 'orange', back: 'naranja' }
+//       },
+//       authorId: authorId,
+//       createdAt: new Date()
+//     };
 
-    firestore
-      .collection('decks')
-      .doc(deckId)
-      .set(initDeck)
-      .then(() => {
-        dispatch({ type: 'CREATE_INIT_DECK', initDeck });
-      })
-      .catch(err => {
-        dispatch({ type: 'CREATE_INIT_DECK_ERROR', err });
-      });
-  };
-};
+//     firestore
+//       .collection('decks')
+//       .doc(deckId)
+//       .set(initDeck)
+//       .then(() => {
+//         dispatch({ type: 'CREATE_INIT_DECK', initDeck });
+//       })
+//       .catch(err => {
+//         dispatch({ type: 'CREATE_INIT_DECK_ERROR', err });
+//       });
+//   };
+// };
 
 export const setCurrentDeck = deck => {
   return {
