@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { deleteDeck } from '../../../store/actions/deckActions';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faImage } from '@fortawesome/free-solid-svg-icons';
+import { faImage} from '@fortawesome/free-solid-svg-icons';
 
 const DeckInfoBar = ({ currentDeck, deleteDeck, currentCards }) => {
   return (

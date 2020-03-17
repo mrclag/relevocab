@@ -9,6 +9,9 @@ import Word from './Word';
 
 import { FindWordsWrapper } from './FindWordsPage.styles';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+
 const FindWordsPage = ({ addNewCard, currentDeck }) => {
   const [page, setPage] = useState({});
   const [searchInput, setSearchInput] = useState('');
@@ -50,7 +53,11 @@ const FindWordsPage = ({ addNewCard, currentDeck }) => {
             placeholder="Find Related Words"
           />
           <button type="submit" value="Submit" id="submit-button">
-            Search
+            <FontAwesomeIcon
+              icon={faSearch}
+              className="search-icon"
+              color="#107bbd;"
+            />
           </button>
         </form>
       </div>

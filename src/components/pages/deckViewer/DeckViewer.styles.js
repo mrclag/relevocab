@@ -18,7 +18,9 @@ export const DeckViewWrapper = styled.div`
       border-left: 1px solid black;
       align-items: center;
       padding-top: 50px;
-      @media screen and (min-width: 800px){}
+      @media screen and (max-width: 800px){
+        display: none;
+      }
       
     }
     .main-content {
@@ -27,7 +29,8 @@ export const DeckViewWrapper = styled.div`
       flex-direction: column;
 
       .language-selects{
-        display: flex;
+        /* display: flex; */
+        display: none;
         flex-direction: row;
         > * {
           width: calc(50% - 30px);
@@ -114,6 +117,6 @@ export const DeckViewWrapper = styled.div`
   .choose-deck {
     font-size: 40px;
     margin-left: 50px;
-    margin-top: 20px;
+    margin-top: 10px;
   }
 `;

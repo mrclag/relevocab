@@ -5,11 +5,16 @@ export const FindWordsWrapper = styled.div`
   flex-direction: column;
   margin-left: 0;
   .top {
-    margin-left: 30px;
-    padding-top: 20px;
+    padding-left: 50px;
+    padding-top: 8px;
+
+    width: 100vw;
     @media screen and (max-width: 800px) {
-      margin-left: 5vw;
-      padding-top: 0px;
+      margin-left: 0px;
+      padding-left: 30px;
+      padding-top: 8px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #333;
     }
 
     h3 {
@@ -23,14 +28,14 @@ export const FindWordsWrapper = styled.div`
       margin-left: 10px;
       margin-top: 5px;
       height: 42px;
-      width: 100px;
+      width: 50px;
       background-color: white;
       border-radius: 5px;
       border: 1px solid #107bbd;
       outline: none;
       cursor: pointer;
       @media screen and (max-width: 800px) {
-        width: 20%;
+        width: 50px;
         height: 30px;
       }
     }

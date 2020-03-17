@@ -66,8 +66,8 @@ const Sidebar = ({
       <Hamburger>
         <FontAwesomeIcon
           icon={faBars}
-          color="white"
-          style={{ fontSize: '26px', marginTop: '8px' }}
+          color={sidebarVisibility ? 'white' : '#2a416f'}
+          style={{ fontSize: '26px', marginTop: '8px', cursor: 'pointer' }}
           onClick={() => toggleSidebar(sidebarVisibility)}
         />
       </Hamburger>
@@ -126,7 +126,7 @@ const Sidebar = ({
         <hr />
         <DeckWrapper>
           <div className="deck-header">
-            MY DECKS ({decksArray && decksArray.length})
+            MY DECKS ({(decksArray && decksArray.length) || 0})
           </div>
           <div className="deck-items">
             <div>

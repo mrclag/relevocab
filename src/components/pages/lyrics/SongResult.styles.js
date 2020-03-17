@@ -18,6 +18,9 @@ export const SongResultWrapper = styled.div`
         width: 80px;
       }
     }
+    &-addButton {
+      
+    }
 
     &-info {
       display: flex;

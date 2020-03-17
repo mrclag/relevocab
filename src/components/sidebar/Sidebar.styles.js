@@ -52,8 +52,9 @@ export const SidebarTopWrapper = styled.div`
   border-right: 0.5px solid #9c9c9c;
   height: 100vh;
   background-color: #2a416f;
+
   min-width: ${props => (props.sidebarVis ? '300px' : 'unset')};
-  z-index: 3;
+  z-index: ;
   @media screen and (max-width: 800px) {
     position: absolute;
     min-width: unset;

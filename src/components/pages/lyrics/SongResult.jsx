@@ -1,7 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
 import { SongResultWrapper } from './SongResult.styles';
 import SongLine from './SongLine';
-import { connect } from 'react-redux';
 import { addSongAsDeck } from '../../../store/actions/deckActions';
 
 const SongResult = ({ song, addSongAsDeck }) => {
@@ -16,7 +17,10 @@ const SongResult = ({ song, addSongAsDeck }) => {
       <div className="song-img">
         <img src={song.imgUrl} alt="" />
       </div>
-      <button onClick={() => addSong(song.title, song.artist, song.cards)}>
+      <button
+        className="song-addButton"
+        onClick={() => addSong(song.title, song.artist, song.cards)}
+      >
         CLICK TO ADD
       </button>
       <div className="song-info">
