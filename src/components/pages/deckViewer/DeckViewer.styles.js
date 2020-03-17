@@ -15,7 +15,7 @@ export const DeckViewWrapper = styled.div`
       background-color: white;
       display: flex;
       flex-direction: column;
-      border-left: 1px solid black;
+      border-left: 1px solid #eee;
       align-items: center;
       padding-top: 50px;
       @media screen and (max-width: 800px){
@@ -39,7 +39,7 @@ export const DeckViewWrapper = styled.div`
 
       .cards-list{
         max-height: 90vh;
-        overflow-y: scroll;
+        overflow-y: overlay;
         overflow-x: hide;
       }
       .newcard {

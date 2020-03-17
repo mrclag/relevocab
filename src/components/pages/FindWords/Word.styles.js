@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const WordWrapper = styled.div`
   height: 40px;
   width: 400px;
-  box-shadow: 1px 2px 3px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 2px 2px 1px rgba(0, 0, 0, 0.1);
   border: 0.5px solid #555;
   border-radius: 7px;
   margin-top: 5px;

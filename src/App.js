@@ -58,6 +58,7 @@ const AppWrapper = styled.div`
   display: flex;
   flex-direction: column;
   height: 100vh;
+  background: #eee;
   .main-content {
     position: relative;
     display: flex;

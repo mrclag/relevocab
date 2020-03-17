@@ -5,6 +5,7 @@ import { InstructionsWrapper } from './Instructions.styles';
 const Instructions = () => {
   return (
     <InstructionsWrapper>
+    <div className='welcome-wrapper'>
       <h1>Welcome to Vocarta!</h1>
       <div>
         To get started,
@@ -21,6 +22,7 @@ const Instructions = () => {
           </li>
         </ol>
         <br />
+      </div>
       </div>
     </InstructionsWrapper>
   );

@@ -5,15 +5,21 @@ export const FindWordsWrapper = styled.div`
   flex-direction: column;
   margin-left: 0;
   .top {
-    padding-left: 50px;
+    padding-left: 30px;
     padding-top: 8px;
-
-    width: 100vw;
+    width: 850px;
+    .search {
+      background: white;
+      border: 0.5px solid #333;
+      border-radius: 15px;
+      padding: 20px;
+    }
     @media screen and (max-width: 800px) {
       margin-left: 0px;
       padding-left: 30px;
       padding-top: 8px;
       padding-bottom: 12px;
+      width: unset;
       border-bottom: 1px solid #333;
     }
 

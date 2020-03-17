@@ -3,6 +3,12 @@ import styled from 'styled-components';
 export const AboutWrapper = styled.div`
   margin-left: 50px;
   margin-top: 20px;
+  .about-wrapper {
+    background: white;
+    border: 1px solid #333;
+    padding: 20px;
+    border-radius: 15px;
+  }
   font-size: 1.1em;
   .contact-form {
     margin-top: 8vh;

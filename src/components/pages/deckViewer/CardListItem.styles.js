@@ -8,6 +8,7 @@ export const CardListItemWrapper = styled.div`
   text-align: center;
   line-height: ${props => (props.cardlength > 40 ? '25px' : '50px')}
   vertical-align: middle;
+  background: white;
   border-bottom: 1px solid #eee;
 
   .cardlistitem {

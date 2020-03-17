@@ -25,4 +25,8 @@ export const GlobalStyle = createGlobalStyle`
     background: #afc9e9;
   }
 
+  ::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
 `;

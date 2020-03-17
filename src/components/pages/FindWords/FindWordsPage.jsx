@@ -45,21 +45,23 @@ const FindWordsPage = ({ addNewCard, currentDeck }) => {
   return (
     <FindWordsWrapper>
       <div className="top">
-        <form onSubmit={onSubmit}>
-          <input
-            type="text"
-            value={searchInput}
-            onChange={e => setSearchInput(e.target.value)}
-            placeholder="Find Related Words"
-          />
-          <button type="submit" value="Submit" id="submit-button">
-            <FontAwesomeIcon
-              icon={faSearch}
-              className="search-icon"
-              color="#107bbd;"
+        <div className="search">
+          <form onSubmit={onSubmit}>
+            <input
+              type="text"
+              value={searchInput}
+              onChange={e => setSearchInput(e.target.value)}
+              placeholder="Find Related Words"
             />
-          </button>
-        </form>
+            <button type="submit" value="Submit" id="submit-button">
+              <FontAwesomeIcon
+                icon={faSearch}
+                className="search-icon"
+                color="#107bbd;"
+              />
+            </button>
+          </form>
+        </div>
       </div>
       <div>
         <div className="results">
@@ -67,14 +69,16 @@ const FindWordsPage = ({ addNewCard, currentDeck }) => {
             <div className="results-words">
               {page.words
                 ? page.words.slice(0, 15).map((word, i) => (
-                    <div style={{ display: 'flex', flexDirection: 'row' }}>
+                    <div
+                      key={i}
+                      style={{ display: 'flex', flexDirection: 'row' }}
+                    >
                       <div>
                         <Word word={word} selected={selectedWord} />
                       </div>
                       <div
                         className="search-moreWords"
                         onClick={() => onSelect(word)}
-                        key={i}
                       >
                         >
                       </div>

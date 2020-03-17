@@ -8,6 +8,7 @@ export const AddNewCardWrapper = styled.div`
     height: 50px;
     text-align: center;
     line-height: 50px;
+    background: white;
     vertical-align: middle;
     .cardlistitem {
       border: 1px solid #eee;
@@ -22,7 +23,6 @@ export const AddNewCardWrapper = styled.div`
     .addbutton {
       border: none;
       width: 50px;
-      margin-right: 10px;
       background: #306B34;
       color: white;
       cursor: pointer;
@@ -36,7 +36,7 @@ export const AddNewCardWrapper = styled.div`
     height: 30px;
     border-radius: 50%;
     position: absolute;
-    left: calc(50% - 28px);
+    left: calc(50% - 23px);
     top: 10px;
     border: 1px solid #107bbd;
     line-height: 30px;
