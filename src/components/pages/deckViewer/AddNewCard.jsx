@@ -61,7 +61,7 @@ const NewCard = ({ deck, addNewCard, lang }) => {
             maxLength="14"
           />
         </div>
-        <input type="submit" className="addbutton" value="Add" />
+        <input type="submit" className="addbutton" value="Add"/>
         {/* <FontAwesomeIcon icon={faPlus} className="addbutton" color='#306B34'/> */}
       </form>
     </AddNewCardWrapper>

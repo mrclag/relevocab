@@ -7,6 +7,9 @@ export const AddNewCardWrapper = styled.div`
     flex-direction: row;
     height: 50px;
     text-align: center;
+    border: 1px solid #999;
+    border-radius: 15px;
+    margin: 5px;
     line-height: 50px;
     background: white;
     vertical-align: middle;
@@ -24,6 +27,8 @@ export const AddNewCardWrapper = styled.div`
       border: none;
       width: 50px;
       background: #306B34;
+      overflow: hidden;
+      border-radius: 0 15px 15px 0;
       color: white;
       cursor: pointer;
       @media screen and (max-width: 800px){

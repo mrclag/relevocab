@@ -9,7 +9,7 @@ export const WordWrapper = styled.div`
   margin-top: 5px;
   margin-bottom: 5px;
   color: ${props => (props.selectedWord ? 'white' : 'black')};
-  background: ${props => (props.selectedWord ? '#107bbd' : 'white')}
+  background: ${props => (props.selectedWord ? '#107bbd' : 'white')};
   cursor: context-menu;
   display: flex;
   font-size: 0.92em;

@@ -10,6 +10,9 @@ export const CardListItemWrapper = styled.div`
   vertical-align: middle;
   background: white;
   border-bottom: 1px solid #eee;
+    border: 0.5px solid #999;
+    border-radius: 15px;
+    margin: 5px;
 
   .cardlistitem {
     width: 50%;
