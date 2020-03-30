@@ -8,12 +8,13 @@ import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
 import { CardListItemWrapper } from './CardListItem.styles';
 
-const CardListItem = ({ deck, card, deleteCard }) => {
+export const CardListItem = ({ deck, card, deleteCard }) => {
   const cardlength = card && card.front.length;
+
   return (
     <CardListItemWrapper cardlength={cardlength}>
-      <div className="cardlistitem front">{card.front}</div>
-      <div className="cardlistitem back">{card.back} </div>
+      <div className="cardlistitem front">{card && card.front}</div>
+      <div className="cardlistitem back">{card && card.back} </div>
       <div className="deletebutton" onClick={() => deleteCard(card.id)}>
         <FontAwesomeIcon icon={faTrashAlt} className="trash" color="#C44536" />
       </div>

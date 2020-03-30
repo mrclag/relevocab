@@ -6,7 +6,7 @@ import { LandingPageWrapper } from './LandingPage.styles';
 
 import logo from '../../images/vocarta_logo.png';
 
-const LandingPage = () => {
+export const LandingPage = () => {
   const [haveAccount, setHaveAccount] = useState(false);
   const [loginVisibility, setLoginVisibility] = useState(false);
 

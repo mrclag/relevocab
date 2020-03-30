@@ -5,7 +5,7 @@ import { SongResultWrapper } from './SongResult.styles';
 import SongLine from './SongLine';
 import { addSongAsDeck } from '../../../store/actions/deckActions';
 
-const SongResult = ({ song, addSongAsDeck }) => {
+export const SongResult = ({ song, addSongAsDeck }) => {
   const addSong = (title, artist, cards) => {
     console.log('running add song');
     const song = { title, artist, cards };
@@ -13,33 +13,35 @@ const SongResult = ({ song, addSongAsDeck }) => {
   };
 
   return (
-    <SongResultWrapper>
-      <div className="song-img">
-        <img src={song.imgUrl} alt="" />
-      </div>
-      <button
-        className="song-addButton"
-        onClick={() => addSong(song.title, song.artist, song.cards)}
-      >
-        CLICK TO ADD
-      </button>
-      <div className="song-info">
-        <div className="title">{song.title}</div>
-        <div className="artist">{song.artist}</div>
-        <div className="numcards">{song.cards.length} cards</div>
-      </div>
-      <div className="song-cards">
-        {song.cards.slice(0, 6).map((card, i) => (
-          <SongLine key={i} card={card} />
-        ))}
-        <SongLine
-          card={{
-            front: `${song.cards.length - 6} more...`,
-            back: `${song.cards.length - 6} more...`
-          }}
-        />
-      </div>
-    </SongResultWrapper>
+    song && (
+      <SongResultWrapper>
+        <div className="song-img">
+          <img src={song.imgUrl} alt="" />
+        </div>
+        <button
+          className="song-addButton"
+          onClick={() => addSong(song.title, song.artist, song.cards)}
+        >
+          CLICK TO ADD
+        </button>
+        <div className="song-info">
+          <div className="title">{song.title}</div>
+          <div className="artist">{song.artist}</div>
+          <div className="numcards">{song.cards.length} cards</div>
+        </div>
+        <div className="song-cards">
+          {song.cards.slice(0, 6).map((card, i) => (
+            <SongLine key={i} card={card} />
+          ))}
+          <SongLine
+            card={{
+              front: `${song.cards.length - 6} more...`,
+              back: `${song.cards.length - 6} more...`
+            }}
+          />
+        </div>
+      </SongResultWrapper>
+    )
   );
 };
 

@@ -5,7 +5,7 @@ import logo from '../../images/vocarta_logo.png';
 
 import { HeaderWrapper } from './Header.styles.js';
 
-const Header = ({ signOut }) => {
+export const Header = ({ signOut }) => {
   return (
     <HeaderWrapper>
       <div className="title">

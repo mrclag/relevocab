@@ -29,7 +29,6 @@ const Dropdown = ({ lang, setLang }) => {
 
   return (
     <Select
-      className="basic-single"
       classNamePrefix="select"
       defaultValue={options[0]}
       name="color"

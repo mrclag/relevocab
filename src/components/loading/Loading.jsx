@@ -2,9 +2,9 @@ import React from 'react';
 // First way to import
 import ClipLoader from 'react-spinners/ClipLoader';
 
-import {LoadingWrapper} from './Loading.styles'
+import { LoadingWrapper } from './Loading.styles';
 
-class Loading extends React.Component {
+export class Loading extends React.Component {
   constructor(props) {
     super(props);
     this.state = {

@@ -6,7 +6,7 @@ import { getSongs } from '../../../store/actions/appActions';
 
 import { LyricsPageWrapper } from './LyricsPage.styles';
 
-const LyricsPage = ({ getSongs, songsSearchResult }) => {
+export const LyricsPage = ({ getSongs, songsSearchResult }) => {
   const [searchInput, setSearchInput] = useState('');
 
   const onSubmit = e => {

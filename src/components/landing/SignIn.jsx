@@ -4,7 +4,7 @@ import { signIn } from '../../store/actions/authActions.js';
 
 import styled from 'styled-components';
 
-const SignIn = ({
+export const SignIn = ({
   history,
   signIn,
   authError,

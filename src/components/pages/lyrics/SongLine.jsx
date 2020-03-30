@@ -2,17 +2,19 @@ import React, { useState } from 'react';
 
 import { SongLineWrapper } from './SongLine.styles';
 
-const SongLine = ({ card }) => {
+export const SongLine = ({ card }) => {
   const [hovered, setHovered] = useState(false);
 
   return (
-    <SongLineWrapper
-      hovered={hovered}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-    >
-      {hovered ? card.back : card.front}
-    </SongLineWrapper>
+    card && (
+      <SongLineWrapper
+        hovered={hovered}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+      >
+        {hovered ? card.back : card.front}
+      </SongLineWrapper>
+    )
   );
 };
 

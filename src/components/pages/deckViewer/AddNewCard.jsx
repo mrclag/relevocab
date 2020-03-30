@@ -9,7 +9,7 @@ import { AddNewCardWrapper } from './AddNewCard.styles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
-const NewCard = ({ deck, addNewCard, lang }) => {
+export const NewCard = ({ deck, addNewCard, lang }) => {
   const [front, setFront] = useState('');
   const [back, setBack] = useState('');
   const [inputRef, setInputFocus] = useFocus();
@@ -61,7 +61,7 @@ const NewCard = ({ deck, addNewCard, lang }) => {
             maxLength="14"
           />
         </div>
-        <input type="submit" className="addbutton" value="Add"/>
+        <input type="submit" className="addbutton" value="Add" />
         {/* <FontAwesomeIcon icon={faPlus} className="addbutton" color='#306B34'/> */}
       </form>
     </AddNewCardWrapper>

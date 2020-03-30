@@ -9,7 +9,7 @@ import { addNewCard } from '../../../store/actions/deckActions';
 
 import { AddButton, WordWrapper } from './Word.styles';
 
-const Word = ({ currentDeck, word, addNewCard, selected }) => {
+export const Word = ({ currentDeck, word, addNewCard, selected }) => {
   const [translation, setTranslation] = useState('');
   let selectedWord = selected === word;
 

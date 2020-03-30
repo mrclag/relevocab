@@ -1,7 +1,7 @@
 import React from 'react';
 import FileUpload from '../../fileUpload/FileUpload';
 
-const UploadSongPage = () => {
+export const UploadSongPage = () => {
   return (
     <div>
       <FileUpload />

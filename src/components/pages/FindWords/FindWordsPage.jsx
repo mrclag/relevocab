@@ -12,7 +12,7 @@ import { FindWordsWrapper } from './FindWordsPage.styles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
-const FindWordsPage = ({ addNewCard, currentDeck }) => {
+export const FindWordsPage = ({ addNewCard, currentDeck }) => {
   const [page, setPage] = useState({});
   const [searchInput, setSearchInput] = useState('');
   const [words, setWords] = useState([]);

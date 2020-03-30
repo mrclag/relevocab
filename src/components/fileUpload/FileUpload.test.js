@@ -1,12 +1,11 @@
 import React from 'react';
-import FileUpload from './FileUpload.jsx';
-
+import { FileUpload } from './FileUpload.jsx';
 import { shallow } from 'enzyme';
 
 describe('FileUpload', () => {
-  const app = shallow(<FileUpload />);
+  const fileupload = shallow(<FileUpload />);
 
   it('renders correctly', () => {
-    expect(app).toMatchSnapshot();
+    expect(fileupload).toMatchSnapshot();
   });
 });

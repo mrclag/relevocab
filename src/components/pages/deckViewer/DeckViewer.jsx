@@ -9,8 +9,8 @@ import AddNewCard from './AddNewCard';
 import Dropdown from '../../dropdown/Dropdown';
 import DeckInfoBar from './DeckInfoBar';
 
-const DeckView = ({ currentCards, currentDeck, deleteDeck }) => {
-  const existsSelectedDeck = currentDeck.title;
+export const DeckView = ({ currentCards, currentDeck, deleteDeck }) => {
+  const existsSelectedDeck = currentDeck && currentDeck.title;
   const [lang, setLang] = useState('');
 
   return (
@@ -21,7 +21,7 @@ const DeckView = ({ currentCards, currentDeck, deleteDeck }) => {
             <DeckInfoBar />
           </div>
           <div className="main-content">
-            <div className='newcard'>
+            <div className="newcard">
               <div className="language-selects">
                 <Dropdown lang={lang} setLang={setLang} />
                 <Dropdown lang={lang} setLang={setLang} />

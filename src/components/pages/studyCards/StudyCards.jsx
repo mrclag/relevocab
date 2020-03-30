@@ -5,11 +5,11 @@ import { ContentWrapper, CardButton } from './StudyCards.styles';
 
 import Card from './Card';
 
-const StudyCards = ({ currentDeck }) => {
+export const StudyCards = ({ currentDeck }) => {
   const [cardPile, setCardPile] = useState([]);
   const [currentCard, setCurrentCard] = useState({
-    front: currentDeck.title,
-    back: currentDeck.title,
+    front: currentDeck && currentDeck.title,
+    back: currentDeck && currentDeck.title,
     start: true
   });
   const [flipped, setFlipped] = useState(false);

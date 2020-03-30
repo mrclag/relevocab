@@ -4,7 +4,7 @@ import { signUp } from '../../store/actions/authActions';
 
 import styled from 'styled-components';
 
-const SignUp = ({ signUp, authError, haveAccount, setHaveAccount }) => {
+export const SignUp = ({ signUp, authError, haveAccount, setHaveAccount }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [firstName, setFirstName] = useState('');

@@ -5,17 +5,19 @@ import { Link } from 'react-router-dom';
 import { deleteDeck } from '../../../store/actions/deckActions';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faImage} from '@fortawesome/free-solid-svg-icons';
+import { faImage } from '@fortawesome/free-solid-svg-icons';
 
-const DeckInfoBar = ({ currentDeck, deleteDeck, currentCards }) => {
+export const DeckInfoBar = ({ currentDeck, deleteDeck, currentCards }) => {
   return (
     <>
       <div className="top-left">
         {/* <img src={file_upload} alt="" className="deck-picture" /> */}
         <FontAwesomeIcon icon={faImage} className="deck-picture" color="#333" />
         <div className="deck-info">
-          <div className="deck-info-title">{currentDeck.title}</div>
-          <div>{currentCards.length} cards</div>
+          <div className="deck-info-title">
+            {currentDeck && currentDeck.title}
+          </div>
+          <div>{currentCards && currentCards.length} cards</div>
         </div>
       </div>
       <div className="deck-buttons">
