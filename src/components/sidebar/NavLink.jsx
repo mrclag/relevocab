@@ -11,15 +11,16 @@ const NavLink = ({ value, to, location, icon }) => {
     <Link
       className="nav-link"
       style={{
-        color: selected ? 'black' : 'white',
-        borderBottom: selected ? '2px solid #f4f4f4' : '2px solid #2a416f',
-        backgroundColor: selected ? '#f4f4f4' : '#2a416f'
+        color: selected ? '#2a416f' : '#515151',
+        borderBottom: selected ? '2px solid #f4f4f4' : '2px solid #f7f7f7',
+        // backgroundColor: selected ? '#2a416f' : '#f7f7f7',
+        borderRight: selected ? '10px solid #2a416f' : 'none',
       }}
       to={to}
       onMouseEnter={toggleHover}
       onMouseLeave={toggleHover}
     >
-      <span className="icon">{selected ? icon[0] : icon[1]}</span>
+      <span className="icon">{icon[0]}</span>
       {/* <img src={selected ? icon[1] : icon[0]} alt="icon" /> */}
       {value}
     </Link>

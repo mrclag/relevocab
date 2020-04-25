@@ -7,8 +7,8 @@ export const AddNewCardWrapper = styled.div`
     flex-direction: row;
     height: 50px;
     text-align: center;
-    border: 1px solid #999;
-    border-radius: 15px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
     margin: 5px;
     line-height: 50px;
     background: white;

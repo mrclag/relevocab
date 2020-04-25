@@ -9,9 +9,10 @@ export const InstructionsWrapper = styled.div`
     margin: 30px 0;
   }
   .welcome-wrapper {
-    border: 1px solid #333;
-    border-radius: 15px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
     padding: 20px;
+    height: 100%;
     background: white;
   }
   @media screen and (max-width: 800px) {

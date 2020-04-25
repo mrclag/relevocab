@@ -10,15 +10,13 @@ export const FindWordsWrapper = styled.div`
     width: 850px;
     .search {
       background: white;
-      border: 0.5px solid #333;
-      border-radius: 15px;
+      border: 0.5px solid #aaa;
+      border-radius: 5px;
       padding: 20px;
     }
     @media screen and (max-width: 800px) {
       margin-left: 0px;
-      padding-left: 30px;
-      padding-top: 8px;
-      padding-bottom: 12px;
+      padding: unset;
       width: unset;
       border-bottom: 1px solid #333;
     }

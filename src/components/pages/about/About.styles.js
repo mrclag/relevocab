@@ -7,7 +7,7 @@ export const AboutWrapper = styled.div`
     background: white;
     border: 1px solid #333;
     padding: 20px;
-    border-radius: 15px;
+    border-radius: 5px;
   }
   font-size: 1.1em;
   .contact-form {

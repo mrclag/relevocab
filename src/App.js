@@ -6,7 +6,7 @@ import FindWordsPage from './components/pages/findWords/FindWordsPage';
 import About from './components/pages/about/About.jsx';
 import Instructions from './components/pages/homePage/Instructions';
 import DeckViewer from './components/pages/deckViewer/DeckViewer';
-import LyricsPage from './components/pages/lyrics/LyricsPage';
+import LyricsPage from './components/pages/songs/LyricsPage';
 import LandingPage from './components/landing/LandingPage';
 import UploadSongPage from './components/pages/uploadSong/UploadSongPage';
 
@@ -16,6 +16,7 @@ import styled from 'styled-components';
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Header from './components/header/Header.jsx';
 
 const App = ({ auth, currentDeck }) => {
   return (
@@ -24,7 +25,7 @@ const App = ({ auth, currentDeck }) => {
 
       {auth.uid ? (
         <AppWrapper>
-          {/* <Header /> */}
+          <Header />
           <div className="main-content">
             <Sidebar />
             <Switch>
@@ -45,10 +46,10 @@ const App = ({ auth, currentDeck }) => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     auth: state.firebase.auth,
-    currentDeck: state.deck.currentDeck
+    currentDeck: state.deck.currentDeck,
   };
 };
 

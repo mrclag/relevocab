@@ -9,7 +9,7 @@ import { LyricsPageWrapper } from './LyricsPage.styles';
 export const LyricsPage = ({ getSongs, songsSearchResult }) => {
   const [searchInput, setSearchInput] = useState('');
 
-  const onSubmit = e => {
+  const onSubmit = (e) => {
     e.preventDefault();
     setSearchInput('');
     getSongs();
@@ -21,9 +21,10 @@ export const LyricsPage = ({ getSongs, songsSearchResult }) => {
       <form onSubmit={onSubmit} className="search-form">
         <input
           type="text"
+          disabled="true"
           className="search-form-input"
           value={searchInput}
-          onChange={e => setSearchInput(e.currentTarget.value)}
+          onChange={(e) => setSearchInput(e.currentTarget.value)}
         />
         <button type="submit" value="Submit" className="search-form-submit">
           Search
@@ -43,15 +44,15 @@ export const LyricsPage = ({ getSongs, songsSearchResult }) => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    songsSearchResult: state.app.songsSearchResult
+    songsSearchResult: state.app.songsSearchResult,
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    getSongs: () => dispatch(getSongs())
+    getSongs: () => dispatch(getSongs()),
   };
 };
 

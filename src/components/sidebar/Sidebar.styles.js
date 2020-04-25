@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const SideBarWrapper = styled.div`
-  display: ${props => (props.sidebarVis ? 'unset' : 'none')};
+  display: ${(props) => (props.sidebarVis ? 'unset' : 'none')};
   width: 300px;
   position: static;
   hr {
@@ -31,7 +31,7 @@ export const SideBarWrapper = styled.div`
       margin-bottom: 0;
       padding-left: 10px;
       align-items: center;
-      color: #2a416f;
+      color: #515151;
       display: flex;
       font-size: 30px;
       line-height: 60px;
@@ -49,11 +49,12 @@ export const SideBarWrapper = styled.div`
 
 export const SidebarTopWrapper = styled.div`
   overflow: hidden;
-  border-right: 0.5px solid #9c9c9c;
+  border-right: 0.5px solid #aaa;
   height: 100vh;
-  background-color: #2a416f;
+  /* background-color: #2a416f; */
+  background-color: #f7f7f7;
 
-  min-width: ${props => (props.sidebarVis ? '300px' : 'unset')};
+  min-width: ${(props) => (props.sidebarVis ? '300px' : 'unset')};
   z-index: ;
   @media screen and (max-width: 800px) {
     position: absolute;
@@ -72,6 +73,7 @@ export const Hamburger = styled.div`
   background: transparent;
   padding-top: 10px;
   padding-bottom: 10px;
+  display: none;
   img {
     padding-top: 5px;
     height: 25px;
@@ -80,6 +82,7 @@ export const Hamburger = styled.div`
   }
   @media screen and (max-width: 800px) {
     position: fixed;
+    display: unset;
   }
 `;
 
@@ -119,7 +122,7 @@ export const DeckWrapper = styled.div`
     height: 5vh;
     align-items: center;
     padding-left: 20px;
-    color: white;
+    color: #515151;
     & button {
       height: 20px;
       width: 80px;
@@ -158,7 +161,7 @@ export const DeckWrapper = styled.div`
       caret-color: white;
       margin-top: 5px;
       font-size: 0.8em;
-      background: #2a416f;
+      background: #f3f3f3;
       margin-left: 14px;
       color: white;
       outline: none;

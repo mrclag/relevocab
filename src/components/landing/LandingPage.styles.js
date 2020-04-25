@@ -19,19 +19,11 @@ export const LandingPageWrapper = styled.div`
     font-size: 24px;
     line-height: 60px;
     width: 100%;
-    padding-left: 40vw;
-    @media screen and (max-width: 1300px) {
-      padding-left: 30vw;
-    }
-    @media screen and (max-width: 800px) {
-      padding-left: 20vw;
-    }
-
+  
     &-logo {
       margin-top: 10px
       margin-right: 15px;
       height: 40px;
-      
     }
 
     &-title {
@@ -71,7 +63,7 @@ export const LandingPageWrapper = styled.div`
         margin-right: 30px;
         @media screen and (max-width: 800px) {
           width: unset;
-          display: ${props => (props.loginVisibility ? 'none' : 'unset')};
+          display: ${(props) => (props.loginVisibility ? 'none' : 'unset')};
         }
 
         .heading {
@@ -110,7 +102,7 @@ export const LandingPageWrapper = styled.div`
       &-login {
         width: 50%;
         @media screen and (max-width: 800px) {
-          display: ${props => (props.loginVisibility ? 'flex' : 'none')};
+          display: ${(props) => (props.loginVisibility ? 'flex' : 'none')};
           width: 100%;
         }
         img {

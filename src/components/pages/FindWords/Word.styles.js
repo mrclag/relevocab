@@ -4,12 +4,12 @@ export const WordWrapper = styled.div`
   height: 40px;
   width: 400px;
   box-shadow: 1px 2px 2px 1px rgba(0, 0, 0, 0.1);
-  border: 0.5px solid #555;
+  border: 0.5px solid #aaa;
   border-radius: 7px;
   margin-top: 5px;
   margin-bottom: 5px;
-  color: ${props => (props.selectedWord ? 'white' : 'black')};
-  background: ${props => (props.selectedWord ? '#107bbd' : 'white')};
+  color: ${(props) => (props.selectedWord ? 'white' : 'black')};
+  background: ${(props) => (props.selectedWord ? '#107bbd' : 'white')};
   cursor: context-menu;
   display: flex;
   font-size: 0.92em;
@@ -23,7 +23,7 @@ export const WordWrapper = styled.div`
   }
   .word-text-front{
     margin-left: 15px;
-    border-radius: 0px 7px 7px 0px
+    border-radius: 0px 3px 3px 0px
     padding-right: 10px;
     padding-top: 10px;
     width: 180px;
@@ -58,7 +58,7 @@ export const AddButton = styled.div`
   height: 15px;
   width: 15px;
   text-align: center;
-  border: ${props =>
+  border: ${(props) =>
     props.selectedWord ? '1px solid white' : '1px solid #107bbd'};
   border-radius: 15%;
   padding: 5px;

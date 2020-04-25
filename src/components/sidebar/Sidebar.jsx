@@ -15,7 +15,7 @@ import {
   faSearch,
   faQuestionCircle,
   faMusic,
-  faSignOutAlt
+  faSignOutAlt,
 } from '@fortawesome/free-solid-svg-icons';
 
 // Styles
@@ -24,7 +24,7 @@ import {
   NavLinks,
   DeckWrapper,
   Hamburger,
-  SidebarTopWrapper
+  SidebarTopWrapper,
 } from './Sidebar.styles';
 
 import { connect } from 'react-redux';
@@ -45,12 +45,12 @@ const Sidebar = ({
   toggleSidebar,
   sidebarVisibility,
   hideSidebar,
-  signOut
+  signOut,
 }) => {
   let decksArray;
 
   if (decks) {
-    decksArray = Object.keys(decks).map(key => decks[key]);
+    decksArray = Object.keys(decks).map((key) => decks[key]);
   }
 
   const ref = useRef();
@@ -72,19 +72,6 @@ const Sidebar = ({
         />
       </Hamburger>
       <SideBarWrapper sidebarVis={sidebarVisibility}>
-        <div className="header">
-          <div className="title">
-            <img className="logo" src={logo_full} alt="logo" />
-            {/* Vocarta */}
-          </div>
-          {/* <button onClick={signOut}>Logout</button> */}
-          <FontAwesomeIcon
-            icon={faSignOutAlt}
-            color="white"
-            onClick={signOut}
-            className="signout"
-          />
-        </div>
         <NavLinks>
           <NavLink
             value="Home"
@@ -92,7 +79,7 @@ const Sidebar = ({
             to="/"
             icon={[
               <FontAwesomeIcon icon={faHome} color="#2a416f" />,
-              <FontAwesomeIcon icon={faHome} color="white" />
+              <FontAwesomeIcon icon={faHome} color="white" />,
             ]}
           />
           <NavLink
@@ -101,7 +88,7 @@ const Sidebar = ({
             to="/wiki"
             icon={[
               <FontAwesomeIcon icon={faSearch} color="#2a416f" />,
-              <FontAwesomeIcon icon={faSearch} color="white" />
+              <FontAwesomeIcon icon={faSearch} color="white" />,
             ]}
           />
           <NavLink
@@ -110,7 +97,7 @@ const Sidebar = ({
             to="/about"
             icon={[
               <FontAwesomeIcon icon={faQuestionCircle} color="#2a416f" />,
-              <FontAwesomeIcon icon={faQuestionCircle} color="white" />
+              <FontAwesomeIcon icon={faQuestionCircle} color="white" />,
             ]}
           />
           <NavLink
@@ -119,7 +106,7 @@ const Sidebar = ({
             to="/songs"
             icon={[
               <FontAwesomeIcon icon={faMusic} color="#2a416f" />,
-              <FontAwesomeIcon icon={faMusic} color="white" />
+              <FontAwesomeIcon icon={faMusic} color="white" />,
             ]}
           />
         </NavLinks>
@@ -153,33 +140,33 @@ const Sidebar = ({
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     decks: state.firestore.data.decks,
     currentDeck: state.deck.currentDeck,
     auth: state.firebase.auth,
-    sidebarVisibility: state.app.sidebarVisibility
+    sidebarVisibility: state.app.sidebarVisibility,
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    setCurrentDeck: deckName => dispatch(setCurrentDeck(deckName)),
-    toggleSidebar: sidebarVisibility =>
+    setCurrentDeck: (deckName) => dispatch(setCurrentDeck(deckName)),
+    toggleSidebar: (sidebarVisibility) =>
       dispatch(toggleSidebar(sidebarVisibility)),
     hideSidebar: () => dispatch(hideSidebar()),
-    signOut: () => dispatch(signOut())
+    signOut: () => dispatch(signOut()),
   };
 };
 
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),
-  firestoreConnect(props => {
+  firestoreConnect((props) => {
     return [
       {
         collection: 'decks',
-        where: [['authorId', '==', props.auth.uid || 'test']]
-      }
+        where: [['authorId', '==', props.auth.uid || 'test']],
+      },
     ];
   })
 )(React.memo(Sidebar));
