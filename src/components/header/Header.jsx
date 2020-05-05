@@ -8,18 +8,21 @@ import { HeaderWrapper } from './Header.styles.js';
 export const Header = ({ signOut }) => {
   return (
     <HeaderWrapper>
-      <div className="title">
-        <img className="logo" src={logo} alt="logo" />
-        Vocarta
+      <div className="container header-content">
+        <div className="title">
+          <img className="logo" src={logo} alt="logo" />
+          Vocarta
+        </div>
+        <div className='logout-button' onClick={signOut}>Logout</div>
+        {/* <button onClick={signOut}>Logout</button> */}
       </div>
-      <button onClick={signOut}>Logout</button>
     </HeaderWrapper>
   );
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    signOut: () => dispatch(signOut())
+    signOut: () => dispatch(signOut()),
   };
 };
 

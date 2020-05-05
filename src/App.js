@@ -6,6 +6,7 @@ import FindWordsPage from './components/pages/findWords/FindWordsPage';
 import About from './components/pages/about/About.jsx';
 import Instructions from './components/pages/homePage/Instructions';
 import DeckViewer from './components/pages/deckViewer/DeckViewer';
+import DeckView from './components/pages/deckView/DeckView';
 import LyricsPage from './components/pages/songs/LyricsPage';
 import LandingPage from './components/landing/LandingPage';
 import UploadSongPage from './components/pages/uploadSong/UploadSongPage';
@@ -26,7 +27,8 @@ const App = ({ auth, currentDeck }) => {
       {auth.uid ? (
         <AppWrapper>
           <Header />
-          <div className="main-content">
+          <DeckView />
+          {/* <div className="main-content">
             <Sidebar />
             <Switch>
               <Route exact path="/" render={() => <Instructions />} />
@@ -37,7 +39,7 @@ const App = ({ auth, currentDeck }) => {
               <Route path="/songs" render={() => <LyricsPage />} />
               <Route path="/uploadsong" render={() => <UploadSongPage />} />
             </Switch>
-          </div>
+          </div> */}
         </AppWrapper>
       ) : (
         <LandingPage />
