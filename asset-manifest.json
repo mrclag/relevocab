@@ -1,20 +1,19 @@
 {
   "files": {
-    "main.js": "/static/js/main.3af719a5.chunk.js",
-    "main.js.map": "/static/js/main.3af719a5.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.797212c9.js",
-    "runtime-main.js.map": "/static/js/runtime-main.797212c9.js.map",
-    "static/js/2.bc1a9d68.chunk.js": "/static/js/2.bc1a9d68.chunk.js",
-    "static/js/2.bc1a9d68.chunk.js.map": "/static/js/2.bc1a9d68.chunk.js.map",
+    "main.js": "/static/js/main.7dc9b14b.chunk.js",
+    "main.js.map": "/static/js/main.7dc9b14b.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.1a5a8c51.js",
+    "runtime-main.js.map": "/static/js/runtime-main.1a5a8c51.js.map",
+    "static/js/2.cbf3e758.chunk.js": "/static/js/2.cbf3e758.chunk.js",
+    "static/js/2.cbf3e758.chunk.js.map": "/static/js/2.cbf3e758.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.24f5015d3e275944cce2af67b44d7749.js": "/precache-manifest.24f5015d3e275944cce2af67b44d7749.js",
+    "precache-manifest.c8266a17127615b7ab88155c46b0c85a.js": "/precache-manifest.c8266a17127615b7ab88155c46b0c85a.js",
     "service-worker.js": "/service-worker.js",
-    "static/js/2.bc1a9d68.chunk.js.LICENSE": "/static/js/2.bc1a9d68.chunk.js.LICENSE",
-    "static/media/vocarta_logo_full.png": "/static/media/vocarta_logo_full.ae797c44.png"
+    "static/js/2.cbf3e758.chunk.js.LICENSE.txt": "/static/js/2.cbf3e758.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.797212c9.js",
-    "static/js/2.bc1a9d68.chunk.js",
-    "static/js/main.3af719a5.chunk.js"
+    "static/js/runtime-main.1a5a8c51.js",
+    "static/js/2.cbf3e758.chunk.js",
+    "static/js/main.7dc9b14b.chunk.js"
   ]
 }
