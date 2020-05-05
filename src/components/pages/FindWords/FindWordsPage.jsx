@@ -18,26 +18,26 @@ export const FindWordsPage = ({ addNewCard, currentDeck }) => {
   const [words, setWords] = useState([]);
   const [selectedWord, setSelectedWord] = useState(null);
 
-  const onSubmit = e => {
+  const onSubmit = (e) => {
     e.preventDefault();
     getWikiPage(searchInput)
-      .then(res => {
-        res.rawContent().then(content => {
+      .then((res) => {
+        res.rawContent().then((content) => {
           setPage({
             raw: res.raw,
             words: countWords(content),
-            content: content
+            content: content,
           });
         });
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       });
   };
 
-  const onSelect = word => {
+  const onSelect = (word) => {
     setSelectedWord(word);
-    getWords(word).then(data => {
+    getWords(word).then((data) => {
       setWords(data);
     });
   };
@@ -50,7 +50,7 @@ export const FindWordsPage = ({ addNewCard, currentDeck }) => {
             <input
               type="text"
               value={searchInput}
-              onChange={e => setSearchInput(e.target.value)}
+              onChange={(e) => setSearchInput(e.target.value)}
               placeholder="Find Related Words"
             />
             <button type="submit" value="Submit" id="submit-button">
@@ -99,9 +99,9 @@ export const FindWordsPage = ({ addNewCard, currentDeck }) => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    currentDeck: state.deck.currentDeck
+    currentDeck: state.deck.currentDeck,
   };
 };
 

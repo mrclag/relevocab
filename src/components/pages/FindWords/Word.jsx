@@ -14,7 +14,7 @@ export const Word = ({ currentDeck, word, addNewCard, selected }) => {
   let selectedWord = selected === word;
 
   useEffect(() => {
-    googleTranslate.translate(word, 'es', function(err, translation) {
+    googleTranslate.translate(word, 'es', function (err, translation) {
       if (err || !translation.translatedText) {
         setTranslation('no translation found');
       }
@@ -26,7 +26,7 @@ export const Word = ({ currentDeck, word, addNewCard, selected }) => {
     currentDeck.title
       ? addNewCard({
           front: word,
-          back: translation
+          back: translation,
         })
       : alert('Please select a deck to add a card');
   };
@@ -57,15 +57,15 @@ export const Word = ({ currentDeck, word, addNewCard, selected }) => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    currentDeck: state.deck.currentDeck
+    currentDeck: state.deck.currentDeck,
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    addNewCard: card => dispatch(addNewCard(card))
+    addNewCard: (card) => dispatch(addNewCard(card)),
   };
 };
 

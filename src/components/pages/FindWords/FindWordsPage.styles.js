@@ -81,7 +81,6 @@ export const FindWordsWrapper = styled.div`
         height: 40px;
         line-height: 40px;
         color: white;
-        box-shadow: 1px 2px 3px 1px rgba(0, 0, 0, 0.1);
         border: 0.5px solid #555;
         border-radius: 0px 7px 7px 0px;
         margin-top: 5px;

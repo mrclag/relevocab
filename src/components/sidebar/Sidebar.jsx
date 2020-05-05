@@ -15,7 +15,6 @@ import {
   faSearch,
   faQuestionCircle,
   faMusic,
-  faSignOutAlt,
 } from '@fortawesome/free-solid-svg-icons';
 
 // Styles
@@ -35,7 +34,6 @@ import { toggleSidebar } from '../../store/actions/appActions';
 import { hideSidebar } from '../../store/actions/appActions';
 
 import { signOut } from '../../store/actions/authActions';
-import logo_full from '../../images/vocarta_logo_full.png';
 
 const Sidebar = ({
   setCurrentDeck,

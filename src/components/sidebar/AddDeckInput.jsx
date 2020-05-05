@@ -8,7 +8,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 export const AddDeckInput = ({ isOpen, toggle, createDeck }) => {
   const [name, setName] = useState('');
 
-  const onSubmit = e => {
+  const onSubmit = (e) => {
     e.preventDefault();
     createDeck({ title: name });
     setName('');
@@ -17,12 +17,12 @@ export const AddDeckInput = ({ isOpen, toggle, createDeck }) => {
   return (
     <form className="comment-form" onSubmit={onSubmit} autoComplete="off">
       <strong className="add-button">
-        <FontAwesomeIcon icon={faPlus} color="white" />
+        <FontAwesomeIcon icon={faPlus} color="#515151" />
       </strong>
       <input
         type="text"
         value={name}
-        onChange={e => setName(e.currentTarget.value)}
+        onChange={(e) => setName(e.currentTarget.value)}
         autoFocus={true}
         maxLength="14"
         placeholder="New Deck"
@@ -33,9 +33,9 @@ export const AddDeckInput = ({ isOpen, toggle, createDeck }) => {
   );
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    createDeck: deck => dispatch(createDeck(deck))
+    createDeck: (deck) => dispatch(createDeck(deck)),
   };
 };
 

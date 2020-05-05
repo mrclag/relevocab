@@ -158,15 +158,15 @@ export const DeckWrapper = styled.div`
       width: calc(100%-45px);
       border: none;
       line-height: 30px;
-      caret-color: white;
+      caret-color: #515151;
       margin-top: 5px;
       font-size: 0.8em;
-      background: #f3f3f3;
+      background: #f7f7f7;
       margin-left: 14px;
       color: white;
       outline: none;
       ::placeholder {
-        color: white;
+        color: #515151;
       }
     }
     & .add-button {

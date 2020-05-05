@@ -11,10 +11,10 @@ const NavLink = ({ value, to, location, icon }) => {
     <Link
       className="nav-link"
       style={{
-        color: selected ? '#2a416f' : '#515151',
+        color: '#515151',
         borderBottom: selected ? '2px solid #f4f4f4' : '2px solid #f7f7f7',
         // backgroundColor: selected ? '#2a416f' : '#f7f7f7',
-        borderRight: selected ? '10px solid #2a416f' : 'none',
+        background: selected ? 'white' : '#f7f7f7',
       }}
       to={to}
       onMouseEnter={toggleHover}

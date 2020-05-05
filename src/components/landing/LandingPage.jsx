@@ -6,7 +6,7 @@ import { Container } from 'react-bootstrap';
 
 import { LandingPageWrapper } from './LandingPage.styles';
 
-import logo from '../../images/vocarta_logo.png';
+// import logo from '../../images/vocarta_logo.png';
 
 export const LandingPage = () => {
   const [haveAccount, setHaveAccount] = useState(false);

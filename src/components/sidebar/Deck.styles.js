@@ -12,7 +12,7 @@ export const DeckWrapper = styled.div`
   padding-right: 30px;
   background-color: ${(props) =>
     props.selected || props.hovered ? 'white' : ''};
-  color: ${(props) => (props.selected || props.hovered ? 'black' : 'white')};
+  color: #515151;
   border-right: ${(props) =>
     props.selected || props.hovered ? '#2a416f' : 'none'};
 
@@ -25,9 +25,8 @@ export const DeckWrapper = styled.div`
   }
 
   .deck-list-item {
-    color: ${(props) => (props.selected || props.hovered ? 'white' : 'black')};
-    background: ${(props) =>
-      props.selected || props.hovered ? '#2a416f' : 'white'};
+    color: white;
+    background: #2a416f;
     font-size: 0.8em;
     margin-right: 30px;
     font-weight: bold;

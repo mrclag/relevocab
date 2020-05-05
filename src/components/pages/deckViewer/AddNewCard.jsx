@@ -6,15 +6,15 @@ import { addNewCard } from '../../../store/actions/deckActions';
 import useFocus from '../../../utils/useFocus';
 
 import { AddNewCardWrapper } from './AddNewCard.styles';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 export const NewCard = ({ deck, addNewCard, lang }) => {
   const [front, setFront] = useState('');
   const [back, setBack] = useState('');
   const [inputRef, setInputFocus] = useFocus();
 
-  const onSubmit = e => {
+  const onSubmit = (e) => {
     console.log('submitting');
     e.preventDefault();
     addNewCard({ front, back });
@@ -24,7 +24,7 @@ export const NewCard = ({ deck, addNewCard, lang }) => {
   };
 
   const translateInput = (input, lang) => {
-    googleTranslate.translate(input, lang, function(err, translation) {
+    googleTranslate.translate(input, lang, function (err, translation) {
       if (err || (translation && !translation.translatedText)) {
         setBack('no translation found');
       }
@@ -40,7 +40,7 @@ export const NewCard = ({ deck, addNewCard, lang }) => {
             type="text"
             placeholder="Front of card"
             value={front}
-            onChange={e => setFront(e.currentTarget.value)}
+            onChange={(e) => setFront(e.currentTarget.value)}
             autoFocus={true}
             maxLength="14"
             ref={inputRef}
@@ -57,7 +57,7 @@ export const NewCard = ({ deck, addNewCard, lang }) => {
             type="text"
             placeholder="Back of card"
             value={back}
-            onChange={e => setBack(e.currentTarget.value)}
+            onChange={(e) => setBack(e.currentTarget.value)}
             maxLength="14"
           />
         </div>
@@ -68,9 +68,9 @@ export const NewCard = ({ deck, addNewCard, lang }) => {
   );
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    addNewCard: card => dispatch(addNewCard(card))
+    addNewCard: (card) => dispatch(addNewCard(card)),
   };
 };
 
