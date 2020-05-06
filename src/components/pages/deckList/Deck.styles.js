@@ -5,6 +5,8 @@ export const DeckWrapper = styled.div`
   border-bottom: 0.5px solid #e7e7e7;
   display: flex;
   flex-direction: row;
+  color: black;
+  text-decoration: none;
 
   .deck-image {
     height: 60px;
@@ -15,6 +17,7 @@ export const DeckWrapper = styled.div`
   .deck-info {
     flex-direction: column;
     padding-left: 15px;
+
     .deck-title {
       font-size: 12px;
     }

@@ -7,6 +7,7 @@ import About from './components/pages/about/About.jsx';
 import Instructions from './components/pages/homePage/Instructions';
 import DeckLister from './components/pages/deckViewer/DeckViewer';
 import DeckList from './components/pages/deckList/DeckList';
+import DeckView from './components/pages/deckView/DeckView';
 import LyricsPage from './components/pages/songs/LyricsPage';
 import LandingPage from './components/landing/LandingPage';
 import UploadSongPage from './components/pages/uploadSong/UploadSongPage';
@@ -27,7 +28,10 @@ const App = ({ auth, currentDeck }) => {
       {auth.uid ? (
         <AppWrapper>
           <Header />
-          <DeckList />
+          <Switch>
+            <Route exact path="/" render={() => <DeckList />} />
+            <Route exact path="/deck" render={() => <DeckView />} />
+          </Switch>
           {/* <div className="main-content">
             <Sidebar />
             <Switch>
@@ -35,7 +39,6 @@ const App = ({ auth, currentDeck }) => {
               <Route path="/practice" render={() => <StudyCards />} />
               <Route path="/wiki" render={() => <FindWordsPage />} />
               <Route path="/about" render={() => <About />} />
-              <Route path="/deck" render={() => <DeckViewer />} />
               <Route path="/songs" render={() => <LyricsPage />} />
               <Route path="/uploadsong" render={() => <UploadSongPage />} />
             </Switch>

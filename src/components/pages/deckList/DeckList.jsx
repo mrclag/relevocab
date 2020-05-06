@@ -2,6 +2,12 @@ import React from 'react';
 import { DeckListWrapper } from './DeckList.styles.js';
 import Deck from './Deck.jsx';
 
+import { connect } from 'react-redux';
+import { firestoreConnect } from 'react-redux-firebase';
+import { compose } from 'redux';
+import { setCurrentDeck } from '../../../store/actions/deckActions';
+import { Link } from 'react-router-dom';
+
 const DeckList = () => {
   return (
     <DeckListWrapper className="container wrapper">
@@ -27,11 +33,13 @@ const DeckList = () => {
         <div className="recommended-title">Recommended</div>
         <div className="recommendations">
           {recommendations.map((rec, i) => (
-            <Deck
-              deck={rec}
-              recommended={true}
-              img={`https://picsum.photos/id/${230 + i}/200/300`}
-            />
+            <Link key={i} onClick={() => setCurrentDeck(rec)} to="/deck">
+              <Deck
+                deck={rec}
+                recommended={true}
+                img={`https://picsum.photos/id/${230 + i}/200/300`}
+              />
+            </Link>
           ))}
         </div>
       </div>
@@ -39,18 +47,44 @@ const DeckList = () => {
         <div className="decks-title">Decks</div>
         {decks.map((deck, i) => (
           // <div className="deck">{deck.name}</div>
-
-          <Deck
-            deck={deck}
-            img={`https://picsum.photos/id/${230 + i}/200/300`}
-          />
+          <Link key={i} onClick={() => setCurrentDeck(deck)} to="/deck">
+            <Deck
+              deck={deck}
+              img={`https://picsum.photos/id/${230 + i}/200/300`}
+            />
+          </Link>
         ))}
       </div>
     </DeckListWrapper>
   );
 };
 
-export default DeckList;
+const mapStateToProps = (state) => {
+  return {
+    decks: state.firestore.data.decks,
+    currentDeck: state.deck.currentDeck,
+    auth: state.firebase.auth,
+    sidebarVisibility: state.app.sidebarVisibility,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setCurrentDeck: (deckName) => dispatch(setCurrentDeck(deckName)),
+  };
+};
+
+export default compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  firestoreConnect((props) => {
+    return [
+      {
+        collection: 'decks',
+        where: [['authorId', '==', props.auth.uid || 'test']],
+      },
+    ];
+  })
+)(React.memo(DeckList));
 
 const collections = [
   { name: 'Bad Bunny' },
