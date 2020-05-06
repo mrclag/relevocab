@@ -5,6 +5,8 @@ import logo from '../../images/vocarta_logo.png';
 
 import { HeaderWrapper } from './Header.styles.js';
 
+import { Link } from 'react-router-dom';
+
 export const Header = ({ signOut }) => {
   return (
     <HeaderWrapper>
@@ -12,8 +14,12 @@ export const Header = ({ signOut }) => {
         <div className="title">
           <img className="logo" src={logo} alt="logo" />
           <div className="app-title">Vocarta</div>
-          <div className="nav-button">Home</div>
-          <div className="nav-button">Explore</div>
+          <Link to="/" className="nav-button">
+            Decks
+          </Link>
+          <Link to="/songs" className="nav-button">
+            Songs
+          </Link>
         </div>
         <div className="nav-button" onClick={signOut}>
           Logout

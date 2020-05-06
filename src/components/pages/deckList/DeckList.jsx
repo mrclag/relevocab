@@ -8,6 +8,8 @@ import { compose } from 'redux';
 import { setCurrentDeck } from '../../../store/actions/deckActions';
 import { Link } from 'react-router-dom';
 
+import { collections, decks, recommendations } from './data.js';
+
 const DeckList = () => {
   return (
     <DeckListWrapper className="container wrapper">
@@ -22,6 +24,7 @@ const DeckList = () => {
           <img
             src="https://via.placeholder.com/150"
             className="image-upload"
+            alt="Upload"
           ></img>
           <input
             type="text"
@@ -85,61 +88,3 @@ export default compose(
     ];
   })
 )(React.memo(DeckList));
-
-const collections = [
-  { name: 'Bad Bunny' },
-  { name: 'Shakira' },
-  { name: 'Money Heist' },
-];
-
-const decks = [
-  {
-    name: 'Bad Bunny - Vete',
-    cards: '35',
-    img: 'https://picsum.photos/200/300',
-  },
-  {
-    name: 'Shakira - Chantaje',
-    cards: '39',
-    img: 'https://picsum.photos/200/300',
-  },
-  {
-    name: 'Shakira - Me Gusta',
-    cards: '28',
-    img: 'https://picsum.photos/200/300',
-  },
-  {
-    name: 'Shakira - Bicicleta',
-    cards: '35',
-    img: 'https://picsum.photos/200/300',
-  },
-  {
-    name: `Shakira - Hips Don't Lie`,
-    cards: '31',
-    img: 'https://picsum.photos/200/300',
-  },
-];
-
-const recommendations = [
-  {
-    name: 'Bad Bunny - P FKN R',
-    cards: '35',
-    img: 'https://picsum.photos/200/300',
-  },
-  { name: 'Shakira - Nada', cards: '39', img: 'https://picsum.photos/200/300' },
-  {
-    name: 'Shakira - Amarillo',
-    cards: '28',
-    img: 'https://picsum.photos/200/300',
-  },
-  {
-    name: 'Shakira - Deja Vu',
-    cards: '35',
-    img: 'https://picsum.photos/200/300',
-  },
-  {
-    name: `Shakira - What We Said`,
-    cards: '31',
-    img: 'https://picsum.photos/200/300',
-  },
-];
