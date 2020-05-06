@@ -11,9 +11,13 @@ export const Header = ({ signOut }) => {
       <div className="container header-content">
         <div className="title">
           <img className="logo" src={logo} alt="logo" />
-          Vocarta
+          <div className="app-title">Vocarta</div>
+          <div className="nav-button">Home</div>
+          <div className="nav-button">Explore</div>
         </div>
-        <div className='logout-button' onClick={signOut}>Logout</div>
+        <div className="nav-button" onClick={signOut}>
+          Logout
+        </div>
         {/* <button onClick={signOut}>Logout</button> */}
       </div>
     </HeaderWrapper>

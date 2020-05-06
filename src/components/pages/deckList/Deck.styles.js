@@ -27,19 +27,30 @@ export const DeckWrapper = styled.div`
         height: 20px;
         line-height: 20px;
         font-size: 12px;
+        color: #f7f7f7;
         &:hover {
-          border: 1px solid black;
+          color: white;
         }
       }
       .practice {
-        background: gold;
+        background: #0039a6;
         border: none;
         margin-right: 10px;
+        &:hover {
+          background: #3e66b3;
+        }
       }
       .details {
-        background: lightgreen;
+        background: #04960a;
         border: none;
+        &:hover {
+          background: #4dbd51;
+        }
       }
     }
+  }
+  &:hover {
+    border: 1px solid #e7e7e7;
+    cursor: pointer;
   }
 `;

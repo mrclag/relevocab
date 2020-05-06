@@ -2,8 +2,9 @@ import styled from 'styled-components';
 
 export const HeaderWrapper = styled.div`
   position: relative;
-  flex: 0 1 60px;
-  background: #0078d7;
+  flex: 0 1 50px;
+  /* background: #0078d7; */
+  background: #4f4969;
   width: 100%;
   z-index: 555;
 
@@ -15,27 +16,27 @@ export const HeaderWrapper = styled.div`
     padding: 0px;
   }
 
-  button {
-    color: #107bbd;
-    margin-top: 10px;
-    height: 40px;
-    width: 80px;
-    background-color: white;
-    border-radius: 5px;
-    border: 1px solid #107bbd;
-    outline: none;
-    cursor: pointer;
-  }
-
-  .logout-button {
-    line-height: 60px;
+  .nav-button {
+    line-height: 50px;
     cursor: pointer;
     color: white;
-    border-left: 1px solid white;
-    border-right: 1px solid white;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
     width: 100px;
     text-align: center;
+    font-size: 14px;
+    letter-spacing: 0px;
   }
+
+  /* .logout-button {
+    line-height: 50px;
+    cursor: pointer;
+    color: white;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    width: 100px;
+    text-align: center;
+  } */
 
   .title {
     margin-top: 0;
@@ -44,14 +45,18 @@ export const HeaderWrapper = styled.div`
     align-items: center;
     color: white;
     display: flex;
-    font-size: 30px;
-    line-height: 60px;
-    height: 60px;
-    letter-spacing: 5px;
 
     .logo {
-      width: 40px;
+      width: 30px;
       margin-right: 20px;
+    }
+    .app-title {
+      line-height: 50px;
+      height: 50px;
+      letter-spacing: 5px;
+      font-size: 20px;
+      padding-right: 15px;
+      border-right: 1px solid black;
     }
   }
 `;
