@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const CardContainer = styled.div`
+export const CardWrapper = styled.div`
   .card {
     width: 500px;
     height: 320px;
@@ -11,7 +11,7 @@ export const CardContainer = styled.div`
     cursor: pointer;
     box-shadow: 3px 4px 8px 1px rgba(0, 0, 0, 0.3);
     position: relative;
-    transform: ${props => (props.flipped ? 'rotateY(180deg)' : 'unset')};
+    transform: ${(props) => (props.flipped ? 'rotateY(180deg)' : 'unset')};
 
     @media screen and (max-width: 800px) {
       width: 90vw;

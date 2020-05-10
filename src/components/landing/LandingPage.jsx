@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
 import NavBar from './NavBar';
-import { Container } from 'react-bootstrap';
+import { Container } from '@material-ui/core';
 
 import { LandingPageWrapper } from './LandingPage.styles';
 
