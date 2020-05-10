@@ -6,6 +6,13 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Cairo', sans-serif;
     margin: 0;
     height: 100%;
+
+    a:hover,
+    a:visited,
+    a:link,
+    a:active {
+      text-decoration: none;
+    }
   }
   
   &::-webkit-scrollbar {
@@ -27,6 +34,8 @@ export const GlobalStyle = createGlobalStyle`
 
   ::-webkit-scrollbar-corner {
   background: transparent;
+
+  
 }
 
 `;

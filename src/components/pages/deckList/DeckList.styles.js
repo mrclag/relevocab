@@ -7,12 +7,6 @@ export const DeckListWrapper = styled.div`
   flex-direction: row;
   padding: 0px;
 
-  a:hover,
-  a:visited,
-  a:link,
-  a:active {
-    text-decoration: none;
-  }
 
   .left-bar {
     flex: 2 0px;
