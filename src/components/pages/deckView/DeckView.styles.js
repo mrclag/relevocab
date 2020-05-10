@@ -40,14 +40,20 @@ export const DeckViewWrapper = styled.div`
       max-height: calc(100vh - 200px);
     }
     .card {
+      display: flex;
       flex-direction: row;
       height: 50px;
       text-align: center;
       line-height: 50px;
       border: none;
-      &-front,
+      &-front {
+        background: #F1FEFF;
+        width: 90%;
+        border: 0.5px solid #eee;
+      }
       &-back {
-        width: 45%;
+        background: #F1F7EE
+        width: 90%;
         border: 0.5px solid #eee;
       }
       &-details {

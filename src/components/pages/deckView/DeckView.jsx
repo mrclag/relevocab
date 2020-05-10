@@ -1,14 +1,15 @@
 import React from 'react';
 import { DeckViewWrapper } from './DeckView.styles.js';
 import { decks } from '../deckList/data.js';
+
 import { Container } from '@material-ui/core';
+import DeleteOutlined from '@material-ui/icons/DeleteOutlined';
 
 const deck = decks[0];
 
 const DeckView = () => {
-  console.log(deck);
   return (
-    <Container>
+    <Container disableGutters={true}>
       <DeckViewWrapper>
         <div className="left">
           <div className="deck-info">
@@ -24,7 +25,9 @@ const DeckView = () => {
               <div className="card">
                 <div className="card-front">{card.front}</div>
                 <div className="card-back">{card.back}</div>
-                <div className="card-details">ooo</div>
+                <div className="card-details">
+                  <DeleteOutlined style={{ color: 'darkred' }} />
+                </div>
               </div>
             ))}
           </div>
