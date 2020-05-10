@@ -13,12 +13,14 @@ import { collections, decks, recommendations } from './data.js';
 
 const DeckList = () => {
   return (
-    <Container>
+    <Container disableGutters={true}>
       <DeckListWrapper className="wrapper">
         <div className="left-bar">
           <div className="collections-title">Collections</div>
-          {collections.map((collection) => (
-            <div className="collection">{collection.name}</div>
+          {collections.map((collection, i) => (
+            <div key={i} className="collection">
+              {collection.name}
+            </div>
           ))}
         </div>
         <div className="right-bar">

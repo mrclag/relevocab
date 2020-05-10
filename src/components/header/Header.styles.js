@@ -26,6 +26,15 @@ export const HeaderWrapper = styled.div`
     text-align: center;
     font-size: 14px;
     letter-spacing: 0px;
+    @media screen and (max-width: 800px) {
+      display: none;
+    }
+  }
+
+  .collapse {
+    @media screen and (min-width: 800px) {
+      display: none;
+    }
   }
 
   /* .logout-button {
