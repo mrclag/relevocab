@@ -21,8 +21,8 @@ const DeckView = () => {
             <div className="button-practice"></div>
           </div>
           <div className="cards-wrapper">
-            {deck.cards.map((card) => (
-              <div className="card">
+            {deck.cards.map((card, i) => (
+              <div key={i} className="card">
                 <div className="card-front">{card.front}</div>
                 <div className="card-back">{card.back}</div>
                 <div className="card-details">

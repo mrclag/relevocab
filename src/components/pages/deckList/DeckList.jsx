@@ -11,7 +11,10 @@ import { Container } from '@material-ui/core';
 
 import { collections, decks, recommendations } from './data.js';
 
-const DeckList = () => {
+const DeckList = ({ deckss }) => {
+  const decksArray = deckss && Object.keys(deckss).map((x) => deckss[x]);
+  console.log(decksArray);
+
   return (
     <Container disableGutters={true}>
       <DeckListWrapper className="wrapper">
@@ -68,8 +71,9 @@ const DeckList = () => {
 };
 
 const mapStateToProps = (state) => {
+  console.log(state.firestore.data.decks);
   return {
-    decks: state.firestore.data.decks,
+    deckss: state.firestore.data.decks,
     currentDeck: state.deck.currentDeck,
     auth: state.firebase.auth,
     sidebarVisibility: state.app.sidebarVisibility,

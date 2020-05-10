@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const DeckWrapper = styled.div`
-  padding: 5px 10px;
+  padding: 10px 20px;
   border-bottom: 0.5px solid #e7e7e7;
   display: flex;
   flex-direction: row;
@@ -19,13 +19,14 @@ export const DeckWrapper = styled.div`
     padding-left: 15px;
 
     .deck-title {
-      font-size: 12px;
+      font-size: 14px;
     }
     .deck-cards {
-      font-size: 10px;
+      font-size: 12px;
     }
     .deck-buttons {
       flex-direction: row;
+      margin-top: 5px;
       button {
         height: 20px;
         line-height: 20px;
