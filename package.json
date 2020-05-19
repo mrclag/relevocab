@@ -16,7 +16,7 @@
     "cors": "^2.8.5",
     "d3": "^5.14.2",
     "datamuse": "^1.0.5",
-    "firebase": "^7.6.0",
+    "firebase": "^7.14.4",
     "gh-pages": "^2.1.1",
     "google-translate": "^3.0.0",
     "papaparse": "^5.1.1",

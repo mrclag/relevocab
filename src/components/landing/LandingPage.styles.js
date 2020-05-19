@@ -39,6 +39,7 @@ export const LandingPageWrapper = styled.div`
     width: 60vw;
     height: 100vh;
     /* height: 80vh */
+    margin: auto;
     @media screen and (max-width: 1300px) {
       width: 70vw;
     }

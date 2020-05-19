@@ -27,6 +27,7 @@ export const DeckViewWrapper = styled.div`
       display: flex;
       flex: 1 1 auto;
       flex-direction: column;
+      position: relative;
 
       .language-selects{
         /* display: flex; */

@@ -4,6 +4,7 @@ export const SideBarWrapper = styled.div`
   display: ${(props) => (props.sidebarVis ? 'unset' : 'none')};
   width: 300px;
   position: static;
+  z-index: 999;
   hr {
     margin: 0;
   }
@@ -55,16 +56,16 @@ export const SidebarTopWrapper = styled.div`
   background-color: #f7f7f7;
 
   min-width: ${(props) => (props.sidebarVis ? '300px' : 'unset')};
-  z-index: ;
   @media screen and (max-width: 800px) {
     position: absolute;
     min-width: unset;
+    z-index: 999;
   }
 `;
 
 export const Hamburger = styled.div`
   position: absolute;
-  z-index: 999;
+  z-index: 99;
   line-height: 30px;
   height: 30px;
   padding-left: 20px;
