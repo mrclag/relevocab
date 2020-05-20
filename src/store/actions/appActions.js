@@ -19,34 +19,11 @@ export const toggleSidebar = (sidebarVisibility) => (dispatch) => {
   });
 };
 
-// This is a temporary admin function
-// It cleans csv file containing lyrics from Genius
+// Uploads a song to DB
 export const createSong = (artist, title, imgUrl, cards) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     const firestore = getFirestore();
     const songId = uuidv4();
-    // Cleaning the lyrics in the cards
-    console.log(cards);
-    for (let i = 0; i < cards.length; i++) {
-      // If there is no front, no text, or it starts with bracket, get rid of line
-      if (
-        !cards[i].front ||
-        cards[i].front.length === 0 ||
-        cards[i].front[0] === '['
-      ) {
-        cards.splice(i, 1);
-        i--;
-      } else {
-        // Sometimes there will be random question marks added into lyrics
-        for (let j = 0; j < cards[i].front.length; j++) {
-          if (cards[i].front[j] === '?') cards[i].front.splice(j, 1);
-        }
-        for (let j = 0; j < cards[i].back.length; j++) {
-          if (cards[i].back[j] === '?') cards[i].back.splice(j, 1);
-        }
-      }
-    }
-    console.log('CLEAN: ', cards);
 
     firestore
       .collection('songs')

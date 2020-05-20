@@ -25,7 +25,7 @@ export const CardContainer = styled.div`
     line-height: 320px;
     text-align: center;
     font-weight: bold;
-    font-size: 40px;
+    font-size: 36px;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
 
