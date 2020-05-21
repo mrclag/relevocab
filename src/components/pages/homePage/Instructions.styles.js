@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const InstructionsWrapper = styled.div`
-  margin-left: 50px;
+  margin-left: 20px;
   margin-top: 20px;
   font-size: 1.25em;
   width: 40vw;

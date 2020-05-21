@@ -9,23 +9,24 @@ export const FileUpload = ({ createSong }) => {
   const [title, setTitle] = useState('');
   const [imgUrl, setImgUrl] = useState('');
 
-  const handleChange = event => {
+  const handleChange = (event) => {
     setCsvFile(event.target.files[0]);
   };
 
   const importCSV = () => {
     Papa.parse(csvfile, {
       complete: updateData,
-      header: true
+      header: true,
     });
   };
 
-  const updateData = result => {
+  const updateData = (result) => {
     var data = result.data;
     createSong(artist, title, imgUrl, data);
     console.log('data!!: ', data);
     setArtist('');
     setTitle('');
+    setImgUrl('');
   };
 
   return (
@@ -34,23 +35,23 @@ export const FileUpload = ({ createSong }) => {
       <input
         type="text"
         placeholder="Artist Name"
-        id='input-artist'
+        id="input-artist"
         value={artist}
-        onChange={e => setArtist(e.currentTarget.value)}
+        onChange={(e) => setArtist(e.currentTarget.value)}
       />
       <input
         type="text"
         placeholder="Song Name"
-        id='input-title'
+        id="input-title"
         value={title}
-        onChange={e => setTitle(e.currentTarget.value)}
+        onChange={(e) => setTitle(e.currentTarget.value)}
       />
       <input
         type="text"
         placeholder="Song Image Url"
-        id='input-imgUrl'
+        id="input-imgUrl"
         value={imgUrl}
-        onChange={e => setImgUrl(e.currentTarget.value)}
+        onChange={(e) => setImgUrl(e.currentTarget.value)}
       />
       <input
         className="csv-input"
@@ -65,10 +66,10 @@ export const FileUpload = ({ createSong }) => {
   );
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     createSong: (artist, title, imgUrl, cards) =>
-      dispatch(createSong(artist, title, imgUrl, cards))
+      dispatch(createSong(artist, title, imgUrl, cards)),
   };
 };
 

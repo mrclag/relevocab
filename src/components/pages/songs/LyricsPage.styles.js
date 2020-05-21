@@ -1,7 +1,12 @@
 import styled from 'styled-components';
 
 export const LyricsPageWrapper = styled.div`
-  margin-left: 50px;
+  margin-left: 20px;
+  margin-top: 20px;
+  background: white;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  padding: 20px;
 
   .search-form {
     &-input {
@@ -23,17 +28,14 @@ export const LyricsPageWrapper = styled.div`
     }
   }
 
-  .results {
-    width: 100%;
-    height: 75vh;
-    margin-top: 20px;
+  .results-count {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-style: italic;
+  }
+  .results-songs {
+    max-height: 70vh;
     overflow-y: scroll;
-
-    &-output {
-      margin-top: 5px;
-      margin-bottom: 10px;
-      font-style: italic;
-    }
   }
 
   @media screen and (max-width: 800px) {

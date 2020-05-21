@@ -3,10 +3,9 @@ import styled from 'styled-components';
 export const FindWordsWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  margin-left: 0;
+  margin-left: 20px;
+  margin-top: 20px;
   .top {
-    padding-left: 30px;
-    padding-top: 8px;
     width: 850px;
     .search {
       background: white;

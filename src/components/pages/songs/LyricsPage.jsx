@@ -32,12 +32,14 @@ export const LyricsPage = ({ getSongs, songsSearchResult }) => {
       </form>
       {songsSearchResult && (
         <>
-          <div className="results-output">
+          <div className="results-count">
             Found {songsSearchResult.length} results:
           </div>
-          {songsSearchResult.map((song, i) => (
-            <SongResult key={i} song={song} />
-          ))}
+          <div className="results-songs">
+            {songsSearchResult.map((song, i) => (
+              <SongResult key={i} song={song} />
+            ))}
+          </div>
         </>
       )}
     </LyricsPageWrapper>

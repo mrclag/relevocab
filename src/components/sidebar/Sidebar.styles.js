@@ -91,8 +91,9 @@ export const NavLinks = styled.div`
   display: flex;
   flex-direction: column;
   color: black;
-  margin-top: 20px;
+  margin-top: 10px;
   margin-bottom: 10px;
+  height: 180px;
   .link {
     text-decoration: none;
     color: black;
@@ -120,7 +121,7 @@ export const DeckWrapper = styled.div`
   .deck-header {
     display: flex;
     flex-direction: row;
-    height: 5vh;
+    height: 60px;
     align-items: center;
     padding-left: 20px;
     color: #515151;
@@ -147,7 +148,7 @@ export const DeckWrapper = styled.div`
     display: flex;
     overflow-y: overlay scroll;
     overflow-x: hidden;
-    max-height: 45vh;
+    max-height: calc(100vh - 380px);
     .deck-item {
       cursor: pointer;
       text-decoration: none;
@@ -155,6 +156,7 @@ export const DeckWrapper = styled.div`
   }
 
   .comment-form {
+    height: 40px;
     & input {
       width: calc(100%-45px);
       border: none;
