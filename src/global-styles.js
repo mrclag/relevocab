@@ -2,7 +2,6 @@ import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
   body {
-    overflow: hidden;
     font-family: 'Cairo', sans-serif;
     margin: 0;
     height: 100%;

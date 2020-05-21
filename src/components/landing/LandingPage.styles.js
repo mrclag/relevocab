@@ -2,13 +2,11 @@ import styled from 'styled-components';
 
 export const LandingPageWrapper = styled.div`
   width: 100vw;
+  height: 3000px;
   display: flex;
   position: relative;
   justify-content: center;
-  background-color: #2a416f;
-  @media screen and (max-width: 800px){
-    overflow-y: scroll;
-  }
+  background-color: #fff;
 
   .header {
     height: 60px;
@@ -35,9 +33,27 @@ export const LandingPageWrapper = styled.div`
     }
   }
 
+  .background-img{
+    width: 100%;
+    position: absolute;
+  }
+
+  .mockup {
+    width: 60vw;
+    height: auto;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    margin-top: 30px;
+    @media screen and (max-width: 800px){
+      width: 80vw;
+      margin-top: 180px;
+    }
+  }
+
   .content-box {
     width: 60vw;
-    height: 100vh;
+    height: 70vh;
     /* height: 80vh */
     margin: auto;
     @media screen and (max-width: 1300px) {
@@ -60,7 +76,7 @@ export const LandingPageWrapper = styled.div`
 
       &-text {
         width: 50%;
-        color: white;
+        color: #333;
         margin-right: 30px;
         @media screen and (max-width: 800px) {
           width: unset;
@@ -92,8 +108,8 @@ export const LandingPageWrapper = styled.div`
           color: #333;
           height: 50px;
           margin-bottom: 80px;
-          margin-top: 80px;
-          background-color: white;
+          margin-top: 50px;
+          background-color: lightblue;
           padding: 8px 20px;
           @media screen and (min-width: 1115px) {
             display: none;
@@ -122,7 +138,7 @@ export const LandingPageWrapper = styled.div`
           padding-left: 30px;
           padding-right: 30px;
           padding-top: 30px;
-          border: 1px solid white;
+          border: 1px solid #bbb;
           height: 400px;
           margin: auto;
           text-align: center;

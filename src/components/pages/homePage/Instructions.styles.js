@@ -5,6 +5,7 @@ export const InstructionsWrapper = styled.div`
   margin-top: 20px;
   font-size: 1.25em;
   width: 40vw;
+  overflow: hide;
   li {
     margin: 30px 0;
   }
@@ -12,7 +13,6 @@ export const InstructionsWrapper = styled.div`
     border: 1px solid #aaa;
     border-radius: 5px;
     padding: 20px;
-    height: 100%;
     background: white;
   }
   @media screen and (max-width: 800px) {

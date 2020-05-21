@@ -51,7 +51,7 @@ export const SideBarWrapper = styled.div`
 export const SidebarTopWrapper = styled.div`
   overflow: hidden;
   border-right: 0.5px solid #aaa;
-  height: 100vh;
+  height: calc(100vh - 60px);
   /* background-color: #2a416f; */
   background-color: #f7f7f7;
 

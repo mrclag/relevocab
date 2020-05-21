@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const AboutWrapper = styled.div`
   margin-left: 50px;
   margin-top: 20px;
+  overflow: hide;
   .about-wrapper {
     background: white;
     border: 1px solid #333;

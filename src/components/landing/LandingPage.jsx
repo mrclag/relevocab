@@ -4,6 +4,8 @@ import SignUp from './SignUp';
 import NavBar from './NavBar';
 import { Container } from 'react-bootstrap';
 
+import background from '../../images/home-shape.png';
+import mockup from '../../images/Group 1.png';
 import { LandingPageWrapper } from './LandingPage.styles';
 
 // import logo from '../../images/vocarta_logo.png';
@@ -18,7 +20,8 @@ export const LandingPage = () => {
 
   return (
     <LandingPageWrapper loginVisibility={loginVisibility}>
-      <Container>
+      <img className="background-img" src={background} alt="" />
+      <Container className="main-content">
         <NavBar />
         <div className="content-box">
           <div className="landing-content">
@@ -56,7 +59,9 @@ export const LandingPage = () => {
             </div>
           </div>
         </div>
-        <div className="features">About</div>
+        <div style={{ height: '500px' }}>
+          <img className="mockup" src={mockup} alt="mockup" />
+        </div>
       </Container>
     </LandingPageWrapper>
   );

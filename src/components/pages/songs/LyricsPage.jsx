@@ -21,7 +21,7 @@ export const LyricsPage = ({ getSongs, songsSearchResult }) => {
       <form onSubmit={onSubmit} className="search-form">
         <input
           type="text"
-          disabled="true"
+          disabled={true}
           className="search-form-input"
           value={searchInput}
           onChange={(e) => setSearchInput(e.currentTarget.value)}
