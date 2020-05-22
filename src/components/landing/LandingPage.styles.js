@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const LandingPageWrapper = styled.div`
   width: 100vw;
-  height: 3000px;
   display: flex;
   position: relative;
   justify-content: center;
@@ -11,13 +10,21 @@ export const LandingPageWrapper = styled.div`
   .header {
     height: 60px;
     position: fixed;
-    display: flex;
-    flex-direction: row;
     color: white;
+    background: #333;
     font-size: 24px;
     line-height: 60px;
-    width: 100%;
-  
+    z-index: 999;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+
+    &-content {
+      display: flex;
+      flex-direction: row;
+      width: 80vw;
+    }
+
     &-logo {
       margin-top: 10px
       margin-right: 15px;
@@ -44,17 +51,87 @@ export const LandingPageWrapper = styled.div`
     display: flex;
     margin: auto;
     justify-content: center;
-    margin-top: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     @media screen and (max-width: 800px){
       width: 80vw;
       margin-top: 180px;
     }
   }
 
+  .features-section {
+    width: 100%;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    background: #e7e7e7;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    &-title {
+      margin: auto;
+      margin-bottom: 10px;
+      font-size: 30px;
+      font-weight: bold;
+      color: #333;
+      width: unset;
+    }
+    .features-container {
+      width: 70vw;
+      margin: auto;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-around;
+
+    }
+    .feature {
+      margin: 10px;
+      height: 250px;
+      width: 220px;
+      background: white;
+      border: 1px solid #ddd;
+      padding: 15px;
+      padding-top: 30px;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15), 0 5px 0 -5px #eee;
+      &-head {
+        font-size: 1.2em;
+        color: #0078d7;
+        margin-bottom: 10px;
+      }
+      &-title {
+        font-size: 1.4em
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 10px;
+      }
+      &-description {
+        font-size: 1em;
+        color: #333
+        margin-bottom: 15px;
+      }
+      &-learn {
+        cursor: pointer;
+        color: #0078d7;
+        font-weight: bold;
+        font-size: 1em;
+      }
+
+    }
+  }
+  .more-info {
+    height: 400px;
+    width: 100vw;
+    background: white;
+  }
+  .footer {
+    height: 150px;
+    width: 100vw;
+    background: #333;
+  }
+
   .content-box {
     width: 60vw;
     height: 70vh;
-    /* height: 80vh */
     margin: auto;
     @media screen and (max-width: 1300px) {
       width: 70vw;

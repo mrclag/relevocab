@@ -21,9 +21,9 @@ export const LandingPage = () => {
   return (
     <LandingPageWrapper loginVisibility={loginVisibility}>
       <img className="background-img" src={background} alt="" />
-      <Container className="main-content">
-        <NavBar />
-        <div className="content-box">
+      <NavBar />
+      <div className="main-content">
+        <Container className="content-box">
           <div className="landing-content">
             <div className="landing-content-text">
               <div className="heading">Vocarta</div>
@@ -58,11 +58,55 @@ export const LandingPage = () => {
               </div>
             </div>
           </div>
-        </div>
-        <div style={{ height: '500px' }}>
+        </Container>
+        <div>
           <img className="mockup" src={mockup} alt="mockup" />
         </div>
-      </Container>
+        <div className="features-section">
+          <div className="features-section-title">Learn the right...</div>
+          <div className="features-container">
+            <div className="feature">
+              <div className="feature-head">
+                <img src="" alt="" />
+                Words
+              </div>
+              <div className="feature-title">Find related vocabulary</div>
+              <div className="feature-description">
+                Search for words based on the subjects you are interested
+              </div>
+              {/* <div className="feature-learn">Learn more...</div> */}
+            </div>
+            <div className="feature">
+              <div className="feature-head">
+                <img src="" alt="" />
+                Songs
+              </div>
+              <div className="feature-title">Learn popular lyrics</div>
+              <div className="feature-description">
+                Add decks to learn vocabulary based on the songs you can listen
+                to all day.
+              </div>
+              {/* <div className="feature-learn">Learn more...</div> */}
+            </div>
+            <div className="feature">
+              <div className="feature-head">
+                <img src="" alt="" />
+                Articles
+              </div>
+              <div className="feature-title">
+                Understand interesting articles
+              </div>
+              <div className="feature-description">
+                Learn vocabulary from articles based on your reading level and
+                interests.
+              </div>
+              <div className="feature-learn">Coming Soon</div>
+            </div>
+          </div>
+        </div>
+        <div className="more-info"></div>
+        <div className="footer"></div>
+      </div>
     </LandingPageWrapper>
   );
 };

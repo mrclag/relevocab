@@ -7,8 +7,10 @@ import logo from '../../images/vocarta_logo.png';
 const NavBar = () => {
   return (
     <div className="header">
-      <img className="header-logo" src={logo} alt="Vocarta Logo" />
-      <div className="header-title">Vocarta</div>
+      <div className="header-content">
+        <img className="header-logo" src={logo} alt="Vocarta Logo" />
+        <div className="header-title">Vocarta</div>
+      </div>
     </div>
   );
 };
