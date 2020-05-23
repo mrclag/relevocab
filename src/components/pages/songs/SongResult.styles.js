@@ -7,6 +7,7 @@ export const SongResultWrapper = styled.div`
   border-bottom: 1px solid #333;
   padding-top: 10px;
   padding-bottom: 10px;
+  vertical-align: middle;
 
   .song {
     &-img {
@@ -19,15 +20,23 @@ export const SongResultWrapper = styled.div`
       }
     }
     &-addButton {
-      
+      height: 50px;
+      width: 50px;
+      background: #0078d7;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 2px;
+      font-size: 10px;
+      margin-top: 30px;
     }
 
     &-info {
       display: flex;
       flex-direction: column;
       width: 150px;
-      padding-top: 20px;
       padding-left: 10px;
+      justify-content: center;
 
       .title {
         font-size: 16px;
@@ -48,7 +57,7 @@ export const SongResultWrapper = styled.div`
       flex-direction: row;
       flex-wrap: wrap;
       width: 600px;
-      height: 50px;
+      margin: auto;
     }
   }
 `;

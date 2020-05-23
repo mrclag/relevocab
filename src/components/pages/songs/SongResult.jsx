@@ -22,7 +22,7 @@ export const SongResult = ({ song, addSongAsDeck }) => {
           className="song-addButton"
           onClick={() => addSong(song.title, song.artist, song.cards)}
         >
-          CLICK TO ADD
+          ADD TO DECKS
         </button>
         <div className="song-info">
           <div className="title">{song.title}</div>
@@ -30,13 +30,13 @@ export const SongResult = ({ song, addSongAsDeck }) => {
           <div className="numcards">{song.cards.length} cards</div>
         </div>
         <div className="song-cards">
-          {song.cards.slice(0, 6).map((card, i) => (
+          {song.cards.slice(0, 7).map((card, i) => (
             <SongLine key={i} card={card} />
           ))}
           <SongLine
             card={{
               front: `${song.cards.length - 6} more...`,
-              back: `${song.cards.length - 6} more...`
+              back: `${song.cards.length - 6} more...`,
             }}
           />
         </div>
@@ -45,9 +45,9 @@ export const SongResult = ({ song, addSongAsDeck }) => {
   );
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    addSongAsDeck: song => dispatch(addSongAsDeck(song))
+    addSongAsDeck: (song) => dispatch(addSongAsDeck(song)),
   };
 };
 

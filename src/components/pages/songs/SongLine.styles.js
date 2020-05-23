@@ -5,7 +5,14 @@ export const SongLineWrapper = styled.div`
   margin-right: 3px;
   margin-bottom: 3px;
   padding: 3px 10px;
+  cursor: default;
+  width: 100px;
+  height: 30px;
   font-size: 0.8em;
-  color: ${props => (props.hovered ? 'white' : 'darkblue')};
-  background: ${props => (props.hovered ? 'darkblue' : 'white')};
+  color: ${(props) => (props.hovered ? 'white' : 'darkblue')};
+  background: ${(props) => (props.hovered ? 'darkblue' : 'white')};
+  display: flex;
+  align-items: center; /* Vertical center alignment */
+  justify-content: center;
+  text-align: center;
 `;

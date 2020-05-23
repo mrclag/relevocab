@@ -12,7 +12,7 @@ export const SongLine = ({ card }) => {
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
       >
-        {hovered ? card.back : card.front}
+        <span>{hovered ? card.back : card.front}</span>
       </SongLineWrapper>
     )
   );
