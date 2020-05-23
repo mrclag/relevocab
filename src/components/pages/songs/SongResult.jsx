@@ -8,24 +8,20 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlusSquare } from '@fortawesome/free-solid-svg-icons';
 
 export const SongResult = ({ song, addSongAsDeck }) => {
-  const addSong = (title, artist, cards) => {
-    console.log('running add song');
-    const song = { title, artist, cards };
+  const addSong = (song) => {
+    console.log('running add song on ', song);
     addSongAsDeck(song);
   };
 
   return (
     song && (
       <SongResultWrapper>
-        <div
-          className="song-img"
-          onClick={() => addSong(song.title, song.artist, song.cards)}
-        >
+        <div className="song-img" onClick={() => addSong(song)}>
           <img src={song.imgUrl} alt="" />
           <div className="overlay">
             <FontAwesomeIcon
               icon={faPlusSquare}
-              class="icon"
+              className="icon"
               style={{ fontSize: '40px' }}
             />
           </div>

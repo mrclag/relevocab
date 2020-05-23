@@ -12,7 +12,15 @@ export const DeckInfoBar = ({ currentDeck, deleteDeck, currentCards }) => {
     <>
       <div className="top-left">
         {/* <img src={file_upload} alt="" className="deck-picture" /> */}
-        <FontAwesomeIcon icon={faImage} className="deck-picture" color="#333" />
+        {currentDeck.imgUrl ? (
+          <img src={currentDeck.imgUrl} alt="" className="deck-picture" />
+        ) : (
+          <FontAwesomeIcon
+            icon={faImage}
+            className="deck-picture"
+            color="#333"
+          />
+        )}
         <div className="deck-info">
           <div className="deck-info-title">
             {currentDeck && currentDeck.title}
@@ -35,16 +43,16 @@ export const DeckInfoBar = ({ currentDeck, deleteDeck, currentCards }) => {
   );
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    deleteDeck: deckId => dispatch(deleteDeck(deckId))
+    deleteDeck: (deckId) => dispatch(deleteDeck(deckId)),
   };
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     currentCards: state.deck.currentCards,
-    currentDeck: state.deck.currentDeck
+    currentDeck: state.deck.currentDeck,
   };
 };
 

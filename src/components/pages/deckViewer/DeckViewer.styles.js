@@ -61,16 +61,19 @@ export const DeckViewWrapper = styled.div`
       padding: 40px 100px;
       align-items: center;
       justify-content: space-between;
+      &-left {
+        padding-top: 20px;
+      }
 
       @media screen and (max-width: 800px) {
-        padding: 10px 25px;
+        padding: 10px 40px;
         display: flex;
       }
     }
 
     .deck-picture {
-        width: 80px;
-        height: 80px;
+        width: 100px;
+        height: 100px;
         @media screen and (max-width: 800px){
           width: 50px;
           height: 50px;
@@ -84,6 +87,9 @@ export const DeckViewWrapper = styled.div`
         &-title {
           font-size: 20px;
           font-weight: bold;
+          @media screen and (max-width: 800px){
+            font-size: 18px;
+          }
         }
         @media screen and (max-width: 800px){
           margin-top: 0px

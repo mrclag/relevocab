@@ -5,6 +5,9 @@ export const SideBarWrapper = styled.div`
   width: 300px;
   position: static;
   z-index: 999;
+  @media screen and (min-width: 800px) {
+    display: unset !important;
+  }
   hr {
     margin: 0;
   }
