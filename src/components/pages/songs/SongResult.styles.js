@@ -11,24 +11,37 @@ export const SongResultWrapper = styled.div`
 
   .song {
     &-img {
-      width: 100px;
+      width: 80px;
+      height: 80px;
       text-align: center;
-      padding-top: 15px;
+      position: relative;
+      margin: auto;
+
       img {
-        height: 80px;
-        width: 80px;
+        width: 100%;
+        height: auto;
       }
-    }
-    &-addButton {
-      height: 50px;
-      width: 50px;
-      background: #0078d7;
-      color: white;
-      border: none;
-      cursor: pointer;
-      border-radius: 2px;
-      font-size: 10px;
-      margin-top: 30px;
+      .overlay {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        width: 100%;
+        opacity: 0.6;
+        transition: 0.3s ease;
+        .icon {
+          color: white;
+          font-size: 80px;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+          text-align: center;
+        }
+      }
     }
 
     &-info {
@@ -59,5 +72,9 @@ export const SongResultWrapper = styled.div`
       width: 600px;
       margin: auto;
     }
+  }
+  .song-img:hover .overlay {
+    opacity: 1;
+    cursor: pointer;
   }
 `;

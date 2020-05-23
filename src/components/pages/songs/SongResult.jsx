@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { SongResultWrapper } from './SongResult.styles';
 import SongLine from './SongLine';
 import { addSongAsDeck } from '../../../store/actions/deckActions';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlusSquare } from '@fortawesome/free-solid-svg-icons';
 
 export const SongResult = ({ song, addSongAsDeck }) => {
   const addSong = (title, artist, cards) => {
@@ -15,15 +17,19 @@ export const SongResult = ({ song, addSongAsDeck }) => {
   return (
     song && (
       <SongResultWrapper>
-        <div className="song-img">
-          <img src={song.imgUrl} alt="" />
-        </div>
-        <button
-          className="song-addButton"
+        <div
+          className="song-img"
           onClick={() => addSong(song.title, song.artist, song.cards)}
         >
-          ADD TO DECKS
-        </button>
+          <img src={song.imgUrl} alt="" />
+          <div className="overlay">
+            <FontAwesomeIcon
+              icon={faPlusSquare}
+              class="icon"
+              style={{ fontSize: '40px' }}
+            />
+          </div>
+        </div>
         <div className="song-info">
           <div className="title">{song.title}</div>
           <div className="artist">{song.artist}</div>
