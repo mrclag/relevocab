@@ -1,12 +1,18 @@
 import styled from 'styled-components';
 
 export const LyricsPageWrapper = styled.div`
-  margin-left: 20px;
-  margin-top: 20px;
+  margin-left: 10px;
+  margin-top: 10px;
   background: white;
-  border: 1px solid #aaa;
+  border: 0.5px solid #ccc;
   border-radius: 5px;
   padding: 20px;
+  .find-songs-title {
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
 
   .search-form {
     &-input {
@@ -44,7 +50,6 @@ export const LyricsPageWrapper = styled.div`
       &-input {
         width: 70vw;
         border: 1px solid #333;
-        margin-top: 40px;
         padding-left: 15px;
       }
       &-submit {

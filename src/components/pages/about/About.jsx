@@ -7,7 +7,7 @@ export const About = () => {
     <>
       <AboutWrapper>
         <div className="about-wrapper">
-          <h1>About</h1>
+          <div className="about-title">About</div>
           <div className="about-content">
             <div className="about">
               Vocarta is at the core a flashcards studying app.

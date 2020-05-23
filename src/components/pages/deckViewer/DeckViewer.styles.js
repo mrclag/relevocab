@@ -42,6 +42,9 @@ export const DeckViewWrapper = styled.div`
         max-height: calc(100vh - 120px);
         overflow-y: overlay;
         overflow-x: hide;
+        @media screen and (max-width: 800px){
+          max-height: calc(100vh - 240.5px);
+        }
       }
       .newcard {
         height: 60px;
@@ -54,7 +57,6 @@ export const DeckViewWrapper = styled.div`
       flex-direction: row;
       height: 100px;
       border-bottom: 0.5px solid #333;
-      margin-bottom: 10px;
       text-align: center;
       padding: 40px 100px;
       align-items: center;
@@ -111,7 +113,6 @@ export const DeckViewWrapper = styled.div`
 
   @media screen and (max-width: 800px){
     margin-left: 0px
-    margin-top: 20px;
     width: 100%;
   }
 

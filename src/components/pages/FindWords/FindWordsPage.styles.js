@@ -3,15 +3,17 @@ import styled from 'styled-components';
 export const FindWordsWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  margin-left: 20px;
-  margin-top: 20px;
+  margin-left: 10px;
+  margin-top: 10px;
   .top {
     width: 850px;
     .search {
       background: white;
-      border: 0.5px solid #aaa;
+      border: 0.5px solid #ccc;
       border-radius: 5px;
       padding: 20px;
+      @media screen and (max-width: 800px) {
+      }
     }
     @media screen and (max-width: 800px) {
       margin-left: 0px;
@@ -48,10 +50,8 @@ export const FindWordsWrapper = styled.div`
       padding-left: 20px;
       @media screen and (max-width: 800px) {
         height: 25px;
-        margin-left: 30px;
-        margin-top: 10px;
         border: 1px solid #333;
-        width: 60%;
+        width: 60vw;
       }
     }
   }
@@ -109,6 +109,8 @@ export const FindWordsWrapper = styled.div`
 
   @media screen and (max-width: 800px) {
     margin-left: 0px;
+    margin-top: 0px;
+    width: 100vw;
     #submit-button {
       @media screen and (max-width: 800px) {
         width: 25vw;

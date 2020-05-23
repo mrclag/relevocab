@@ -167,7 +167,7 @@ export const DeckWrapper = styled.div`
       font-size: 0.8em;
       background: #f7f7f7;
       margin-left: 14px;
-      color: white;
+      color: #333;
       outline: none;
       ::placeholder {
         color: #515151;

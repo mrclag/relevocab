@@ -1,14 +1,21 @@
 import styled from 'styled-components';
 
 export const AboutWrapper = styled.div`
-  margin-left: 20px;
-  margin-top: 20px;
+  margin-left: 10px;
+  margin-top: 10px;
   overflow: hide;
+  
   .about-wrapper {
     background: white;
-    border: 1px solid #aaa;
+    border: 0.5px solid #ccc;
     padding: 20px;
     border-radius: 5px;
+  }
+  .about-title {
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 30px;
   }
   font-size: 1.1em;
   .contact-form {
@@ -56,7 +63,8 @@ export const AboutWrapper = styled.div`
   }
 
   @media screen and (max-width: 1024px) {
-    margin-left: 5vw;
+    margin-left: 0px;
+    margin-top: 0px;
     .about-content {
       width: 90vw;
     }

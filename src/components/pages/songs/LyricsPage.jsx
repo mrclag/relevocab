@@ -17,7 +17,7 @@ export const LyricsPage = ({ getSongs, songsSearchResult }) => {
 
   return (
     <LyricsPageWrapper>
-      <h1>Find Songs</h1>
+      <div className='find-songs-title'>Find Songs</div>
       <form onSubmit={onSubmit} className="search-form">
         <input
           type="text"

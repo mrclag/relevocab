@@ -28,7 +28,6 @@ export const AddNewCardWrapper = styled.div`
       width: 50px;
       background: #306B34;
       overflow: hidden;
-      border-radius: 0 15px 15px 0;
       color: white;
       cursor: pointer;
       @media screen and (max-width: 800px){

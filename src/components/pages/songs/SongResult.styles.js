@@ -4,7 +4,7 @@ export const SongResultWrapper = styled.div`
   display: flex;
   flex-direction: row;
   height: 100px;
-  border-bottom: 1px solid #333;
+  border-bottom: 1px solid #aaa;
   padding-top: 10px;
   padding-bottom: 10px;
   vertical-align: middle;
@@ -69,7 +69,7 @@ export const SongResultWrapper = styled.div`
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
-      width: 600px;
+      width: 500px;
       margin: auto;
     }
   }

@@ -90,21 +90,21 @@ const Sidebar = ({
             ]}
           />
           <NavLink
-            value="About"
-            className="link"
-            to="/about"
-            icon={[
-              <FontAwesomeIcon icon={faQuestionCircle} color="#2a416f" />,
-              <FontAwesomeIcon icon={faQuestionCircle} color="white" />,
-            ]}
-          />
-          <NavLink
             value="Songs"
             className="link"
             to="/songs"
             icon={[
               <FontAwesomeIcon icon={faMusic} color="#2a416f" />,
               <FontAwesomeIcon icon={faMusic} color="white" />,
+            ]}
+          />
+          <NavLink
+            value="About"
+            className="link"
+            to="/about"
+            icon={[
+              <FontAwesomeIcon icon={faQuestionCircle} color="#2a416f" />,
+              <FontAwesomeIcon icon={faQuestionCircle} color="white" />,
             ]}
           />
         </NavLinks>
