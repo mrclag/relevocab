@@ -37,8 +37,11 @@ export const HeaderWrapper = styled.div`
     letter-spacing: 5px;
 
     .logo {
-      width: 40px;
-      margin-right: 20px;
+      width: 30px;
+      margin-right: 15px;
+      @media screen and (max-width: 800px) {
+        margin-left: 45px;
+      }
     }
   }
 `;

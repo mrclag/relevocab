@@ -64,7 +64,7 @@ const Sidebar = ({
       <Hamburger>
         <FontAwesomeIcon
           icon={faBars}
-          color={sidebarVisibility ? 'white' : '#2a416f'}
+          color="white"
           style={{ fontSize: '26px', marginTop: '8px', cursor: 'pointer' }}
           onClick={() => toggleSidebar(sidebarVisibility)}
         />

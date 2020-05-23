@@ -19,7 +19,7 @@
     "firebase": "^7.14.4",
     "gh-pages": "^2.1.1",
     "google-translate": "^3.0.0",
-    "papaparse": "^5.1.1",
+    "papaparse": "^5.2.0",
     "react": "^16.12.0",
     "react-bootstrap": "^1.0.1",
     "react-dom": "^16.12.0",

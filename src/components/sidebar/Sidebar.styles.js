@@ -67,6 +67,7 @@ export const Hamburger = styled.div`
   position: absolute;
   z-index: 99;
   line-height: 30px;
+  margin-top: -60px;
   height: 30px;
   padding-left: 20px;
   font-weight: bold;
