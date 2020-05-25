@@ -63,38 +63,25 @@ export const FindWordsPage = ({ addNewCard, currentDeck }) => {
           </form>
         </div>
       </div>
-      <div>
+      {page.words && (
         <div className="results">
-          <div className="both-results">
-            <div className="results-words">
-              {page.words
-                ? page.words.slice(0, 15).map((word, i) => (
-                    <div
-                      key={i}
-                      style={{ display: 'flex', flexDirection: 'row' }}
-                    >
-                      <div>
-                        <Word word={word} selected={selectedWord} />
-                      </div>
-                      <div
-                        className="search-moreWords"
-                        onClick={() => onSelect(word)}
-                      >
-                        >
-                      </div>
-                    </div>
-                  ))
-                : ''}
-            </div>
-            {selectedWord && (
-              <div className="moreWords">
-                {words &&
-                  words.map((word, i) => <Word key={i} word={word.word} />)}
+          <div className="results-words">
+            {page.words.slice(0, 15).map((word, i) => (
+              <div
+                key={i}
+                style={{ display: 'flex', flexDirection: 'row' }}
+                onClick={() => onSelect(word)}
+              >
+                <Word word={word} selected={selectedWord} />
               </div>
-            )}
+            ))}
+          </div>
+          <div className="moreWords">
+            {selectedWord &&
+              words.map((word, i) => <Word key={i} word={word.word} />)}
           </div>
         </div>
-      </div>
+      )}
     </FindWordsWrapper>
   );
 };

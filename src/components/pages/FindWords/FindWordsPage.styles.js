@@ -12,14 +12,12 @@ export const FindWordsWrapper = styled.div`
       border: 0.5px solid #ccc;
       border-radius: 5px;
       padding: 20px;
-      @media screen and (max-width: 800px) {
-      }
     }
     @media screen and (max-width: 800px) {
       margin-left: 0px;
       padding: unset;
       width: unset;
-      border-bottom: 1px solid #333;
+      border-bottom: 1px solid #ccc;
     }
 
     h3 {
@@ -50,15 +48,18 @@ export const FindWordsWrapper = styled.div`
       padding-left: 20px;
       @media screen and (max-width: 800px) {
         height: 25px;
-        border: 1px solid #333;
+        border: 1px solid #aaa;
         width: 60vw;
       }
     }
   }
 
   .results {
-    margin-top: 3vh;
-    margin-left: 30px;
+    max-height: calc(100vh - 150px);
+    margin-top: 10px;
+    width: 850px;
+    display: flex;
+    flex-direction: row;
 
     &-title {
       margin-bottom: 0px;
@@ -72,39 +73,19 @@ export const FindWordsWrapper = styled.div`
         color: black;
       }
     }
+
     &-words {
-      max-height: 75vh;
+      max-height: calc(100vh - 145px);
       overflow: scroll;
-      width: 440px;
-      .search-moreWords {
-        height: 40px;
-        line-height: 40px;
-        color: white;
-        border: 0.5px solid #555;
-        border-radius: 0px 7px 7px 0px;
-        margin-top: 5px;
-        margin-bottom: 5px;
-        transform: translateX(-5px);
-        text-align: center;
-        cursor: pointer;
-        background: #107bbd;
-        width: 20px;
-        @media screen and (max-width: 800px) {
-          width: 30px;
-        }
-      }
+      width: 425px;
     }
   }
   .moreWords {
-    height: 75vh;
+    max-height: calc(100vh - 145px);
     padding-left: 10px;
     padding-right: 10px;
-    width: 420px;
+    width: 425px;
     overflow: scroll;
-  }
-  .both-results {
-    display: flex;
-    flex-direction: row;
   }
 
   @media screen and (max-width: 800px) {

@@ -7,7 +7,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 import { addNewCard } from '../../../store/actions/deckActions';
 
-import { AddButton, WordWrapper } from './Word.styles';
+import { WordWrapper } from './Word.styles';
 
 export const Word = ({ currentDeck, word, addNewCard, selected }) => {
   const [translation, setTranslation] = useState('');
@@ -33,22 +33,11 @@ export const Word = ({ currentDeck, word, addNewCard, selected }) => {
 
   return (
     <WordWrapper selectedWord={selectedWord}>
-      <AddButton selectedWord={selectedWord} onClick={onClick}>
-        {/* <img
-          src={selectedWord ? pw : pb}
-          alt="plus"
-          className="word-add-button"
-        /> */}
-        <FontAwesomeIcon
-          icon={faPlus}
-          color={selectedWord ? 'white' : 'blue'}
-          className="plus"
-        />
-      </AddButton>
-      <br />
+      <div className="add-button" onClick={onClick}>
+        <FontAwesomeIcon icon={faPlus} className="plus" />
+      </div>
       <div className="word-text-front">
         <span className="word-word">{word}</span>
-        <br />
       </div>
       <div className="word-text-back">
         <span>{translation}</span>
