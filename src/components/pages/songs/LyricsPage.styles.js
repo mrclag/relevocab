@@ -3,44 +3,76 @@ import styled from 'styled-components';
 export const LyricsPageWrapper = styled.div`
   margin-left: 10px;
   margin-top: 10px;
-  background: white;
-  border: 0.5px solid #ccc;
-  border-radius: 5px;
-  padding: 20px;
-  .find-songs-title {
-    font-size: 30px;
-    font-weight: bold;
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
+  /* background: white; */
+  /* border: 0.5px solid #ccc; */
+  /* border-radius: 5px; */
+  /* padding: 20px; */
 
-  .search-form {
-    &-input {
-      height: 40px;
-      width: 500px;
+  .top {
+    width: 850px;
+    .search {
+      background: white;
+      border: 0.5px solid #ccc;
+      border-radius: 5px;
+      padding: 20px;
+      @media screen and (max-width: 800px) {
+      }
+    }
+    @media screen and (max-width: 800px) {
+      margin-left: 0px;
+      padding: unset;
+      width: unset;
+      border-bottom: 1px solid #333;
     }
 
-    &-submit {
+    h3 {
+      font-size: 16px;
+      @media screen and (max-width: 800px) {
+        margin-left: 10vw;
+      }
+    }
+    #submit-button {
       color: #107bbd;
       margin-left: 10px;
       margin-top: 5px;
       height: 42px;
-      width: 100px;
+      width: 50px;
       background-color: white;
       border-radius: 5px;
       border: 1px solid #107bbd;
       outline: none;
       cursor: pointer;
+      @media screen and (max-width: 800px) {
+        width: 50px;
+        height: 30px;
+      }
+    }
+    input {
+      height: 40px;
+      width: 300px;
+      padding-left: 20px;
+      @media screen and (max-width: 800px) {
+        height: 25px;
+        border: 1px solid #333;
+        width: 60vw;
+      }
     }
   }
 
+  .results-wrapper {
+    border: 0.5px solid #ccc;
+    padding: 20px;
+    background: white;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+
   .results-count {
-    margin-top: 5px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     font-style: italic;
   }
   .results-songs {
-    max-height: 70vh;
+    max-height: calc(100vh - 245px);
     overflow-y: scroll;
   }
 

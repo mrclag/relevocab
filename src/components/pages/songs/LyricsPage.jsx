@@ -6,6 +6,9 @@ import { getSongs } from '../../../store/actions/appActions';
 
 import { LyricsPageWrapper } from './LyricsPage.styles';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+
 export const LyricsPage = ({ getSongs, songsSearchResult }) => {
   const [searchInput, setSearchInput] = useState('');
 
@@ -17,21 +20,29 @@ export const LyricsPage = ({ getSongs, songsSearchResult }) => {
 
   return (
     <LyricsPageWrapper>
-      <div className='find-songs-title'>Find Songs</div>
-      <form onSubmit={onSubmit} className="search-form">
-        <input
-          type="text"
-          disabled={true}
-          className="search-form-input"
-          value={searchInput}
-          onChange={(e) => setSearchInput(e.currentTarget.value)}
-        />
-        <button type="submit" value="Submit" className="search-form-submit">
-          Search
-        </button>
-      </form>
-      {songsSearchResult && (
-        <>
+      <div className="top">
+        <div className="search">
+          <form onSubmit={onSubmit}>
+            <input
+              type="text"
+              disabled={true}
+              value={searchInput}
+              onChange={(e) => setSearchInput(e.target.value)}
+              placeholder="Search Songs"
+            />
+            <button type="submit" value="Submit" id="submit-button">
+              <FontAwesomeIcon
+                icon={faSearch}
+                className="search-icon"
+                color="#107bbd;"
+              />
+            </button>
+          </form>
+        </div>
+      </div>
+
+      {songsSearchResult.length > 0 && (
+        <div className='results-wrapper'>
           <div className="results-count">
             Found {songsSearchResult.length} results:
           </div>
@@ -40,7 +51,7 @@ export const LyricsPage = ({ getSongs, songsSearchResult }) => {
               <SongResult key={i} song={song} />
             ))}
           </div>
-        </>
+        </div>
       )}
     </LyricsPageWrapper>
   );

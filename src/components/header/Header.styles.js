@@ -10,6 +10,7 @@ export const HeaderWrapper = styled.div`
   z-index: 555;
   vertical-align: middle;
   justify-content: space-between;
+  border-bottom: #004b86;
 
   button {
     color: #107bbd;
