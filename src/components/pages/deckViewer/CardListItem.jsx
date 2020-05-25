@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { deleteCard } from '../../../store/actions/deckActions';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { faTrashAlt, faSlash } from '@fortawesome/free-solid-svg-icons';
 
 import { CardListItemWrapper } from './CardListItem.styles';
 
@@ -13,13 +13,21 @@ export const CardListItem = ({ deck, card, deleteCard }) => {
     card && card.back
       ? Math.max(card.front.length, card.back.length)
       : card.front.length;
+  const disabled = deck.type && deck.type === 'SONG';
 
   return (
-    <CardListItemWrapper cardlength={cardlength}>
+    <CardListItemWrapper disabled={disabled} cardlength={cardlength}>
       <div className="cardlistitem front">{card && card.front}</div>
       <div className="cardlistitem back">{card && card.back} </div>
       <div className="deletebutton" onClick={() => deleteCard(card.id)}>
-        <FontAwesomeIcon icon={faTrashAlt} className="trash" color="#C44536" />
+        {disabled && (
+          <FontAwesomeIcon icon={faSlash} className="disabled" color="gray" />
+        )}
+        <FontAwesomeIcon
+          icon={faTrashAlt}
+          className="trash"
+          color={disabled ? '#c48a84' : '#C44536'}
+        />
       </div>
     </CardListItemWrapper>
   );

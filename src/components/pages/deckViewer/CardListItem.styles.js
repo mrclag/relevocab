@@ -22,7 +22,7 @@ export const CardListItemWrapper = styled.div`
     padding-top: ${(props) => (props.cardlength > 37 ? '5px' : '0px')};
     padding-left: 5px;
     padding-right: 5px;
-    width: 50%;
+    width: calc(50% - 37px);
     border-right: 1px solid #eee;
     @media screen and (max-width: 1150px){
       line-height: ${(props) => (props.cardlength > 33 ? '20px' : '50px')}
@@ -34,13 +34,24 @@ export const CardListItemWrapper = styled.div`
     }
   }
   .deletebutton {
+    position: relative;
     border: none;
     width: 50px;
-    cursor: pointer;
+    cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
     .trash {
       width: 20px;
       height: 20px;
       transform: translateY(5px);
+      color=${(props) => (props.disabled ? '#c48a84' : '#C44536')}
+    }
+    .disabled {
+      font-size: 30px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      text-align: center;
     }
   }
 `;

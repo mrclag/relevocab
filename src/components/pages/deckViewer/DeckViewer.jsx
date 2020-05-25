@@ -48,16 +48,16 @@ export const DeckView = ({ currentCards, currentDeck, deleteDeck }) => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     currentCards: state.deck.currentCards,
-    currentDeck: state.deck.currentDeck
+    currentDeck: state.deck.currentDeck,
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    deleteDeck: deckId => dispatch(deleteDeck(deckId))
+    deleteDeck: (deckId) => dispatch(deleteDeck(deckId)),
   };
 };
 
