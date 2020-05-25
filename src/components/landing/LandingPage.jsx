@@ -18,6 +18,11 @@ export const LandingPage = () => {
     setLoginVisibility(!loginVisibility);
   };
 
+  const topFunction = () => {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  };
+
   return (
     <LandingPageWrapper loginVisibility={loginVisibility}>
       <img className="background-img" src={background} alt="" />
@@ -72,21 +77,27 @@ export const LandingPage = () => {
               </div>
               <div className="feature-title">Find related vocabulary</div>
               <div className="feature-description">
-                Search for words based on the subjects you are interested
+                Search for words based on the subjects you are interested, or
+                related to words you already know. Easily add to your decks to
+                practice.
               </div>
-              {/* <div className="feature-learn">Learn more...</div> */}
+              <div className="feature-learn" onClick={topFunction}>
+                Learn now!
+              </div>
             </div>
             <div className="feature">
               <div className="feature-head">
                 <img src="" alt="" />
                 Songs
               </div>
-              <div className="feature-title">Learn popular lyrics</div>
+              <div className="feature-title">Lyrics from popular songs</div>
               <div className="feature-description">
                 Add decks to learn vocabulary based on the songs you can listen
                 to all day.
               </div>
-              {/* <div className="feature-learn">Learn more...</div> */}
+              <div className="feature-learn" onClick={topFunction}>
+                Learn now!
+              </div>
             </div>
             <div className="feature">
               <div className="feature-head">
@@ -94,18 +105,20 @@ export const LandingPage = () => {
                 Articles
               </div>
               <div className="feature-title">
-                Understand interesting articles
+                Read and understand interesting articles
               </div>
               <div className="feature-description">
                 Learn vocabulary from articles based on your reading level and
                 interests.
               </div>
-              <div className="feature-learn">Coming Soon</div>
+              <div className="feature-learn" style={{ cursor: 'default' }}>
+                Coming Soon
+              </div>
             </div>
           </div>
         </div>
-        <div className="more-info"></div>
-        <div className="footer"></div>
+        {/* <div className="more-info"></div> */}
+        <div className="footer">© 2020 Matthew Clagett</div>
       </div>
     </LandingPageWrapper>
   );

@@ -46,12 +46,12 @@ export const NewCard = ({ deck, addNewCard, lang }) => {
             ref={inputRef}
           />
         </div>
-        <div
+        {/* <div
           onClick={() => translateInput(front, lang)}
           className="translate-input"
         >
           T
-        </div>
+        </div> */}
         <div className="cardlistitem">
           <input
             type="text"

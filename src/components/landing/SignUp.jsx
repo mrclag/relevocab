@@ -11,7 +11,7 @@ export const SignUp = ({ signUp, authError, haveAccount, setHaveAccount }) => {
   const [lastName, setLastName] = useState('');
   const [hovered, setHovered] = useState(false);
 
-  const onSubmit = e => {
+  const onSubmit = (e) => {
     e.preventDefault();
     signUp({ email, password, firstName, lastName });
   };
@@ -27,25 +27,29 @@ export const SignUp = ({ signUp, authError, haveAccount, setHaveAccount }) => {
           type="text"
           placeholder="First Name"
           value={firstName}
-          onChange={e => setFirstName(e.target.value)}
+          onChange={(e) => setFirstName(e.target.value)}
+          required
         />
         <input
           type="text"
           placeholder="Last Name"
           value={lastName}
-          onChange={e => setLastName(e.target.value)}
+          onChange={(e) => setLastName(e.target.value)}
+          required
         />
         <input
           type="email"
           placeholder="Email"
           value={email}
-          onChange={e => setEmail(e.target.value)}
+          onChange={(e) => setEmail(e.target.value)}
+          required
         />
         <input
           type="password"
           placeholder="Password"
           value={password}
-          onChange={e => setPassword(e.target.value)}
+          onChange={(e) => setPassword(e.target.value)}
+          required
         />
         <LoginButton
           hovered={hovered}
@@ -64,26 +68,26 @@ export const SignUp = ({ signUp, authError, haveAccount, setHaveAccount }) => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    authError: state.auth.authError
+    authError: state.auth.authError,
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    signUp: newUser => dispatch(signUp(newUser))
+    signUp: (newUser) => dispatch(signUp(newUser)),
   };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
 
 const LoginButton = styled.button`
-  color: ${props => (props.hovered ? '#107bbd' : 'white')};
+  color: ${(props) => (props.hovered ? '#107bbd' : 'white')};
   margin-top: 20px;
   height: 35px;
   width: 100%;
-  background-color: ${props => (props.hovered ? 'white' : '#107bbd')};
+  background-color: ${(props) => (props.hovered ? 'white' : '#107bbd')};
   border-radius: 5px;
   border: 1px solid #107bbd;
   outline: none;

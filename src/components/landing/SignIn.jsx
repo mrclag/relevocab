@@ -33,6 +33,7 @@ export const SignIn = ({
           id="email"
           placeholder="Email"
           onChange={e => setEmail(e.target.value)}
+          required
         />
         <input
           type="password"
@@ -40,6 +41,7 @@ export const SignIn = ({
           id="password"
           placeholder="Password"
           onChange={e => setPassword(e.target.value)}
+          required
         />
         <LoginButton
           hovered={hovered}

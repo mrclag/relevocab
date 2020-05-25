@@ -4,6 +4,7 @@ export const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'Cairo', sans-serif;
     margin: 0;
+    overflow-x: hidden;
     height: 100%;
   }
   

@@ -54,8 +54,8 @@ export const LandingPageWrapper = styled.div`
     margin-top: 20px;
     margin-bottom: 20px;
     @media screen and (max-width: 800px){
-      width: 80vw;
-      margin-top: 180px;
+      width: 95vw;
+      margin-top: 150px;
     }
   }
 
@@ -124,9 +124,12 @@ export const LandingPageWrapper = styled.div`
     background: white;
   }
   .footer {
-    height: 150px;
+    height: 60px;
     width: 100vw;
     background: #333;
+    text-align: center;
+    padding-top: 30px;
+    color: white;
   }
 
   .content-box {
@@ -198,12 +201,6 @@ export const LandingPageWrapper = styled.div`
         @media screen and (max-width: 800px) {
           display: ${(props) => (props.loginVisibility ? 'flex' : 'none')};
           width: 100%;
-        }
-        img {
-          position: absolute;
-          height: 400px;
-          width: 400px;
-          margin: auto;
         }
 
         .auth-wrapper {

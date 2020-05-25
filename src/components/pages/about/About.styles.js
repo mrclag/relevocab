@@ -4,12 +4,13 @@ export const AboutWrapper = styled.div`
   margin-left: 10px;
   margin-top: 10px;
   overflow: hide;
-  
+
   .about-wrapper {
     background: white;
     border: 0.5px solid #ccc;
     padding: 20px;
     border-radius: 5px;
+    padding-bottom: 30px;
   }
   .about-title {
     font-size: 30px;
@@ -20,35 +21,46 @@ export const AboutWrapper = styled.div`
   font-size: 1.1em;
   .contact-form {
     margin-top: 8vh;
-
+    background: white;
+    border: 0.5px solid #ccc;
+    padding: 20px;
+    margin-top: 10px;
     form {
       display: flex;
       flex-direction: column;
     }
     input,
     textarea {
-      padding: 5px;
+      padding: 3px;
+      padding-left: 10px;
+      padding-right: 10px;
       margin: 5px 0;
     }
   }
   .feedback {
     font-weight: bold;
+    margin-bottom: 10px;
   }
   .about-content {
     width: 40vw;
   }
 
   button {
-    color: #107bbd;
+    color: white;
     margin-top: 5px;
     width: 100px;
     margin-left: auto;
     margin-right: auto;
-    height: 50x;
-    background-color: white;
+    height: 60x;
+    background-color: #107bbd;
     border-radius: 5px;
     border: 1px solid #107bbd;
     outline: none;
+    cursor: pointer;
+    &:hover {
+      background: white;
+      color: #107bbd;
+    }
   }
 
   .bgImage {
