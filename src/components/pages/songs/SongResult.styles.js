@@ -71,6 +71,9 @@ export const SongResultWrapper = styled.div`
       flex-wrap: wrap;
       width: 500px;
       margin: auto;
+      @media screen and (max-width: 800px) {
+        display: none;
+      }
     }
   }
   .song-img:hover .overlay {

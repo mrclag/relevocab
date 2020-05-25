@@ -55,25 +55,29 @@ export const DeckViewWrapper = styled.div`
     .top {
       display: none;
       flex-direction: row;
+      background: white;
       height: 100px;
-      border-bottom: 0.5px solid #333;
+      border-bottom: 0.5px solid #ccc;
       text-align: center;
       padding: 40px 100px;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       &-left {
+        width: 120px;
         padding-top: 20px;
+        align-items: center;
       }
 
       @media screen and (max-width: 800px) {
         padding: 10px 40px;
         display: flex;
+        justify-content: space-between;
       }
     }
 
     .deck-picture {
-        width: 100px;
-        height: 100px;
+        width: 120px;
+        height: 120px;
         @media screen and (max-width: 800px){
           width: 50px;
           height: 50px;
@@ -124,7 +128,12 @@ export const DeckViewWrapper = styled.div`
 
   .choose-deck {
     font-size: 40px;
-    margin-left: 50px;
+    margin-left: 10px;
     margin-top: 10px;
+    padding: 20px;
+    width: 800px;
+    background: white;
+    border: 0.5px solid #ccc;
+    border-radius: 5px;
   }
 `;

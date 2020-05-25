@@ -3,10 +3,6 @@ import styled from 'styled-components';
 export const LyricsPageWrapper = styled.div`
   margin-left: 10px;
   margin-top: 10px;
-  /* background: white; */
-  /* border: 0.5px solid #ccc; */
-  /* border-radius: 5px; */
-  /* padding: 20px; */
 
   .top {
     width: 850px;
@@ -22,7 +18,7 @@ export const LyricsPageWrapper = styled.div`
       margin-left: 0px;
       padding: unset;
       width: unset;
-      border-bottom: 1px solid #333;
+      border-bottom: 1px solid #ccc;
     }
 
     h3 {
@@ -78,6 +74,8 @@ export const LyricsPageWrapper = styled.div`
 
   @media screen and (max-width: 800px) {
     margin-left: 0px;
+    margin-top: 0px;
+    width: 100%;
     .search-form {
       &-input {
         width: 70vw;
@@ -90,6 +88,10 @@ export const LyricsPageWrapper = styled.div`
           margin-left: 0px;
         }
       }
+    }
+    .results-songs {
+      max-height: calc(100vh - 200px);
+      overflow-y: scroll;
     }
   }
 `;

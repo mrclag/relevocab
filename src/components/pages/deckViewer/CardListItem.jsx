@@ -9,7 +9,10 @@ import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { CardListItemWrapper } from './CardListItem.styles';
 
 export const CardListItem = ({ deck, card, deleteCard }) => {
-  const cardlength = card && card.front.length;
+  const cardlength =
+    card && card.back
+      ? Math.max(card.front.length, card.back.length)
+      : card.front.length;
 
   return (
     <CardListItemWrapper cardlength={cardlength}>
@@ -22,9 +25,9 @@ export const CardListItem = ({ deck, card, deleteCard }) => {
   );
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    deleteCard: cardId => dispatch(deleteCard(cardId))
+    deleteCard: (cardId) => dispatch(deleteCard(cardId)),
   };
 };
 
