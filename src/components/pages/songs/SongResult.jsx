@@ -9,7 +9,6 @@ import { faPlusSquare } from '@fortawesome/free-solid-svg-icons';
 
 export const SongResult = ({ song, addSongAsDeck }) => {
   const addSong = (song) => {
-    console.log('running add song on ', song);
     addSongAsDeck(song);
   };
 

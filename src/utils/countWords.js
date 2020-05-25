@@ -1,6 +1,6 @@
 import sw from 'stopword';
 
-export const countWords = sentence => {
+export const countWords = (sentence) => {
   const count = sentence
     .toLowerCase()
     .replace(/[^a-z\s]/g, '')
@@ -14,9 +14,7 @@ export const countWords = sentence => {
 
   const arr = Object.keys(count) // array of words
     .sort((a, b) => count[b] - count[a])
-    .filter(word => word.length > 3);
-
-  console.log(arr);
+    .filter((word) => word.length > 3);
 
   return sw.removeStopwords(arr);
 };

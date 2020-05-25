@@ -23,7 +23,6 @@ export const FileUpload = ({ createSong }) => {
   const updateData = (result) => {
     var data = result.data;
     createSong(artist, title, imgUrl, data);
-    console.log('data!!: ', data);
     setArtist('');
     setTitle('');
     setImgUrl('');

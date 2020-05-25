@@ -60,8 +60,6 @@ export const getSongs = () => {
         dispatch({ type: 'GET_SONGS', songList });
       })
       .catch(function (error) {
-        console.log('Error getting documents: ', error);
-
         dispatch({ type: 'GET_SONGS_ERROR', error });
       });
   };
@@ -83,7 +81,6 @@ export const submitFeedback = (name, email, message) => {
         createdAt: new Date(),
       })
       .then(() => {
-        console.log('feedback submitted');
         dispatch({ type: 'SUBMIT_FEEDBACK' });
       })
       .catch((err) => {

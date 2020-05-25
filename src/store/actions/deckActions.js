@@ -51,7 +51,6 @@ export const setCurrentDeck = (deck) => {
 export const addNewCard = (card) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     const firestore = getFirestore();
-    console.log(getState());
     const deckId = getState().deck.currentDeck.deckId;
     const cardId = uuidv4();
     const cardsList = { ...getState().deck.currentDeck.cards };
@@ -67,7 +66,6 @@ export const addNewCard = (card) => {
         cards: cardsList,
       })
       .then(() => {
-        console.log(cardsList);
         dispatch({ type: 'ADD_CARD', cardsList, currentDeck });
       })
       .catch((err) => {
@@ -86,8 +84,6 @@ export const deleteCard = (cardId) => {
     const currentDeck = { ...getState().deck.currentDeck, cards: cardsList };
     const currentCards = Object.keys(cardsList).map((key, i) => cardsList[key]);
 
-    console.log(cardsList, currentCards);
-
     firestore
       .collection('decks')
       .doc(deckId)
@@ -95,11 +91,9 @@ export const deleteCard = (cardId) => {
         cards: cardsList,
       })
       .then((res) => {
-        console.log('deleted card');
         dispatch({ type: 'DELETE_CARD', currentCards, currentDeck });
       })
       .catch((err) => {
-        console.log('ERROR', err);
         dispatch({ type: 'DELETE_CARD_ERR', err });
       });
   };

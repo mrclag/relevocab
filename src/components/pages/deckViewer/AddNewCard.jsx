@@ -15,7 +15,6 @@ export const NewCard = ({ deck, addNewCard, lang }) => {
   const [inputRef, setInputFocus] = useFocus();
 
   const onSubmit = (e) => {
-    console.log('submitting');
     e.preventDefault();
     addNewCard({ front, back });
     setFront('');
