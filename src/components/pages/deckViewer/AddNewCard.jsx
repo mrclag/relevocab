@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
-import { googleTranslate } from '../../../services/translate';
+// import { googleTranslate } from '../../../services/translate';
 import { addNewCard } from '../../../store/actions/deckActions';
 import useFocus from '../../../utils/useFocus';
 
@@ -23,14 +23,14 @@ export const NewCard = ({ deck, addNewCard, lang }) => {
     setInputFocus();
   };
 
-  const translateInput = (input, lang) => {
-    googleTranslate.translate(input, lang, function (err, translation) {
-      if (err || (translation && !translation.translatedText)) {
-        setBack('no translation found');
-      }
-      translation && setBack(translation.translatedText);
-    });
-  };
+  // const translateInput = (input, lang) => {
+  //   googleTranslate.translate(input, lang, function (err, translation) {
+  //     if (err || (translation && !translation.translatedText)) {
+  //       setBack('no translation found');
+  //     }
+  //     translation && setBack(translation.translatedText);
+  //   });
+  // };
 
   return (
     <AddNewCardWrapper>

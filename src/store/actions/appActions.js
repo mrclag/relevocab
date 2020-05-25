@@ -66,3 +66,28 @@ export const getSongs = () => {
       });
   };
 };
+
+export const submitFeedback = (name, email, message) => {
+  return (dispatch, getState, { getFirebase, getFirestore }) => {
+    const firestore = getFirestore();
+    const feedbackId = uuidv4();
+
+    firestore
+      .collection('feedback')
+      .doc(feedbackId)
+      .set({
+        feedbackId: feedbackId,
+        name: name,
+        email: email || 'n/a',
+        message: message,
+        createdAt: new Date(),
+      })
+      .then(() => {
+        console.log('feedback submitted');
+        dispatch({ type: 'SUBMIT_FEEDBACK' });
+      })
+      .catch((err) => {
+        dispatch({ type: 'SUBMIT_FEEDBACK_ERROR', err });
+      });
+  };
+};

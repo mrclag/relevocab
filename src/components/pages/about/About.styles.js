@@ -16,15 +16,14 @@ export const AboutWrapper = styled.div`
     font-size: 30px;
     font-weight: bold;
     margin-top: 10px;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
   }
   font-size: 1.1em;
   .contact-form {
-    margin-top: 8vh;
+    margin-top: 5px;
     background: white;
     border: 0.5px solid #ccc;
     padding: 20px;
-    margin-top: 10px;
     form {
       display: flex;
       flex-direction: column;
@@ -34,7 +33,7 @@ export const AboutWrapper = styled.div`
       padding: 3px;
       padding-left: 10px;
       padding-right: 10px;
-      margin: 5px 0;
+      margin: 3px 0;
     }
   }
   .feedback {
@@ -42,7 +41,7 @@ export const AboutWrapper = styled.div`
     margin-bottom: 10px;
   }
   .about-content {
-    width: 40vw;
+    width: 600px;
   }
 
   button {
@@ -74,7 +73,7 @@ export const AboutWrapper = styled.div`
     }
   }
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 800px) {
     margin-left: 0px;
     margin-top: 0px;
     .about-content {

@@ -1,6 +1,6 @@
 const initState = {
   sidebarVisibility: true,
-  songsSearchResult: []
+  songsSearchResult: [],
 };
 
 const appReducer = (state = initState, action) => {
@@ -12,15 +12,17 @@ const appReducer = (state = initState, action) => {
     case 'TOGGLE_SIDEBAR':
       return { ...state, sidebarVisibility: !action.payload };
     case 'CREATE_SONG':
-      console.log('CREATED SONG');
       return { ...state };
     case 'CREATE_SONG_ERROR':
       console.log('CREATE SONG ERROR: ', action.err);
       return { ...state };
     case 'GET_SONGS':
-      console.log('GOT SONGS');
-      console.log(action.songList);
       return { ...state, songsSearchResult: action.songList };
+    case 'SUBMIT_FEEDBACK':
+      return state;
+    case 'SUBMIT_FEEDBACK_ERROR':
+      console.log('SUBMIT_FEEDBACK_ERROR: ', action.err);
+      return state;
     default:
       return state;
   }

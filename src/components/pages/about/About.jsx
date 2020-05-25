@@ -1,12 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { submitFeedback } from '../../../store/actions/appActions';
+import { connect } from 'react-redux';
 
 import { AboutWrapper } from './About.styles';
 
-export const About = () => {
-  const submitFeedback = (e) => {
+export const About = ({ submitFeedback }) => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+
+  const onSubmit = (e) => {
     e.preventDefault();
     alert('Thank you for your feedback.');
-    
+    submitFeedback(name, email, message);
+    setName('');
+    setEmail('');
+    setMessage('');
   };
 
   return (
@@ -16,8 +25,6 @@ export const About = () => {
           <div className="about-title">About</div>
           <div className="about-content">
             <div className="about">
-              Vocarta is at the core a flashcards studying app.
-              <br /> <br />
               This beta version currently targets users looking to expand only
               Spanish vocabulary. Users create decks of cards to practice
               through either custom entry or using the Words search.
@@ -37,15 +44,28 @@ export const About = () => {
           <div>What do you wish to see?</div>
           <div>Encounter a bug? What were you doing?</div>
           <br />
-          <form action="" onSubmit={submitFeedback}>
-            <input type="text" placeholder="Name" required />
-            <input type="text" placeholder="Email (optional)" />
+          <form onSubmit={onSubmit}>
+            <input
+              type="text"
+              placeholder="Name"
+              value={name}
+              onChange={(e) => setName(e.currentTarget.value)}
+              required
+            />
+            <input
+              type="text"
+              placeholder="Email (optional)"
+              value={email}
+              onChange={(e) => setEmail(e.currentTarget.value)}
+            />
             <textarea
               placeholder="Write something..."
               cols="30"
               rows="5"
+              value={message}
+              onChange={(e) => setMessage(e.currentTarget.value)}
               required
-            ></textarea>
+            />
             <button>Send</button>
           </form>
         </div>
@@ -54,4 +74,4 @@ export const About = () => {
   );
 };
 
-export default About;
+export default connect(null, { submitFeedback })(About);
