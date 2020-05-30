@@ -22,7 +22,9 @@ export const LandingPageWrapper = styled.div`
     &-content {
       display: flex;
       flex-direction: row;
+      justify-content: space-between;
       width: 80vw;
+      
     }
 
     &-logo {
@@ -32,7 +34,9 @@ export const LandingPageWrapper = styled.div`
     }
 
     &-title {
+      margin: auto;
       height: 60px;
+      line-height: 60px;
       width: 150px;
       @media screen and (max-width: 800px) {
         display: none;

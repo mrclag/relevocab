@@ -8,8 +8,11 @@ const NavBar = () => {
   return (
     <div className="header">
       <div className="header-content">
-        <img className="header-logo" src={logo} alt="Vocarta Logo" />
-        <div className="header-title">Vocarta</div>
+        <div>
+          <img className="header-logo" src={logo} alt="Vocarta Logo" />
+          {/* <span className="header-title">Vocarta</span> */}
+        </div>
+        {/* <div>Login</div> */}
       </div>
     </div>
   );

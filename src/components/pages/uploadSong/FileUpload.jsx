@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Papa from 'papaparse';
 import { connect } from 'react-redux';
-import { createSong } from '../../store/actions/appActions';
+import { createSong } from '../../../store/actions/appActions';
 
 export const FileUpload = ({ createSong }) => {
   const [csvfile, setCsvFile] = useState();
