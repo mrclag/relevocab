@@ -1,10 +1,10 @@
 import datamuse from 'datamuse';
 
-export const getWords = async query => {
+export const getWords = async (query) => {
   // const queryString = query.replace(' ', '+');
 
   const result = datamuse
-    .request(`words?ml=${query}&max=10`)
-    .then(data => data);
+    .request(`words?ml=${query}&max=20`)
+    .then((data) => data);
   return result;
 };

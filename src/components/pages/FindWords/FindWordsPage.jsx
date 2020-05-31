@@ -66,7 +66,7 @@ export const FindWordsPage = ({ addNewCard, currentDeck }) => {
       {page.words && (
         <div className="results">
           <div className="results-words">
-            {page.words.slice(0, 15).map((word, i) => (
+            {page.words.slice(0, 20).map((word, i) => (
               <div
                 key={i}
                 style={{ display: 'flex', flexDirection: 'row' }}
