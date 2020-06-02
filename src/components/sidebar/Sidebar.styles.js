@@ -67,7 +67,8 @@ export const SidebarTopWrapper = styled.div`
 
 export const Hamburger = styled.div`
   position: absolute;
-  z-index: 99;
+  z-index: 999;
+  -webkit-transform: translate3d(0, 0, 200px);
   line-height: 30px;
   margin-top: -60px;
   height: 30px;
@@ -124,37 +125,22 @@ export const DeckWrapper = styled.div`
   .deck-header {
     display: flex;
     flex-direction: row;
-    height: 60px;
+    height: 50px;
     align-items: center;
     padding-left: 20px;
     color: #515151;
-    & button {
-      height: 20px;
-      width: 80px;
-      border-radius: 5px;
-      border: 1px solid #2a416f;
-      background: white;
-      color: #2a416f;
-      text-align: center;
-      margin-left: 140px;
-      &:focus {
-        outline: 0;
-      }
-      .deck-add {
-        margin-top: 0px;
-        font-size: 0.8em;
-        margin-left: 1px;
-      }
-    }
   }
   .deck-items {
     display: flex;
     overflow-y: overlay scroll;
     overflow-x: hidden;
-    max-height: calc(100vh - 380px);
+    max-height: calc(100vh - 370px);
     .deck-item {
       cursor: pointer;
       text-decoration: none;
+    }
+    @media screen and (max-width: 800px) {
+      max-height: calc(100vh - 400px);
     }
   }
 

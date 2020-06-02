@@ -135,5 +135,10 @@ export const DeckViewWrapper = styled.div`
     background: white;
     border: 0.5px solid #ccc;
     border-radius: 5px;
+    @media screen and (max-width: 800px){
+      width: calc(100vw - 41px);
+      margin-left: 0;
+      margin-top: 0;
+    }
   }
 `;

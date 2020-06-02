@@ -7,6 +7,9 @@ export const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
     height: 100%;
   }
+  input {
+    line-height: normal;
+  }
   
   &::-webkit-scrollbar {
   width: 10px;
@@ -27,6 +30,6 @@ export const GlobalStyle = createGlobalStyle`
 
   ::-webkit-scrollbar-corner {
   background: transparent;
-}
+  }
 
 `;

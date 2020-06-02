@@ -21,18 +21,7 @@ const deckReducer = (state = initState, action) => {
     case 'DELETE_DECK_ERROR':
       console.log('delete deck error', action.err);
       return state;
-    // case 'CREATE_INIT_DECK':
-    //   return {
-    //     ...state,
-    //     currentDeck: action.initDeck,
-    //     currentCards: Object.keys(action.initDeck).map(
-    //       (key, i) => action.initDeck[key]
-    //     )
-    //   };
-    // case 'CREATE_INIT_DECK_ERROR':
-    //   return state;
     case 'SET_CURRENT_DECK':
-      console.log(action.deck);
       return {
         ...state,
         currentDeck: action.deck,
