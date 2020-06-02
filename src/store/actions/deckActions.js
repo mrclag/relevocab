@@ -6,6 +6,17 @@ export const createDeck = (deck) => {
     const authorId = getState().firebase.auth.uid;
     const deckId = uuidv4();
 
+    var today = new Date();
+    var date =
+      today.getFullYear() +
+      '-' +
+      (today.getMonth() + 1) +
+      '-' +
+      today.getDate();
+    var time =
+      today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
+    var dateTime = date + ' ' + time;
+
     firestore
       .collection('decks')
       .doc(deckId)
@@ -14,7 +25,9 @@ export const createDeck = (deck) => {
         deckId: deckId,
         cards: {},
         authorId: authorId,
-        createdAt: new Date(),
+        type: 'DEFAULT',
+        lastPracticed: dateTime,
+        createdAt: dateTime,
       })
       .then(() => {
         dispatch({ type: 'CREATE_DECK', deck });
@@ -106,6 +119,17 @@ export const addSongAsDeck = (song) => {
     const deckId = uuidv4();
     const { title, artist, cards, imgUrl } = song;
 
+    var today = new Date();
+    var date =
+      today.getFullYear() +
+      '-' +
+      (today.getMonth() + 1) +
+      '-' +
+      today.getDate();
+    var time =
+      today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
+    var dateTime = date + ' ' + time;
+
     firestore
       .collection('decks')
       .doc(deckId)
@@ -117,13 +141,45 @@ export const addSongAsDeck = (song) => {
         authorId: authorId,
         type: 'SONG',
         imgUrl: imgUrl,
-        createdAt: new Date(),
+        createdAt: dateTime,
+        lastPracticed: dateTime,
       })
       .then(() => {
         dispatch({ type: 'ADD_SONG', song });
       })
       .catch((err) => {
         dispatch({ type: 'ADD_SONG_ERROR', err });
+      });
+  };
+};
+
+export const updateLastPracticed = () => {
+  return (dispatch, getState, { getFirebase, getFirestore }) => {
+    const firestore = getFirestore();
+    const deckId = getState().deck.currentDeck.deckId;
+
+    var today = new Date();
+    var date =
+      today.getFullYear() +
+      '-' +
+      (today.getMonth() + 1) +
+      '-' +
+      today.getDate();
+    var time =
+      today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
+    var dateTime = date + ' ' + time;
+
+    firestore
+      .collection('decks')
+      .doc(deckId)
+      .update({
+        lastPracticed: dateTime,
+      })
+      .then(() => {
+        dispatch({ type: 'UPDATE_LAST_PRACTICED' });
+      })
+      .catch((err) => {
+        dispatch({ type: 'UPDATE_LAST_PRACTICED_ERROR', err });
       });
   };
 };

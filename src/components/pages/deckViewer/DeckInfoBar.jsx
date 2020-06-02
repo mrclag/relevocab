@@ -2,12 +2,20 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { deleteDeck } from '../../../store/actions/deckActions';
+import {
+  deleteDeck,
+  updateLastPracticed,
+} from '../../../store/actions/deckActions';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faImage } from '@fortawesome/free-solid-svg-icons';
 
-export const DeckInfoBar = ({ currentDeck, deleteDeck, currentCards }) => {
+export const DeckInfoBar = ({
+  currentDeck,
+  deleteDeck,
+  currentCards,
+  updateLastPracticed,
+}) => {
   return (
     <>
       <div className="top-left">
@@ -26,10 +34,11 @@ export const DeckInfoBar = ({ currentDeck, deleteDeck, currentCards }) => {
             {currentDeck && currentDeck.title}
           </div>
           <div>{currentCards && currentCards.length} cards</div>
+          {/* <div>{currentDeck && currentDeck.lastPracticed}</div> */}
         </div>
       </div>
       <div className="deck-buttons">
-        <Link to="/practice">
+        <Link to="/practice" onClick={() => updateLastPracticed()}>
           <button className="button button-practice">Practice</button>
         </Link>
         <button
@@ -46,6 +55,7 @@ export const DeckInfoBar = ({ currentDeck, deleteDeck, currentCards }) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     deleteDeck: (deckId) => dispatch(deleteDeck(deckId)),
+    updateLastPracticed: () => dispatch(updateLastPracticed()),
   };
 };
 

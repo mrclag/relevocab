@@ -1,6 +1,6 @@
 const initState = {
   authError: null,
-  currentDeck: { cards: { 1: { front: '', back: '' } } }
+  currentDeck: { cards: { 1: { front: '', back: '' } } },
 };
 
 const deckReducer = (state = initState, action) => {
@@ -16,7 +16,7 @@ const deckReducer = (state = initState, action) => {
       return {
         ...state,
         currentCards: null,
-        currentDeck: {}
+        currentDeck: {},
       };
     case 'DELETE_DECK_ERROR':
       console.log('delete deck error', action.err);
@@ -38,7 +38,7 @@ const deckReducer = (state = initState, action) => {
         currentDeck: action.deck,
         currentCards: Object.keys(action.deck.cards).map(
           (key, i) => action.deck.cards[key]
-        )
+        ),
       };
     case 'ADD_CARD':
       console.log('added card');
@@ -47,7 +47,7 @@ const deckReducer = (state = initState, action) => {
         currentDeck: action.currentDeck,
         currentCards: Object.keys(action.cardsList).map(
           (key, i) => action.cardsList[key]
-        )
+        ),
       };
     case 'ADD_CARD_ERR':
       return state;
@@ -55,16 +55,20 @@ const deckReducer = (state = initState, action) => {
       return {
         ...state,
         currentCards: action.currentCards,
-        currentDeck: action.currentDeck
+        currentDeck: action.currentDeck,
       };
     case 'DELETE_CARD_ERROR':
       console.log('delete card error', action.err);
       return state;
     case 'ADD_SONG':
-      console.log('added song');
       return state;
     case 'ADD_SONG_ERROR':
       console.log('add song error', action.err);
+      return state;
+    case 'UPDATE_LAST_PRACTICED':
+      return state;
+    case 'UPDATE_LAST_PRACTICED_ERROR':
+      console.log('update last practiced time error: ', action.err);
       return state;
     default:
       return state;
